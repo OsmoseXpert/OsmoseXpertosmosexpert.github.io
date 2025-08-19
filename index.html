@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OsmoseXpert | Ramen reinigen met pure water</title>
+  <meta name="description" content="Professionele ramenreiniging met pure water-techniek. Streeploos, veilig en efficiënt in Ronse en de Vlaamse Ardennen." />
+  <meta property="og:title" content="OsmoseXpert — ramenreiniging met pure water" />
+  <meta property="og:description" content="Streeploos resultaat. Snel en professioneel. Vraag je gratis offerte." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/2563eb/ffffff&text=OsmoseXpert" />
+  <meta name="theme-color" content="#2563eb" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --panel:#ffffff;
+      --muted:#475569;
+      --text:#0f172a;
+      --brand:#2563eb;
+      --brand-600:#1d4ed8;
+      --ring:0 0 0 3px rgba(37,99,235,.25);
+      --border:#e5e7eb;
+      --soft:#f8fafc;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+    a{color:var(--text);text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(8px);background:rgba(255,255,255,.85);border-bottom:1px solid var(--border);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+    .logo svg{width:28px;height:28px}
+    .menu{display:flex;gap:20px;align-items:center}
+    .menu a{opacity:.85}
+    .menu a:hover{opacity:1}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#fff; padding:12px 16px;border-radius:14px;font-weight:700;box-shadow:0 10px 30px rgba(37,99,235,.15);transition:transform .15s ease, box-shadow .15s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 16px 40px rgba(37,99,235,.25)}
+    .btn.secondary{background:transparent;color:var(--brand);border:1px solid #dbeafe;box-shadow:none}
+
+    .hero{padding:64px 0 28px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+    .kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);color:#1e3a8a;padding:6px 10px;border-radius:999px;font-size:13px;font-weight:600}
+    h1{font-size:46px;line-height:1.05;margin:14px 0 18px}
+    p.lead{font-size:18px;color:#334155;max-width:58ch}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .hero-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:18px}
+    .badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .badge{border:1px dashed #cbd5e1;color:#334155;border-radius:999px;padding:6px 10px;font-size:12px}
+
+    section{padding:56px 0}
+    h2{font-size:28px;margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 4px 14px rgba(2,6,23,.04)}
+    .card h3{margin:8px 0 6px}
+
+    .services .card svg{width:28px;height:28px}
+
+    .estimator{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+    .field{display:grid;gap:6px;margin-bottom:10px}
+    label{font-size:13px;color:#334155}
+    select, input[type="number"], input[type="text"], textarea{background:#ffffff;border:1px solid var(--border);border-radius:12px;color:var(--text);padding:10px 12px}
+    .total{font-weight:800;font-size:28px}
+    .notice{font-size:12px;color:#64748b}
+
+    .process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .process .step{display:flex;gap:12px}
+    .circle{width:36px;height:36px;border-radius:999px;background:rgba(37,99,235,.10);display:flex;align-items:center;justify-content:center;font-weight:800;color:#1d4ed8;border:1px solid rgba(37,99,235,.25)}
+
+    .cta{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:linear-gradient(180deg,#ffffff, #f8fbff);border:1px solid var(--border);border-radius:20px;padding:26px}
+
+    footer{padding:36px 0;border-top:1px solid var(--border);color:#64748b}
+
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr;gap:16px}
+      .grid{grid-template-columns:1fr 1fr}
+      .estimator{grid-template-columns:1fr}
+      .process{grid-template-columns:1fr}
+      h1{font-size:36px}
+    }
+    @media (max-width: 640px){
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+  <script>
+    function formatEUR(n){return new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n)}
+    function calc(){
+      const type = document.getElementById('type').value;
+      const woning = document.getElementById('woning').value;
+      const verdiep = +document.getElementById('verdiepingen').value || 0;
+      const freq = document.getElementById('frequentie').value;
+      const addons = Array.from(document.querySelectorAll('input[name="extra"]:checked')).map(i=>i.value);
+
+      const baseMap = { rij:39, halfopen:49, vrijstaand:59 };
+      let base = baseMap[woning] || 45;
+      base += Math.max(0,verdiep-1) * 12;
+      if(type==='bedrijf') base += 20;
+
+      let factor = 1;
+      if(freq==='eenmalig') factor = 1.2;
+      if(freq==='6w') factor = 0.9;
+      if(freq==='12w') factor = 1.0;
+
+      let extras = 0;
+      if(addons.includes('zonnepanelen')) extras += 25;
+      if(addons.includes('veranda')) extras += 20;
+      if(addons.includes('winkelpui')) extras += 25;
+      if(addons.includes('oprit')) extras += 15;
+
+      const totaal = Math.round((base + extras) * factor);
+      document.getElementById('totaal').textContent = formatEUR(totaal);
+    }
+
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.querySelectorAll('select,input').forEach(el=>el.addEventListener('input',calc));
+      calc();
+    });
+
+    function openBooking(){
+      const url = document.getElementById('bookingUrl').value.trim();
+      if(url){ window.open(url,'_blank'); }
+      else alert('Voeg je boekingslink toe bij “Instellingen → Booking URL” in dit document.');
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "OsmoseXpert",
+    "image": "https://dummyimage.com/1200x630/2563eb/ffffff&text=OsmoseXpert",
+    "areaServed": ["Ronse","Kluisbergen","Oudenaarde","Vlaamse Ardennen"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ronse",
+      "addressCountry": "BE"
+    },
+    "url": "https://osmosexpert.github.io/",
+    "description": "Professionele ramenreiniging met pure water‑techniek voor woningen en bedrijven.",
+    "telephone": "+32493673484",
+    "email": "info@osmose-xpert.be"
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 3c4.5 5.6 6.8 9.6 6.8 12.3a6.8 6.8 0 1 1-13.6 0C5.2 12.6 7.5 8.6 12 3Z" stroke="#1d4ed8" stroke-width="1.5" fill="#2563eb"/>
+        </svg>
+        <span>OsmoseXpert</span>
+      </a>
+      <nav class="menu">
+        <a href="#diensten">Diensten</a>
+        <a href="#prijzen">Prijzen</a>
+        <a href="#werkgebied">Werkgebied</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#contact">Offerte aanvragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="kicker">Streeploos • Veilig • Efficiënt</span>
+          <h1>OsmoseXpert — premium ramenreiniging met pure water</h1>
+          <p class="lead">We leveren topkwaliteit met water‑fed pole en 100% zuiver water: streeploos, veilig voor materialen en perfect op hoogte. Minimale hinder bij inkomzones, heldere communicatie en een snelle, professionele aanpak.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#prijzen">Bereken richtprijs</a>
+            <a class="btn secondary" href="#contact">Gratis offerte & planning</a>
+          </div>
+          <div class="badges">
+            <span class="badge">Verzekerd & professioneel</span>
+            <span class="badge">Planning binnen 72u*</span>
+            <span class="badge">Duurzaam</span>
+            <span class="badge">Ronse • Vlaamse Ardennen</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img alt="Ramen reinigen met water-fed pole" src="https://dummyimage.com/760x520/ffffff/111111&text=Water-fed+Pole+%7C+OsmoseXpert"/>
+          <p class="muted" style="margin-top:8px">*Afhankelijk van route & weer. Eigen branding/foto's kunnen later worden toegevoegd.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="diensten" class="services">
+      <div class="container">
+        <h2>Onze diensten</h2>
+        <p class="muted">Professionele ramenreiniging met pure water‑techniek voor woningen en bedrijven.</p>
+        <div class="grid" style="margin-top:16px">
+          <div class="card">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5h18v14H3V5Z" stroke="#2563eb"/><path d="M3 9h18" stroke="#2563eb"/><path d="M8 5v14M16 5v14" stroke="#2563eb"/></svg>
+            <h3>Ramen & Kozijnen — buitenzijde</h3>
+            <p class="muted">Streeploos resultaat, ook bij hoge of moeilijk bereikbare ramen. Geen contact met de gevel.</p>
+          </div>
+          <div class="card">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h16l-2 10H6L4 8Z" stroke="#2563eb"/><path d="M9 12h6" stroke="#2563eb"/></svg>
+            <h3>Zonnepanelen</h3>
+            <p class="muted">Veilige, residuvrije reiniging voor maximaal rendement. Compatibel met fabrikantvoorschriften.</p>
+          </div>
+          <div class="card">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#2563eb"/><path d="M6 10h12M6 14h8" stroke="#2563eb"/></svg>
+            <h3>Winkelpuien & horeca</h3>
+            <p class="muted">Planning buiten piekuren mogelijk. We beperken waterophoping en drogen kritieke inkomzones direct.</p>
+          </div>
+          <div class="card">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20h16" stroke="#2563eb"/><path d="M3 16h18" stroke="#2563eb"/><path d="M2 12h20" stroke="#2563eb"/></svg>
+            <h3>Rolluiken & gevelpanelen</h3>
+            <p class="muted">Gelijkmatig en residuvrij; nette afwerking zonder zeepfilm.</p>
+          </div>
+          <div class="card">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 15l3-6 3 4 2-3 2 5" stroke="#2563eb"/></svg>
+            <h3>Opritten & terrassen (afspoelen)</h3>
+            <p class="muted">Algemene afspoelwerken met pure water‑techniek voor een frisse afwerking.</p>
+          </div>
+          <div class="card">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v20M2 12h20" stroke="#2563eb"/></svg>
+            <h3>Extra's</h3>
+            <p class="muted">Veranda/serre, lichtstraten, spinnenwebben verwijderen, detailreiniging van dorpels/omlijstingen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="prijzen">
+      <div class="container">
+        <h2>Indicatieve prijzen</h2>
+        <p class="muted">Gebruik de calculator voor een snelle richtprijs. We bevestigen altijd vooraf de definitieve prijs.</p>
+        <div class="estimator card" style="margin-top:10px">
+          <div>
+            <div class="field">
+              <label for="type">Klanttype</label>
+              <select id="type">
+                <option value="particulier">Particulier</option>
+                <option value="bedrijf">Bedrijf</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="woning">Woningtype</label>
+              <select id="woning">
+                <option value="rij">Rijhuis (2 gevels)</option>
+                <option value="halfopen">Halfopen bebouwing (3 gevels)</option>
+                <option value="vrijstaand">Vrijstaand (4+ gevels)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="verdiepingen">Aantal verdiepingen</label>
+              <select id="verdiepingen">
+                <option value="1">Gelijkvloers/1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="frequentie">Frequentie</label>
+              <select id="frequentie">
+                <option value="6w">Elke 6 weken</option>
+                <option value="12w">Elke 12 weken</option>
+                <option value="eenmalig">Eenmalig</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div class="field">
+              <label>Extra's</label>
+              <div style="display:grid;gap:8px">
+                <label><input type="checkbox" name="extra" value="zonnepanelen"> Zonnepanelen (kleine set)</label>
+                <label><input type="checkbox" name="extra" value="veranda"> Veranda/serre</label>
+                <label><input type="checkbox" name="extra" value="winkelpui"> Winkelpui</label>
+                <label><input type="checkbox" name="extra" value="oprit"> Oprit/terras afspoelen</label>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
+              <span class="muted">Richtprijs</span>
+              <span class="total" id="totaal">€ 0</span>
+            </div>
+            <p class="notice">Indicatief, excl. btw voor zakelijke klanten. We stemmen ter plaatse af op ramenoppervlak en bereikbaarheid.</p>
+            <div style="display:flex;gap:10px;align-items:center;margin-top:10px">
+              <a class="btn" href="#contact">Offerte op maat</a>
+              <input id="bookingUrl" type="text" placeholder="Booking URL (Squeegee of eigen)" style="flex:1"/>
+              <button class="btn secondary" type="button" onclick="openBooking()">Boek online</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="waarom">
+      <div class="container">
+        <h2>Waarom kiezen voor OsmoseXpert</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Streeploos resultaat</h3>
+            <p class="muted">0‑TDS water droogt spotvrij op en laat geen film achter, zodat vuil minder snel hecht.</p>
+          </div>
+          <div class="card">
+            <h3>Veilig voor materiaal & omgeving</h3>
+            <p class="muted">Reinigen vanaf de grond, zonder druk op lakwerk of schrijnwerk. Net afgewerkte gevels blijven beschermd.</p>
+          </div>
+          <div class="card">
+            <h3>Snel & efficiënt op hoogte</h3>
+            <p class="muted">Grote oppervlakken en hoge ramen gaan vlotter, met transparante richtprijzen.</p>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h3>Onze aanpak</h3>
+          <ul class="muted" style="line-height:1.9">
+            <li>Heldere communicatie en planning.</li>
+            <li>Minimale hinder bij inkomzones (signalisatie, gericht drogen).</li>
+            <li>Kwaliteitscheck bij oplevering en nette werkplek.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="werkgebied">
+      <div class="container">
+        <h2>Werkgebied</h2>
+        <p class="muted">Ronse, Kluisbergen, Oudenaarde en de Vlaamse Ardennen. Bedrijven buiten deze zone op aanvraag.</p>
+        <div class="card" style="display:grid;grid-template-columns:1fr .9fr;gap:16px">
+          <ul class="muted" style="margin:0;padding-left:18px;line-height:1.9">
+            <li>Snelle planning en sms bij vertrek</li>
+            <li>Minimale hinder aan in-/uitgangen van winkels</li>
+            <li>Contactloos betalen mogelijk</li>
+            <li>Factuur per e-mail</li>
+          </ul>
+          <img alt="Kaart Ronse en omgeving" src="https://dummyimage.com/600x360/ffffff/94a3b8&text=Ronse+%E2%80%94+Vlaamse+Ardennen+werkgebied"/>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Zo werken wij</h2>
+        <div class="process">
+          <div class="card step"><div class="circle">1</div><div><strong>Afspraak</strong><p class="muted">Kies online of via WhatsApp een moment. We bevestigen meteen.</p></div></div>
+          <div class="card step"><div class="circle">2</div><div><strong>Reiniging</strong><p class="muted">Pure water + water‑fed pole. Veilig voor lakken, kozijnen en panelen.</p></div></div>
+          <div class="card step"><div class="circle">3</div><div><strong>Oplevering</strong><p class="muted">Streeploos resultaat. Factuur digitaal, betalen kan ter plekke.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bedrijven">
+      <div class="container">
+        <h2>Voor bedrijven & winkels</h2>
+        <div class="grid">
+          <div class="card"><h3>Minimale hinder</h3><p class="muted">We plannen buiten piekuren, plaatsen signalisatie en beperken waterophoping bij in‑/uitgangen. Probleemzones drogen we onmiddellijk.</p></div>
+          <div class="card"><h3>Consistente look</h3><p class="muted">Vaste frequentie (6 of 12 weken) houdt uw pui helder en representatief.</p></div>
+          <div class="card"><h3>Zakelijk geregeld</h3><p class="muted">Digitale factuur, contactloos betalen, route‑sms bij vertrek en één aanspreekpunt.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pakketten">
+      <div class="container">
+        <h2>Onderhoudspakketten</h2>
+        <div class="grid">
+          <div class="card"><h3>Elke 6 weken</h3><p class="muted">Beste prijs/kwaliteit. Ramen blijven zichtbaar schoner, minder hardnekkig vuil.</p></div>
+          <div class="card"><h3>Elke 12 weken</h3><p class="muted">Voor rustige locaties of kleinere puien.</p></div>
+          <div class="card"><h3>Eenmalig / oplevering</h3><p class="muted">Dieptereiniging + detailafwerking waar nodig.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="garantie">
+      <div class="container">
+        <h2>Kwaliteitsgarantie & veiligheid</h2>
+        <div class="grid">
+          <div class="card"><h3>Tevredenheidsgarantie</h3><p class="muted">Ziet u binnen 48 uur toch een foutje? We komen kosteloos bijwerken.</p></div>
+          <div class="card"><h3>Materiaalrespect</h3><p class="muted">Pure water is neutraal voor lak, rubbers en glas. Geen zepen, geen residu.</p></div>
+          <div class="card"><h3>Verzekerd</h3><p class="muted">We werken gedekt en volgens veilige werkprocedures.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="container" style="max-width:800px">
+        <h2>Offerte of vraag?</h2>
+        <p class="muted">Vul het formulier in en we antwoorden meestal dezelfde dag.</p>
+        <form class="card" action="https://formspree.io/f/your-code" method="POST" style="display:grid;gap:12px">
+          <div class="field"><label>Naam</label><input required name="name" type="text" placeholder="Naam"/></div>
+          <div class="field"><label>E-mail</label><input required name="email" type="email" placeholder="you@voorbeeld.be"/></div>
+          <div class="field"><label>Telefoon</label><input name="phone" type="text" placeholder="+32 493 67 34 84"/></div>
+          <div class="field"><label>Bericht</label><textarea required name="message" rows="4" placeholder="Ik wil graag een offerte voor …"></textarea></div>
+          <button class="btn" type="submit">Verstuur</button>
+        </form>
+        <p class="notice">Liever WhatsApp? <a href="https://wa.me/32493673484">Stuur ons een bericht</a>. <br/>Of mail ons: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a> · Bel: <a href="tel:+32493673484">+32 493 67 34 84</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+      <div>© <span id="year"></span> OsmoseXpert. Alle rechten voorbehouden.</div>
+      <div class="muted">Contact: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a> · <a href="tel:+32493673484">+32 493 67 34 84</a> · GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
