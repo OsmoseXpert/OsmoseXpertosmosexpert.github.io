@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <!-- build: OX-2025-08-20-03 -->
+  <!-- build: OX-2025-08-20-05 -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OsmoseXpert — Ramen, glasgevels &amp; zonnepanelen</title>
@@ -20,7 +20,9 @@
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-neutral-200">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <img src="assets/osmosexpert-logo.png" alt="OsmoseXpert logo" class="h-10 w-auto rounded-[10px]" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'w-9 h-9 rounded-2xl bg-sky-600 text-white grid place-items-center font-bold',textContent:'OX'}))">
+        <!-- Probeer logo te laden; zo niet, toon OX-blokje -->
+        <img src="assets/osmosexpert-logo.png" alt="OsmoseXpert logo" class="h-10 w-auto rounded-[10px]"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'w-9 h-9 rounded-2xl bg-sky-600 text-white grid place-items-center font-bold',textContent:'OX'}))">
         <div>
           <div class="font-bold text-lg leading-none">OsmoseXpert</div>
           <div class="text-xs text-sky-600">Streeploos schoon met puur osmosewater</div>
@@ -38,9 +40,7 @@
         </a>
       </nav>
       <div class="md:hidden flex items-center gap-2">
-        <a href="#contact" class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-700 text-sky-700 hover:bg-sky-700 hover:text-white transition">
-          <span>Contact</span>
-        </a>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-700 text-sky-700 hover:bg-sky-700 hover:text-white transition">Contact</a>
         <details class="relative">
           <summary class="list-none inline-flex items-center gap-2 rounded-full px-3 py-2 border border-sky-200 text-sky-800 cursor-pointer">
             <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
@@ -70,7 +70,10 @@
         </p>
         <div class="mt-6 flex flex-wrap items-center gap-3">
           <a href="#contact" class="rounded-full px-5 py-3 bg-sky-600 text-white hover:bg-sky-700 hover:-translate-y-0.5 transition w-full sm:w-auto text-center">Gratis & vrijblijvende offerte</a>
-          <span class="block w-full text-xs text-neutral-500">€50 minimumbedrag per interventie — verrekend bij uitvoering. <a href="#faq" class="underline hover:text-neutral-700">(zie FAQ)</a></span>
+          <span class="block w-full text-xs text-neutral-500">
+            €50 minimumbedrag per interventie — verrekend bij uitvoering.
+            <a href="#faq" class="underline hover:text-neutral-700"> (zie FAQ)</a>
+          </span>
         </div>
         <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-sm text-neutral-700">
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-sky-600" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg> Streeploos: osmosewater (0 ppm)</li>
@@ -101,7 +104,6 @@
     <div class="max-w-6xl mx-auto px-4 py-14">
       <h2 class="text-2xl md:text-3xl font-bold">Diensten</h2>
       <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Ramen & Glasgevels -->
         <div class="rounded-2xl border border-neutral-200 p-5 bg-white hover:shadow-sm">
           <div class="w-10 h-10 rounded-xl bg-sky-600 text-white grid place-items-center mb-4">
             <svg viewBox="0 0 24 24" class="w-6 h-6" aria-hidden="true">
@@ -113,7 +115,6 @@
           <h3 class="font-semibold">Ramen & Glasgevels</h3>
           <p class="text-sm text-neutral-700 mt-2">Buitenreiniging met water-fed pole (tot 3 verdiepingen) en klassieke trekker waar nodig.</p>
         </div>
-        <!-- Zonnepanelen -->
         <div class="rounded-2xl border border-neutral-200 p-5 bg-white hover:shadow-sm">
           <div class="w-10 h-10 rounded-xl bg-sky-600 text-white grid place-items-center mb-4">
             <svg viewBox="0 0 24 24" class="w-6 h-6" aria-hidden="true">
@@ -126,7 +127,6 @@
           <h3 class="font-semibold">Zonnepanelen</h3>
           <p class="text-sm text-neutral-700 mt-2">Veilig reinigen met osmosewater voor maximaal rendement, zonder agressieve producten.</p>
         </div>
-        <!-- Veranda & Serre -->
         <div class="rounded-2xl border border-neutral-200 p-5 bg-white hover:shadow-sm">
           <div class="w-10 h-10 rounded-xl bg-sky-600 text-white grid place-items-center mb-4">
             <svg viewBox="0 0 24 24" class="w-6 h-6" aria-hidden="true">
@@ -138,7 +138,6 @@
           <h3 class="font-semibold">Veranda & Serre</h3>
           <p class="text-sm text-neutral-700 mt-2">Glas en profielen, inclusief moeilijk bereikbare zones met verlengde poles.</p>
         </div>
-        <!-- Opritten & Afspoelwerken -->
         <div class="rounded-2xl border border-neutral-200 p-5 bg-white hover:shadow-sm">
           <div class="w-10 h-10 rounded-xl bg-sky-600 text-white grid place-items-center mb-4">
             <svg viewBox="0 0 24 24" class="w-6 h-6" aria-hidden="true">
@@ -245,6 +244,7 @@
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.91 15.91 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.05-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.24 1.05z"/></svg> <a href="tel:+32493673484" class="hover:underline">0493/67.34.84</a></li>
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 1 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg> <a href="mailto:Info@osmose-xpert.be" class="hover:underline">Info@osmose-xpert.be</a></li>
           <li class="flex items-center gap-2">
+            <!-- WhatsApp pictogram -->
             <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#25D366]" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.85 11.85 0 0 0 12.07 0C5.46 0 .11 5.35.11 11.96A11.85 11.85 0 0 0 12 23.83h.01c2.02 0 3.99-.52 5.73-1.51l4.2 1.1-1.12-4.09a11.87 11.87 0 0 0 1.69-6.14 11.85 11.85 0 0 0-3.99-8.71Zm-8.51 17.65H12C6.98 21.13 2.89 17.04 2.89 12.02 2.89 7 6.98 2.91 12 2.91c2.43 0 4.72.95 6.44 2.67a9.07 9.07 0 0 1 2.67 6.43c0 1.91-.57 3.71-1.65 5.24l-.24.35.67 2.45-2.52-.66-.33.2a9.07 9.07 0 0 1-4.04.95ZM17.1 14.27c-.28-.14-1.67-.82-1.93-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.09-.17.19-.33.21-.61.07-.28-.14-1.19-.44-2.26-1.41-.83-.74-1.39-1.65-1.56-1.93-.17-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.55-.88-2.12-.23-.58-.47-.49-.64-.5-.16-.01-.35-.01-.54-.01-.19 0-.49.07-.74.35-.26.28-1.01.98-1.01 2.39s1.04 2.77 1.19 2.96c.14.19 2.05 3.13 4.95 4.39.69.3 1.23.47 1.65.6.69.22 1.32.19 1.82.12.56-.08 1.67-.68 1.91-1.34.24-.66.24-1.22.17-1.34-.06-.12-.23-.19-.5-.33Z"/></svg>
             <a href="https://wa.me/32493673484" target="_blank" rel="noopener noreferrer" class="hover:underline">WhatsApp (snelste)</a>
           </li>
@@ -253,7 +253,7 @@
       </div>
 
       <!-- FormSubmit: rechtstreeks naar je inbox -->
-      <form id="offerte-form" name="offerte" method="POST" action="https://formsubmit.co/Info@osmose-xpert.be" class="bg-sky-800/50 border border-sky-700 rounded-2xl p-6">
+      <form id="offerte-form" name="offerte" method="POST" action="https://formsubmit.co/info@osmose-xpert.be" class="bg-sky-800/50 border border-sky-700 rounded-2xl p-6">
         <div class="grid gap-4">
           <input type="hidden" name="_subject" value="Offerte-aanvraag via website" />
           <input type="hidden" name="_template" value="table" />
@@ -273,8 +273,13 @@
             <input type="tel" name="telefoon" placeholder="0499 00 00 00" pattern="[0-9 +()./\-]{8,}" required class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300" />
           </div>
           <div>
+            <label class="text-sm">Adres/locatie</label>
+            <input name="adres" placeholder="Straat, nr, postcode en gemeente" required class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300" />
+          </div>
+          <div>
             <label class="text-sm">Bericht</label>
-            <textarea name="bericht" placeholder="Beschrijf kort je pand en wat je wil laten reinigen…" required class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 min-h-[120px]"></textarea>
+            <textarea name="bericht" placeholder="Beschrijf kort je pand en wat je wil laten reinigen…" required
+              class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 min-h-[120px]"></textarea>
           </div>
           <button class="rounded-xl px-4 py-3 bg-white text-neutral-900 hover:-translate-y-0.5 transition text-sm font-semibold">Verstuur</button>
           <p class="text-xs text-neutral-300">Dit formulier stuurt je bericht rechtstreeks naar Info@osmose-xpert.be via een beveiligde formulierdienst. Je ziet een bevestiging na verzenden.</p>
@@ -298,7 +303,7 @@
   <footer class="border-t border-neutral-200">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-600 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
       <div class="flex items-center gap-3">
-        <img src="assets/osmosexpert-logo.png" alt="OsmoseXpert logo" class="h-8 w-auto rounded-lg" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'w-8 h-8 rounded-xl bg-sky-600 text-white grid place-items-center font-bold',textContent:'OX'}))">
+        <div class="w-8 h-8 rounded-xl bg-sky-600 text-white grid place-items-center font-bold">OX</div>
         <div>
           <div class="font-semibold">OsmoseXpert</div>
           <div class="text-xs">Ramen, glasgevels & zonnepanelen</div>
