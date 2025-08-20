@@ -1,407 +1,252 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="nl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OsmoseXpert | Ramen reinigen met pure water</title>
-  <meta name="description" content="Professionele ramenreiniging met pure water-techniek. Streeploos, veilig en efficiënt in Ronse en de Vlaamse Ardennen." />
-  <meta property="og:title" content="OsmoseXpert — ramenreiniging met pure water" />
-  <meta property="og:description" content="Streeploos resultaat. Snel en professioneel. Vraag je gratis offerte." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://dummyimage.com/1200x630/2563eb/ffffff&text=OsmoseXpert" />
-  <meta name="theme-color" content="#2563eb" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>OsmoseXpert — Ramen, glasgevels & zonnepanelen</title>
+  <meta name="description" content="OsmoseXpert reinigt ramen, glasgevels, veranda's en zonnepanelen met puur osmosewater. Streeploos schoon, zonder gedoe." />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root{
-      --bg:#ffffff;
-      --panel:#ffffff;
-      --muted:#475569;
-      --text:#0f172a;
-      --brand:#2563eb;
-      --brand-600:#1d4ed8;
-      --ring:0 0 0 3px rgba(37,99,235,.25);
-      --border:#e5e7eb;
-      --soft:#f8fafc;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
-    a{color:var(--text);text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(8px);background:rgba(255,255,255,.85);border-bottom:1px solid var(--border);z-index:50}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
-    .logo svg{width:28px;height:28px}
-    .menu{display:flex;gap:20px;align-items:center}
-    .menu a{opacity:.85}
-    .menu a:hover{opacity:1}
-    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#fff; padding:12px 16px;border-radius:14px;font-weight:700;box-shadow:0 10px 30px rgba(37,99,235,.15);transition:transform .15s ease, box-shadow .15s ease}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 16px 40px rgba(37,99,235,.25)}
-    .btn.secondary{background:transparent;color:var(--brand);border:1px solid #dbeafe;box-shadow:none}
-
-    .hero{padding:64px 0 28px}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
-    .kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);color:#1e3a8a;padding:6px 10px;border-radius:999px;font-size:13px;font-weight:600}
-    h1{font-size:46px;line-height:1.05;margin:14px 0 18px}
-    p.lead{font-size:18px;color:#334155;max-width:58ch}
-    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .hero-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:18px}
-    .badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .badge{border:1px dashed #cbd5e1;color:#334155;border-radius:999px;padding:6px 10px;font-size:12px}
-
-    section{padding:56px 0}
-    h2{font-size:28px;margin:0 0 10px}
-    .muted{color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 4px 14px rgba(2,6,23,.04)}
-    .card h3{margin:8px 0 6px}
-
-    .services .card svg{width:28px;height:28px}
-
-    .estimator{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
-    .field{display:grid;gap:6px;margin-bottom:10px}
-    label{font-size:13px;color:#334155}
-    select, input[type="number"], input[type="text"], textarea{background:#ffffff;border:1px solid var(--border);border-radius:12px;color:var(--text);padding:10px 12px}
-    .total{font-weight:800;font-size:28px}
-    .notice{font-size:12px;color:#64748b}
-
-    .process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .process .step{display:flex;gap:12px}
-    .circle{width:36px;height:36px;border-radius:999px;background:rgba(37,99,235,.10);display:flex;align-items:center;justify-content:center;font-weight:800;color:#1d4ed8;border:1px solid rgba(37,99,235,.25)}
-
-    .cta{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:linear-gradient(180deg,#ffffff, #f8fbff);border:1px solid var(--border);border-radius:20px;padding:26px}
-
-    footer{padding:36px 0;border-top:1px solid var(--border);color:#64748b}
-
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr;gap:16px}
-      .grid{grid-template-columns:1fr 1fr}
-      .estimator{grid-template-columns:1fr}
-      .process{grid-template-columns:1fr}
-      h1{font-size:36px}
-    }
-    @media (max-width: 640px){
-      .grid{grid-template-columns:1fr}
-    }
+    :root { --ox-blue-600:#0284c7; --ox-blue-700:#0369a1; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
   </style>
-  <script>
-    function formatEUR(n){return new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n)}
-    function calc(){
-      const type = document.getElementById('type').value;
-      const woning = document.getElementById('woning').value;
-      const verdiep = +document.getElementById('verdiepingen').value || 0;
-      const freq = document.getElementById('frequentie').value;
-      const addons = Array.from(document.querySelectorAll('input[name="extra"]:checked')).map(i=>i.value);
-
-      const baseMap = { rij:39, halfopen:49, vrijstaand:59 };
-      let base = baseMap[woning] || 45;
-      base += Math.max(0,verdiep-1) * 12;
-      if(type==='bedrijf') base += 20;
-
-      let factor = 1;
-      if(freq==='eenmalig') factor = 1.2;
-      if(freq==='6w') factor = 0.9;
-      if(freq==='12w') factor = 1.0;
-
-      let extras = 0;
-      if(addons.includes('zonnepanelen')) extras += 25;
-      if(addons.includes('veranda')) extras += 20;
-      if(addons.includes('winkelpui')) extras += 25;
-      if(addons.includes('oprit')) extras += 15;
-
-      const totaal = Math.round((base + extras) * factor);
-      document.getElementById('totaal').textContent = formatEUR(totaal);
-    }
-
-    document.addEventListener('DOMContentLoaded',()=>{
-      document.querySelectorAll('select,input').forEach(el=>el.addEventListener('input',calc));
-      calc();
-    });
-
-    function openBooking(){
-      const url = document.getElementById('bookingUrl').value.trim();
-      if(url){ window.open(url,'_blank'); }
-      else alert('Voeg je boekingslink toe bij “Instellingen → Booking URL” in dit document.');
-    }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "OsmoseXpert",
-    "image": "https://dummyimage.com/1200x630/2563eb/ffffff&text=OsmoseXpert",
-    "areaServed": ["Ronse","Kluisbergen","Oudenaarde","Vlaamse Ardennen"],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Ronse",
-      "addressCountry": "BE"
-    },
-    "url": "https://osmosexpert.github.io/",
-    "description": "Professionele ramenreiniging met pure water‑techniek voor woningen en bedrijven.",
-    "telephone": "+32493673484",
-    "email": "info@osmose-xpert.be"
-  }
-  </script>
 </head>
-<body>
-  <header>
-    <div class="container nav">
-      <a class="logo" href="#">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M12 3c4.5 5.6 6.8 9.6 6.8 12.3a6.8 6.8 0 1 1-13.6 0C5.2 12.6 7.5 8.6 12 3Z" stroke="#1d4ed8" stroke-width="1.5" fill="#2563eb"/>
-        </svg>
-        <span>OsmoseXpert</span>
-      </a>
-      <nav class="menu">
-        <a href="#diensten">Diensten</a>
-        <a href="#prijzen">Prijzen</a>
-        <a href="#werkgebied">Werkgebied</a>
-        <a href="#contact">Contact</a>
-        <a class="btn" href="#contact">Offerte aanvragen</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
+<body class="min-h-screen bg-white text-neutral-900" id="home">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-neutral-200">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-2xl bg-sky-600 text-white grid place-items-center font-bold">OX</div>
         <div>
-          <span class="kicker">Streeploos • Veilig • Efficiënt</span>
-          <h1>OsmoseXpert — premium ramenreiniging met pure water</h1>
-          <p class="lead">We leveren topkwaliteit met water‑fed pole en 100% zuiver water: streeploos, veilig voor materialen en perfect op hoogte. Minimale hinder bij inkomzones, heldere communicatie en een snelle, professionele aanpak.</p>
-          <div class="hero-cta">
-            <a class="btn" href="#prijzen">Bereken richtprijs</a>
-            <a class="btn secondary" href="#contact">Gratis offerte & planning</a>
-          </div>
-          <div class="badges">
-            <span class="badge">Verzekerd & professioneel</span>
-            <span class="badge">Planning binnen 72u*</span>
-            <span class="badge">Duurzaam</span>
-            <span class="badge">Ronse • Vlaamse Ardennen</span>
-          </div>
-        </div>
-        <div class="hero-card">
-          <img alt="Ramen reinigen met water-fed pole" src="https://dummyimage.com/760x520/ffffff/111111&text=Water-fed+Pole+%7C+OsmoseXpert"/>
-          <p class="muted" style="margin-top:8px">*Afhankelijk van route & weer. Eigen branding/foto's kunnen later worden toegevoegd.</p>
+          <div class="font-bold text-lg leading-none">OsmoseXpert</div>
+          <div class="text-xs text-sky-600">Streeploos schoon met puur osmosewater</div>
         </div>
       </div>
-    </section>
-
-    <section id="diensten" class="services">
-      <div class="container">
-        <h2>Onze diensten</h2>
-        <p class="muted">Professionele ramenreiniging met pure water‑techniek voor woningen en bedrijven.</p>
-        <div class="grid" style="margin-top:16px">
-          <div class="card">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5h18v14H3V5Z" stroke="#2563eb"/><path d="M3 9h18" stroke="#2563eb"/><path d="M8 5v14M16 5v14" stroke="#2563eb"/></svg>
-            <h3>Ramen & Kozijnen — buitenzijde</h3>
-            <p class="muted">Streeploos resultaat, ook bij hoge of moeilijk bereikbare ramen. Geen contact met de gevel.</p>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#home" class="hover:text-sky-700">Home</a>
+        <a href="#diensten" class="hover:text-sky-700">Diensten</a>
+        <a href="#werkwijze" class="hover:text-sky-700">Werkwijze</a>
+        <a href="#regio" class="hover:text-sky-700">Regio</a>
+        <a href="#faq" class="hover:text-sky-700">FAQ</a>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-700 text-sky-700 hover:bg-sky-700 hover:text-white transition">
+          <span>Offerte aanvragen</span>
+          <svg viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true"><path fill="currentColor" d="M5 12h12l-4-4 1.4-1.4L21.8 12l-7.4 5.4L13 16z"/></svg>
+        </a>
+      </nav>
+      <div class="md:hidden flex items-center gap-2">
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-700 text-sky-700 hover:bg-sky-700 hover:text-white transition">
+          <span>Contact</span>
+        </a>
+        <details class="relative">
+          <summary class="list-none inline-flex items-center gap-2 rounded-full px-3 py-2 border border-sky-200 text-sky-800 cursor-pointer">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+            <span>Menu</span>
+          </summary>
+          <div class="absolute right-0 mt-2 w-56 rounded-xl border border-neutral-200 bg-white shadow-lg p-2">
+            <a href="#home" class="block px-3 py-2 rounded-lg text-sm hover:bg-sky-50 hover:text-sky-800">Home</a>
+            <a href="#diensten" class="block px-3 py-2 rounded-lg text-sm hover:bg-sky-50 hover:text-sky-800">Diensten</a>
+            <a href="#werkwijze" class="block px-3 py-2 rounded-lg text-sm hover:bg-sky-50 hover:text-sky-800">Werkwijze</a>
+            <a href="#regio" class="block px-3 py-2 rounded-lg text-sm hover:bg-sky-50 hover:text-sky-800">Regio</a>
+            <a href="#faq" class="block px-3 py-2 rounded-lg text-sm hover:bg-sky-50 hover:text-sky-800">FAQ</a>
+            <a href="#contact" class="block px-3 py-2 rounded-lg text-sm hover:bg-sky-50 hover:text-sky-800">Contact</a>
           </div>
-          <div class="card">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h16l-2 10H6L4 8Z" stroke="#2563eb"/><path d="M9 12h6" stroke="#2563eb"/></svg>
-            <h3>Zonnepanelen</h3>
-            <p class="muted">Veilige, residuvrije reiniging voor maximaal rendement. Compatibel met fabrikantvoorschriften.</p>
-          </div>
-          <div class="card">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#2563eb"/><path d="M6 10h12M6 14h8" stroke="#2563eb"/></svg>
-            <h3>Winkelpuien & horeca</h3>
-            <p class="muted">Planning buiten piekuren mogelijk. We beperken waterophoping en drogen kritieke inkomzones direct.</p>
-          </div>
-          <div class="card">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20h16" stroke="#2563eb"/><path d="M3 16h18" stroke="#2563eb"/><path d="M2 12h20" stroke="#2563eb"/></svg>
-            <h3>Rolluiken & gevelpanelen</h3>
-            <p class="muted">Gelijkmatig en residuvrij; nette afwerking zonder zeepfilm.</p>
-          </div>
-          <div class="card">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 15l3-6 3 4 2-3 2 5" stroke="#2563eb"/></svg>
-            <h3>Opritten & terrassen (afspoelen)</h3>
-            <p class="muted">Algemene afspoelwerken met pure water‑techniek voor een frisse afwerking.</p>
-          </div>
-          <div class="card">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v20M2 12h20" stroke="#2563eb"/></svg>
-            <h3>Extra's</h3>
-            <p class="muted">Veranda/serre, lichtstraten, spinnenwebben verwijderen, detailreiniging van dorpels/omlijstingen.</p>
-          </div>
-        </div>
+        </details>
       </div>
-    </section>
-
-    <section id="prijzen">
-      <div class="container">
-        <h2>Indicatieve prijzen</h2>
-        <p class="muted">Gebruik de calculator voor een snelle richtprijs. We bevestigen altijd vooraf de definitieve prijs.</p>
-        <div class="estimator card" style="margin-top:10px">
-          <div>
-            <div class="field">
-              <label for="type">Klanttype</label>
-              <select id="type">
-                <option value="particulier">Particulier</option>
-                <option value="bedrijf">Bedrijf</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="woning">Woningtype</label>
-              <select id="woning">
-                <option value="rij">Rijhuis (2 gevels)</option>
-                <option value="halfopen">Halfopen bebouwing (3 gevels)</option>
-                <option value="vrijstaand">Vrijstaand (4+ gevels)</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="verdiepingen">Aantal verdiepingen</label>
-              <select id="verdiepingen">
-                <option value="1">Gelijkvloers/1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="frequentie">Frequentie</label>
-              <select id="frequentie">
-                <option value="6w">Elke 6 weken</option>
-                <option value="12w">Elke 12 weken</option>
-                <option value="eenmalig">Eenmalig</option>
-              </select>
-            </div>
-          </div>
-          <div>
-            <div class="field">
-              <label>Extra's</label>
-              <div style="display:grid;gap:8px">
-                <label><input type="checkbox" name="extra" value="zonnepanelen"> Zonnepanelen (kleine set)</label>
-                <label><input type="checkbox" name="extra" value="veranda"> Veranda/serre</label>
-                <label><input type="checkbox" name="extra" value="winkelpui"> Winkelpui</label>
-                <label><input type="checkbox" name="extra" value="oprit"> Oprit/terras afspoelen</label>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
-              <span class="muted">Richtprijs</span>
-              <span class="total" id="totaal">€ 0</span>
-            </div>
-            <p class="notice">Indicatief, excl. btw voor zakelijke klanten. We stemmen ter plaatse af op ramenoppervlak en bereikbaarheid.</p>
-            <div style="display:flex;gap:10px;align-items:center;margin-top:10px">
-              <a class="btn" href="#contact">Offerte op maat</a>
-              <input id="bookingUrl" type="text" placeholder="Booking URL (Squeegee of eigen)" style="flex:1"/>
-              <button class="btn secondary" type="button" onclick="openBooking()">Boek online</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="waarom">
-      <div class="container">
-        <h2>Waarom kiezen voor OsmoseXpert</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Streeploos resultaat</h3>
-            <p class="muted">0‑TDS water droogt spotvrij op en laat geen film achter, zodat vuil minder snel hecht.</p>
-          </div>
-          <div class="card">
-            <h3>Veilig voor materiaal & omgeving</h3>
-            <p class="muted">Reinigen vanaf de grond, zonder druk op lakwerk of schrijnwerk. Net afgewerkte gevels blijven beschermd.</p>
-          </div>
-          <div class="card">
-            <h3>Snel & efficiënt op hoogte</h3>
-            <p class="muted">Grote oppervlakken en hoge ramen gaan vlotter, met transparante richtprijzen.</p>
-          </div>
-        </div>
-        <div class="card" style="margin-top:16px">
-          <h3>Onze aanpak</h3>
-          <ul class="muted" style="line-height:1.9">
-            <li>Heldere communicatie en planning.</li>
-            <li>Minimale hinder bij inkomzones (signalisatie, gericht drogen).</li>
-            <li>Kwaliteitscheck bij oplevering en nette werkplek.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="werkgebied">
-      <div class="container">
-        <h2>Werkgebied</h2>
-        <p class="muted">Ronse, Kluisbergen, Oudenaarde en de Vlaamse Ardennen. Bedrijven buiten deze zone op aanvraag.</p>
-        <div class="card" style="display:grid;grid-template-columns:1fr .9fr;gap:16px">
-          <ul class="muted" style="margin:0;padding-left:18px;line-height:1.9">
-            <li>Snelle planning en sms bij vertrek</li>
-            <li>Minimale hinder aan in-/uitgangen van winkels</li>
-            <li>Contactloos betalen mogelijk</li>
-            <li>Factuur per e-mail</li>
-          </ul>
-          <img alt="Kaart Ronse en omgeving" src="https://dummyimage.com/600x360/ffffff/94a3b8&text=Ronse+%E2%80%94+Vlaamse+Ardennen+werkgebied"/>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2>Zo werken wij</h2>
-        <div class="process">
-          <div class="card step"><div class="circle">1</div><div><strong>Afspraak</strong><p class="muted">Kies online of via WhatsApp een moment. We bevestigen meteen.</p></div></div>
-          <div class="card step"><div class="circle">2</div><div><strong>Reiniging</strong><p class="muted">Pure water + water‑fed pole. Veilig voor lakken, kozijnen en panelen.</p></div></div>
-          <div class="card step"><div class="circle">3</div><div><strong>Oplevering</strong><p class="muted">Streeploos resultaat. Factuur digitaal, betalen kan ter plekke.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="bedrijven">
-      <div class="container">
-        <h2>Voor bedrijven & winkels</h2>
-        <div class="grid">
-          <div class="card"><h3>Minimale hinder</h3><p class="muted">We plannen buiten piekuren, plaatsen signalisatie en beperken waterophoping bij in‑/uitgangen. Probleemzones drogen we onmiddellijk.</p></div>
-          <div class="card"><h3>Consistente look</h3><p class="muted">Vaste frequentie (6 of 12 weken) houdt uw pui helder en representatief.</p></div>
-          <div class="card"><h3>Zakelijk geregeld</h3><p class="muted">Digitale factuur, contactloos betalen, route‑sms bij vertrek en één aanspreekpunt.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="pakketten">
-      <div class="container">
-        <h2>Onderhoudspakketten</h2>
-        <div class="grid">
-          <div class="card"><h3>Elke 6 weken</h3><p class="muted">Beste prijs/kwaliteit. Ramen blijven zichtbaar schoner, minder hardnekkig vuil.</p></div>
-          <div class="card"><h3>Elke 12 weken</h3><p class="muted">Voor rustige locaties of kleinere puien.</p></div>
-          <div class="card"><h3>Eenmalig / oplevering</h3><p class="muted">Dieptereiniging + detailafwerking waar nodig.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="garantie">
-      <div class="container">
-        <h2>Kwaliteitsgarantie & veiligheid</h2>
-        <div class="grid">
-          <div class="card"><h3>Tevredenheidsgarantie</h3><p class="muted">Ziet u binnen 48 uur toch een foutje? We komen kosteloos bijwerken.</p></div>
-          <div class="card"><h3>Materiaalrespect</h3><p class="muted">Pure water is neutraal voor lak, rubbers en glas. Geen zepen, geen residu.</p></div>
-          <div class="card"><h3>Verzekerd</h3><p class="muted">We werken gedekt en volgens veilige werkprocedures.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="cta">
-      <div class="container" style="max-width:800px">
-        <h2>Offerte of vraag?</h2>
-        <p class="muted">Vul het formulier in en we antwoorden meestal dezelfde dag.</p>
-        <form class="card" action="https://formspree.io/f/your-code" method="POST" style="display:grid;gap:12px">
-          <div class="field"><label>Naam</label><input required name="name" type="text" placeholder="Naam"/></div>
-          <div class="field"><label>E-mail</label><input required name="email" type="email" placeholder="you@voorbeeld.be"/></div>
-          <div class="field"><label>Telefoon</label><input name="phone" type="text" placeholder="+32 493 67 34 84"/></div>
-          <div class="field"><label>Bericht</label><textarea required name="message" rows="4" placeholder="Ik wil graag een offerte voor …"></textarea></div>
-          <button class="btn" type="submit">Verstuur</button>
-        </form>
-        <p class="notice">Liever WhatsApp? <a href="https://wa.me/32493673484">Stuur ons een bericht</a>. <br/>Of mail ons: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a> · Bel: <a href="tel:+32493673484">+32 493 67 34 84</a>.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
-      <div>© <span id="year"></span> OsmoseXpert. Alle rechten voorbehouden.</div>
-      <div class="muted">Contact: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a> · <a href="tel:+32493673484">+32 493 67 34 84</a> · GitHub Pages</div>
     </div>
-  </footer>
-
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
-</body>
-</html>
+  </header>  <!-- Hero -->  <section class="relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Kraakheldere ramen. <span class="text-neutral-500">Zonder gedoe.</span></h1>
+        <p class="mt-5 text-lg text-neutral-700 leading-relaxed">
+          OsmoseXpert reinigt ramen, glasgevels, veranda's en zonnepanelen met <strong>puur osmosewater</strong>.
+          Geen zeepresten, geen krassen - wel een duurzaam, streeploos resultaat.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a href="#contact" class="rounded-full px-5 py-3 bg-sky-600 text-white hover:bg-sky-700 hover:-translate-y-0.5 transition w-full sm:w-auto text-center">Gratis & vrijblijvende offerte</a>
+          <span class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-200 text-sky-700 text-sm">
+            <svg viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2m1 5v5l4 2-.75 1.86L11 13V7z"/></svg>
+            Basis €50
+          </span>
+          <span class="block w-full text-xs text-neutral-500">Minimumbedrag per interventie - verrekend bij uitvoering.</span>
+        </div>
+        <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-sm text-neutral-700">
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-sky-600" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg> Streeploos: osmosewater (0 ppm)</li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-sky-600" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg> Veilig tot 3 verdiepingen</li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-sky-600" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg> Residentieel & commercieel</li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-sky-600" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg> Geen softwash/chemische baden</li>
+        </ul>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/3] overflow-hidden rounded-2xl border border-neutral-200 shadow">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Window_cleaning_with_a_pole_in_bath_arp.jpg/1600px-Window_cleaning_with_a_pole_in_bath_arp.jpg"
+            alt="Close-up: water-fed pole tegen glasgevel (actie)"
+            class="w-full h-full object-cover md:scale-100 scale-[1.12]"
+            style="object-position:70% center"
+            loading="lazy"
+            decoding="async"
+            onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Long-window-pole.jpg/1600px-Long-window-pole.jpg';"
+          />
+        </div>
+        <p class="text-[10px] text-neutral-400 mt-2">Foto: Adrian Pingstone (Arpingstone) - <a class="underline" href="https://commons.wikimedia.org/wiki/File:Window_cleaning_with_a_pole_in_bath_arp.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> (Public Domain). Fallback: Solarence - <a class="underline" href="https://commons.wikimedia.org/wiki/File:Long-window-pole.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> (CC BY 4.0).</p>
+      </div>
+    </div>
+  </section>  <!-- Diensten -->  <section id="diensten" class="bg-sky-50 border-y border-sky-100 scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 py-14">
+      <h2 class="text-2xl md:text-3xl font-bold">Diensten</h2>
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Ramen & Glasgevels -->
+        <div class="rounded-2xl border border-neutral-200 p-5 bg-white hover:shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-sky-600 text-white grid place-items-center mb-4">
+            <svg viewBox="0 0 24 24" class="w-6 h-6" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="1" ry="1" fill="none" stroke="currentColor" stroke-width="2"/>
+              <line x1="12" y1="3" x2="12" y2="21" stroke="currentColor" stroke-width="2"/>
+              <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold">Ramen & Glasgevels</h3>
+          <p class="text-sm text-neutral-700 mt-2">Buitenreiniging met water-fed pole (tot 3 verdiepingen) en klassieke trekker waar nodig.</p>
+        </div>
+        <!-- Zonnepanelen -->
+        <div class="rounded-2xl border border-neutral-200 p-5 bg-white hover:shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-sky-600 text-white grid place-items-center mb-4">
+            <svg viewBox="0 0 24 24" class="w-6 h-6" aria-hidden="true">
+              <rect x="3" y="8" width="14" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="2"/>
+              <line x1="3" y1="12" x2="17" y2="12" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="7" y1="8" x2="7" y2="17" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="19" cy="6" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold">Zonnepanelen</h3>
+          <p class="text-sm text-neutral-700 mt-2">Veilig reinigen met osmosewater voor maximaal rendement, zonder agressieve producten.</p>
+        </div>
+        <!-- Veranda & Serre -->
+        <div class="rounded-2xl border border-neutral-200 p-5 bg-white hover:shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-sky-600 text-white grid place-items-center mb-4">
+            <svg viewBox="0 0 24 24" class="w-6 h-6" aria-hidden="true">
+              <path d="M4 10L12 5l8 5v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M6 12h12" stroke="currentColor" stroke-width="2"/>
+              <path d="M8 12v6M12 12v6M16 12v6" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold">Veranda & Serre</h3>
+          <p class="text-sm text-neutral-700 mt-2">Glas en profielen, inclusief moeilijk bereikbare zones met verlengde poles.</p>
+        </div>
+        <!-- Opritten & Afspoelwerken -->
+        <div class="rounded-2xl border border-neutral-200 p-5 bg-white hover:shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-sky-600 text-white grid place-items-center mb-4">
+            <svg viewBox="0 0 24 24" class="w-6 h-6" aria-hidden="true">
+              <path d="M12 3c2.8 0 5 2.2 5 5 0 3-5 10-5 10S7 11 7 8c0-2.8 2.2-5 5-5z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 7h5M16 9h4M16 11h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold">Opritten & Afspoelwerken</h3>
+          <p class="text-sm text-neutral-700 mt-2">Algemene afspoelwerken met osmosewater. (Geen softwash/chemische behandelingen)</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Werkwijze -->  <section id="werkwijze" class="scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 py-14">
+      <h2 class="text-2xl md:text-3xl font-bold">Onze werkwijze</h2>
+      <ol class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+        <li class="rounded-2xl border border-neutral-200 p-5 bg-white">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-sky-600 text-white grid place-items-center text-sm font-bold">1</div>
+            <h3 class="font-semibold">Kennismaking & offerte</h3>
+          </div>
+          <p class="mt-3 text-neutral-700">Korte call of mail, foto's zijn welkom. We plannen desgewenst een bezoek (Basis €50 incl. btw, verrekend).</p>
+        </li>
+        <li class="rounded-2xl border border-neutral-200 p-5 bg-white">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-sky-600 text-white grid place-items-center text-sm font-bold">2</div>
+            <h3 class="font-semibold">Planning zonder overlast</h3>
+          </div>
+          <p class="mt-3 text-neutral-700">We stemmen af op openingstijden en beperken water bij ingangen.</p>
+        </li>
+        <li class="rounded-2xl border border-neutral-200 p-5 bg-white">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-sky-600 text-white grid place-items-center text-sm font-bold">3</div>
+            <h3 class="font-semibold">Reiniging met osmosewater</h3>
+          </div>
+          <p class="mt-3 text-neutral-700">Water-fed pole voor hoogte, klassiek waar nodig. Profielen en randen inbegrepen.</p>
+        </li>
+        <li class="rounded-2xl border border-neutral-200 p-5 bg-white">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-sky-600 text-white grid place-items-center text-sm font-bold">4</div>
+            <h3 class="font-semibold">Check & nazorg</h3>
+          </div>
+          <p class="mt-3 text-neutral-700">We lopen alles na, geven tips voor onderhoud en plannen opvolgbeurten indien gewenst.</p>
+        </li>
+      </ol>
+    </div>
+  </section>  <!-- Regio -->  <section id="regio" class="bg-sky-50 border-y border-sky-100 scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 py-14">
+      <h2 class="text-2xl md:text-3xl font-bold">Werkregio</h2>
+      <div class="mt-2 flex flex-wrap gap-2">
+        <span class="text-sm rounded-full border border-sky-200 text-sky-800 px-3 py-1">Ronse</span>
+        <span class="text-sm rounded-full border border-sky-200 text-sky-800 px-3 py-1">Oudenaarde</span>
+        <span class="text-sm rounded-full border border-sky-200 text-sky-800 px-3 py-1">Kluisbergen</span>
+      </div>
+      <p class="mt-6 text-neutral-700">Basisregio vanuit Ronse. Grotere projecten elders in overleg.</p>
+    </div>
+  </section>  <!-- FAQ -->  <section id="faq" class="scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 py-14">
+      <h2 class="text-2xl md:text-3xl font-bold">Veelgestelde vragen</h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="font-semibold">Wat is osmosewater en waarom is het beter?</h3>
+          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">Osmosewater is gefilterd tot bijna 0 ppm mineralen. Daardoor laat het na het drogen geen kalk- of zeepresten achter: streeploos resultaat zonder agressieve middelen.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="font-semibold">Droogt glas altijd meteen streeploos op?</h3>
+          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">Bij koud of zeer vochtig weer kan het langer duren voor druppels volledig opdrogen. We informeren je vooraf en werken met een aangepaste planning/techniek rond ingangen.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="font-semibold">Waarom een basisbedrag?</h3>
+          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">Bij boeking geldt Basis €50 (incl. btw) voor intake, verplaatsing en planning. Gaan we aan de slag, dan wordt dit volledig verrekend in de totaalprijs. Dit is het minimumbedrag per interventie - ook bij zeer kleine opdrachten (bv. één raam).</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="font-semibold">Doen jullie softwash?</h3>
+          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">Nee. We reinigen met osmosewater (veilig voor glas, profielen en panelen) en doen geen chemische softwash-behandelingen.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="font-semibold">Water bij ingangen: wordt het nat en glad?</h3>
+          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">We werken rond openingsuren waar mogelijk, gebruiken matten en beperken waternevel bij in- en uitgangen. Veiligheid en netheid eerst.</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Contact -->  <section id="contact" class="bg-sky-900 text-white scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold">Vraag je gratis offerte aan</h2>
+        <p class="mt-3 text-neutral-300">Vertel kort wat je wil laten reinigen en voeg gerust foto's toe bij je e-mail. We antwoorden snel.</p>
+        <ul class="mt-6 space-y-2 text-sm">
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.91 15.91 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.05-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.24 1.05z"/></svg> <a href="tel:+32493673484" class="hover:underline">0493/67.34.84</a></li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 1 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg> <a href="mailto:Info@osmose-xpert.be" class="hover:underline">Info@osmose-xpert.be</a></li>
+          <li class="flex items-center gap-2">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#25D366]" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.85 11.85 0 0 0 12.07 0C5.46 0 .11 5.35.11 11.96A11.85 11.85 0 0 0 12 23.83h.01c2.02 0 3.99-.52 5.73-1.51l4.2 1.1-1.12-4.09a11.87 11.87 0 0 0 1.69-6.14 11.85 11.85 0 0 0-3.99-8.71Zm-8.51 17.65H12C6.98 21.13 2.89 17.04 2.89 12.02 2.89 7 6.98 2.91 12 2.91c2.43 0 4.72.95 6.44 2.67a9.07 9.07 0 0 1 2.67 6.43c0 1.91-.57 3.71-1.65 5.24l-.24.35.67 2.45-2.52-.66-.33.2a9.07 9.07 0 0 1-4.04.95ZM17.1 14.27c-.28-.14-1.67-.82-1.93-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.09-.17.19-.33.21-.61.07-.28-.14-1.19-.44-2.26-1.41-.83-.74-1.39-1.65-1.56-1.93-.17-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.55-.88-2.12-.23-.58-.47-.49-.64-.5-.16-.01-.35-.01-.54-.01-.19 0-.49.07-.74.35-.26.28-1.01.98-1.01 2.39s1.04 2.77 1.19 2.96c.14.19 2.05 3.13 4.95 4.39.69.3 1.23.47 1.65.6.69.22 1.32.19 1.82.12.56-.08 1.67-.68 1.91-1.34.24-.66.24-1.22.17-1.34-.06-.12-.23-.19-.5-.33Z"/></svg>
+            <a href="https://wa.me/32493673484" target="_blank" rel="noopener noreferrer" class="hover:underline">WhatsApp (snelste)</a>
+          </li>
+        </ul>
+        <p class="mt-6 text-xs text-neutral-300">* Basis €50 incl. btw. Bij uitvoering verrekend in de totaalprijs; minimumbedrag per interventie.</p>
+      </div>
+      <!-- Netlify-ready + mailto fallback -->
+      <form id="offerte-form" name="offerte" method="POST" data-netlify="true" class="bg-sky-800/50 border border-sky-700 rounded-2xl p-6">
+        <div class="grid gap-4">
+          <input type="hidden" name="form-name" value="offerte" />
+          <div>
+            <label class="text-sm">Naam</label>
+            <input name="naam" placeholder="Voor- en achternaam" class="mt-1 w-full rounded-xl bg-neutral-950 md:bg-white md:text-neutral-900 text-white border border-neutral-800 md:border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300" />
+          </div>
+          <div>
+            <label class="text-sm">E-mail</label>
+            <input type="email" name="email" placeholder="jij@voorbeeld.be" class="mt-1 w-full rounded-xl bg-neutral-950 md:bg-white md:text-neutral-900 text-white border border-neutral-800 md:border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300" />
+          </div>
+          <div>
+            <label class="text-sm">Telefoon</label>
+            <input type="tel" name="telefoon" placeholder="04
