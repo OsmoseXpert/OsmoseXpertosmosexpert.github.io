@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <!-- build: OX-2025-08-20-multi-FR -->
+  <!-- build: OX-2025-08-21-FR -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OsmoseXpert — Vitres, façades vitrées &amp; panneaux solaires</title>
@@ -12,9 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    .btn { @apply inline-flex items-center gap-2 rounded-full px-4 py-2 border transition; }
+    html{scroll-behavior:smooth}
+    body{font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";}
+    textarea::placeholder{font-size:.9em}
   </style>
 </head>
 <body class="min-h-screen bg-white text-neutral-900" id="home">
@@ -34,22 +34,38 @@
         <a href="#werkwijze" class="hover:text-sky-700">Notre méthode</a>
         <a href="#regio" class="hover:text-sky-700">Zone d’intervention</a>
         <a href="#faq" class="hover:text-sky-700">FAQ</a>
-        <a href="#contact" class="btn border-sky-700 text-sky-700 hover:bg-sky-700 hover:text-white">Demander un devis</a>
-        <!-- Language switch -->
-        <a href="./index.html" class="btn border-neutral-200 hover:bg-neutral-50" aria-label="Nederlands">
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-700 text-sky-700 hover:bg-sky-700 hover:text-white transition">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-sky-600"></span>
+          Demander un devis
+        </a>
+        <!-- Switch langue – Optie A: cache-buster -->
+        <a href="./index.html?v=20250821" class="inline-flex items-center gap-2 rounded-full px-3 py-2 border border-neutral-200 hover:bg-neutral-50 ml-2 md:ml-4" aria-label="Nederlands">
           <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2m7.93 9h-3.48a15.7 15.7 0 0 0-1.21-5.04A8.03 8.03 0 0 1 19.93 11M12 4.07c.87 0 2.47 2.06 3.1 6.93H8.9C9.53 6.13 11.13 4.07 12 4.07M4.07 13h3.48c.14 1.77.54 3.49 1.21 5.04A8.03 8.03 0 0 1 4.07 13M8.9 13h6.2c-.63 4.87-2.23 6.93-3.1 6.93S9.53 17.87 8.9 13m6.34 5.04c.67-1.55 1.07-3.27 1.21-5.04h3.48a8.03 8.03 0 0 1-4.69 5.04"/></svg>
           <span>NL</span>
         </a>
       </nav>
       <div class="md:hidden flex items-center gap-2">
-        <a href="./index.html" class="btn border-neutral-200 hover:bg-neutral-50" aria-label="Nederlands">
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-700 text-sky-700 hover:bg-sky-700 hover:text-white transition">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-sky-600"></span>
+          Devis
+        </a>
+        <a href="./index.html?v=20250821" class="inline-flex items-center gap-2 rounded-full px-3 py-2 border border-neutral-200 hover:bg-neutral-50 ml-1" aria-label="Nederlands">
           <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2m7.93 9h-3.48a15.7 15.7 0 0 0-1.21-5.04A8.03 8.03 0 0 1 19.93 11M12 4.07c.87 0 2.47 2.06 3.1 6.93H8.9C9.53 6.13 11.13 4.07 12 4.07M4.07 13h3.48c.14 1.77.54 3.49 1.21 5.04A8.03 8.03 0 0 1 4.07 13M8.9 13h6.2c-.63 4.87-2.23 6.93-3.1 6.93S9.53 17.87 8.9 13m6.34 5.04c.67-1.55 1.07-3.27 1.21-5.04h3.48a8.03 8.03 0 0 1-4.69 5.04"/></svg>
           <span>NL</span>
         </a>
-        <a href="#contact" class="btn border-sky-700 text-sky-700 hover:bg-sky-700 hover:text-white">Contact</a>
       </div>
     </div>
   </header>
+
+  <!-- Bannière de garantie -->
+  <section class="bg-emerald-50 border-y border-emerald-200">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-3 text-emerald-900 text-sm">
+      <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M12 2l7 3v6c0 5-3.5 9.74-7 11-3.5-1.26-7-6-7-11V5l7-3zm-1 12.17-2.12-2.12-1.41 1.41L11 16l5.54-5.54-1.41-1.41L11 14.17z"/></svg>
+      <span class="font-semibold">Garantie de satisfaction :</span>
+      <span>Pas 100 % satisfait ? <strong>Correction gratuite sous 7 jours</strong>.</span>
+      <a href="#faq" class="ml-2 underline decoration-emerald-500 underline-offset-2 hover:text-emerald-800">Plus d’info</a>
+    </div>
+  </section>
 
   <!-- Hero -->
   <section class="relative overflow-hidden">
@@ -83,6 +99,7 @@
             onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Long-window-pole.jpg/1600px-Long-window-pole.jpg';"
           />
         </div>
+        <p class="text-[10px] text-neutral-400 mt-2">Photo : Adrian Pingstone (Arpingstone) — <a class="underline" href="https://commons.wikimedia.org/wiki/File:Window_cleaning_with_a_pole_in_bath_arp.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> (Domaine public). Repli : Solarence — <a class="underline" href="https://commons.wikimedia.org/wiki/File:Long-window-pole.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> (CC BY 4.0).</p>
       </div>
     </div>
   </section>
@@ -120,6 +137,14 @@
           <h3 class="font-semibold">Allées & rinçages</h3>
           <p class="text-sm text-neutral-700 mt-2">Travaux de rinçage généraux à l’eau osmosée. (Pas de softwash/traitements chimiques)</p>
         </div>
+        <!-- Nouveau : Gouttières (bientôt) -->
+        <div class="rounded-2xl border border-neutral-200 p-5 bg-white hover:shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-sky-600 text-white grid place-items-center mb-4">
+            <svg viewBox="0 0 24 24" class="w-6 h-6"><path d="M3 8l9-5 9 5v4a2 2 0 0 1-2 2h-2.5a3.5 3.5 0 0 1-7 0H7a2 2 0 0 1-2-2V8z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 18a3.5 3.5 0 0 0 3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="font-semibold">Nettoyage des gouttières <span class="ml-2 text-[10px] px-2 py-0.5 rounded-full border border-neutral-200 text-neutral-600">bientôt disponible</span></h3>
+          <p class="text-sm text-neutral-700 mt-2">Retrait des feuilles & débris et rinçage des gouttières. Sans produits chimiques.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -131,7 +156,7 @@
       <ol class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
         <li class="rounded-2xl border border-neutral-200 p-5 bg-white">
           <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-sky-600 text-white grid place-items-center text-sm font-bold">1</div><h3 class="font-semibold">Prise de contact & devis</h3></div>
-          <p class="mt-3 text-neutral-700">Bref appel ou e-mail, photos bienvenues. Visite possible (Forfait de base 50 € TVAC, déduit).</p>
+          <p class="mt-3 text-neutral-700">Bref appel ou e-mail, photos bienvenues. Devis clair et <strong>gratuit & sans engagement</strong>. Visite sur place si utile. Contrat d’entretien ? <strong>10–20 %</strong> de remise selon la fréquence.</p>
         </li>
         <li class="rounded-2xl border border-neutral-200 p-5 bg-white">
           <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-sky-600 text-white grid place-items-center text-sm font-bold">2</div><h3 class="font-semibold">Planification sans gêne</h3></div>
@@ -143,7 +168,7 @@
         </li>
         <li class="rounded-2xl border border-neutral-200 p-5 bg-white">
           <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-sky-600 text-white grid place-items-center text-sm font-bold">4</div><h3 class="font-semibold">Contrôle & suivi</h3></div>
-          <p class="mt-3 text-neutral-700">Contrôle final, conseils d’entretien et planification des passages suivants si souhaité.</p>
+          <p class="mt-3 text-neutral-700">Contrôle final, conseils d’entretien et planification des passages suivants si souhaité. <br><strong>Garantie de satisfaction :</strong> pas 100 % satisfait ? Prévenez-nous dans les <strong>7 jours</strong> ; correction gratuite sur les zones concernées.</p>
         </li>
       </ol>
     </div>
@@ -176,8 +201,8 @@
           <p class="text-sm text-neutral-700 mt-2 leading-relaxed">Par temps froid ou très humide, le séchage peut prendre plus de temps. Nous adaptons la méthode et la planification autour des entrées.</p>
         </div>
         <div class="rounded-2xl border border-neutral-200 p-5">
-          <h3 class="font-semibold">Pourquoi un forfait de base ?</h3>
-          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">À la réservation, Forfait de base 50 € TVAC pour l’accueil, le déplacement et la planification. Si l’intervention a lieu, ce montant est entièrement déduit du prix total (montant minimum par intervention).</p>
+          <h3 class="font-semibold">Pourquoi un montant minimum ?</h3>
+          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">À la réservation, un montant de base de 50 € TVAC couvre l’accueil, le déplacement et la planification. Si l’intervention a lieu, ce montant est entièrement déduit du prix total (montant minimum par intervention).</p>
         </div>
         <div class="rounded-2xl border border-neutral-200 p-5">
           <h3 class="font-semibold">Faites-vous du softwash ?</h3>
@@ -185,7 +210,15 @@
         </div>
         <div class="rounded-2xl border border-neutral-200 p-5">
           <h3 class="font-semibold">Entrées mouillées : glissant ?</h3>
-          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">Nous travaillons hors heures d’ouverture autant que possible, utilisons des tapis et limitons le brouillard d’eau aux entrées. Sécurité et propreté d’abord.</p>
+          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">Nous travaillons hors heures d’ouverture autant que possible, utilisons des tapis et limitons le brouillard d’eau aux entrées.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="font-semibold">Garantie de satisfaction ?</h3>
+          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">Pas 100 % satisfait après notre nettoyage ? Prévenez-nous dans les 7 jours calendrier. Nous revenons corriger gratuitement sur les zones concernées. La garantie s’applique au travail initial ; la re-salissure due aux intempéries/à l’usage ou tout nouveau dommage n’est pas couverte.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="font-semibold">Des réductions avec contrat d’entretien ?</h3>
+          <p class="text-sm text-neutral-700 mt-2 leading-relaxed">Oui. Pour une fréquence fixe, nous accordons <strong>10–20 %</strong> de remise selon la périodicité convenue (hebdomadaire, mensuelle, trimestrielle, …). Les détails sont confirmés dans le devis/contrat.</p>
         </div>
       </div>
     </div>
@@ -195,6 +228,9 @@
   <section id="contact" class="bg-sky-900 text-white scroll-mt-24">
     <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-start">
       <div>
+        <div id="merci" class="hidden mb-4 rounded-xl border border-emerald-400 bg-emerald-50 text-emerald-800 px-4 py-3 text-sm">
+          Merci ! Votre demande a été envoyée. Réponse rapide par e-mail ou WhatsApp.
+        </div>
         <h2 class="text-2xl md:text-3xl font-bold">Demandez votre devis gratuit</h2>
         <p class="mt-3 text-neutral-300">Décrivez brièvement ce que vous souhaitez nettoyer et joignez des photos si vous le souhaitez. Réponse rapide.</p>
         <ul class="mt-6 space-y-2 text-sm">
@@ -205,24 +241,40 @@
         <p class="mt-6 text-xs text-neutral-400">* Forfait de base 50 € TVAC (montant minimum par intervention). Déduit du prix total lors de l’intervention.</p>
       </div>
 
-      <form method="POST" action="https://formsubmit.co/info@osmose-xpert.be" class="bg-sky-800/50 border border-sky-700 rounded-2xl p-6">
+      <form method="POST" action="https://formsubmit.co/info@osmose-xpert.be" autocomplete="off" class="bg-sky-800/50 border border-sky-700 rounded-2xl p-6">
         <div class="grid gap-4">
           <input type="hidden" name="_subject" value="Demande de devis via le site" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="true" />
           <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
-          <input type="hidden" name="_next" value="./fr.html#bedankt" />
+          <input type="hidden" name="_next" value="./fr.html#merci" />
           <div><label class="text-sm">Nom</label><input name="naam" placeholder="Nom et prénom" required class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300" /></div>
           <div><label class="text-sm">E-mail</label><input type="email" name="email" placeholder="vous@exemple.be" required class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300" /></div>
           <div><label class="text-sm">Téléphone</label><input type="tel" name="telefoon" placeholder="0499 00 00 00" pattern="[0-9 +()./\-]{8,}" required class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300" /></div>
-          <div><label class="text-sm">Adresse / lieu</label><input name="adres" placeholder="Rue, n°, code postal et commune" required class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300" /></div>
-          <div><label class="text-sm">Message</label><textarea name="bericht" placeholder="Décrivez brièvement le bâtiment et ce que vous souhaitez nettoyer…" required class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 min-h-[120px]"></textarea></div>
+          <div><label class="text-sm">Adresse / lieu</label><input name="adres" placeholder="Rue, n°, code postal et commune" autocomplete="street-address" required class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300" /></div>
+          <div>
+            <label class="text-sm">Message</label>
+            <textarea name="bericht" autocomplete="off" inputmode="text" autocorrect="on" autocapitalize="sentences" spellcheck="true"
+              class="mt-1 w-full rounded-xl bg-white text-neutral-900 border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 min-h-[140px]"
+              placeholder="Exemple : maison d’angle — 3 façades, ±8 châssis. Véranda (petite). Matinée en semaine ou samedi." required></textarea>
+          </div>
           <button class="rounded-xl px-4 py-3 bg-white text-neutral-900 hover:-translate-y-0.5 transition text-sm font-semibold">Envoyer</button>
           <p class="text-xs text-neutral-300">Ce formulaire envoie votre message directement à Info@osmose-xpert.be via un service sécurisé. Une confirmation s’affiche après l’envoi.</p>
         </div>
       </form>
     </div>
   </section>
+
+  <!-- Mobile sticky CTA -->
+  <div class="md:hidden fixed bottom-3 left-0 right-0 z-40">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="rounded-full shadow-lg border border-sky-200 bg-white overflow-hidden flex divide-x divide-sky-200">
+        <a href="tel:+32493673484" class="flex-1 py-3 text-center font-medium">Appeler</a>
+        <a href="https://wa.me/32493673484" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 text-center font-medium">WhatsApp</a>
+        <a href="#contact" class="flex-1 py-3 text-center font-semibold bg-sky-600 text-white hover:bg-sky-700">Devis</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="border-t border-neutral-200">
@@ -237,6 +289,13 @@
       <div class="text-xs">© <span id="year"></span> OsmoseXpert. Tous droits réservés.</div>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    if (location.hash === '#merci') {
+      var m = document.getElementById('merci');
+      if (m) m.classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
