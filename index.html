@@ -16,11 +16,12 @@
   </style>
 </head>
 <body class="min-h-screen bg-white text-neutral-900" id="home">
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-neutral-200">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-2xl bg-sky-600 text-white grid place-items-center font-bold">OX</div>
+ <!-- Header: vervang de huidige <img> + fallback door dit blok -->
+<img src="logo.png" alt="OsmoseXpert logo"
+     class="w-9 h-9 rounded-2xl object-contain"
+     onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='grid'">
+<div id="logo-fallback" class="w-9 h-9 rounded-2xl bg-sky-600 text-white grid place-items-center font-bold" style="display:none">OX</div>
+
         <div>
           <div class="font-bold text-lg leading-none">OsmoseXpert</div>
           <div class="text-xs text-sky-600">Streeploos schoon met puur osmosewater</div>
