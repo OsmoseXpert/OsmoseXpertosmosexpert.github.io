@@ -17,13 +17,20 @@
   </style>
 </head>
 <body class="min-h-screen bg-white text-neutral-900" id="home">
- <!-- Header: vervang de huidige <img> + fallback door dit blok -->
-<img src="logo.png" alt="OsmoseXpert logo"
-     class="w-9 h-9 rounded-2xl object-contain"
-     onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='grid'">
-<div id="logo-fallback" class="w-9 h-9 rounded-2xl bg-sky-600 text-white grid place-items-center font-bold" style="display:none">OX</div>
+<!-- Logo: vaste ruimte, geen layout shift -->
+<div class="logo-slot relative">
+  <img
+    src="assets/osmosexpert-logo.png"
+    alt="OsmoseXpert logo"
+    class="absolute inset-0 w-full h-full logo-img"
+    onload="this.style.opacity='1'; this.nextElementSibling.style.opacity='0';"
+    onerror="this.remove();"
+  >
+  <div id="logo-fallback"
+       class="absolute inset-0 rounded-2xl bg-sky-600 text-white grid place-items-center font-bold"
+       style="opacity:1">OX</div>
+</div>
 
-        <div>
           <div class="font-bold text-lg leading-none">OsmoseXpert</div>
           <div class="text-xs text-sky-600">Streeploos schoon met puur osmosewater</div>
         </div>
