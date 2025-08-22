@@ -11,26 +11,22 @@
   <meta property="og:url" content="https://www.osmose-xpert.be/" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%223%22 fill=%22%230ea5e9%22/><circle cx=%228%22 cy=%228%22 r=%221%22 fill=%22%23fff%22/></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>logo-slot{width:60px;height:60px}
-.logo-img{object-fit:contain;opacity:0;transition:opacity .15s}
+  <style>
     textarea::placeholder{font-size:.9em}
+    .badge{display:inline-flex;align-items:center;gap:.4rem;padding:.25rem .6rem;border:1px solid #e5e7eb;border-radius:9999px;background:#fff;font-size:.875rem}
+    .logo-img{width:36px;height:36px;object-fit:contain;display:none}
+    .logo-fallback{width:36px;height:36px;border-radius:14px;background:#0284c7;color:#fff;display:grid;place-items:center;font-weight:700}
   </style>
 </head>
 <body class="min-h-screen bg-white text-neutral-900" id="home">
-<!-- Logo: vaste ruimte, geen layout shift -->
-<div class="logo-slot relative">
-  <img
-    src="assets/osmosexpert-logo.png"
-    alt="OsmoseXpert logo"
-    class="absolute inset-0 w-full h-full logo-img"
-    onload="this.style.opacity='1'; this.nextElementSibling.style.opacity='0';"
-    onerror="this.remove();"
-  >
-  <div id="logo-fallback"
-       class="absolute inset-0 rounded-2xl bg-sky-600 text-white grid place-items-center font-bold"
-       style="opacity:1">OX</div>
-</div>
-
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-neutral-200">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- Logo (upload 'logo.png' naast index.html). Valt terug op OX als hij ontbreekt. -->
+        <img src="logo.png" alt="OsmoseXpert logo" class="logo-img" onload="this.style.display='block';this.nextElementSibling.style.display='none'">
+        <div class="logo-fallback">OX</div>
+        <div>
           <div class="font-bold text-lg leading-none">OsmoseXpert</div>
           <div class="text-xs text-sky-600">Streeploos schoon met puur osmosewater</div>
         </div>
@@ -45,7 +41,7 @@
         <a class="hover:text-sky-700" href="#faq">FAQ</a>
         <a class="hover:text-sky-700" href="#contact">Contact</a>
         <a href="#contact" class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-700 text-sky-700 hover:bg-sky-700 hover:text-white transition">
-          <span>Offerte aanvragen</span>
+          <span>Gratis offerte aanvragen</span>
           <svg viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true"><path fill="currentColor" d="M5 12h12l-4-4 1.4-1.4L21.8 12l-7.4 5.4L13 16z"/></svg>
         </a>
       </nav>
@@ -90,17 +86,26 @@
           Veilig vanaf de grond (tot ±3 verdiepingen), zonder ladders of agressieve producten. 
           <strong>Volledig onafhankelijk</strong>: we brengen osmosewater en materiaal zelf mee — u hoeft niets te voorzien.
         </p>
+
+        <!-- CTA + policyregel -->
         <div class="mt-6 flex flex-wrap items-center gap-3">
-          <a href="#contact" class="rounded-full px-5 py-3 bg-sky-600 text-white hover:bg-sky-700 hover:-translate-y-0.5 transition w-full sm:w-auto text-center">Gratis &amp; vrijblijvende offerte</a>
-          <span class="block w-full text-xs text-neutral-500">€50 minimumbedrag per interventie — verrekend bij uitvoering. <a href="#faq" class="underline hover:text-neutral-700">(zie FAQ)</a></span>
+          <a href="#contact" class="rounded-full px-5 py-3 bg-sky-600 text-white hover:bg-sky-700 hover:-translate-y-0.5 transition w-full sm:w-auto text-center">
+            Gratis offerte aanvragen
+          </a>
+          <span class="block w-full text-xs text-neutral-500">
+            €50 minimumbedrag per interventie — verrekend bij uitvoering. <a href="#faq" class="underline hover:text-neutral-700">(zie FAQ)</a>
+          </span>
         </div>
-        <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-sm text-neutral-700">
-          <li class="flex items-center gap-2"><span class="text-sky-600">•</span> Streeploos resultaat met osmosewater</li>
-          <li class="flex items-center gap-2"><span class="text-sky-600">•</span> Veilig tot 3 verdiepingen, geen ladders</li>
-          <li class="flex items-center gap-2"><span class="text-sky-600">•</span> Residentieel &amp; commercieel</li>
-          <li class="flex items-center gap-2"><span class="text-sky-600">•</span> Geen softwash/chemische behandelingen</li>
-        </ul>
+
+        <!-- USP-badges (rustiger dan bullets) -->
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="badge">Streeploos osmosewater (0 ppm)</span>
+          <span class="badge">Veilig tot 3 verdiepingen</span>
+          <span class="badge">Geen ladders, geen chemie</span>
+          <span class="badge">Residentieel &amp; commercieel</span>
+        </div>
       </div>
+
       <div class="relative">
         <div class="aspect-[4/3] relative overflow-hidden rounded-2xl border border-neutral-200 shadow">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Window_cleaning_with_a_pole_in_bath_arp.jpg/1600px-Window_cleaning_with_a_pole_in_bath_arp.jpg" alt="Close-up: water-fed pole tegen glasgevel (actie)" class="w-full h-full object-cover md:scale-100 scale-[1.12]" style="object-position:70% center" loading="lazy">
@@ -115,10 +120,22 @@
     <div class="max-w-6xl mx-auto px-4 py-14">
       <h2 class="text-2xl md:text-3xl font-bold">Diensten</h2>
       <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="rounded-2xl border border-neutral-200 p-5 bg-white"><h3 class="font-semibold">Ramen & Glasgevels</h3><p class="text-sm text-neutral-700 mt-2">Buitenreiniging met water-fed pole (tot 3 verdiepingen) en klassieke trekker waar nodig.</p></div>
-        <div class="rounded-2xl border border-neutral-200 p-5 bg-white"><h3 class="font-semibold">Zonnepanelen</h3><p class="text-sm text-neutral-700 mt-2">Veilig reinigen met osmosewater voor maximaal rendement, zonder agressieve producten.</p></div>
-        <div class="rounded-2xl border border-neutral-200 p-5 bg-white"><h3 class="font-semibold">Veranda & Serre</h3><p class="text-sm text-neutral-700 mt-2">Glas en profielen, inclusief moeilijk bereikbare zones met verlengde poles.</p></div>
-        <div class="rounded-2xl border border-neutral-200 p-5 bg-white"><h3 class="font-semibold">Opritten & Afspoelwerken</h3><p class="text-sm text-neutral-700 mt-2">Algemene afspoelwerken met osmosewater. <em>Geen</em> softwash of chemische behandelingen.</p></div>
+        <div class="rounded-2xl border border-neutral-200 p-5 bg-white">
+          <h3 class="font-semibold">Ramen & Glasgevels</h3>
+          <p class="text-sm text-neutral-700 mt-2">Buitenreiniging met water-fed pole (tot 3 verdiepingen) en klassieke trekker waar nodig.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-5 bg-white">
+          <h3 class="font-semibold">Zonnepanelen</h3>
+          <p class="text-sm text-neutral-700 mt-2">Veilig reinigen met osmosewater voor maximaal rendement, zonder agressieve producten.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-5 bg-white">
+          <h3 class="font-semibold">Veranda & Serre</h3>
+          <p class="text-sm text-neutral-700 mt-2">Glas en profielen, inclusief moeilijk bereikbare zones met verlengde poles.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-5 bg-white">
+          <h3 class="font-semibold">Dakgoten</h3>
+          <p class="text-sm text-neutral-700 mt-2"><em>(Binnenkort beschikbaar)</em> — aangeraden in de winterperiode om verstoppingen en overlopen te vermijden.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -312,7 +329,7 @@
     </div>
   </section>
 
-  <!-- Footer (strak en zonder betaaliconen) -->
+  <!-- Footer -->
   <footer class="border-top border-neutral-200">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-600 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
       <div class="flex items-center gap-3">
@@ -328,7 +345,7 @@
     </div>
   </footer>
 
-  <!-- JSON-LD (zonder paymentAccepted) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
