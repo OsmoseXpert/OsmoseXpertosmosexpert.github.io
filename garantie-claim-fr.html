@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Réclamer la garantie — OsmoseXpert</title>
+  <meta name="description" content="Réclamez ici votre garantie de satisfaction chez OsmoseXpert. Suivi rapide, téléchargement de photos et conditions transparentes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand:#0ea5e9;
+      --brand-dark:#0284c7;
+      --ink:#0f172a;
+      --muted:#475569;
+      --bg:#ffffff;
+      --ring:#bae6fd;
+      --field-bg:#f0f9ff;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--ink); background:var(--bg);
+    }
+    header{
+      background:var(--brand); color:#fff; position:sticky; top:0; z-index:10; box-shadow:0 2px 10px rgba(0,0,0,.08);
+    }
+    .wrap{ max-width:980px; margin:0 auto; padding:1.25rem; }
+    .brand{ display:flex; gap:.75rem; align-items:center; }
+    .brand img{ height:42px; }
+
+    .hero{ padding:2.5rem 0 1.25rem; }
+    h1{ font-size:clamp(1.6rem, 1.2rem + 1.5vw, 2.25rem); margin:.25rem 0 .5rem; color:var(--brand-dark); }
+    p.lead{ color:var(--muted); max-width:70ch; }
+
+    .card{ background:#fff; border:2px solid var(--brand); border-radius:16px; padding:1.25rem; box-shadow:0 6px 30px rgba(2,8,23,.06); }
+    .grid{ display:grid; gap:1rem; }
+    @media(min-width:820px){
+      .grid-2{ grid-template-columns: 2fr 1fr; }
+    }
+
+    form{ display:grid; gap:1rem; }
+    label{ font-weight:600; font-size:.95rem; color:var(--brand-dark); }
+    input, select, textarea{ width:100%; padding:.8rem 1rem; border:1px solid var(--brand); border-radius:12px; background:var(--field-bg); color:var(--ink); font:inherit; }
+    input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--brand-dark); box-shadow:0 0 0 3px var(--ring); }
+    textarea{ min-height:130px; resize:vertical; }
+
+    .hint{ color:var(--muted); font-size:.875rem; }
+    .required::after{ content:" *"; color:#ef4444; }
+
+    .actions{ display:flex; gap:.75rem; flex-wrap:wrap; align-items:center; }
+    .btn{ appearance:none; border:0; padding:.9rem 1.1rem; border-radius:12px; font-weight:700; cursor:pointer; }
+    .btn-primary{ background:var(--brand); color:#fff; }
+    .btn-primary:hover{ background:var(--brand-dark); }
+    .btn-muted{ background:#f1f5f9; color:#0f172a; }
+
+    .callout{ border:1px solid var(--brand-dark); border-radius:12px; padding:1rem; background:var(--field-bg); }
+    .callout strong{ color:var(--brand-dark); }
+
+    .file-list{ display:flex; flex-wrap:wrap; gap:.5rem; }
+    .pill{ background:var(--brand); color:#fff; padding:.35rem .6rem; border-radius:999px; font-size:.8rem; }
+
+    footer{ color:#64748b; font-size:.85rem; padding:2rem 0; }
+    .small{ font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap brand">
+      <img src="logo.png" alt="Logo OsmoseXpert">
+    </div>
+  </header>
+
+  <main class="wrap hero grid grid-2">
+    <section class="card">
+      <h1>Réclamer la garantie</h1>
+      <p class="lead">Pas 100 % satisfait d’un lavage récent ? Signalez-le ici pendant la période de garantie. Nous organiserons gratuitement une nouvelle intervention ou trouverons ensemble une solution.</p>
+
+      <form id="claimForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data" novalidate>
+        <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
+          <div>
+            <label class="required" for="name">Nom</label>
+            <input id="name" name="name" type="text" placeholder="Prénom et nom" required>
+          </div>
+          <div>
+            <label class="required" for="email">E‑mail</label>
+            <input id="email" name="email" type="email" placeholder="nom@exemple.be" required>
+          </div>
+          <div>
+            <label class="required" for="phone">Téléphone</label>
+            <input id="phone" name="phone" type="tel" placeholder="ex. 04xx xx xx xx" required>
+          </div>
+          <div>
+            <label class="required" for="orderdate">Date du lavage</label>
+            <input id="orderdate" name="order_date" type="date" required>
+          </div>
+        </div>
+
+        <div class="grid" style="grid-template-columns: 2fr 1fr; gap:1rem;">
+          <div>
+            <label class="required" for="address">Adresse du site</label>
+            <input id="address" name="address" type="text" placeholder="Rue, n°, code postal et commune" required>
+          </div>
+          <div>
+            <label for="reference">Facture/Référence (optionnel)</label>
+            <input id="reference" name="reference" type="text" placeholder="Référence ou n° de facture">
+          </div>
+        </div>
+
+        <div>
+          <label class="required" for="issue">Quel est le problème ?</label>
+          <textarea id="issue" name="issue" placeholder="Décrivez brièvement le problème (traces, gouttes, zone oubliée, …)" required></textarea>
+          <p class="hint">Plus votre description est précise, plus nous pourrons réagir rapidement.</p>
+        </div>
+
+        <div>
+          <label for="photos">Ajouter des photos (max. 8)</label>
+          <input id="photos" name="photos" type="file" accept="image/*" multiple>
+          <div id="fileList" class="file-list" aria-live="polite"></div>
+          <p class="hint">Des photos avec la bonne lumière et en détail nous aident à évaluer rapidement.</p>
+        </div>
+
+        <div class="callout small">
+          <strong>Préférez-vous appeler ?</strong><br>
+          Nous vous aidons immédiatement. Appelez-nous au 
+          <a id="callLink" href="tel:+32493673484">0493/67.34.84</a> ou envoyez un message WhatsApp.
+        </div>
+
+        <div>
+          <label for="preferred">Solution souhaitée</label>
+          <select id="preferred" name="preferred">
+            <option value="reclean">Planifier un nouveau lavage</option>
+            <option value="call">Contact/entretien téléphonique préalable</option>
+            <option value="credit">Note de crédit / autre solution</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="required" style="font-weight:500">
+            <input type="checkbox" name="terms" required> Je confirme que ce formulaire concerne la <a href="/garantie-voorwaarden.html" target="_blank" rel="noopener">garantie de satisfaction</a> et que je déclare dans le délai prévu.
+          </label>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Soumettre la garantie</button>
+          <button class="btn btn-muted" type="reset">Effacer</button>
+          <span class="hint" id="formStatus" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+
+    <aside class="grid" style="gap:1rem;">
+      <div class="card">
+        <h2 style="margin-top:0; color:var(--brand-dark);">Comment fonctionne la garantie</h2>
+        <ul class="small" style="margin:0 0 0 1rem; line-height:1.6;">
+          <li>Déclarer dans la période de garantie après le lavage.</li>
+          <li>Décrivez brièvement ce qui ne va pas et ajoutez des photos si possible.</li>
+          <li>Nous planifierons rapidement une nouvelle intervention ou trouverons une solution adaptée.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0; color:var(--brand-dark);">Astuce pour un traitement rapide</h3>
+        <p class="small">Indiquez les vitres/zones concernées, l’étage et l’accès éventuel (ex. portail de jardin, sonnette).</p>
+      </div>
+
+      <div class="card small">
+        <p><strong>Protection de vos données</strong><br>Nous utilisons vos données uniquement pour le suivi de votre demande de garantie. Voir aussi notre <a href="/privacy.html">politique de confidentialité</a>.</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="wrap">
+    © <span id="year"></span> OsmoseXpert — Renaix. Tous droits réservés.
+  </footer>
+
+  <script>
+    const photosInput = document.getElementById('photos');
+    const fileList = document.getElementById('fileList');
+    photosInput?.addEventListener('change', () => {
+      fileList.innerHTML = '';
+      const files = Array.from(photosInput.files || []).slice(0,8);
+      files.forEach(f => {
+        const el = document.createElement('span');
+        el.className = 'pill';
+        el.textContent = f.name;
+        fileList.appendChild(el);
+      });
+      if ((photosInput.files || []).length > 8) {
+        alert('Vous pouvez ajouter au maximum 8 photos.');
+        photosInput.value = '';
+        fileList.innerHTML = '';
+      }
+    });
+
+    const form = document.getElementById('claimForm');
+    const statusEl = document.getElementById('formStatus');
+    form?.addEventListener('submit', (e) => {
+      const requiredIds = ['name','email','phone','orderdate','address','issue'];
+      let ok = true;
+      requiredIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && !el.value.trim()) ok = false;
+      });
+      const terms = form.querySelector('input[name="terms"]');
+      if (terms && !terms.checked) ok = false;
+      if (!ok) {
+        e.preventDefault();
+        statusEl.textContent = 'Vérifiez les champs obligatoires.';
+        return;
+      }
+      statusEl.textContent = 'Envoi en cours…';
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
