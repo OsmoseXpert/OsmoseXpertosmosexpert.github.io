@@ -78,7 +78,7 @@
       <h1>Garantie claimen</h1>
       <p class="lead">Niet 100% tevreden over een recente wasbeurt? Meld het hier binnen de garantieperiode. We plannen gratis een herkansing of zoeken samen een oplossing.</p>
 
-      <form id="claimForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data" novalidate>
+      <form id="claimForm" action="https://formspree.io/f/mrbagbro"method="POST" enctype="multipart/form-data" novalidate>
         <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
           <div>
             <label class="required" for="name">Naam</label>
@@ -149,6 +149,17 @@
           <span class="hint" id="formStatus" role="status" aria-live="polite"></span>
         </div>
       </form>
+    
+      <!-- Succesboodschap (verborgen tot succesvolle verzending) -->
+<div id="successPanel" class="card" style="display:none; margin-top:1rem; border-color: #16a34a;">
+  <h2 style="margin-top:0; color:#16a34a;">Bedankt, je aanvraag is verzonden ✅</h2>
+  <p>We hebben je garantieclaim ontvangen. We nemen snel contact op via telefoon of e-mail om een vervolgafspraak te plannen of een passende oplossing te bieden.</p>
+  <p class="small">Tip: bewaar de bevestigingsmail en voeg indien nodig extra foto’s toe.</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="/">Terug naar home</a>
+  </div>
+</div>
+
     </section>
 
     <aside class="grid" style="gap:1rem;">
