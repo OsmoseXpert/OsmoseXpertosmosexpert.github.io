@@ -78,7 +78,7 @@
       <h1>Réclamer la garantie</h1>
       <p class="lead">Pas 100 % satisfait d’un lavage récent ? Signalez-le ici pendant la période de garantie. Nous organiserons gratuitement une nouvelle intervention ou trouverons ensemble une solution.</p>
 
-      <form id="claimForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data" novalidate>
+      <form id="claimForm" action="https://formspree.io/f/mrbagbro" method="POST" enctype="multipart/form-data" novalidate>
         <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
           <div>
             <label class="required" for="name">Nom</label>
@@ -149,6 +149,17 @@
           <span class="hint" id="formStatus" role="status" aria-live="polite"></span>
         </div>
       </form>
+      
+      <!-- Message de succès (caché jusqu’à l’envoi réussi) -->
+<div id="successPanel" class="card" style="display:none; margin-top:1rem; border-color:#16a34a;">
+  <h2 style="margin-top:0; color:#16a34a;">Merci, votre demande a été envoyée ✅</h2>
+  <p>Nous avons bien reçu votre réclamation de garantie. Nous vous recontacterons rapidement par téléphone ou par e-mail pour convenir d’une nouvelle intervention ou d’une solution adaptée.</p>
+  <p class="small">Astuce : conservez l’e-mail de confirmation et ajoutez des photos complémentaires si nécessaire.</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="/">Retour à l’accueil</a>
+  </div>
+</div>
+
     </section>
 
     <aside class="grid" style="gap:1rem;">
