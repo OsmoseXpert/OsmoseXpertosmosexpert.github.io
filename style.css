@@ -61,11 +61,12 @@ nav a:hover {
   position:relative;
   color:#fff;
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
   align-items:center;
-  justify-content:center;
-  height:60vh;
-  text-align:center;
+  justify-content: space-between;
+      height: 70vh;
+  padding: 0 5%;
+    text-align: left;
 }
 .hero .background {
   position:absolute;
@@ -103,6 +104,42 @@ nav a:hover {
   color:#fff;
   border:1px solid #fff;
 }
+
+/* Hero split layout */
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50%;
+}
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-image img {
+  max-width: 80%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 40px 5%;
+  }
+  .hero-content,
+  .hero-image {
+    max-width: 100%;
+    margin: 0;
+  }
+  .hero-image {
+    margin-top: 20px;
+  }
+}
+
 
 /* Subhero */
 .subhero {
