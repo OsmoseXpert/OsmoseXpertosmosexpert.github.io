@@ -357,5 +357,53 @@ footer small {
   font-size:1.75rem;
   margin-bottom:10px;
   color:#fff;
-  font-weight:700;
+  font-w
+    
+/* Updated hero split layout: large left white section with text, small right dark blue section with logo */
+.hero-content {
+  flex: 2;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1e293b;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 30px;
 }
+.hero-image {
+  flex: 1;
+  background: rgba(1, 26, 58, 0.9);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+.hero-image img {
+  max-width: 80%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+  .hero-content,
+  .hero-image {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 40px 20px;
+  }
+  .hero-content {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e293b;
+  }
+  .hero-image {
+    background: rgba(1, 26, 58, 0.95);
+    color: #ffffff;
+  }
+}
+
+
