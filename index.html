@@ -6,6 +6,48 @@
   <title>OsmoseXpert | Professionele ramenreiniging</title>
   <link rel="stylesheet" href="style.css">
 </head>
+      <style>
+      /* Hero override: reversed colors split layout */
+      .hero {
+        color: #011a3a;
+      }
+      .hero-content {
+        flex: 2;
+        background-color: #ffffff;
+        color: #011a3a;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .hero-image {
+        flex: 1;
+        background-color: #011a3a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .hero-image img {
+        max-width: 80%;
+        height: auto;
+      }
+      @media (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+          align-items: center;
+          height: auto;
+        }
+        .hero-content,
+        .hero-image {
+          width: 100%;
+          max-width: 100%;
+        }
+        .hero-image {
+          padding: 40px 20px;
+        }
+      }
+    </style>
+
 <body>
   <nav>
     <a href="index.html"><img src="images/logo.png" alt="OsmoseXpert logo" class="logo"></a>
