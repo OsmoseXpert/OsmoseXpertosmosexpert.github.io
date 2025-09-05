@@ -74,16 +74,23 @@ nav a:hover {
   height: 70vh;
   overflow: hidden;
 }
+/*
+ * The hero background image overlay used in earlier designs is hidden for the
+ * diagonal split layout. Setting display:none ensures the underlying hero
+ * panels (dark copy panel and light logo panel) are visible without being
+ * obscured by the image. If you wish to reintroduce a background image
+ * simply remove the display property and adjust the background settings.
+ */
 .hero .background {
-  display:none;
-  position:absolute;
+  display: none;
+  /* position:absolute;
   top:0;
   left:0;
   width:100%;
   height:100%;
   background:url('images/hero-bg.png') no-repeat center/cover;
   filter:brightness(0.8);
-  z-index:-1;
+  z-index:-1;*/
 }
 .hero h1 {
   font-size:3rem;
@@ -133,7 +140,7 @@ nav a:hover {
   justify-content: center;
   background-color: #011a3a;
   color: #ffffff;
-  clip-path: polygon(0 0, 70% 0, 50% 100%, 0% 100%);
+  clip-path: none;
 }
 
 /* Adjust brand name and copy sizes within the hero content */
@@ -163,7 +170,7 @@ nav a:hover {
   padding: 40px;
   /* Light background for the logo panel to contrast the dark copy panel */
   background-color: #ffffff;
-  clip-path: polygon(70% 0, 100% 0, 100% 100%, 50% 100%);
+  clip-path: none;
 }
 .hero-image img {
   max-width: 80%;
@@ -306,9 +313,10 @@ footer {
   margin:auto;
   display:flex;
   flex-wrap:wrap;
+  justify-content: space-between;
   gap:20px;
 }
-.footer-container div {
+.footer-container > div {
   flex:1 1 200px;
 }
 .footer-container h3 {
