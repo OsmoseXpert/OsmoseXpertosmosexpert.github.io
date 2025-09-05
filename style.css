@@ -75,6 +75,7 @@ nav a:hover {
   overflow: hidden;
 }
 .hero .background {
+  display:none;
   position:absolute;
   top:0;
   left:0;
