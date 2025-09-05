@@ -25,15 +25,51 @@
     <h2>Neem contact op</h2>
     <p>Vul het formulier in of gebruik de onderstaande contactgegevens. We nemen zo snel mogelijk contact met je op.</p>
     <!-- Use Formspree to handle the form submission. Replace `your-form-id` with your actual Formspree ID. -->
-    <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+    <form class="contact-form" action="https://formspree.io/f/mrbagbro" method="POST">
       <label>
         Naam
-        <input type="text" name="naam" required>
+       <input type="text" name="naam" required>
       </label>
-      <label>
-        E‑mail
+     <label>
+         <label>
+    Naam
+    <input type="text" name="naam" required>
+  </label>
+  <label>
+    E-mail
+    <input type="email" name="email" required>
+  </label>
+  <label>
+    Telefoon
+    <input type="tel" name="telefoon">
+  </label>
+  <label>
+    Onderhoudsplan
+    <select name="pakket" required>
+      <option value="">Kies je onderhoudsplan</option>
+      <option value="Bronze">Bronze – 4 beurten per jaar, 10% korting</option>
+      <option value="Silver">Silver – 6 beurten per jaar, 15% korting</option>
+      <option value="Gold">Gold – 12 beurten per jaar, 20% korting</option>
+    </select>
+  </label>
+  <label>
+    Bericht
+    <textarea name="bericht" rows="4"></textarea>
+  </label>
+  <button type="submit">Verstuur</button>
+ E‑mail
         <input type="email" name="email" required>
-      </label>
+   
+        <label>
+    Onderhoudsplan
+    <select name="pakket" required>
+      <option value="">Kies je onderhoudsplan</option>
+      <option value="Bronze">Bronze – 4 beurten per jaar, 10% korting</option>
+      <option value="Silver">Silver – 6 beurten per jaar, 15% korting</option>
+      <option value="Gold">Gold – 12 beurten per jaar, 20% korting</option>
+    </select>
+  </label>
+</label>
       <label>
         Telefoon
         <input type="tel" name="telefoon">
