@@ -57,16 +57,22 @@ nav a:hover {
 }
 
 /* Hero */
+/*
+ * The hero section uses a diagonal split layout where the copy sits on a dark
+ * panel and the logo sits on a light panel. The panels are sized in a 2:1
+ * ratio (copy panel twice as wide as the logo panel) and the diagonal cut
+ * between them is achieved via CSS clip-path polygons. When the viewport
+ * shrinks below the defined breakpoint the panels stack vertically and the
+ * diagonal clipping is removed to maintain readability on small screens.
+ */
 .hero {
-  position:relative;
-  color:#fff;
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content: space-between;
-      height: 70vh;
-  padding: 0 5%;
-    text-align: left;
+  position: relative;
+  color: #011a3a;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 70vh;
+  overflow: hidden;
 }
 .hero .background {
   position:absolute;
@@ -105,41 +111,80 @@ nav a:hover {
   border:1px solid #fff;
 }
 
-/* Hero split layout */
+/*
+ * Layout classes for the split hero panels. The copy panel takes up two
+ * thirds of the available width and uses a dark background with light
+ * text. The diagonal cut is defined via clip-path. The logo panel uses a
+ * light background and a complementary diagonal cut so the two shapes meet
+ * seamlessly in the middle. On smaller screens the panels collapse into a
+ * stacked layout and the clip paths are removed.
+ */
+/*
+ * Swap the colours on the hero panels so the copy panel uses a dark
+ * background with light text and the logo panel uses a light background. The
+ * diagonal shapes remain unchanged.
+ */
 .hero-content {
-  flex: 1;
+  flex: 2;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 50%;
+  background-color: #011a3a;
+  color: #ffffff;
+  clip-path: polygon(0 0, 70% 0, 50% 100%, 0% 100%);
 }
+
+/* Adjust brand name and copy sizes within the hero content */
+.hero-content .brand-name {
+  margin-bottom: 10px;
+  font-size: 32px;
+  /* White text on the dark copy panel */
+  color: #ffffff;
+}
+.hero-content h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* The right side of the hero containing the logo */
+/* Logo panel styles. Smaller width and inverted colours compared to the copy
+   panel. The diagonal shape mirrors the copy panel for a cohesive look. */
 .hero-image {
   flex: 1;
   display: flex;
+  align-items: flex-start;
   justify-content: center;
-  align-items: center;
+  padding: 40px;
+  /* Light background for the logo panel to contrast the dark copy panel */
+  background-color: #ffffff;
+  clip-path: polygon(70% 0, 100% 0, 100% 100%, 50% 100%);
 }
 .hero-image img {
   max-width: 80%;
   height: auto;
 }
+
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    text-align: center;
     height: auto;
     padding: 40px 5%;
+    text-align: center;
   }
   .hero-content,
   .hero-image {
     max-width: 100%;
-    margin: 0;
   }
   .hero-image {
     margin-top: 20px;
   }
 }
-
 
 /* Subhero */
 .subhero {
@@ -357,106 +402,5 @@ footer small {
   font-size:1.75rem;
   margin-bottom:10px;
   color:#fff;
-  font-w
-    
-/* Updated hero split layout: large left white section with text, small right dark blue section with logo */
-.hero-content {
-  flex: 2;
-  background: rgba(255, 255, 255, 0.9);
-  color: #1e293b;
-  max-width: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 40px 30px;
+  font-weight:700;
 }
-.hero-image {
-  flex: 1;
-  background: rgba(1, 26, 58, 0.9);
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-}
-.hero-image img {
-  max-width: 80%;
-  height: auto;
-}
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    height: auto;
-    text-align: center;
-  }
-  .hero-content,
-  .hero-image {
-    max-width: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 40px 20px;
-  }
-  .hero-content {
-    background: rgba(255, 255, 255, 0.95);
-    color: #1e293b;
-  }
-  .hero-image {
-    background: rgba(1, 26, 58, 0.95);
-    color: #ffffff;
-  }
-}
-
-  /* Hero diagonal split: dark left, white right */
-.hero {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  height: 70vh;
-  overflow: hidden;
-  color: #ffffff;
-}
-.hero-content {
-  flex: 2;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #011a3a;
-  color: #ffffff;
-  clip-path: polygon(0 0, 70% 0, 50% 100%, 0% 100%);
-}
-.hero-content .brand-name {
-  color: #ffffff;
-}
-.hero-image {
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 40px;
-  background-color: #ffffff;
-  clip-path: polygon(70% 0, 100% 0, 100% 100%, 50% 100%);
-}
-.hero-image img {
-  max-width: 80%;
-  height: auto;
-}
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    height: auto;
-    padding: 40px 5%;
-    text-align: center;
-  }
-  .hero-content,
-  .hero-image {
-    max-width: 100%;
-    width: 100%;
-    clip-path: none;
-  }
-  .hero-image {
-    margin-top: 20px;
-  }
-}
-
-
