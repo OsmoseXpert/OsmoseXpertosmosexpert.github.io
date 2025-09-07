@@ -33,7 +33,7 @@ nav a.active, nav a[aria-current="page"] { color:#fff; background:var(--brand); 
 .subhero h1 { margin:0; font-size:32px; line-height:1.2; }
 .subhero p { margin-top:8px; color:#e6f0fa; }
 .subhero img {
-  height: 100%;
+  max-height: 160px;  /* past mooi in de banner */
   width: auto;
   object-fit: contain;
 }
@@ -42,6 +42,7 @@ nav a.active, nav a[aria-current="page"] { color:#fff; background:var(--brand); 
 .section { max-width:1100px; margin:30px auto; padding:0 20px; }
 .grid { display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; }
 @media (max-width: 900px){ .grid { grid-template-columns: 1fr; } .subhero { background:#0f6ab8; flex-direction:column; text-align:center; } .subhero img{margin-top:16px;} }
+
 
 /* Form */
 .card { background:#fff; border:1px solid #e2e8f0; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,0.05); padding:22px; }
