@@ -3,33 +3,202 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prijzen | OsmoseXpert</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Prijzen | OsmoseXpert — ramen, glasgevels & zonnepanelen</title>
+  <meta name="description" content="Transparante prijzen voor ramenreiniging met osmosewater. Richtprijzen per type woning en info voor bedrijven, scholen en grotere projecten.">
+  <meta property="og:title" content="OsmoseXpert – Prijzen & werkwijze">
+  <meta property="og:description" content="Transparante prijzen voor ramen, glasgevels en zonnepanelen.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#011a3a">
+  <link rel="canonical" href="prijzen.html">
+  <meta property="og:image" content="images/logo-vertical.png">
+  <style>
+/* Reset and general */
+* { box-sizing: border-box; margin:0; padding:0; }
+:root { --brand:#0f6ab8; --ink:#1e293b; --bg:#f6f9fc; --dark:#011a3a; }
+body { font-family: Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+a { color:var(--brand); text-decoration:none; transition: all .2s ease; }
+a:hover { text-decoration:underline; }
+
+/* Navbar */
+nav { background:#fff; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:14px 20px; position:sticky; top:0; z-index:100; }
+nav ul { display:flex; gap:20px; }
+nav li { list-style:none; }
+nav a { color:var(--ink); font-weight:600; padding:6px 10px; border-radius:6px; }
+nav a:hover { color:var(--brand); background:#e6f0fa; }
+nav a.active { color:#fff; background:var(--brand); }
+nav a[aria-current="page"] { color:#fff; background:var(--brand); }
+
+/* Sections */
+.section { max-width:1000px; margin:40px auto; padding:40px; background:#fff; border-radius:14px; box-shadow:0 6px 28px rgba(0,0,0,0.06); }
+.section h2 { margin-bottom:18px; color:#0a3d62; font-size:1.8rem; }
+.section p { margin-bottom:22px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+.card { border:1px solid #e2e8f0; border-radius:12px; padding:18px; background:#fff; transition:transform .2s ease; }
+.card:hover { transform:translateY(-4px); box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+.card h3 { color:var(--brand); margin-bottom:6px; }
+.card p { margin-bottom:10px; }
+.badge { display:inline-block; padding:4px 8px; border-radius:999px; font-size:.85rem; border:1px solid #dbe4f0; margin-top:4px; }
+.note { background:#f0f6ff; border:1px solid #cfe0ff; padding:14px; border-radius:10px; }
+.small { font-size:.92rem; opacity:.95; }
+
+/* Table */
+.table { width:100%; border-collapse: collapse; margin-top:10px; }
+.table th, .table td { border:1px solid #e2e8f0; padding:10px; text-align:left; }
+.table th { background:#f8fbff; }
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:8px;font-weight:700;border:1px solid #e2e8f0}
+.btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+.btn.secondary{background:transparent;color:var(--brand)}
+
+/* Footer */
+footer { background:#0a3d62; color:#fff; padding:40px 20px; }
+.footer-container { max-width:1100px; margin:auto; display:flex; flex-wrap:wrap; justify-content: space-between; gap:20px; }
+.footer-container > div { flex:1 1 220px; }
+.footer-nav { list-style:none; padding:0; }
+.footer-nav li { margin-bottom:8px; }
+.footer-nav a { color:#cfe8ff; }
+footer small { display:block; text-align:center; margin-top:20px; color:#94a3b8; }
+
+/* A11y */
+.skip-link{ position:absolute; left:-9999px; top:auto; }
+.skip-link:focus{ left:12px; top:12px; background:#fff; padding:8px 12px; border:2px solid var(--brand); border-radius:6px; z-index:1000; }
+:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  </style>
 </head>
 <body>
-  <nav>
-  <a href="index.html"><img src="images/logo.png" alt="OsmoseXpert logo" class="logo"></a>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="over-ons.html">Over ons</a></li>
-    <li><a href="diensten.html">Diensten</a></li>
-    <li><a href="prijzen.html">Prijzen</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-  <header class="subhero">
-    <h1>Onze prijzen</h1>
-  </header>
-  <section class="section">
-    <h2>Transparant en helder</h2>
-    <p>Onze prijzen zijn duidelijk en eerlijk. Onze pakketten voor ramenreiniging starten vanaf <strong>&euro;35</strong>, zonnepanelen vanaf <strong>&euro;3,60 per paneel</strong>. Kies voor een onderhoudsplan en geniet van voordelige tarieven.</p>
-    <p>Voor een volledig overzicht: <a href="prijslijst-2025.html" target="_blank">bekijk de volledige prijslijst&nbsp;2025</a>.</p>
-  </section>
-  <section class="section">
-    <iframe src="prijslijst-2025.html" style="width:100%; height:1000px; border:none;"></iframe>
-  </section>
+  <a class="skip-link" href="#content">Snel naar inhoud</a>
+  <nav aria-label="Hoofdmenu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="over-ons.html">Over ons</a></li>
+      <li><a href="diensten.html">Diensten</a></li>
+      <li><a href="prijzen.html" class="active" aria-current="page">Prijzen</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="content">
+    <section class="section">
+      <h2>Hoe we prijzen bepalen</h2>
+      <p>
+        Bij OsmoseXpert hanteren we <strong>transparante richtprijzen</strong>, afgestemd op het type woning of project. De uiteindelijke kostprijs wordt bepaald door factoren zoals:
+      </p>
+      <ul>
+        <li>Bereikbaarheid en aantal ramen of ramenpartijen</li>
+        <li>Hoogte en eventuele moeilijkheden in toegang</li>
+        <li>Graad van vervuiling en specifieke wensen</li>
+        <li>Frequentie van onderhoud (eenmalig of via plan)</li>
+      </ul>
+      <p>
+        Zo weet je altijd vooraf waar je aan toe bent — <em>geen verrassingen achteraf</em>. Voor grotere projecten maken we een <strong>offerte op maat</strong> na plaatsbezoek of intake.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Richtprijzen particulieren</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Appartement</h3>
+          <p>Compacte ramenpartij. Prijs afhankelijk van verdieping en bereikbaarheid.</p>
+          <p class="small">Indicatie per beurt (binnen/buiten of buiten): <span class="badge">vanaf € 50</span></p>
+        </div>
+        <div class="card">
+          <h3>Rijwoning / halfopen</h3>
+          <p>Bij rijwoningen worden steeds de voor- en achterkant (twee gevels) volledig meegenomen. Bij halfopen bebouwing reinigen we uiteraard drie gevels.</p>
+          <p class="small">Indicatie per beurt: <span class="badge">Rijwoning vanaf € 79 / Halfopen vanaf € 149</span></p>
+        </div>
+        <div class="card">
+          <h3>Vrijstaande woning</h3>
+          <p>Grotere glaspartijen en variërende hoogtes. Voor- en achterkant (twee gevels) inbegrepen, ladderloos en efficiënt uitgevoerd.</p>
+          <p class="small">Indicatie per beurt: <span class="badge">Vrijstaande woning vanaf € 179</span></p>
+        </div>
+      </div>
+      <p class="small">Binnenzijde reinigen, veranda/serre en extra ramenpartijen kunnen worden toegevoegd aan het basispakket.</p>
+    </section>
+
+    <section class="section">
+      <h2>Zonnepanelen</h2>
+      <p>Reiniging met puur osmosewater verhoogt het rendement en laat geen zeepresten achter.
+      <br><br><strong>Tarieven:</strong> €3,60 (laag bereik) / €4,25 (hoog bereik) per paneel. Voor elk bezoek geldt een minimum van €85 om verplaatsing en werkuren te dekken. Bij grotere installaties betaal je automatisch het voordeligere per-paneel tarief. Combineer met ramen voor 10% korting.</p>
+      <table class="table" aria-label="Richtprijzen zonnepanelen">
+        <thead>
+          <tr>
+            <th>Bereik</th>
+            <th>Richtprijs</th>
+            <th>Opmerking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Laag bereik</td>
+            <td>€ 3,60 per paneel</td>
+            <td>Snelle uitvoering, lage risico’s</td>
+          </tr>
+          <tr>
+            <td>Hoog bereik</td>
+            <td>€ 4,25 per paneel</td>
+            <td>Afhankelijk van hoek/hoogte en bereikbaarheid</td>
+          </tr>
+          <tr>
+            <td colspan="3"><em>Minimumtarief per bezoek: € 85. Bij combinatie ramen + zonnepanelen geldt 10% korting.</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Bedrijven, KMO & glasgevels</h2>
+      <p>
+        Voor professionele sites werken we doorgaans <strong>per m² glas</strong> of <strong>per project</strong> met een duidelijke scope. 
+        Showrooms en glasgevels worden vaak gecombineerd met gevel- en omlijstingspoets voor een verzorgd geheel.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Glasgevels & showrooms</h3>
+          <p class="small">Prijs per m² of per project, na plaatsbezoek.</p>
+        </div>
+        <div class="card">
+          <h3>Scholen & campussen</h3>
+          <p class="small">Strakke deadlineplanning (bv. 14 dagen pre‑start schooljaar) mogelijk via contract.</p>
+        </div>
+        <div class="card">
+          <h3>Kantoren & KMO-sites</h3>
+          <p class="small">Combinatie ramen + inkompartijen + signalisatie op maat.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Onderhoud & kortingen</h2>
+      <ul>
+        <li><strong>Onderhoudsplan</strong>: regelmatige beurten (maandelijks/3‑maandelijks/halfjaarlijks) met plan‑korting. <a href="onderhoudsplannen.html">Bekijk de pakketten</a>.</li>
+        <li><strong>Bundelkorting</strong>: ramen + zonnepanelen of ramen + veranda/serre in één bezoek.</li>
+        <li><strong>Tevredenheidsgarantie</strong>: niet tevreden? We komen gratis bijsturen.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Veelgevraagde extra’s</h2>
+      <ul>
+        <li>Rolluiken: €8/stuk – 5 voor €35</li>
+        <li>Garagepoort: €20 (enkel) – €30 (dubbel)</li>
+        <li>Reclame- of verkeersborden: vanaf €50 per bord (basis), toeslag bij grotere of moeilijk bereikbare borden</li>
+      </ul>
+    </section>
+
+    <section class="section" id="offerte">
+      <p>
+        Voor onze actuele prijslijst verwijzen wij je graag naar de overzichtelijke tabel onderaan de <a href="index.html">Homepagina</a>. Daar vind je steeds de meest recente informatie, netjes en volledig weergegeven.
+      </p>
+      <div class="note small" style="margin-top:14px;">
+        <strong>Disclaimer:</strong> alle bedragen zijn <em>richtprijzen</em>. De definitieve prijs wordt bevestigd na (digitale) intake of plaatsbezoek en kan afwijken bij uitzonderlijke hoogtes, moeilijke bereikbaarheid, zware vervuiling of bijkomende wensen.
+      </div>
+    </section>
+  </main>
+
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -49,19 +218,14 @@
       <div class="footer-col">
         <h3>Contact</h3>
         <p>Ronse · Kluisbergen · Oudenaarde</p>
-        <p>Tel: <a href="tel:0493673484">0493 67 34 84</a>
-          <a href="https://wa.me/32493673484" class="whatsapp-link" aria-label="WhatsApp">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" fill="#25D366" style="margin-left:5px; vertical-align:middle;">
-  <path d="M17.472 14.381c-.297-.149-1.758-.867-2.028-.967-.271-.099-.468-.148-.666.149-.197.297-.764.967-.936 1.164-.173.198-.345.223-.642.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.481-1.761-1.654-2.059-.173-.297-.018-.458.131-.606.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.371-.025-.52-.074-.148-.666-1.611-.913-2.21-.242-.579-.487-.5-.666-.51-.173-.01-.371-.012-.57-.012-.198 0-.52.074-.792.371-.271.297-1.04 1.016-1.04 2.479s1.064 2.877 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.412.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-  <path d="M20.52 3.48C18.244 1.205 15.313 0 12.005 0 5.373 0 .047 5.327 .047 11.959c0 2.1.546 4.147 1.583 5.942L0 24l6.286-1.654c1.73.943 3.675 1.436 5.719 1.436h.002c6.631 0 11.959-5.327 11.959-11.959 0-3.308-1.205-6.239-3.447-8.469zM12.007 21.8h-.002c-1.847 0-3.654-.499-5.205-1.442l-.374-.223-3.727.979.995-3.636-.243-.374C2.541 15.97 2.053 14.005 2.053 11.96c0-5.484 4.463-9.947 9.947-9.947 2.649 0 5.139 1.032 7.01 2.902 1.871 1.872 2.904 4.361 2.904 7.01.001 5.484-4.463 9.948-9.947 9.948z"/>
-</svg>
-          </a>
-        </p>
+        <p>Tel: <a href="tel:0493673484">0493 67 34 84</a></p>
         <p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
       </div>
       <div class="footer-col">
         <h3>OsmoseXpert</h3>
+        <p>BTW BE0799.924.863</p>
         <p>Professionele ramenreiniging met osmosewater in Ronse, Kluisbergen en Oudenaarde.</p>
+        <p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
       </div>
     </div>
     <small>&copy; 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
