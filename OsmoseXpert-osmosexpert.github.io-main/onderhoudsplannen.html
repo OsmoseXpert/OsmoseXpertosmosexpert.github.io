@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Onderhoudsplannen | OsmoseXpert</title>
+<meta content="Onderhoudsplannen voor ramen en zonnepanelen: kies de frequentie, wij doen de rest. Streeploos schoon, zonder chemie." name="description"/>
+<meta content="OsmoseXpert – Onderhoudsplannen" property="og:title"/>
+<meta content="Altijd propere ramen met een onderhoudsplan op maat." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="#011a3a" name="theme-color"/>
+<style>
+/* Reset and general */
+* { box-sizing: border-box; margin:0; padding:0; }
+:root { --brand:#0f6ab8; --ink:#1e293b; --bg:#f6f9fc; --dark:#011a3a; }
+body { font-family: Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+a { color:var(--brand); text-decoration:none; transition: all .2s ease; }
+a:hover { text-decoration:underline; }
+
+/* Navbar */
+nav { background:#fff; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:14px 20px; position:sticky; top:0; z-index:100; }
+nav ul { display:flex; gap:20px; }
+nav li { list-style:none; }
+nav a { color:var(--ink); font-weight:600; padding:6px 10px; border-radius:6px; }
+nav a:hover { color:var(--brand); background:#e6f0fa; }
+nav a.active { color:#fff; background:var(--brand); }
+
+/* Subhero */
+.subhero { background:#e6f0fa; padding:56px 20px; text-align:center; color:#0a3d62; }
+.subhero h1 { font-size:2.25rem; margin-bottom:8px; }
+.subhero p { max-width:900px; margin:0 auto; }
+
+/* Section */
+.section { max-width:1100px; margin:40px auto; padding:24px; background:#fff; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,0.05); }
+.section h2 { margin-bottom:12px; color:#0a3d62; }
+.section p { margin-bottom:14px; }
+
+/* Plans grid */
+.plans { display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap:20px; }
+.plan { border:1px solid #e2e8f0; border-radius:12px; padding:18px; background:#fff; transition:transform .15s ease, box-shadow .15s ease; }
+.plan:hover { transform: translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.06); }
+.plan h3 { color:var(--brand); margin-bottom:6px; }
+.plan .freq { font-weight:700; margin-bottom:8px; }
+.plan ul { padding-left:18px; }
+.plan li { margin:6px 0; }
+
+/* Badges & helpers */
+.plan .badge { display:inline-block; background:#e6f0fa; color:var(--brand); border:1px solid #cfe0f3; border-radius:999px; padding:4px 10px; font-weight:700; font-size:0.9rem; margin-bottom:8px; }
+.muted { color:#64748b; font-size:0.9rem; }
+
+/* CTA */
+.cta-banner { background:var(--brand); color:#fff; padding:36px 20px; text-align:center; border-radius:12px; max-width:1100px; margin:40px auto; }
+.cta-banner a { display:inline-block; background:#fff; color:#var(--brand); padding:12px 24px; border-radius:8px; font-weight:700; }
+
+/* Footer */
+footer { background:#0a3d62; color:#fff; padding:40px 20px; }
+.footer-container { max-width:1100px; margin:auto; display:flex; flex-wrap:wrap; justify-content: space-between; gap:20px; }
+.footer-container > div { flex:1 1 220px; }
+.footer-nav { list-style:none; padding:0; }
+.footer-nav li { margin-bottom:8px; }
+.footer-nav a { color:#cfe8ff; }
+footer small { display:block; text-align:center; margin-top:20px; color:#94a3b8; }
+  
+
+/* === MOBILE NAV & LAYOUT (injected) === */
+.site-nav{
+  position: sticky; top: 0; z-index: 100;
+  background:#fff; border-bottom:1px solid #e2e8f0;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:12px 16px;
+}
+.site-nav .brand img{ display:block; height:28px; width:auto; }
+.nav-toggle{ display:none; border:1px solid #cbd5e1; background:#fff; border-radius:8px; padding:8px 10px; font-size:18px; line-height:1; cursor:pointer; }
+.nav-list{ display:flex; gap:16px; list-style:none; margin:0; padding:0; }
+.nav-list a{ display:block; padding:6px 10px; border-radius:6px; color:#1e293b; font-weight:600; }
+.nav-list a:hover{ color:#0f6ab8; background:#e6f0fa; }
+.nav-list a.active, .nav-list a[aria-current="page"]{ color:#fff; background:#0f6ab8; }
+
+/* Make images and embeds responsive */
+img, video, canvas { max-width:100%; height:auto; }
+
+/* Forms: avoid iOS zoom and improve tappable area */
+input, select, textarea, button{ font-size:16px; }
+button{ min-height:44px; }
+
+/* Subhero: consistent on desktop, flexible on mobile */
+.subhero{
+  background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  color:#fff;
+  height:180px;
+  padding:0 20px;
+  display:flex; align-items:center;
+}
+.subhero .wrap{
+  max-width:1100px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  width:100%; height:100%;
+}
+.subhero h1{ margin:0; font-size:clamp(22px, 3vw, 32px); line-height:1.2; }
+.subhero p{ margin-top:8px; color:#e6f0fa; font-size:clamp(14px, 1.6vw, 16px); }
+.subhero img{ max-height:100%; width:auto; object-fit:contain; }
+
+/* Cards & grids: stack on mobile */
+.section{ max-width:1100px; margin:30px auto; padding:0 20px; }
+.grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; }
+@media (max-width: 900px){
+  .nav-toggle{ display:block; }
+  .nav-list{
+    position:absolute; left:0; right:0; top:100%;
+    background:#fff; border-bottom:1px solid #e2e8f0;
+    display:none; flex-direction:column; gap:0; padding:8px;
+  }
+  .site-nav[data-open="true"] .nav-list{ display:flex; }
+  .grid{ grid-template-columns:1fr; }
+  .subhero{ background:#0f6ab8; height:auto; padding:28px 20px; }
+  .subhero .wrap{ flex-direction:column; text-align:center; height:auto; }
+  .subhero img{ margin-top:12px; max-height:120px; }
+}
+/* Accessibility helper */
+.sr-only{ position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+
+
+/* ==== DESKTOP-HERSTEL: behoud originele desktop look ==== */
+@media (min-width: 901px){
+  .site-nav{
+    position: static;
+    border-bottom: 1px solid #e2e8f0;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+  .site-nav .brand{ display: none; }
+  .nav-toggle{ display: none !important; }
+  .nav-list{ display: flex; gap: 20px; }
+
+  .subhero{
+    height: auto;
+    padding: 40px 20px;
+    background: linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  }
+  .subhero .wrap{ height: auto; }
+  .subhero img{ max-height: 160px; width: auto; object-fit: contain; }
+
+  .grid{ grid-template-columns: 1.2fr .8fr; gap: 26px; }
+}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"OsmoseXpert","areaServed":["Ronse","Kluisbergen","Oudenaarde"],"description":"Professionele ramenreiniging met osmosewater.","vatID":"BE0799.924.863","url":"https://osmose-xpert.be","telephone":"+32 493 67 34 84","image":"https://osmose-xpert.be/images/logo2.png"}</script>
+</head>
+<body>
+<nav aria-label="Hoofdmenu" class="site-nav">
+<a class="brand" href="index.html">
+<img alt="OsmoseXpert" height="28" src="images/logo2.png"/>
+</a>
+<button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle">
+<span class="sr-only">Menu</span>
+    ☰
+  </button>
+<ul class="nav-list" id="primary-nav">
+<li><a href="index.html">Home</a></li>
+<li><a href="over-ons.html">Over ons</a></li>
+<li><a href="diensten.html">Diensten</a></li>
+<li><a href="prijzen.html">Prijzen</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a class="active" href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<header class="subhero">
+<h1>Onderhoudsplannen</h1>
+<p>Altijd propere ramen en zonnepanelen, zonder dat je erom moet denken. Jij kiest de frequentie, wij doen de rest.</p>
+</header>
+<section class="section">
+<h2>Hoe werkt het?</h2>
+<p>We leggen samen een vaste frequentie vast (per kwartaal of halfjaarlijks). Je krijgt vooraf een herinnering en wij komen langs — streeploos schoon met osmosewater. Simpel en zorgeloos.</p>
+<ul>
+<li>Vaste planning met herinnering per sms/mail</li>
+<li>Streeploos resultaat met osmosewater</li>
+<li><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</li>
+</ul>
+</section>
+<section class="section">
+<h2>Formules</h2>
+<div class="plans">
+<div class="plan">
+<h3>Bronze</h3>
+<div class="freq">2× per jaar – Buitenramen</div>
+<span class="badge">−5%</span>
+<ul>
+<li>Buitenramen en raamdeuren</li>
+<li>Kaders &amp; dorpels inbegrepen</li>
+<li>Geschikt als basis-onderhoud</li>
+</ul>
+</div>
+<div class="plan">
+<h3>Silver</h3>
+<div class="freq">4× per jaar – Buitenramen + Veranda/serre (buitenzijde)</div>
+<span class="badge">−10%</span>
+<ul>
+<li>Alles uit Bronze</li>
+<li>Veranda/serre: dak en wanden (buitenzijde)</li>
+<li>Altijd netjes doorheen het jaar</li>
+</ul>
+</div>
+<div class="plan">
+<h3>Gold</h3>
+<div class="freq">4× per jaar – Buitenramen + Veranda/serre + Zonnepanelen (1×/jaar)</div>
+<span class="badge">−12%</span>
+<ul>
+<li>Alles uit Silver</li>
+<li>Zonnepanelenreiniging 1× per jaar</li>
+<li>Meer rendement en minder aanslag</li>
+</ul>
+</div>
+</div>
+<p class="muted" style="margin-top:12px;">Kortingen t.o.v. losse beurten. Kortingsvoorstel op basis van frequentie/bundel: Bronze −5%, Silver −10%, Gold −12%. Add-ons volgen dezelfde korting.</p>
+</section>
+<section class="cta-banner">
+<h2>Klaar voor zorgeloos zicht?</h2>
+<p>Vraag een vrijblijvende offerte of kies je plan meteen.</p>
+<a href="contact.html">Offerte aanvragen</a>
+</section>
+<footer>
+<div class="footer-container">
+<div class="footer-col">
+<h3>Snelle navigatie</h3>
+<ul class="footer-nav">
+<li><a href="index.html">Home</a></li>
+<li><a href="over-ons.html">Over ons</a></li>
+<li><a href="diensten.html">Diensten</a></li>
+<li><a href="prijzen.html">Prijzen</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+<li><a href="voorwaarden.html">Voorwaarden</a></li>
+<li><a href="privacy.html">Privacybeleid</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h3>Contact</h3>
+<p>Ronse · Kluisbergen · Oudenaarde</p>
+<p>Tel: <a href="tel:0493673484">0493 67 34 84</a></p>
+<p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+</div>
+<div class="footer-col">
+<h3>OsmoseXpert</h3>
+<p>BTW BE0799.924.863</p>
+<p>Professionele ramenreiniging met osmosewater in Ronse, Kluisbergen en Oudenaarde.</p>
+<p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug.</p>
+</div>
+</div>
+<small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
+</footer>
+<script>
+  // Mobile nav toggle (injected)
+  (function(){
+    const nav = document.querySelector('.site-nav');
+    const btn = nav?.querySelector('.nav-toggle');
+    if(!nav || !btn) return;
+    btn.addEventListener('click', () => {
+      const open = nav.getAttribute('data-open') === 'true';
+      nav.setAttribute('data-open', String(!open));
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+  })();
+</script>
+</body>
+</html>
