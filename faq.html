@@ -3,44 +3,198 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQ | OsmoseXpert</title>
-  <link rel="stylesheet" href="style.css">
+  <title>FAQ | OsmoseXpert – Professionele ramenreiniging in Ronse, Kluisbergen & Oudenaarde</title>
+  <meta name="description" content="Veelgestelde vragen over osmose ramenreiniging, raamwasser in Ronse, zonnepanelen schoonmaken en onderhoudsplannen. Antwoorden van OsmoseXpert: streeploos, veilig en zonder chemie.">
+  <meta property="og:title" content="OsmoseXpert – FAQ">
+  <meta property="og:description" content="Antwoorden op de meest gestelde vragen over professionele osmose ramenreiniging in Ronse, Kluisbergen en Oudenaarde.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#011a3a">
+  <link rel="canonical" href="https://osmose-xpert.be/faq.html">
+  <meta property="og:image" content="images/logo-vertical.png">
+  <style>
+/* Reset and general */
+* { box-sizing: border-box; margin:0; padding:0; }
+:root { --brand:#0f6ab8; --ink:#1e293b; --bg:#f6f9fc; --dark:#011a3a; --muted:#64748b; }
+body { font-family: Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+a { color:var(--brand); text-decoration:none; transition: all .2s ease; }
+a:hover { text-decoration:underline; }
+
+/* Navbar */
+nav { background:#fff; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:14px 20px; position:sticky; top:0; z-index:100; }
+nav ul { display:flex; gap:20px; }
+nav li { list-style:none; }
+nav a { color:var(--ink); font-weight:600; padding:6px 10px; border-radius:6px; }
+nav a:hover { color:var(--brand); background:#e6f0fa; }
+nav a.active { color:#fff; background:var(--brand); }
+nav a[aria-current="page"] { color:#fff; background:var(--brand); }
+
+/* Section */
+.section { max-width:1100px; margin:40px auto; padding:30px; background:#fff; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,0.05); }
+.section h2 { margin-bottom:18px; color:#0a3d62; }
+.section p { margin-bottom:12px; }
+
+/* FAQ dropdowns */
+details { margin-bottom:16px; border:1px solid #e2e8f0; border-radius:10px; padding:0; background:#f9fbfd; overflow:hidden; }
+details summary { list-style:none; cursor:pointer; font-weight:600; color:#0f6ab8; padding:16px 52px 16px 18px; position:relative; }
+details summary::-webkit-details-marker { display:none; }
+details summary::after { content:"+"; position:absolute; right:18px; top:50%; transform:translateY(-50%); font-weight:700; color:var(--muted); }
+details[open] { background:#eef6fc; }
+details[open] summary::after { content:"–"; }
+details .answer { padding:0 18px 16px 18px; color:#334155; }
+
+/* CTA */
+.cta-wrap { display:flex; flex-wrap:wrap; gap:12px; margin-top:10px; }
+.btn { display:inline-block; padding:12px 18px; border-radius:10px; font-weight:700; text-align:center; border:1px solid transparent; }
+.btn-primary { background:var(--brand); color:#fff; }
+.btn-primary:hover { filter:brightness(0.95); text-decoration:none; }
+.btn-ghost { background:#fff; border-color:#cfe8ff; color:var(--brand); }
+.btn-ghost:hover { background:#f0f7ff; text-decoration:none; }
+
+/* Footer */
+footer { background:#0a3d62; color:#fff; padding:40px 20px; }
+.footer-container { max-width:1100px; margin:auto; display:flex; flex-wrap:wrap; justify-content: space-between; gap:20px; }
+.footer-container > div { flex:1 1 220px; }
+.footer-nav { list-style:none; padding:0; }
+.footer-nav li { margin-bottom:8px; }
+.footer-nav a { color:#cfe8ff; }
+footer small { display:block; text-align:center; margin-top:20px; color:#94a3b8; }
+
+/* A11y & helpers */
+.skip-link{ position:absolute; left:-9999px; top:auto; }
+.skip-link:focus{ left:12px; top:12px; background:#fff; padding:8px 12px; border:2px solid var(--brand); border-radius:6px; z-index:1000; }
+:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  </style>
+  
+  <!-- Volledige FAQ structured data voor rich results -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Wat is osmosewater en waarom is het beter?","acceptedAnswer":{"@type":"Answer","text":"Osmosewater is ultra-puur water (0 ppm) zonder mineralen, kalk of zouten. Het droogt streeploos op en is veilig voor kozijnen, tuin en milieu."}},
+      {"@type":"Question","name":"Werken jullie met ladders?","acceptedAnswer":{"@type":"Answer","text":"Wij reinigen tot 15 meter vanaf de grond met waterfed pole-systemen. Zo voorkomen we schade en werken we veilig en efficiënt."}},
+      {"@type":"Question","name":"In welke regio zijn jullie actief?","acceptedAnswer":{"@type":"Answer","text":"OsmoseXpert is actief in Ronse, Kluisbergen en Oudenaarde. Voor projecten buiten deze regio bekijken we samen de mogelijkheden."}},
+      {"@type":"Question","name":"Reinigen jullie ook veranda’s, serres en zonnepanelen?","acceptedAnswer":{"@type":"Answer","text":"Ja, wij reinigen veranda’s, serres en zonnepanelen met zachte osmoseborstels – veilig voor alle ondergronden."}},
+      {"@type":"Question","name":"Wat kost osmose ramenreiniging?","acceptedAnswer":{"@type":"Answer","text":"De prijs hangt af van gebouwtype en aantal ramen. Raadpleeg onze prijzenpagina of vraag een vrijblijvende offerte."}},
+      {"@type":"Question","name":"Bieden jullie onderhoudscontracten aan?","acceptedAnswer":{"@type":"Answer","text":"Ja, onderhoudsplannen maandelijks, per kwartaal of jaarlijks zodat ramen het hele jaar door helder blijven."}},
+      {"@type":"Question","name":"Moet ik thuis zijn tijdens de reiniging?","acceptedAnswer":{"@type":"Answer","text":"Niet nodig. Met toegang tot de ramen voeren wij het werk uit, laten alles netjes achter en sturen een bevestiging en factuur per e‑mail."}},
+      {"@type":"Question","name":"Hoe garanderen jullie kwaliteit?","acceptedAnswer":{"@type":"Answer","text":"We volgen een vaste werkwijze (inspectie, voorreiniging, osmosebehandeling en nacontrole) en bieden tevredenheidsgarantie."}},
+      {"@type":"Question","name":"Is osmosewater veilig voor de tuin of dieren?","acceptedAnswer":{"@type":"Answer","text":"Ja. Osmosewater bevat geen chemie en laat geen residu na. Volledig veilig voor planten, huisdieren en omgeving."}},
+      {"@type":"Question","name":"Hoe kan ik een offerte aanvragen?","acceptedAnswer":{"@type":"Answer","text":"Via ons contactformulier of telefonisch. U ontvangt snel een transparante en vrijblijvende prijsberekening."}},
+      {"@type":"Question","name":"Kan ik een spoedafspraak krijgen?","acceptedAnswer":{"@type":"Answer","text":"Indien de planning het toelaat voorzien we een snelle interventie. Bel ons voor de snelste oplossing."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-  <nav>
-  <a href="index.html"><img src="images/logo.png" alt="OsmoseXpert logo" class="logo"></a>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="over-ons.html">Over ons</a></li>
-    <li><a href="diensten.html">Diensten</a></li>
-    <li><a href="prijzen.html">Prijzen</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-  <header class="subhero">
-    <h1>Veelgestelde vragen</h1>
-  </header>
-  <section class="section faq">
-    <h2>Alles wat je wilt weten</h2>
-    <h3>Wat is osmosewater en waarom geeft het streeploze ramen?</h3>
-    <p>Osmosewater is volledig gedemineraliseerd water (0&nbsp;ppm). Het spoelt vuil en zeepresten weg zonder vlekken of strepen achter te laten, waardoor je ramen langer schoon blijven.</p>
-    <h3>Is het veilig voor mijn tuin, vijver en huisdieren?</h3>
-    <p>Ja. Ons water bevat geen chemische producten en is volledig veilig voor mens, dier en planten.</p>
-    <h3>Kom je ook voor kleine opdrachten?</h3>
-    <p>Zeker. We voeren zowel kleine als grote opdrachten uit en bieden startersbeurten op maat.</p>
-    <h3>Hoe vaak moet ik mijn ramen laten reinigen?</h3>
-    <p>Dat hangt af van je wensen en situatie. We adviseren graag een passende frequentie en bieden onderhoudsplannen op maat.</p>
-    <h3>Kunnen jullie bij moeilijk bereikbare ramen?</h3>
-    <p>Ja. Met telescopische stelen bereiken we ramen tot ongeveer 15&nbsp;meter hoogte, zonder ladders tegen de gevel te plaatsen.</p>
-    <h3>Wat met houten kozijnen en gevoelige ondergronden?</h3>
-    <p>We behandelen elk oppervlak met zorg. Ons osmosewater tast verf, lak of hout niet aan en laat geen residu achter.</p>
-    <h3>Hoe snel kan ik geholpen worden?</h3>
-    <p>We streven naar een snelle responstijd en kunnen meestal binnen enkele dagen een afspraak inplannen.</p>
-    <h3>Heb ik last van lawaai of rommel?</h3>
-    <p>Onze werkwijze is geluidsarm en discreet. We laten alles netjes achter na de reiniging.</p>
-  </section>
+  <a class="skip-link" href="#content">Snel naar inhoud</a>
+  <nav aria-label="Hoofdmenu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="over-ons.html">Over ons</a></li>
+      <li><a href="diensten.html">Diensten</a></li>
+      <li><a href="prijzen.html">Prijzen</a></li>
+      <li><a href="faq.html" class="active" aria-current="page">FAQ</a></li>
+      <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="content">
+    <section class="section">
+      <h2>Veelgestelde vragen (FAQ)</h2>
+      <p>Klik op een vraag om het antwoord te bekijken. Zo ontdekt u alles over <strong>osmose ramenreiniging</strong> (raamwasser Ronse, Kluisbergen, Oudenaarde), het reinigen van <a href="diensten.html">zonnepanelen & glasgevels</a> en onze <a href="onderhoudsplannen.html">onderhoudsplannen</a>.</p>
+    </section>
+
+    <section class="section">
+      <h2>Algemeen</h2>
+      <details>
+        <summary aria-expanded="false">Wat is osmosewater en waarom is het beter?</summary>
+        <div class="answer">
+          <p>Osmosewater is ultra-puur water (0 ppm) zonder mineralen, kalk of zouten. Hierdoor droogt het streeploos op en blijven ramen langer schoon. Het is veilig voor kozijnen, tuin en milieu. Lees meer bij <a href="diensten.html">onze diensten</a>.</p>
+        </div>
+      </details>
+      <details>
+        <summary aria-expanded="false">Werken jullie met ladders?</summary>
+        <div class="answer">
+          <p>Neen. Wij reinigen tot 15 meter hoogte met waterfed pole-systemen, rechtstreeks vanaf de grond. Zo voorkomen we krassen en schade aan gevels en werken we veilig en discreet. Bekijk hoe we werken bij <a href="diensten.html">diensten</a>.</p>
+        </div>
+      </details>
+      <details>
+        <summary aria-expanded="false">In welke regio zijn jullie actief?</summary>
+        <div class="answer">
+          <p>Wij zijn gevestigd in <strong>Ronse</strong> en bedienen ook <strong>Kluisbergen</strong> en <strong>Oudenaarde</strong>. Voor projecten buiten deze regio bekijken we samen de mogelijkheden. <a href="contact.html">Neem contact op</a>.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <h2>Diensten & prijzen</h2>
+      <details>
+        <summary aria-expanded="false">Reinigen jullie ook veranda’s, serres en zonnepanelen?</summary>
+        <div class="answer">
+          <p>Ja, wij zijn gespecialiseerd in moeilijk bereikbare glaspartijen en <strong>zonnepanelen reinigen</strong>. Onze osmoseborstels zijn zacht en veilig voor alle ondergronden. Zie <a href="diensten.html">diensten</a>.</p>
+        </div>
+      </details>
+      <details>
+        <summary aria-expanded="false">Wat kost osmose ramenreiniging?</summary>
+        <div class="answer">
+          <p>De prijs hangt af van het type gebouw en het aantal ramen. Bekijk onze <a href="prijzen.html">prijzenpagina</a> voor transparante tarieven of vraag een <a href="contact.html">vrijblijvende offerte</a>.</p>
+        </div>
+      </details>
+      <details>
+        <summary aria-expanded="false">Bieden jullie onderhoudscontracten aan?</summary>
+        <div class="answer">
+          <p>Ja. We werken met onderhoudsplannen (maandelijks, per kwartaal of jaarlijks) zodat u altijd glasheldere ramen hebt, zomer én winter. Meer info bij <a href="onderhoudsplannen.html">onderhoudsplannen</a>.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <h2>Werkwijze & garanties</h2>
+      <details>
+        <summary aria-expanded="false">Moet ik thuis zijn tijdens de reiniging?</summary>
+        <div class="answer">
+          <p>Dat is niet nodig. Zolang wij toegang hebben tot de ramen, voeren we het werk uit en laten we alles netjes achter. U ontvangt een bevestiging en factuur per e-mail. Praktische info vindt u bij <a href="diensten.html">onze werkwijze</a>.</p>
+        </div>
+      </details>
+      <details>
+        <summary aria-expanded="false">Hoe garanderen jullie kwaliteit?</summary>
+        <div class="answer">
+          <p>Wij werken volgens een vaste werkwijze: inspectie, voorreiniging, osmosebehandeling en nacontrole. Bovendien geldt onze <strong>tevredenheidsgarantie</strong>: niet tevreden, dan komen wij gratis terug. Zie ook <a href="voorwaarden.html">voorwaarden</a>.</p>
+        </div>
+      </details>
+      <details>
+        <summary aria-expanded="false">Is osmosewater veilig voor de tuin of dieren?</summary>
+        <div class="answer">
+          <p>Ja, osmosewater is puur natuur: geen chemie, geen residu. Volledig veilig voor planten, huisdieren en omgeving.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <h2>Contact & offerte</h2>
+      <details>
+        <summary aria-expanded="false">Hoe kan ik een offerte aanvragen?</summary>
+        <div class="answer">
+          <p>Dat kan eenvoudig via ons <a href="contact.html">contactformulier</a> of telefonisch via <a href="tel:+32493673484">+32 493 67 34 84</a>. U krijgt snel een transparante en vrijblijvende prijsberekening.</p>
+        </div>
+      </details>
+      <details>
+        <summary aria-expanded="false">Kan ik een spoedafspraak krijgen?</summary>
+        <div class="answer">
+          <p>Ja, indien onze planning het toelaat. Bel ons rechtstreeks en wij bekijken samen de snelste oplossing.</p>
+        </div>
+      </details>
+      
+      <!-- Afsluitende CTA -->
+      <div class="cta-wrap" aria-label="Acties">
+        <a class="btn btn-primary" href="contact.html">Vraag nu uw offerte aan</a>
+        <a class="btn btn-ghost" href="prijzen.html">Bekijk prijzen</a>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -60,22 +214,31 @@
       <div class="footer-col">
         <h3>Contact</h3>
         <p>Ronse · Kluisbergen · Oudenaarde</p>
-        <p>Tel: <a href="tel:0493673484">0493 67 34 84</a>
-          <a href="https://wa.me/32493673484" class="whatsapp-link" aria-label="WhatsApp">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" fill="#25D366" style="margin-left:5px; vertical-align:middle;">
-  <path d="M17.472 14.381c-.297-.149-1.758-.867-2.028-.967-.271-.099-.468-.148-.666.149-.197.297-.764.967-.936 1.164-.173.198-.345.223-.642.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.481-1.761-1.654-2.059-.173-.297-.018-.458.131-.606.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.371-.025-.52-.074-.148-.666-1.611-.913-2.21-.242-.579-.487-.5-.666-.51-.173-.01-.371-.012-.57-.012-.198 0-.52.074-.792.371-.271.297-1.04 1.016-1.04 2.479s1.064 2.877 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.412.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-  <path d="M20.52 3.48C18.244 1.205 15.313 0 12.005 0 5.373 0 .047 5.327 .047 11.959c0 2.1.546 4.147 1.583 5.942L0 24l6.286-1.654c1.73.943 3.675 1.436 5.719 1.436h.002c6.631 0 11.959-5.327 11.959-11.959 0-3.308-1.205-6.239-3.447-8.469zM12.007 21.8h-.002c-1.847 0-3.654-.499-5.205-1.442l-.374-.223-3.727.979.995-3.636-.243-.374C2.541 15.97 2.053 14.005 2.053 11.96c0-5.484 4.463-9.947 9.947-9.947 2.649 0 5.139 1.032 7.01 2.902 1.871 1.872 2.904 4.361 2.904 7.01.001 5.484-4.463 9.948-9.947 9.948z"/>
-</svg>
-          </a>
-        </p>
+        <p>Tel: <a href="tel:+32493673484">+32 493 67 34 84</a></p>
         <p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
       </div>
       <div class="footer-col">
         <h3>OsmoseXpert</h3>
+        <p>BTW BE0799.924.863</p>
         <p>Professionele ramenreiniging met osmosewater in Ronse, Kluisbergen en Oudenaarde.</p>
+        <p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
       </div>
     </div>
     <small>&copy; 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
   </footer>
+
+  <!-- Toegankelijkheid: aria-expanded togglen op summary -->
+  <script>
+    document.querySelectorAll('details > summary').forEach(function(sum){
+      const details = sum.parentElement;
+      sum.setAttribute('role','button');
+      sum.setAttribute('aria-controls', 'answer-' + Math.random().toString(36).slice(2));
+      sum.addEventListener('click', function(){
+        setTimeout(function(){
+          sum.setAttribute('aria-expanded', details.hasAttribute('open'));
+        }, 0);
+      });
+    });
+  </script>
 </body>
 </html>
