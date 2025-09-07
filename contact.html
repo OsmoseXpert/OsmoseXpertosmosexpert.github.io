@@ -28,20 +28,49 @@ nav a:hover { color:var(--brand); background:#e6f0fa; }
 nav a.active, nav a[aria-current="page"] { color:#fff; background:var(--brand); }
 
 /* Subhero */
-.subhero { background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%); color:#fff; padding:40px 20px; }
-.subhero .wrap { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-.subhero h1 { margin:0; font-size:32px; line-height:1.2; }
-.subhero p { margin-top:8px; color:#e6f0fa; }
+.subhero {
+  background: linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  color: #fff;
+  height: 180px;          /* vaste bannerhoogte */
+  padding: 0 20px;        /* géén verticale padding, anders groeit de hoogte */
+  display: flex;          /* center de inhoud netjes verticaal */
+  align-items: center;
+}
+.subhero .wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;     /* verticaal centreren binnen de wrap */
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  height: 100%;            /* laat de wrap de volledige bannerhoogte nemen */
+}
+.subhero h1 { margin: 0; font-size: 32px; line-height: 1.2; }
+.subhero p  { margin-top: 8px; color: #e6f0fa; }
 .subhero img {
-  max-height: 250px;  /* past mooi in de banner */
+  max-height: 100%;        /* logo past binnen de bannerhoogte */
   width: auto;
   object-fit: contain;
 }
 
 /* Grid */
-.section { max-width:1100px; margin:30px auto; padding:0 20px; }
-.grid { display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; }
-@media (max-width: 900px){ .grid { grid-template-columns: 1fr; } .subhero { background:#0f6ab8; flex-direction:column; text-align:center; } .subhero img{margin-top:16px;} }
+.section { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+.grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 26px; }
+
+/* Mobiel: banner mag automatisch in hoogte */
+@media (max-width: 900px){
+  .grid { grid-template-columns: 1fr; }
+  .subhero {
+    background: #0f6ab8;
+    height: auto;           /* laat op mobiel meeschalen */
+    padding: 40px 20px;     /* veilige verticale ruimte terug */
+    flex-direction: column;
+    text-align: center;
+  }
+  .subhero .wrap { height: auto; }
+  .subhero img { margin-top: 16px; max-height: 120px; }
+}
 
 
 /* Form */
