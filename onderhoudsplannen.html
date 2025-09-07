@@ -60,7 +60,45 @@ footer { background:#0a3d62; color:#fff; padding:40px 20px; }
 .footer-nav li { margin-bottom:8px; }
 .footer-nav a { color:#cfe8ff; }
 footer small { display:block; text-align:center; margin-top:20px; color:#94a3b8; }
-  </style>
+  /* ==== DESKTOP-ROLLBACK: herstel originele desktop look, behoud mobiel ==== */
+@media (min-width: 901px){
+
+  .site-nav{
+    position: static;
+    top: auto;
+    border-bottom: 1px solid #e2e8f0;
+    justify-content: center;
+    padding: 14px 20px;
+    background: #fff;
+  }
+  .site-nav .brand{ display: none !important; }
+  .nav-toggle{ display: none !important; }
+  .nav-list{ display: flex; gap: 20px; }
+
+  .subhero{
+    height: auto;
+    padding: 40px 20px;
+    text-align: left;
+  }
+  .subhero .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+  }
+  .subhero .wrap > div,
+  .subhero img{
+    flex: initial;
+    max-width: none;
+  }
+  .subhero img{
+    max-height: 160px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+</style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
