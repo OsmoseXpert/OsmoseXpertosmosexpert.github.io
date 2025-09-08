@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="nl">
 <head>
 <meta charset="utf-8"/>
@@ -11,7 +10,7 @@
 <meta content="website" property="og:type"/>
 <meta content="#011a3a" name="theme-color"/>
 <link href="https://osmose-xpert.be/" rel="canonical"/>
-<meta content="images/logo2.png" property="og:image"/>
+<meta content="images/logo-vertical.png" property="og:image"/>
 <style>
 /* Reset and general */
 * { box-sizing: border-box; margin:0; padding:0; }
@@ -58,7 +57,7 @@ nav a[aria-current="page"] { color:#fff; background:var(--brand); }
 .service-card h3 { color:var(--brand); margin-bottom:10px; }
 .service-card a { margin-top:10px; font-weight:700; }
 
-.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:8px;font-weight:600;border:1px solid #e2e8f0}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:8px;font-weight:600;border:1px solid #e2e8f0;min-height:44px}
 .btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
 .btn.secondary{background:transparent;color:var(--brand)}
 .btn.link{background:transparent;color:var(--brand);border:0;padding:0;border-radius:0;font-weight:700}
@@ -97,146 +96,59 @@ footer small { display:block; text-align:center; margin-top:20px; color:#94a3b8;
 
 /* Responsive */
 @media (max-width: 900px){ .hero{flex-direction:column; min-height:auto;} .hero-image{order:-1; padding:24px;} .hero-content .brand-name{font-size:48px;} .hero-content h1{font-size:32px;} }
-  
-
-/* === MOBILE NAV & LAYOUT (injected) === */
-.site-nav{
-  position: sticky; top: 0; z-index: 100;
-  background:#fff; border-bottom:1px solid #e2e8f0;
-  display:flex; align-items:center; justify-content:space-between;
-  gap:12px; padding:12px 16px;
-}
-.site-nav .brand img{ display:block; height:28px; width:auto; }
-.nav-toggle{ display:none; border:1px solid #cbd5e1; background:#fff; border-radius:8px; padding:8px 10px; font-size:18px; line-height:1; cursor:pointer; }
-.nav-list{ display:flex; gap:16px; list-style:none; margin:0; padding:0; }
-.nav-list a{ display:block; padding:6px 10px; border-radius:6px; color:#1e293b; font-weight:600; }
-.nav-list a:hover{ color:#0f6ab8; background:#e6f0fa; }
-.nav-list a.active, .nav-list a[aria-current="page"]{ color:#fff; background:#0f6ab8; }
-
-/* Make images and embeds responsive */
-img, video, canvas { max-width:100%; height:auto; }
-
-/* Forms: avoid iOS zoom and improve tappable area */
-input, select, textarea, button{ font-size:16px; }
-button{ min-height:44px; }
-
-/* Subhero: consistent on desktop, flexible on mobile */
-.subhero{
-  background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
-  color:#fff;
-  height:180px;
-  padding:0 20px;
-  display:flex; align-items:center;
-}
-.subhero .wrap{
-  max-width:1100px; margin:0 auto;
-  display:flex; align-items:center; justify-content:space-between; gap:24px;
-  width:100%; height:100%;
-}
-.subhero h1{ margin:0; font-size:clamp(22px, 3vw, 32px); line-height:1.2; }
-.subhero p{ margin-top:8px; color:#e6f0fa; font-size:clamp(14px, 1.6vw, 16px); }
-.subhero img{ max-height:100%; width:auto; object-fit:contain; }
-
-/* Cards & grids: stack on mobile */
-.section{ max-width:1100px; margin:30px auto; padding:0 20px; }
-.grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; }
-@media (max-width: 900px){
-  .nav-toggle{ display:block; }
-  .nav-list{
-    position:absolute; left:0; right:0; top:100%;
-    background:#fff; border-bottom:1px solid #e2e8f0;
-    display:none; flex-direction:column; gap:0; padding:8px;
+</style>
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"OsmoseXpert",
+    "areaServed":["Ronse","Kluisbergen","Oudenaarde"],
+    "description":"Professionele ramenreiniging met osmosewater.",
+    "vatID":"BE0799.924.863",
+    "url":"https://osmose-xpert.be",
+    "telephone":"+32 493 67 34 84"
   }
-  .site-nav[data-open="true"] .nav-list{ display:flex; }
-  .grid{ grid-template-columns:1fr; }
-  .subhero{ background:#0f6ab8; height:auto; padding:28px 20px; }
-  .subhero .wrap{ flex-direction:column; text-align:center; height:auto; }
-  .subhero img{ margin-top:12px; max-height:120px; }
-}
-/* Accessibility helper */
-.sr-only{ position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); }
+  </script>
 
-
-
-/* ==== DESKTOP-HERSTEL: behoud originele desktop look ==== */
-@media (min-width: 901px){
-  .site-nav{
-    position: static;
-    border-bottom: 1px solid #e2e8f0;
-    justify-content: center;
-    padding: 14px 20px;
-  }
-  .site-nav .brand{ display: none; }
-  .nav-toggle{ display: none !important; }
-  .nav-list{ display: flex; gap: 20px; }
-
-  .subhero{
-    height: auto;
-    padding: 40px 20px;
-    background: linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
-  }
-  .subhero .wrap{ height: auto; }
-  .subhero img{ max-height: 160px; width: auto; object-fit: contain; }
-
-  .grid{ grid-template-columns: 1.2fr .8fr; gap: 26px; }
-}
-
-/* ==== DESKTOP-ROLLBACK: herstel originele desktop look, behoud mobiel ==== */
-@media (min-width: 901px){
-
-  .site-nav{
-    position: static;
-    top: auto;
-    border-bottom: 1px solid #e2e8f0;
-    justify-content: center;
-    padding: 14px 20px;
-    background: #fff;
-  }
-  .site-nav .brand{ display: none !important; }
-  .nav-toggle{ display: none !important; }
-  .nav-list{ display: flex; gap: 20px; }
-
-  .subhero{
-    height: auto;
-    padding: 40px 20px;
-    text-align: left;
-  }
-  .subhero .wrap{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: auto;
-  }
-  .subhero .wrap > div,
-  .subhero img{
-    flex: initial;
-    max-width: none;
-  }
-  .subhero img{
-    max-height: 160px;
-    width: auto;
-    object-fit: contain;
-  }
+<!-- Replace the old page-banner styles with a split-hero banner variant -->
+<style>
+/***** Split Hero Banner (replacing the old page-banner) *****/
+.page-banner-split{position:relative;background:var(--dark);color:#fff;overflow:hidden}
+.page-banner-split .wrap{max-width:1100px;margin:0 auto;padding:36px 20px 40px;display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:center}
+.page-banner-split h1{margin:0;font-size:clamp(26px,3.2vw,42px);line-height:1.15}
+.page-banner-split p{margin-top:6px;color:#e6f0fa}
+.page-banner-split .banner-logo{max-height:110px;width:auto;display:block;margin-left:auto}
+/* white angled slice on the right */
+.page-banner-split::after{content:"";position:absolute;inset:0;clip-path:polygon(68% 0,100% 0,100% 100%,42% 100%);background:#fff;z-index:0}
+/* keep content above the slice */
+.page-banner-split .wrap > *{position:relative;z-index:1}
+/* extras for tagline, locations and CTAs */
+.page-banner-split .tagline{font-size:clamp(20px,2.4vw,28px);color:#fff;margin:4px 0 6px}
+.page-banner-split .locs{color:#e6f0fa;letter-spacing:.3px;font-weight:500}
+.page-banner-split .banner-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.page-banner-split .btn.secondary{background:transparent;color:#fff;border:1px solid #fff}
+@media (max-width:900px){
+  .page-banner-split::after{clip-path:none;background:var(--dark)}
+  .page-banner-split .wrap{grid-template-columns:1fr}
+  .page-banner-split .banner-logo{max-height:80px;margin:0}
 }
 </style>
-
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"OsmoseXpert","areaServed":["Ronse","Kluisbergen","Oudenaarde"],"description":"Professionele ramenreiniging met osmosewater.","vatID":"BE0799.924.863","url":"https://osmose-xpert.be","telephone":"+32 493 67 34 84","image":"https://osmose-xpert.be/images/logo2.png"}</script>
-<link rel="stylesheet" href="css/<link rel="stylesheet" href="css/desktop-rollback.css">
+<!-- Mobile hardening overrides -->
+<style>
+@media (max-width: 700px){
+  nav ul{gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;white-space:nowrap;justify-content:flex-start}
+  nav a{padding:10px 12px;font-size:14px}
+  .page-banner-split .wrap{padding:28px 16px 32px}
+  .page-banner-split .banner-cta{flex-direction:column;align-items:stretch}
+  .page-banner-split .banner-cta .btn{width:100%;justify-content:center;padding:14px 16px}
+  .page-banner-split h1{font-size:clamp(24px,6vw,34px)}
+}
+</style>
 </head>
-">
-</head>
-
 <body>
 <a class="skip-link" href="#content">Snel naar inhoud</a>
-<nav aria-label="Hoofdmenu" class="site-nav">
-<a class="brand" href="index.html">
-<img alt="OsmoseXpert" height="28" src="images/logo2.png"/>
-</a>
-<button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle">
-<span class="sr-only">Menu</span>
-    ☰
-  </button>
-<ul class="nav-list" id="primary-nav">
+<nav aria-label="Hoofdmenu">
+<ul>
 <li><a aria-current="page" class="active" href="index.html">Home</a></li>
 <li><a href="over-ons.html">Over ons</a></li>
 <li><a href="diensten.html">Diensten</a></li>
@@ -246,21 +158,24 @@ button{ min-height:44px; }
 <li><a href="contact.html">Contact</a></li>
 </ul>
 </nav>
-<header class="hero">
-<div class="hero-content">
-<h2 class="brand-name">OsmoseXpert</h2>
-<h1>Uw ramen, onze zorg.</h1>
-<p class="sublead">Streeploos schoon — ladderloos en zonder chemie.</p>
-<div class="buttons">
-<a href="contact.html">Gratis offerte</a>
-<a class="secondary" href="onderhoudsplannen.html">Onderhoudsplan ontdekken</a>
-</div>
-<p class="trust-row">Ronse · Kluisbergen · Oudenaarde</p>
-</div>
-<div class="hero-image">
-<img alt="" decoding="async" fetchpriority="high" height="640" role="presentation" src="images/logo-vertical.png" width="640"/>
-</div>
-</header>
+
+<!-- NEW split hero banner replacing the old page-banner -->
+<section aria-label="Paginabanner" class="page-banner-split" role="banner">
+  <div class="wrap">
+    <div class="text">
+      <h1>OsmoseXpert</h1>
+      <p class="tagline">Uw ramen, onze zorg.</p>
+      <p class="locs">Ronse · Kluisbergen · Oudenaarde</p>
+      <div class="banner-cta">
+        <a class="btn primary" href="contact.html">Vraag offerte</a>
+        <a class="btn secondary" href="onderhoudsplannen.html">Onderhoudsplan ontdekken</a>
+      </div>
+    </div>
+    <img alt="OsmoseXpert logo" class="banner-logo" src="/assets/logo2.svg"/>
+  </div>
+</section>
+
+
 <main id="content">
 <section class="section">
 <h2>Waarom OsmoseXpert?</h2>
@@ -301,14 +216,14 @@ button{ min-height:44px; }
 </section>
 <section class="cta-banner" id="prijslijst">
 <h2>Prijslijst 2025 ontvangen?</h2>
-<p>Ontvang de actuele prijsgids per e‑mail, met een korte uitleg en veelgestelde vragen.</p>
+<p>Ontvang de actuele prijsgids per e-mail, met een korte uitleg en veelgestelde vragen.</p>
 <form action="https://formspree.io/f/xnnblpyn" class="cta-form" id="priceForm" method="POST">
 <div class="row">
 <label for="naam">Naam</label>
 <input id="naam" name="naam" required="" type="text"/>
 </div>
 <div class="row">
-<label for="email">E‑mail</label>
+<label for="email">E-mail</label>
 <input id="email" name="email" required="" type="email"/>
 </div>
 <div class="row">
@@ -334,7 +249,7 @@ button{ min-height:44px; }
 </form>
 <p aria-live="polite" class="form-status" id="priceStatus" role="status"></p>
 <p style="margin-top:10px;font-size:.9rem;opacity:.9;">We delen je gegevens niet met derden.</p>
-<noscript><p><a href="mailto:info@osmose-xpert.be?subject=Aanvraag%20Prijslijst%202025%20OsmoseXpert">Stuur me de prijslijst per e‑mail</a></p></noscript>
+<noscript><p><a href="mailto:info@osmose-xpert.be?subject=Aanvraag%20Prijslijst%202025%20OsmoseXpert">Stuur me de prijslijst per e-mail</a></p></noscript>
 </section>
 <script>
   // Formspree endpoint: https://formspree.io/f/xnnblpyn
@@ -397,18 +312,5 @@ button{ min-height:44px; }
 </div>
 <small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
 </footer>
-<script>
-  // Mobile nav toggle (injected)
-  (function(){
-    const nav = document.querySelector('.site-nav');
-    const btn = nav?.querySelector('.nav-toggle');
-    if(!nav || !btn) return;
-    btn.addEventListener('click', () => {
-      const open = nav.getAttribute('data-open') === 'true';
-      nav.setAttribute('data-open', String(!open));
-      btn.setAttribute('aria-expanded', String(!open));
-    });
-  })();
-</script>
 </body>
 </html>
