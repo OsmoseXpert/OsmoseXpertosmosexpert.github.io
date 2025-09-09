@@ -1,233 +1,415 @@
-/* ===========================
-   OsmoseXpert – Minimal WP/GitHub CSS
-   Schone basis, geen logo/lay-out lock-in
-   =========================== */
-
-/* ------ Kleuren & basisvariabelen ------ */
-:root{
-  --brand-700:#0b4f8a;
-  --brand-600:#0f6ab8;   /* primaire blauw (pas aan naar jouw logo) */
-  --brand-500:#1881da;
-  --brand-400:#4aa2ea;
-  --brand-100:#eaf3fd;
-
-  --accent:#22b07d;      /* subtiele accentkleur (success/links hover) */
-  --ink:#1e293b;         /* hoofdtekst */
-  --muted:#64748b;       /* secundaire tekst */
-  --line:#e2e8f0;        /* borders/haarlijnen */
-  --bg:#f6f9fc;          /* paginabackground */
-  --surface:#ffffff;     /* kaarten/secties */
-  --warn:#ef4444;        /* foutmeldingen */
-  --focus:#94c6ff;       /* focusring */
-
-  --radius:14px;
-  --radius-sm:10px;
-  --shadow:0 10px 24px rgba(2,12,27,.08);
-  --shadow-sm:0 6px 16px rgba(2,12,27,.06);
-}
-
-/* ------ Reset/typografie ------ */
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-  color:var(--ink);
-  background:var(--bg);
+/* Reset and general */
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: Arial, sans-serif;
+  background:#f6f9fc;
+  color:#1e293b;
   line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
 }
-img{max-width:100%;height:auto;border:0}
-a{color:var(--brand-600);text-decoration:none}
-a:hover{color:var(--brand-700);text-decoration:underline}
-p{margin:0 0 1rem}
-small, .text-muted{color:var(--muted)}
-h1,h2,h3,h4,h5{
-  margin:0 0 .6rem;
-  line-height:1.25;
-  letter-spacing:-.01em;
+a {
+  color:#0f6ab8;
+  text-decoration:none;
 }
-h1{font-size:clamp(1.9rem,2.5vw,2.6rem);font-weight:800}
-h2{font-size:clamp(1.4rem,2.0vw,1.8rem);font-weight:800}
-h3{font-size:1.15rem;font-weight:700}
-ul,ol{margin:0 0 1rem 1.2rem}
-
-/* ------ Containers/secties ------ */
-.container{
-  width:min(1100px, 92%);
-  margin-inline:auto;
+a:hover {
+  text-decoration:underline;
 }
-.section{
-  padding:clamp(32px,6vw,72px) 0;
+ul {
+  list-style:disc;
+  margin-left:20px;
 }
-.section--alt{
-  background:linear-gradient(0deg, var(--surface), var(--surface)) padding-box,
-             radial-gradient(80% 120% at 50% -10%, var(--brand-100), transparent) border-box;
+ul.footer-nav {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.footer-nav li {
+  margin-bottom:6px;
 }
 
-/* ------ Kaarten ------ */
-.card{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow-sm);
-  padding:clamp(16px,2vw,24px);
-}
-.card--hover:hover{box-shadow:var(--shadow);transform:translateY(-1px);transition:.25s ease}
-
-/* ------ Navigatie ------ */
-nav, .site-header{
+/* Navbar */
+nav {
   background:#fff;
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid #e2e8f0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 20px;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
-nav .container, .site-header .container{
-  display:flex;align-items:center;justify-content:space-between;gap:24px;
-  padding:14px 0;
+nav ul {
+  display:flex;
+  gap:20px;
 }
-nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
-nav a{
-  display:inline-block;padding:8px 2px;border-radius:8px;color:var(--ink);
+nav li {
+  list-style:none;
 }
-nav a.active, nav a[aria-current="page"]{
-  color:var(--brand-700);font-weight:700;position:relative;
+nav a {
+  color:#1e293b;
+  font-weight:500;
 }
-nav a.active::after, nav a[aria-current="page"]::after{
-  content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--brand-600);
+nav a:hover {
+  color:#0f6ab8;
+}
+.logo {
+  height:40px;
 }
 
-/* ------ Hero (optioneel) ------ */
-.hero{
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.98)),
-    radial-gradient(120% 80% at 60% -10%, var(--brand-100), transparent);
-  padding:clamp(48px,7vw,110px) 0;
+/* Hero */
+/*
+ * The hero section uses a diagonal split layout where the copy sits on a dark
+ * panel and the logo sits on a light panel. The panels are sized in a 2:1
+ * ratio (copy panel twice as wide as the logo panel) and the diagonal cut
+ * between them is achieved via CSS clip-path polygons. When the viewport
+ * shrinks below the defined breakpoint the panels stack vertically and the
+ * diagonal clipping is removed to maintain readability on small screens.
+ */
+.hero {
+  position: relative;
+  color: #011a3a;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 70vh;
+  overflow: hidden;
 }
-.hero .eyebrow{color:var(--brand-700);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.hero .title{margin:.4rem 0 1rem}
-.hero .lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
-
-/* ------ Buttons ------ */
-.button, .btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  gap:.55rem;
-  padding:12px 18px;
-  border-radius:999px;
-  background:var(--brand-600);
-  color:#fff;
-  border:1px solid transparent;
-  box-shadow:var(--shadow-sm);
-  transition:transform .1s ease, box-shadow .2s ease, background .2s ease;
-  font-weight:700;
-}
-.button:hover, .btn:hover{
-  background:var(--brand-700);text-decoration:none;transform:translateY(-1px);box-shadow:var(--shadow)
-}
-.button--ghost{
-  background:transparent;color:var(--brand-700);border-color:var(--brand-600)
-}
-.button--ghost:hover{background:var(--brand-100)}
-.button--light{background:#fff;color:var(--brand-700);border-color:var(--line)}
-.button--light:hover{background:#fff;box-shadow:var(--shadow)}
-
-/* ------ Forms ------ */
-input, select, textarea{
+/*
+ * The hero background image overlay used in earlier designs is hidden for the
+ * diagonal split layout. Setting display:none ensures the underlying hero
+ * panels (dark copy panel and light logo panel) are visible without being
+ * obscured by the image. If you wish to reintroduce a background image
+ * simply remove the display property and adjust the background settings.
+ */
+.hero .background {
+  display: none;
+  /* position:absolute;
+  top:0;
+  left:0;
   width:100%;
-  padding:12px 14px;
-  border:1px solid var(--line);
-  border-radius:12px;
+  height:100%;
+  background:url('images/hero-bg.png') no-repeat center/cover;
+  filter:brightness(0.8);
+  z-index:-1;*/
+}
+.hero h1 {
+  font-size:3rem;
+  margin-bottom:10px;
+}
+.hero p {
+  font-size:1.2rem;
+  margin-bottom:20px;
+}
+.hero .buttons {
+  display:flex;
+  gap:15px;
+}
+.hero .buttons a {
+  padding:12px 24px;
+  border-radius:6px;
+  font-weight:600;
+}
+.hero .buttons a:first-child {
+  background:#0f6ab8;
+  color:#fff;
+}
+.hero .buttons a.secondary {
+  background:rgba(255,255,255,0.2);
+  color:#fff;
+  border:1px solid #fff;
+}
+
+/*
+ * Layout classes for the split hero panels. The copy panel takes up two
+ * thirds of the available width and uses a dark background with light
+ * text. The diagonal cut is defined via clip-path. The logo panel uses a
+ * light background and a complementary diagonal cut so the two shapes meet
+ * seamlessly in the middle. On smaller screens the panels collapse into a
+ * stacked layout and the clip paths are removed.
+ */
+/*
+ * Swap the colours on the hero panels so the copy panel uses a dark
+ * background with light text and the logo panel uses a light background. The
+ * diagonal shapes remain unchanged.
+ */
+.hero-content {
+  flex: 2;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #011a3a;
+  color: #ffffff;
+  clip-path: none;
+}
+
+/* Adjust brand name and copy sizes within the hero content */
+.hero-content .brand-name {
+  margin-bottom: 10px;
+  font-size: 32px;
+  /* White text on the dark copy panel */
+  color: #ffffff;
+}
+.hero-content h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* The right side of the hero containing the logo */
+/* Logo panel styles. Smaller width and inverted colours compared to the copy
+   panel. The diagonal shape mirrors the copy panel for a cohesive look. */
+.hero-image {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px;
+  /* Light background for the logo panel to contrast the dark copy panel */
+  background-color: #ffffff;
+  clip-path: none;
+}
+.hero-image img {
+  max-width: 80%;
+  height: auto;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 40px 5%;
+    text-align: center;
+  }
+  .hero-content,
+  .hero-image {
+    max-width: 100%;
+  }
+  .hero-image {
+    margin-top: 20px;
+  }
+}
+
+/* Subhero */
+.subhero {
+  background:#e6f0fa;
+  padding:60px 0;
+  text-align:center;
+  color:#0a3d62;
+}
+.subhero h1 {
+  font-size:2.5rem;
+  margin:0;
+}
+
+/* Section */
+.section {
+  max-width:1000px;
+  margin:40px auto;
+  padding:20px;
   background:#fff;
-  color:var(--ink);
-  outline:none;
-  transition:border .15s ease, box-shadow .15s ease;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.04);
 }
-input::placeholder, textarea::placeholder{color:#94a3b8}
-input:focus, select:focus, textarea:focus{
-  border-color:var(--brand-400);
-  box-shadow:0 0 0 4px var(--focus);
+.section h2 {
+  margin-bottom:15px;
+  color:#0a3d62;
 }
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:720px){.form-row{grid-template-columns:1fr}}
-label{display:block;margin-bottom:.45rem;font-weight:600;color:var(--muted)}
-.help-text{font-size:.9rem;color:var(--muted)}
-.form-error{color:#fff;background:var(--warn);padding:10px 12px;border-radius:10px}
+.section p {
+  margin-bottom:15px;
+}
 
-/* ------ USP / features ------ */
-.features{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+/* USP list */
+.usp-list {
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:10px;
 }
-@media (max-width:900px){.features{grid-template-columns:1fr 1fr}}
-@media (max-width:580px){.features{grid-template-columns:1fr}}
-.feature{
-  display:flex;gap:12px;align-items:flex-start;background:var(--surface);
-  border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 16px
+.usp-list li {
+  position:relative;
+  padding-left:30px;
+  margin-bottom:10px;
 }
-.feature .dot{width:10px;height:10px;border-radius:50%;background:var(--brand-600);margin-top:7px}
+.usp-list li::before {
+  content:'\2713';
+  position:absolute;
+  left:0;
+  top:0;
+  color:#0f6ab8;
+  font-weight:bold;
+}
 
-/* ------ Prijstabellen ------ */
-.pricing{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch
+/* Service */
+.service-list {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:20px;
 }
-@media (max-width:900px){.pricing{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.pricing{grid-template-columns:1fr}}
-.plan{
-  border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:22px;
-  box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px
+.service-card {
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
-.plan__title{font-weight:800}
-.plan__price{font-size:1.6rem;font-weight:800;color:var(--brand-700)}
-.plan__cta{margin-top:auto}
+.service-card h3 {
+  color:#0f6ab8;
+  margin-bottom:10px;
+}
+.service-card p {
+  flex-grow:1;
+}
+.service-card a {
+  margin-top:10px;
+  color:#0f6ab8;
+  font-weight:600;
+}
+.service-card a:hover {
+  text-decoration:underline;
+}
 
-/* ------ CTA-banners ------ */
-.cta{
-  background:linear-gradient(90deg, var(--brand-600), var(--brand-500));
-  color:#fff;border-radius:var(--radius);padding:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;
-  box-shadow:var(--shadow);
+/* CTA banner */
+.cta-banner {
+  background:#0f6ab8;
+  color:#fff;
+  padding:40px 20px;
+  text-align:center;
+  border-radius:8px;
+  max-width:1000px;
+  margin:40px auto;
 }
-.cta .cta__title{font-weight:800}
-.cta .cta__actions{display:flex;gap:10px;flex-wrap:wrap}
-@media (max-width:720px){.cta{flex-direction:column;text-align:center}}
+.cta-banner h2 {
+  margin-bottom:10px;
+}
+.cta-banner p {
+  margin-bottom:20px;
+}
+.cta-banner a {
+  display:inline-block;
+  background:#fff;
+  color:#0f6ab8;
+  padding:12px 24px;
+  border-radius:6px;
+  font-weight:600;
+}
 
-/* ------ Tabelstijl ------ */
-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden}
-thead th{background:var(--brand-100);text-align:left;padding:12px;border-bottom:1px solid var(--line);font-weight:800;color:var(--brand-700)}
-tbody td{padding:12px;border-bottom:1px solid var(--line)}
-tbody tr:hover{background:#fafcff}
+/* Footer */
+footer {
+  background:#0a3d62;
+  color:#fff;
+  padding:40px 20px;
+}
+.footer-container {
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  gap:20px;
+}
+.footer-container > div {
+  flex:1 1 200px;
+}
+.footer-container h3 {
+  margin-bottom:10px;
+}
+.logo-footer {
+  height:50px;
+}
+footer small {
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  color:#94a3b8;
+}
+.footer-nav {
+  list-style:none;
+  padding:0;
+}
+.footer-nav li {
+  margin-bottom:8px;
+}
+.footer-nav a {
+  color:#cfe8ff;
+}
 
-/* ------ FAQ / accordion ------ */
-.faq{display:grid;gap:10px}
-.faq details{
-  background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow-sm)
+/* FAQ */
+.faq h3 {
+  margin-top:20px;
+  color:#0f6ab8;
 }
-.faq summary{
-  list-style:none;cursor:pointer;font-weight:700;color:var(--ink);outline:none
+.faq p {
+  margin-bottom:10px;
 }
-.faq summary::-webkit-details-marker{display:none}
-.faq details[open]{box-shadow:var(--shadow)}
-.faq details p{margin:.6rem 0 0;color:var(--muted)}
 
-/* ------ Footer ------ */
-.site-footer{
-  background:#fff;border-top:1px solid var(--line);margin-top:40px
+/* Contact form */
+.contact-form {
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  max-width:600px;
+  margin-top:20px;
 }
-.site-footer .container{
-  display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px;padding:24px 0
+.contact-form label {
+  display:flex;
+  flex-direction:column;
+  font-weight:600;
+  color:#0a3d62;
 }
-.site-footer .muted{color:var(--muted);font-size:.95rem}
-@media (max-width:900px){.site-footer .container{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.site-footer .container{grid-template-columns:1fr}}
+.contact-form input,
+.contact-form textarea {
+  padding:10px;
+  border:1px solid #cbd5e1;
+  border-radius:6px;
+  font-size:1rem;
+}
+.contact-form button {
+  background:#0f6ab8;
+  color:#fff;
+  padding:12px 24px;
+  border:none;
+  border-radius:6px;
+  font-weight:600;
+  cursor:pointer;
+  align-self:flex-start;
+}
+.contact-form button:hover {
+  background:#0a4a7d;
+}
 
-/* ------ Utilities ------ */
-.max-w-prose{max-width:68ch}
-.center{text-align:center}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media (max-width:800px){.grid-2{grid-template-columns:1fr}}
-.badge{
-  display:inline-block;padding:6px 10px;border-radius:999px;background:var(--brand-100);color:var(--brand-700);font-weight:700
+/* Responsive small screens adjustments */
+@media (max-width:600px) {
+  .hero h1 {
+    font-size:2rem;
+  }
+  .hero p {
+    font-size:1rem;
+  }
+  .usp-list {
+    grid-template-columns:1fr;
+  }
+  nav ul {
+    gap:10px;
+  }
 }
-.hr{height:1px;background:var(--line);margin:18px 0}
 
-/* ------ Focus zichtbaarheid ------ */
-a:focus, button:focus, .btn:focus, input:focus, textarea:focus, select:focus{
-  outline:3px solid var(--focus);outline-offset:2px
+/* Hero branding */
+.hero-logo {
+  height:80px;
+  margin-bottom:10px;
+}
+.brand-name {
+  font-size:1.75rem;
+  margin-bottom:10px;
+  color:#fff;
+  font-weight:700;
 }
