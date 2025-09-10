@@ -16,41 +16,74 @@ body{font-family:'Quicksand','Poppins','Nunito','Segoe UI',Roboto,Helvetica,Aria
 a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
 img{max-width:100%;height:auto}
 
+/* === NAVIGATIEBALK === */
+.site-nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;gap:12px;padding:10px clamp(12px,3vw,24px)}
+.site-nav .brand{display:none}
+.site-nav .brand img{height:32px;width:auto;display:block}
+.nav-list{display:flex;gap:clamp(8px,2vw,18px);list-style:none;margin:0;padding:0;overflow-x:auto}
+.nav-list a{display:block;padding:8px 10px;border-radius:8px;color:var(--ink);font-weight:600;white-space:nowrap}
+.nav-list a:hover{background:#f1f5f9;color:var(--brand)}
+.nav-list a[aria-current="page"], .nav-list a.active{background:var(--brand);color:#fff}
+/* hamburger base (hidden desktop) */
+.nav-toggle{display:none;border:0;background:transparent;width:auto;height:auto;padding:0;margin:0 6px 0 0;align-items:center;gap:6px}
+.nav-toggle .label{font-weight:700;color:#0b3b53;font-size:1rem;line-height:1}
+.nav-toggle .burger{width:20px;height:2px;background:#0b3b53;border-radius:2px;position:relative;display:block}
+.nav-toggle .burger::before,.nav-toggle .burger::after{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;border-radius:2px}
+.nav-toggle .burger::before{top:-6px}
+.nav-toggle .burger::after{top:6px}
+
+@media (max-width:700px){
+  .site-nav{padding:6px clamp(12px,3vw,18px);justify-content:space-between;align-items:center}
+  .site-nav .brand{display:none}
+  .site-nav .brand img{display:block;height:clamp(26px, 7vw, 36px);width:auto}
+  /* Menu-knop als witte pill rechts */
+  .nav-toggle{display:flex;align-items:center;gap:10px;margin-left:auto;margin-right:12px;padding:8px 14px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 4px 12px rgba(2,6,23,.08)}
+  /* Lijst verbergen tot open */
+  .nav-list{display:none;flex-direction:column;gap:8px;background:#fff;border-bottom:1px solid #e2e8f0;padding:8px 12px;position:absolute;left:0;right:0;top:100%}
+  .site-nav[data-open="true"] .nav-list{display:flex}
+}
+@media (min-width:701px){
+  .nav-toggle{display:none}
+  .nav-list{display:flex !important;position:static;flex-direction:row;align-items:center;gap:clamp(8px,2vw,18px);background:transparent;padding:0;border:0}
+}
+
 /* === HERO BANNER === */
 .hero-banner{background:var(--banner);text-align:center;padding:60px 0 80px;display:flex;flex-direction:column;align-items:center}
-.hero-banner img{max-width:360px;height:auto;margin-bottom:24px}
-/* HERO LOGO: mask-truc om witte halo te voorkomen op donkere banner */
-.hero-logo{width:clamp(180px, 28vw, 360px);margin-bottom:24px}
-.hero-logo img{max-width:100%;height:auto;display:block}
-.hero-logo .mask{display:none}
-  .hero-logo .mask{display:none}
-}
+.hero-logo{width:clamp(220px,32vw,520px);margin:0 auto clamp(16px,2.4vw,32px);display:block}
+.hero-logo img{width:100%;height:auto;display:block}
 .hero-banner .content{max-width:820px;color:#fff;padding:0 20px;margin-top:20px}
-h1,h2,h3,.hero-banner h1{margin:0 0 14px;font-size:34px;line-height:1.2;font-weight:700;color:#fff}
-.hero-banner h1{margin:0 0 14px;font-size:34px;line-height:1.2;font-weight:700}
+h1,h2,h3,.hero-banner h1{font-family:var(--display)}
+.hero-banner h1{margin:0 0 14px;font-size:34px;line-height:1.2;font-weight:700;color:#fff}
 .hero-banner p{margin:0 0 30px;color:#e6f0fa;font-size:1.05rem;font-weight:500}
 .hero-banner .buttons{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:30px}
 .hero-banner .buttons a{padding:12px 20px;border-radius:8px;font-weight:600}
 .hero-banner .buttons a.btn.primary{background:#fff;color:var(--brand)}
 .hero-banner .buttons a.btn.secondary{background:transparent;border:2px solid #fff;color:#fff}
-@media(max-width:768px){.hero-banner{padding:40px 0 60px}.hero-banner img{max-width:240px}.hero-banner h1{margin:0 0 14px;font-size:34px;line-height:1.2;font-weight:700}}
 
 /* === LAYOUT SECTIONS === */
 .section{max-width:1100px;margin:40px auto;padding:30px;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,.05)}
 .section h2{margin-bottom:14px;color:#0a3d62}
 .section p{margin-bottom:14px}
 
+/* USP DROPDOWN (alle schermen) */
+.usp-mobile{margin-top:8px}
+.usp-mobile summary{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;background:#f1f5f9;font-weight:600;color:#0a3d62}
+.usp-mobile summary::-webkit-details-marker{display:none}
+.usp-mobile summary::after{content:"";width:10px;height:10px;border-right:2px solid #0a3d62;border-bottom:2px solid #0a3d62;transform:rotate(45deg);transition:transform .2s ease}
+.usp-mobile[open] summary::after{transform:rotate(-135deg)}
+.usp-mobile > .usp-list{display:none}
+.usp-mobile[open] > .usp-list{display:grid}
+
 /* USP list */
-.usp-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.usp-list{list-style:none;padding:0;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 .usp-list li{position:relative;padding:16px;border:1px solid #e2e8f0;border-radius:10px;background:#fafcff;box-shadow:0 2px 6px rgba(0,0,0,.03);transition:transform .15s ease, box-shadow .15s ease}
-.usp-list li::before{content:none;display:none}
 .usp-list li:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.06)}
 
 /* Services grid */
 .service-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
 .service-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;transition:transform .15s ease, box-shadow .15s ease}
 .service-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.06)}
-.service-card h3{color:var(--brand);margin-bottom:8px}
+.service-card h3{color:#0f6ab8;margin-bottom:8px}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:8px;font-weight:600;border:1px solid #e2e8f0}
@@ -83,67 +116,29 @@ footer{background:#0a3d62;color:#fff;padding:40px 20px}
 footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
 
 /* Small screens tweaks */
-@media(max-width:700px){.cta-form{grid-template-columns:1fr;padding:20px}} 
+@media(max-width:700px){.cta-form{grid-template-columns:1fr;padding:20px}}
 @media(max-width:600px){.section{margin:24px auto;padding:20px}}
-/* === NAVIGATIEBALK (uit je originele structuur) === */
-.site-nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;gap:12px;padding:10px clamp(12px,3vw,24px)}
-.site-nav .brand{display:none}
-.site-nav .brand img{height:32px;width:auto;display:block}
-.nav-list{display:flex;gap:clamp(8px,2vw,18px);list-style:none;margin:0;padding:0;overflow-x:auto}
-.nav-list a{display:block;padding:8px 10px;border-radius:8px;color:var(--ink);font-weight:600;white-space:nowrap}
-.nav-list a:hover{background:#f1f5f9;color:var(--brand)}
-.nav-list a[aria-current="page"], .nav-list a.active{background:var(--brand);color:#fff}
-/* hamburger base (hidden desktop) */
-.nav-toggle{display:none;border:0;background:transparent;width:44px;height:40px;padding:0;margin:0 6px 0 0;align-items:center;gap:6px}
-.nav-toggle .burger{display:block;width:22px;height:2px;background:#0b3b53;border-radius:2px}
-.nav-toggle .label{font-weight:700;color:#0b3b53;font-size:.95rem}
 
+/* Hero logo mobile sizing */
 @media (max-width:700px){
-  .site-nav{
-    padding:6px clamp(12px,3vw,18px);
-    justify-content:space-between;
-    align-items:center;
-  }
-  .site-nav .brand{display:block;flex:0 0 auto}
-  .site-nav .brand img{display:block;height:clamp(26px, 7vw, 36px);width:auto}
-  .nav-toggle{display:flex;flex-direction:row}
-  /* hide menu until opened */
-  .nav-list{display:none;flex-direction:column;gap:8px;background:#fff;border-bottom:1px solid #e2e8f0;padding:8px 12px;position:absolute;left:0;right:0;top:100%}
-  .site-nav[data-open="true"] .nav-list{display:flex}
+  .hero-logo{width:clamp(180px,52vw,320px);margin:0 auto 18px}
 }
-@media (min-width:701px){
-  .nav-toggle{display:none}
-  .nav-list{display:flex !important; position:static}
-}
-@media (min-width:701px){
-  .nav-toggle{display:none}
-  .nav-list{display:flex !important; position:static}
-}
-/* ==== MOBILE SCALING (alles iets compacter op kleine schermen) ==== */
+
+/* Mobiel compacter algemeen */
 @media (max-width:700px){
   body{font-size:15px;line-height:1.7}
-  /* Nav */
   .nav-list a{padding:6px 8px;font-size:.95rem}
-  /* Hero */
   .hero-banner{padding:28px 0 44px}
-  .hero-banner img{max-width:200px}
   .hero-banner h1{font-size:28px}
   .hero-banner p{font-size:1rem;margin-bottom:18px}
   .hero-banner .buttons{gap:10px}
   .hero-banner .buttons a{padding:10px 16px}
-  /* Sections */
   .section{margin:20px auto;padding:18px;border-radius:10px}
-  /* USP's */
-  .usp-list{grid-template-columns:1fr;gap:10px}
-  .usp-list li{padding:12px}
-  /* Services */
   .service-list{grid-template-columns:1fr;gap:14px}
   .service-card{padding:14px}
-  /* CTA */
   .cta-banner{padding:28px 14px;margin:28px auto}
   .cta-form{grid-template-columns:1fr;padding:16px;gap:12px}
   .cta-form button{padding:12px 20px;font-size:.95rem}
-  /* Footer */
   footer{padding:28px 16px}
   .footer-container{gap:12px}
   .footer-nav{font-size:.95rem}
@@ -152,14 +147,10 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
 </head>
 <body>
 <nav class="site-nav" aria-label="Hoofdmenu">
-  <!-- NAV-LOGO (bovenste balk): het pad naar je logo staat in het src-attribuut hieronder
-       Bestandslocatie relatief t.o.v. deze index.html: images/logo3.png (met cachebuster ?v=2) -->
   <a class="brand" href="index.html"><img id="navLogo" src="images/logo3.png?v=2" alt="OsmoseXpert"></a>
   <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu">
-    <span class="burger"></span>
-    <span class="burger"></span>
-    <span class="burger"></span>
     <span class="label">Menu</span>
+    <span class="burger"></span>
   </button>
   <ul class="nav-list" id="primary-nav">
     <li><a href="index.html" aria-current="page">Home</a></li>
@@ -172,8 +163,6 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
   </ul>
 </nav>
 <header class="hero-banner">
-  <!-- HERO-LOGO (grote banner): als je PNG transparantie lichte randen toont, gebruikt de mask-variant hieronder
-       Fallback <img> blijft aanwezig voor browsers zonder mask-ondersteuning -->
   <div class="hero-logo" role="img" aria-label="OsmoseXpert logo">
     <img id="heroLogo" src="images/logo4.svg?v=1" alt="OsmoseXpert logo (SVG)">
   </div>
@@ -190,71 +179,73 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
 <section class="section">
 <h2>Waarom OsmoseXpert?</h2>
 <p>Bij OsmoseXpert streven we naar het beste voor jouw ramen en zonnepanelen. Onze unieke aanpak combineert vakmanschap met moderne en milieuvriendelijke technologie, waardoor je geniet van langdurig schone en streeploze ramen.</p>
-<ul class="usp-list">
-<li>Streeploos resultaat, gegarandeerd</li>
-<li>Milieuvriendelijk: geen chemische producten</li>
-<li>Ladderloos: minder risico op schade, nettere werkwijze tot 15 m</li>
-<li>Langer schoon effect dankzij osmosewater</li>
-<li>Transparante prijzen &amp; snelle responstijd</li>
-<li>Speciale zorg voor kwetsbaar glas en houten kozijnen</li>
-<li>Geluidsarm en discreet</li>
-<li>Onderhoudsplannen met vaste planning</li>
-<li><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</li>
-</ul>
+<details class="usp-mobile"><summary>Waarom klanten voor ons kiezen</summary>
+  <ul class="usp-list">
+    <li>Streeploos resultaat, gegarandeerd</li>
+    <li>Milieuvriendelijk: geen chemische producten</li>
+    <li>Ladderloos: minder risico op schade, nettere werkwijze tot 15 m</li>
+    <li>Langer schoon effect dankzij osmosewater</li>
+    <li>Transparante prijzen &amp; snelle responstijd</li>
+    <li>Speciale zorg voor kwetsbaar glas en houten kozijnen</li>
+    <li>Geluidsarm en discreet</li>
+    <li>Onderhoudsplannen met vaste planning</li>
+    <li><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</li>
+  </ul>
+</details>
 </section>
 <section class="section">
 <h2>Onze diensten</h2>
 <div class="service-list">
-<div class="service-card">
-<h3>Ramenreiniging</h3>
-<p>Streeploos proper, zonder chemie, mét langere glans. We reinigen je ramen veilig vanaf de grond.</p>
-</div>
-<div class="service-card">
-<h3>Zonnepanelen reinigen</h3>
-<p>Optimaliseer het rendement van je zonnepanelen met een professionele osmosebeurt.</p>
-</div>
-<div class="service-card">
-<h3>Veranda’s &amp; serres</h3>
-<p>Ook moeilijk bereikbare plaatsen krijgen een glasheldere behandeling, zonder ladders.</p>
-</div>
-<div class="service-card">
-<h3>Onderhoudsplannen</h3>
-<p>Altijd proper zicht met regelmatige beurten op maat. Kies het plan dat bij je past.</p>
-<a aria-label="Ga naar de pagina Onderhoudsplannen" class="btn link" href="onderhoudsplannen.html">Onderhoudsplannen bekijken</a>
-</div>
+  <div class="service-card">
+    <h3>Ramenreiniging</h3>
+    <p>Streeploos proper, zonder chemie, mét langere glans. We reinigen je ramen veilig vanaf de grond.</p>
+  </div>
+  <div class="service-card">
+    <h3>Zonnepanelen reinigen</h3>
+    <p>Optimaliseer het rendement van je zonnepanelen met een professionele osmosebeurt.</p>
+  </div>
+  <div class="service-card">
+    <h3>Veranda’s &amp; serres</h3>
+    <p>Ook moeilijk bereikbare plaatsen krijgen een glasheldere behandeling, zonder ladders.</p>
+  </div>
+  <div class="service-card">
+    <h3>Onderhoudsplannen</h3>
+    <p>Altijd proper zicht met regelmatige beurten op maat. Kies het plan dat bij je past.</p>
+    <a aria-label="Ga naar de pagina Onderhoudsplannen" class="btn link" href="onderhoudsplannen.html">Onderhoudsplannen bekijken</a>
+  </div>
 </div>
 </section>
 <section class="cta-banner" id="prijslijst">
 <h2>Prijslijst 2025 ontvangen?</h2>
-<p>Ontvang de actuele prijsgids per e‑mail, met een korte uitleg en veelgestelde vragen.</p>
+<p>Ontvang de actuele prijsgids per e-mail, met een korte uitleg en veelgestelde vragen.</p>
 <form action="https://formspree.io/f/xnnblpyn" class="cta-form" id="priceForm" method="POST">
-<div class="row">
-<label for="naam">Naam</label>
-<input id="naam" name="naam" required="" type="text" placeholder="Uw naam"/>
-</div>
-<div class="row">
-<label for="email">E‑mail</label>
-<input id="email" name="email" required="" type="email" placeholder="voorbeeld@email.com"/>
-</div>
-<div class="row">
-<label for="gemeente">Gemeente</label>
-<input id="gemeente" name="gemeente" required="" type="text" placeholder="Uw gemeente"/>
-</div>
-<div class="row">
-<label for="dienst">Interesse</label>
-<select id="dienst" name="interesse">
-<option selected="" value="">— kies optie —</option>
-<option value="Ramenreiniging">Ramenreiniging</option>
-<option value="Zonnepanelen">Zonnepanelen reinigen</option>
-<option value="Veranda/serre">Veranda/serre</option>
-<option value="Andere">Andere / weet ik nog niet</option>
-</select>
-</div>
-<button class="btn primary" type="submit">Prijslijst aanvragen</button>
-<input name="_subject" type="hidden" value="Aanvraag Prijslijst 2025 OsmoseXpert"/>
-<input name="_language" type="hidden" value="nl"/>
-<input name="_redirect" type="hidden" value="bedankt.html"/>
-<input autocomplete="off" class="hp-field" name="_gotcha" tabindex="-1" type="text"/>
+  <div class="row">
+    <label for="naam">Naam</label>
+    <input id="naam" name="naam" required type="text" placeholder="Uw naam"/>
+  </div>
+  <div class="row">
+    <label for="email">E-mail</label>
+    <input id="email" name="email" required type="email" placeholder="voorbeeld@email.com"/>
+  </div>
+  <div class="row">
+    <label for="gemeente">Gemeente</label>
+    <input id="gemeente" name="gemeente" required type="text" placeholder="Uw gemeente"/>
+  </div>
+  <div class="row">
+    <label for="dienst">Interesse</label>
+    <select id="dienst" name="interesse">
+      <option selected value="">— kies optie —</option>
+      <option value="Ramenreiniging">Ramenreiniging</option>
+      <option value="Zonnepanelen">Zonnepanelen reinigen</option>
+      <option value="Veranda/serre">Veranda/serre</option>
+      <option value="Andere">Andere / weet ik nog niet</option>
+    </select>
+  </div>
+  <button class="btn primary" type="submit">Prijslijst aanvragen</button>
+  <input name="_subject" type="hidden" value="Aanvraag Prijslijst 2025 OsmoseXpert"/>
+  <input name="_language" type="hidden" value="nl"/>
+  <input name="_redirect" type="hidden" value="bedankt.html"/>
+  <input autocomplete="off" class="hp-field" name="_gotcha" tabindex="-1" type="text"/>
 </form>
 <p aria-live="polite" class="form-status" id="priceStatus" role="status"></p>
 <p style="margin-top:10px;font-size:.9rem;opacity:.9;">We delen je gegevens niet met derden.</p>
@@ -262,36 +253,36 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
 </main>
 <footer>
 <div class="footer-container">
-<div class="footer-col">
-<h3>Snelle navigatie</h3>
-<div class="footer-nav" style="display:grid;grid-template-columns:auto auto;gap:0 24px;list-style:none;padding:0;margin:0;">
-  <ul style="list-style:none;padding:0;margin:0">
-    <li><a href='index.html'>Home</a></li>
-    <li><a href='over-ons.html'>Over ons</a></li>
-    <li><a href='diensten.html'>Diensten</a></li>
-    <li><a href='prijzen.html'>Prijzen</a></li>
-    <li><a href='faq.html'>FAQ</a></li>
-  </ul>
-  <ul style="list-style:none;padding:0;margin:0">
-    <li><a href='contact.html'>Contact</a></li>
-    <li><a href='onderhoudsplannen.html'>Onderhoudsplannen</a></li>
-    <li><a href='voorwaarden.html'>Voorwaarden</a></li>
-    <li><a href='privacy.html'>Privacybeleid</a></li>
-  </ul>
-</div>
-</div>
-<div class="footer-col">
-<h3>Contact</h3>
-<p>Ronse · Kluisbergen · Oudenaarde</p>
-<p>Tel: <a href="tel:0493673484">0493 67 34 84</a></p>
-<p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
-</div>
-<div class="footer-col">
-<h3>OsmoseXpert</h3>
-<p>BTW BE0799.924.863</p>
-<p>Professionele ramenreiniging in Ronse en omgeving.<br/>Streeploos, veilig en zonder chemische producten.</p>
-<p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
-</div>
+  <div class="footer-col">
+    <h3>Snelle navigatie</h3>
+    <div class="footer-nav" style="display:grid;grid-template-columns:auto auto;gap:0 24px;list-style:none;padding:0;margin:0;">
+      <ul style="list-style:none;padding:0;margin:0">
+        <li><a href='index.html'>Home</a></li>
+        <li><a href='over-ons.html'>Over ons</a></li>
+        <li><a href='diensten.html'>Diensten</a></li>
+        <li><a href='prijzen.html'>Prijzen</a></li>
+        <li><a href='faq.html'>FAQ</a></li>
+      </ul>
+      <ul style="list-style:none;padding:0;margin:0">
+        <li><a href='contact.html'>Contact</a></li>
+        <li><a href='onderhoudsplannen.html'>Onderhoudsplannen</a></li>
+        <li><a href='voorwaarden.html'>Voorwaarden</a></li>
+        <li><a href='privacy.html'>Privacybeleid</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h3>Contact</h3>
+    <p>Ronse · Kluisbergen · Oudenaarde</p>
+    <p>Tel: <a href="tel:0493673484">0493 67 34 84</a></p>
+    <p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+  </div>
+  <div class="footer-col">
+    <h3>OsmoseXpert</h3>
+    <p>BTW BE0799.924.863</p>
+    <p>Professionele ramenreiniging in Ronse en omgeving.<br/>Streeploos, veilig en zonder chemische producten.</p>
+    <p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
+  </div>
 </div>
 <small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
 </footer>
@@ -306,19 +297,13 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
         btn.setAttribute('aria-expanded', String(!open));
       });
     }
-    // Logo fallbacks: pakt andere paden/bestandscases als eerste niet laadt
-    function setFallbacks(imgId, candidates){
-      const img = document.getElementById(imgId);
-      if(!img) return;
-      let i = 0;
-      img.onerror = function(){
-        if(i < candidates.length){ img.src = candidates[i++]; } else { img.onerror = null; }
-      };
+    // Logo fallbacks (optioneel)
+    function setFallbacks(id, list){
+      const img = document.getElementById(id); if(!img) return; let i=0;
+      img.onerror = function(){ if(i<list.length){ img.src = list[i++]; } else { img.onerror=null; } };
     }
-    // Als images/logo6.png niet laadt, probeert hij deze alternatieve paden/hoofdletters
-    setFallbacks('heroLogo', ['images/logo4.png', 'img/logo4.svg', 'img/logo4.png', 'Images/logo4.svg', 'images/Logo4.svg']);
-    // Als images/logo3.png niet laadt, probeert hij deze alternatieve paden/hoofdletters
-    setFallbacks('navLogo',  ['images/logo3.svg', 'img/logo3.png', 'Images/logo3.png', 'images/Logo3.png']);
+    setFallbacks('heroLogo', ['images/logo4.png','img/logo4.svg','img/logo4.png','Images/logo4.svg','images/Logo4.svg']);
+    setFallbacks('navLogo',  ['images/logo3.svg','img/logo3.png','Images/logo3.png','images/Logo3.png']);
   })();
 </script>
 </body>
