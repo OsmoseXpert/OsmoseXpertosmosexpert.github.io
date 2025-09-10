@@ -16,9 +16,9 @@
   --hero-logo-vw: 42vw;    /* schaalfactor */
   --hero-logo-max: 720px;  /* max breedte */
   /* 🟩 PAS AAN: HERO-LOGO GROOTTE (MOBIEL) */
-  --hero-logo-min-m: 220px;
-  --hero-logo-vw-m: 68vw;
-  --hero-logo-max-m: 420px; /* max breedte op mobiel */
+  --hero-logo-min-m: 240px;
+  --hero-logo-vw-m: 84vw;
+  --hero-logo-max-m: 500px; /* max breedte op mobiel */
   /* Visuele centrering (negatief = iets naar links duwen) */
   --hero-logo-nudge: -2.5%;
   --hero-logo-nudge-m: -2%;
@@ -136,6 +136,13 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
 @media (max-width:700px){
   /* 🟩 MOBIEL – PAS AAN HIER via variabelen bovenaan */
   .hero-logo{width:clamp(var(--hero-logo-min-m), var(--hero-logo-vw-m), var(--hero-logo-max-m));margin:0 auto 18px}
+  .hero-logo img{transform:translateX(var(--hero-logo-nudge-m, 0))}
+}
+/* Extra boost voor zeer kleine schermen */
+@media (max-width:380px){
+  .hero-logo{width:min(94vw, var(--hero-logo-max-m))}
+}
+
   .hero-logo img{transform:translateX(var(--hero-logo-nudge-m, 0))}
 }
 
