@@ -19,8 +19,14 @@ img{max-width:100%;height:auto}
 /* === HERO BANNER === */
 .hero-banner{background:var(--banner);text-align:center;padding:60px 0 80px;display:flex;flex-direction:column;align-items:center}
 .hero-banner img{max-width:360px;height:auto;margin-bottom:24px}
+/* HERO LOGO: mask-truc om witte halo te voorkomen op donkere banner */
+.hero-logo{width:clamp(180px, 28vw, 360px);margin-bottom:24px}
+.hero-logo img{max-width:100%;height:auto;display:block}
+.hero-logo .mask{display:none}
+  .hero-logo .mask{display:none}
+}
 .hero-banner .content{max-width:820px;color:#fff;padding:0 20px;margin-top:20px}
-h1,h2,h3,.hero-banner h1{font-family:var(--display)}
+h1,h2,h3,.hero-banner h1{margin:0 0 14px;font-size:34px;line-height:1.2;font-weight:700;color:#fff}
 .hero-banner h1{margin:0 0 14px;font-size:34px;line-height:1.2;font-weight:700}
 .hero-banner p{margin:0 0 30px;color:#e6f0fa;font-size:1.05rem;font-weight:500}
 .hero-banner .buttons{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:30px}
@@ -146,7 +152,9 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
 </head>
 <body>
 <nav class="site-nav" aria-label="Hoofdmenu">
-  <a class="brand" href="index.html"><img src="images/logo3.png" alt="OsmoseXpert"></a>
+  <!-- NAV-LOGO (bovenste balk): het pad naar je logo staat in het src-attribuut hieronder
+       Bestandslocatie relatief t.o.v. deze index.html: images/logo3.png (met cachebuster ?v=2) -->
+  <a class="brand" href="index.html"><img id="navLogo" src="images/logo3.png?v=2" alt="OsmoseXpert"></a>
   <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu">
     <span class="burger"></span>
     <span class="burger"></span>
@@ -164,7 +172,11 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
   </ul>
 </nav>
 <header class="hero-banner">
-  <img src="images/logo6.png" alt="OsmoseXpert logo wit transparant">
+  <!-- HERO-LOGO (grote banner): als je PNG transparantie lichte randen toont, gebruikt de mask-variant hieronder
+       Fallback <img> blijft aanwezig voor browsers zonder mask-ondersteuning -->
+  <div class="hero-logo" role="img" aria-label="OsmoseXpert logo">
+    <img id="heroLogo" src="images/logo4.svg?v=1" alt="OsmoseXpert logo (SVG)">
+  </div>
   <div class="content">
     <h1>Uw ramen, onze zorg.</h1>
     <p>Professionele ramenreiniging in Ronse en omgeving.<br/>Streeploos, veilig en zonder chemische producten.</p>
@@ -287,12 +299,26 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
   (function(){
     const nav = document.querySelector('.site-nav');
     const btn = nav?.querySelector('.nav-toggle');
-    if(!btn) return;
-    btn.addEventListener('click', function(){
-      const open = nav.getAttribute('data-open') === 'true';
-      nav.setAttribute('data-open', String(!open));
-      btn.setAttribute('aria-expanded', String(!open));
-    });
+    if(btn){
+      btn.addEventListener('click', function(){
+        const open = nav.getAttribute('data-open') === 'true';
+        nav.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+      });
+    }
+    // Logo fallbacks: pakt andere paden/bestandscases als eerste niet laadt
+    function setFallbacks(imgId, candidates){
+      const img = document.getElementById(imgId);
+      if(!img) return;
+      let i = 0;
+      img.onerror = function(){
+        if(i < candidates.length){ img.src = candidates[i++]; } else { img.onerror = null; }
+      };
+    }
+    // Als images/logo6.png niet laadt, probeert hij deze alternatieve paden/hoofdletters
+    setFallbacks('heroLogo', ['images/logo4.png', 'img/logo4.svg', 'img/logo4.png', 'Images/logo4.svg', 'images/Logo4.svg']);
+    // Als images/logo3.png niet laadt, probeert hij deze alternatieve paden/hoofdletters
+    setFallbacks('navLogo',  ['images/logo3.svg', 'img/logo3.png', 'Images/logo3.png', 'images/Logo3.png']);
   })();
 </script>
 </body>
