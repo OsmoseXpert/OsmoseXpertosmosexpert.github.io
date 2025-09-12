@@ -11,7 +11,7 @@
 <meta content="website" property="og:type"/>
 <meta content="#011a3a" name="theme-color"/>
 <link href="prijzen.html" rel="canonical"/>
-<meta content="images/logo3.svg" property="og:image"/>
+<meta content="images/logo2.png" property="og:image"/>
 <style>
 /* Reset and general */
 * { box-sizing: border-box; margin:0; padding:0; }
@@ -187,7 +187,25 @@ button{ min-height:44px; }
   }
 }
 
-.nav-logo img{height:60px}
+.nav-logo img{height:34px}
+@media(min-width:701px){.nav-logo{display:none}}
+
+
+/* Compact service-areas dropdown */
+.service-areas-dropdown summary{
+  cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  padding:8px 10px;border:1px solid #e2e8f0;border-radius:10px;background:#f1f5f9;
+  font-weight:600;color:#0a3d62;font-size:.9rem
+}
+.service-areas-dropdown summary::after{
+  content:"";width:10px;height:10px;border-right:2px solid #0a3d62;border-bottom:2px solid #0a3d62;
+  transform:rotate(45deg);transition:transform .2s ease;margin-left:auto
+}
+.service-areas-dropdown[open] summary::after{transform:rotate(-135deg)}
+.area-list{max-height:100px;overflow-y:auto;padding:6px 8px;margin-top:8px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;font-size:.85rem}
+.area-list::-webkit-scrollbar{width:6px}
+.area-list::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:6px}
+
 </style>
 
 <link rel="stylesheet" href="css/<link rel="stylesheet" href="css/desktop-rollback.css">
@@ -199,7 +217,7 @@ button{ min-height:44px; }
 <a class="skip-link" href="#content">Snel naar inhoud</a>
 <nav aria-label="Hoofdmenu" class="site-nav">
 <a class="brand" href="index.html">
-<img alt="OsmoseXpert" height="28" src="images/logo3.svg"/>
+<img alt="OsmoseXpert" height="28" src="images/logo2.png"/>
 </a>
 <button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle">
 <span class="sr-only">Menu</span>
@@ -326,38 +344,56 @@ button{ min-height:44px; }
 <strong>Disclaimer:</strong> alle bedragen zijn <em>richtprijzen</em>. De definitieve prijs wordt bevestigd na (digitale) intake of plaatsbezoek en kan afwijken bij uitzonderlijke hoogtes, moeilijke bereikbaarheid, zware vervuiling of bijkomende wensen.
       </div>
 </section>
+
+<section class="section service-areas">
+  <h2>Ons servicegebied</h2>
+  <details class="service-areas-dropdown">
+    <summary>Bekijk alle plaatsen waar we actief zijn</summary>
+    <div class="area-list">
+      <ul>
+        <li><strong>Ronse</strong></li>
+        <li><strong>Kluisbergen</strong>: Berchem, Kwaremont, Ruien, Zulzeke</li>
+        <li><strong>Oudenaarde</strong>: Bevere, Edelare, Eine, Ename, Heurne, Leupegem, Mater, Melden, Mullem, Nederename, Volkegem, Welden</li>
+        <li><strong>Brakel - binnenkort</strong>: Nederbrakel, Opbrakel, Everbeek, Elst, Michelbeke, Zegelsem, Parike</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
 </main>
+
 <footer>
-<div class="footer-container">
-<div class="footer-col">
-<h3>Snelle navigatie</h3>
-<ul class="footer-nav">
-<li><a href="index.html">Home</a></li>
-<li><a href="over-ons.html">Over ons</a></li>
-<li><a href="diensten.html">Diensten</a></li>
-<li><a href="prijzen.html">Prijzen</a></li>
-<li><a href="faq.html">FAQ</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
-<li><a href="voorwaarden.html">Voorwaarden</a></li>
-<li><a href="privacy.html">Privacybeleid</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h3>Contact</h3>
-<p>Ronse · Kluisbergen · Oudenaarde</p>
-<p>Tel: <a href="tel:0493673484">0493 67 34 84</a></p>
-<p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
-</div>
-<div class="footer-col">
-<h3>OsmoseXpert</h3>
-<p>BTW BE0799.924.863</p>
-<p>Professionele ramenreiniging met osmosewater in Ronse, Kluisbergen en Oudenaarde.</p>
-<p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
-</div>
-</div>
-<small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Snelle navigatie</h3>
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="over-ons.html">Over ons</a></li>
+        <li><a href="diensten.html">Diensten</a></li>
+        <li><a href="prijzen.html" aria-current="page">Prijzen</a></li>
+        <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+        <li><a href="voorwaarden.html">Voorwaarden</a></li>
+        <li><a href="privacy.html">Privacybeleid</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <p>Ronse · Kluisbergen · Oudenaarde</p>
+      <p>Tel: <a href="tel:0493673484">0493 67 34 84</a></p>
+      <p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>OsmoseXpert</h3>
+      <p>BTW BE0733.924.863</p>
+      <p>Professionele ramenreiniging in Ronse en omgeving.<br/>Streeploos, veilig en zonder chemische producten.</p>
+      <p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
+    </div>
+  </div>
+  <small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
 </footer>
+
 <script>
   // Mobile nav toggle (injected)
   (function(){
