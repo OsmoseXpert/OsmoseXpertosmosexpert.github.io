@@ -118,6 +118,7 @@ footer small { display:block; text-align:center; margin-top:20px; color:#94a3b8;
   gap:12px; padding:12px 16px;
 }
 .site-nav .brand img{ display:block; height:28px; width:auto; }
+.site-nav .brand{margin-left:auto;}
 .nav-toggle{ display:none; border:1px solid #cbd5e1; background:#fff; border-radius:8px; padding:8px 10px; font-size:18px; line-height:1; cursor:pointer; }
 .nav-list{ display:flex; gap:16px; list-style:none; margin:0; padding:0; }
 .nav-list a{ display:block; padding:6px 10px; border-radius:6px; color:#1e293b; font-weight:600; }
@@ -272,10 +273,10 @@ button{ min-height:44px; }
 <h2 id="form-title">Neem contact op</h2>
 <p class="lead">Vul het formulier in. We antwoorden doorgaans dezelfde werkdag.</p>
 <form action="https://formspree.io/f/mrbagbro" class="contact-form" method="POST">
-<label>Naam
-            <input name="naam" required="" type="text"/>
+<label>Naam + Voornaam
+  <input name="naam" required type="text"/>
 </label>
-<label>E-mail
+    <label>E-mail
             <input name="email" required="" type="email"/>
 </label>
 <label>Telefoon
@@ -285,12 +286,14 @@ button{ min-height:44px; }
             <input name="adres" type="text"/>
 </label>
 <label>Onderhoudsplan
-            <select name="pakket">
-<option value="">Geen onderhoudsplan</option>
-<option value="Bronze">Bronze – 4 beurten per jaar, 10% korting</option>
-<option value="Silver">Silver – 6 beurten per jaar, 15% korting</option>
-<option value="Gold">Gold – 12 beurten per jaar, 20% korting</option>
+            
+<select name="pakket">
+  <option value="">Geen onderhoudsplan</option>
+  <option value="Bronze">Bronze – 2× per jaar, 5% korting</option>
+  <option value="Silver">Silver – 4× per jaar, 10% korting</option>
+  <option value="Gold">Gold – 4× per jaar + 1× zonnepanelen reinigen, 12% korting</option>
 </select>
+
 </label>
 <label>Bericht
             <textarea name="bericht" placeholder="Bijvoorbeeld: aantal ramen, verdiepingen, veranda, zonnepanelen of specifieke wensen..." rows="4"></textarea>
@@ -311,7 +314,7 @@ button{ min-height:44px; }
 <svg aria-hidden="true" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" fill="currentColor"></path></svg>
 <p>Regio: Ronse · Kluisbergen · Oudenaarde</p>
 </div>
-<p class="small" style="margin-top:12px;">BTW BE0799.924.863</p>
+<p class="small" style="margin-top:12px;">BTW BE0733.924.863</p>
 </aside>
 </div>
 <!-- SEO-sectie met servicegebied en korte uitleg -->
@@ -320,40 +323,43 @@ button{ min-height:44px; }
 <p>Professionele ramenreiniging met osmosewater (0 ppm), veilig vanaf de grond tot 15 meter. Ideaal voor ramen, veranda’s, serres, glasgevels en zonnepanelen. Lokale specialist in Ronse, Kluisbergen en Oudenaarde met snelle responstijd en transparante prijzen.</p>
 </section>
 </main>
+
 <footer>
-<div class="footer-container">
-<div class="footer-col">
-<h3>Snelle navigatie</h3>
-<ul class="footer-nav">
-<li><a href="index.html">Home</a></li>
-<li><a href="over-ons.html">Over ons</a></li>
-<li><a href="diensten.html">Diensten</a></li>
-<li><a href="prijzen.html">Prijzen</a></li>
-<li><a href="faq.html">FAQ</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
-<li><a href="voorwaarden.html">Voorwaarden</a></li>
-<li><a href="privacy.html">Privacybeleid</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h3>Contact</h3>
-<p>Ronse · Kluisbergen · Oudenaarde</p>
-<p>Tel: <a href="tel:+32493673484">+32 493 67 34 84</a>
-<a aria-label="WhatsApp" href="https://wa.me/32493673484" style="display:inline-flex; align-items:center; gap:6px;">
-<img alt="WhatsApp" height="18" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="18"/> WhatsApp
-          </a>
-</p>
-<p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
-</div>
-<div class="footer-col">
-<h3>OsmoseXpert</h3>
-<p>Professionele ramenreiniging met osmosewater in Ronse, Kluisbergen en Oudenaarde.</p>
-<p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
-</div>
-</div>
-<small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
+  <div class="footer-container" style="font-size:14px; line-height:1.5;">
+    <div class="footer-col">
+      <h3>Snelle navigatie</h3>
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="over-ons.html">Over ons</a></li>
+        <li><a href="diensten.html">Diensten</a></li>
+        <li><a href="prijzen.html">Prijzen</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+        <li><a href="voorwaarden.html">Voorwaarden</a></li>
+        <li><a href="privacy.html">Privacybeleid</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <p>Ronse · Kluisbergen · Oudenaarde</p>
+      <p>Tel: <a href="tel:+32493673484">+32 493 67 34 84</a>
+        <a aria-label="WhatsApp" href="https://wa.me/32493673484" style="display:inline-flex; align-items:center; gap:6px; margin-left:6px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="18" height="18"> WhatsApp
+        </a>
+      </p>
+      <p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>OsmoseXpert</h3>
+      <p>BTW BE0733.924.863</p>
+      <p>Professionele ramenreiniging met osmosewater in Ronse, Kluisbergen en Oudenaarde.</p>
+      <p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug.</p>
+    </div>
+  </div>
+  <small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
 </footer>
+
 <!-- JSON-LD LocalBusiness voor rijkere kaarten -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"OsmoseXpert","url":"https://osmose-xpert.be/contact.html","image":"https://osmose-xpert.be/images/logo3.svg","email":"info@osmose-xpert.be","telephone":"+32 493 67 34 84","areaServed":["Ronse","Kluisbergen","Oudenaarde"],"address":{"@type":"PostalAddress","addressCountry":"BE"}}</script>
 <script>
