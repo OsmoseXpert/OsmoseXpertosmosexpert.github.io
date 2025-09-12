@@ -3,206 +3,142 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>OsmoseXpert | Professionele ramenreiniging in Ronse, Kluisbergen &amp; Oudenaarde</title>
+<title>OsmoseXpert | Finale versie (zelfstandig)</title>
 <link rel="canonical" href="https://osmose-xpert.be/"/>
 <style>
-/* Self-hosted Locanita */
-@font-face{font-family:'Locanita';src:url('fonts/Locanita-Regular.woff2') format('woff2'),url('fonts/Locanita-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Locanita';src:url('fonts/Locanita-Bold.woff2') format('woff2'),url('fonts/Locanita-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
-:root{--display:'Locanita','Poppins','Nunito','Segoe UI',sans-serif}
-:root { --brand:#0f6ab8; --dark:#011a3a; --ink:#1e293b; --bg:#f6f9fc; --banner:#0b3b53; 
-  /* 🟦 PAS AAN: HERO-LOGO GROOTTE (DESKTOP) */
-  --hero-logo-min: 300px;  /* min breedte */
-  --hero-logo-vw: 42vw;    /* schaalfactor */
-  --hero-logo-max: 720px;  /* max breedte */
-  /* 🟩 PAS AAN: HERO-LOGO GROOTTE (MOBIEL) */
-  --hero-logo-min-m: 240px;
-  --hero-logo-vw-m: 84vw;
-  --hero-logo-max-m: 500px; /* max breedte op mobiel */
-  /* Visuele centrering (negatief = iets naar links duwen) */
-  --hero-logo-nudge: -2.5%;
-  --hero-logo-nudge-m: -2%;
+/* === Root tokens === */
+:root{
+  --display:'Locanita','Poppins','Nunito','Segoe UI',sans-serif;
+  --brand:#0f6ab8;--dark:#011a3a;--ink:#1e293b;--bg:#f6f9fc;--banner:#0b3b53;
+  /* Hero visual sizing + nudge */
+  --hero-logo-min:300px; --hero-logo-vw:56vw; --hero-logo-max:900px;
+  --hero-logo-min-m:240px; --hero-logo-vw-m:92vw; --hero-logo-max-m:560px;
+  --hero-logo-nudge:-6%; --hero-logo-nudge-m:-4%;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Quicksand','Poppins','Nunito','Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:18px;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+body{font-family:'Quicksand','Poppins','Nunito','Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:18px}
+a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
 img{max-width:100%;height:auto}
 
-/* === NAVIGATIEBALK === */
+/* === NAV === */
 .site-nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;gap:12px;padding:10px clamp(12px,3vw,24px)}
-.site-nav .brand{display:none}
-.site-nav .brand img{height:32px;width:auto;display:block}
+/* no .brand on homepage per request */
 .nav-list{display:flex;gap:clamp(8px,2vw,18px);list-style:none;margin:0;padding:0;overflow-x:auto}
-.nav-list a{display:block;padding:8px 10px;border-radius:8px;color:var(--ink);font-weight:600;white-space:nowrap}
+.nav-list a{display:block;padding:6px 12px;border-radius:8px;color:var(--ink);font-weight:600;line-height:1}
 .nav-list a:hover{background:#f1f5f9;color:var(--brand)}
-.nav-list a[aria-current="page"], .nav-list a.active{background:var(--brand);color:#fff}
-/* hamburger base (hidden desktop) */
+/* Active: compact blue chip */
+.nav-list a[aria-current="page"], .nav-list a.active{background:var(--brand);color:#fff;box-shadow:0 2px 6px rgba(15,106,184,.15)}
+
+/* Hamburger (hidden desktop) */
 .nav-toggle{display:none;border:0;background:transparent;width:auto;height:auto;padding:0;margin:0 6px 0 0;align-items:center;gap:6px}
 .nav-toggle .label{font-weight:700;color:#0b3b53;font-size:1rem;line-height:1}
 .nav-toggle .burger{width:20px;height:2px;background:#0b3b53;border-radius:2px;position:relative;display:block}
 .nav-toggle .burger::before,.nav-toggle .burger::after{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;border-radius:2px}
-.nav-toggle .burger::before{top:-6px}
-.nav-toggle .burger::after{top:6px}
+.nav-toggle .burger::before{top:-6px}.nav-toggle .burger::after{top:6px}
 
-@media (max-width:700px){
+/* Mobile nav layout + dropdown background */
+@media(max-width:700px){
   .site-nav{padding:6px clamp(12px,3vw,18px);justify-content:space-between;align-items:center}
-  .site-nav .brand{display:none}
-  .site-nav .brand img{display:block;height:clamp(26px, 7vw, 36px);width:auto}
-  /* Menu-knop als witte pill rechts */
-  .nav-toggle{display:flex;align-items:center;gap:10px;margin-left:auto;margin-right:12px;padding:8px 14px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 4px 12px rgba(2,6,23,.08)}
-  /* Lijst verbergen tot open */
-  .nav-list{display:none;flex-direction:column;gap:8px;background:#fff;border-bottom:1px solid #e2e8f0;padding:8px 12px;position:absolute;left:0;right:0;top:100%}
+  .nav-toggle{display:flex;align-items:center;gap:10px;margin-left:auto;margin-right:20px;padding:8px 14px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 4px 12px rgba(2,6,23,.08)}
+  .nav-list{display:none;flex-direction:column;gap:8px;background:#f1f5f9;border-bottom:1px solid #e2e8f0;padding:8px 12px;position:absolute;left:0;right:0;top:100%}
   .site-nav[data-open="true"] .nav-list{display:flex}
 }
-@media (min-width:701px){
-  .nav-toggle{display:none}
-  .nav-list{display:flex !important;position:static;flex-direction:row;align-items:center;gap:clamp(8px,2vw,18px);background:transparent;padding:0;border:0}
-}
 
-/* === HERO BANNER === */
+/* === HERO === */
 .hero-banner{background:var(--banner);text-align:center;padding:36px 0 56px;display:flex;flex-direction:column;align-items:center}
-/* 🟦 PAS AAN HIER via variabelen bovenaan */
-.hero-logo{width:clamp(var(--hero-logo-min), var(--hero-logo-vw), var(--hero-logo-max));margin:0 auto clamp(8px,1.4vw,20px);display:block}
-.hero-logo img{width:100%;height:auto;display:block;transform:translateX(var(--hero-logo-nudge, 0));will-change:transform}
+.hero-logo{width:clamp(var(--hero-logo-min),var(--hero-logo-vw),var(--hero-logo-max));margin:0 auto clamp(8px,1.4vw,20px);display:block}
+.hero-logo img{width:100%;height:auto;display:block;transform:translateX(var(--hero-logo-nudge))}
 .hero-banner .content{max-width:820px;color:#fff;padding:0 20px;margin-top:8px}
-h1,h2,h3,.hero-banner h1{font-family:var(--display)}
-.hero-banner h1{margin:0 0 14px;font-size:34px;line-height:1.2;font-weight:700;color:#fff}
-.hero-banner p{margin:0 0 22px;color:#e6f0fa;font-size:1.05rem;font-weight:500;text-wrap:balance}
+.hero-banner h1{font-family:var(--display);margin:0 0 14px;font-size:34px;line-height:1.2;font-weight:700;color:#f3f7fb}
+.hero-banner p{margin:0 0 22px;color:#e6f0fa;font-size:1.05rem;font-weight:500}
 .hero-banner .buttons{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:30px}
 .hero-banner .buttons a{padding:12px 20px;border-radius:8px;font-weight:600}
 .hero-banner .buttons a.btn.primary{background:#fff;color:var(--brand)}
 .hero-banner .buttons a.btn.secondary{background:transparent;border:2px solid #fff;color:#fff}
 
-/* === LAYOUT SECTIONS === */
+/* === Sections === */
 .section{max-width:1100px;margin:40px auto;padding:30px;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,.05)}
 .section h2{margin-bottom:14px;color:#0a3d62}
 .section p{margin-bottom:14px}
 
-/* USP DROPDOWN (alle schermen) */
+/* USP dropdown */
 .usp-mobile{margin-top:8px}
 .usp-mobile summary{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;background:#f1f5f9;font-weight:600;color:#0a3d62}
 .usp-mobile summary::-webkit-details-marker{display:none}
 .usp-mobile summary::after{content:"";width:10px;height:10px;border-right:2px solid #0a3d62;border-bottom:2px solid #0a3d62;transform:rotate(45deg);transition:transform .2s ease}
 .usp-mobile[open] summary::after{transform:rotate(-135deg)}
-.usp-mobile > .usp-list{display:none}
-.usp-mobile[open] > .usp-list{display:grid}
+.usp-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.usp-list li{position:relative;padding:16px;border:1px solid #e2e8f0;border-radius:10px;background:#fafcff;box-shadow:0 2px 6px rgba(0,0,0,.03)}
 
-/* USP list */
-.usp-list{list-style:none;padding:0;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.usp-list li{position:relative;padding:16px;border:1px solid #e2e8f0;border-radius:10px;background:#fafcff;box-shadow:0 2px 6px rgba(0,0,0,.03);transition:transform .15s ease, box-shadow .15s ease}
-.usp-list li:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.06)}
+/* Mobiel: interne scroll in dropdown-paneel */
+@media(max-width:700px){
+  .usp-mobile[open]>.usp-list{max-height:40vh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-right:6px}
+  .usp-mobile[open]>.usp-list::-webkit-scrollbar{width:6px}
+  .usp-mobile[open]>.usp-list::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:6px}
+  .usp-mobile[open]>.usp-list::-webkit-scrollbar-track{background:transparent}
+}
 
-/* Services grid */
+/* Services */
 .service-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.service-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;transition:transform .15s ease, box-shadow .15s ease}
-.service-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.06)}
-.service-card h3{color:#0f6ab8;margin-bottom:8px}
+.service-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px}
 
-/* Buttons */
-.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:8px;font-weight:600;border:1px solid #e2e8f0}
-.btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
-.btn.secondary{background:transparent;color:#fff;border:2px solid #fff}
-.btn.link{background:transparent;border:0;padding:0;color:var(--brand);font-weight:700}
-.btn.link:hover{text-decoration:underline}
-
-/* CTA banner + form */
+/* CTA form */
 .cta-banner{background:var(--brand);color:#fff;padding:40px 20px;text-align:center;border-radius:12px;max-width:1100px;margin:40px auto}
-.cta-banner h2{margin-bottom:8px}
-.cta-banner p{margin-bottom:18px}
 .cta-form{max-width:720px;margin:24px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#fff;color:#1e293b;padding:24px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
 .cta-form .row{display:flex;flex-direction:column;text-align:left}
 .cta-form label{font-size:.95rem;margin-bottom:6px;font-weight:600;color:#0a3d62}
-.cta-form input,.cta-form select{padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;transition:border-color .2s}
-.cta-form input:focus,.cta-form select:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 2px rgba(15,106,184,.2)}
-.cta-form button{grid-column:1/-1;margin-top:8px;justify-self:center;cursor:pointer;padding:14px 28px;border:none;border-radius:8px;background:var(--brand);color:#fff;font-weight:700;font-size:1rem;transition:background .2s}
-.cta-form button:hover{background:#0d5fa0}
+.cta-form input,.cta-form select{padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}
+.cta-form button.btn.primary, .cta-form button[type="submit"]{background:var(--brand);color:#fff;border:0;box-shadow:0 2px 6px rgba(15,106,184,.15);border-radius:8px;padding:12px 20px;font-weight:600;cursor:pointer}
+.cta-form button.btn.primary:hover{background:#0d5fa0}
 .form-status{margin-top:12px;font-size:.95rem;color:#0a3d62}
 .hp-field{position:absolute;left:-5000px;opacity:0}
 
 /* Footer */
-footer{background:#0a3d62;color:#fff;padding:40px 20px}
+footer{background:#0a3d62;color:rgba(255,255,255,.92);padding:18px 16px;font-size:.9rem;line-height:1.6}
 .footer-container{max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
 .footer-col{flex:1 1 220px}
-.footer-nav{list-style:none;padding:0}
-.footer-nav li{margin-bottom:8px}
+.footer-col h3{font-size:1rem;margin-bottom:10px;color:#e6f0fa;font-weight:700}
+.footer-nav{list-style:none;padding:0;font-size:.9rem}
+.footer-nav li{margin-bottom:6px}
 .footer-nav a{color:#cfe8ff}
-footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
+footer small{display:block;text-align:center;margin-top:14px;color:#94a3b8;font-size:.85rem}
 
-/* Small screens tweaks */
-@media(max-width:700px){.cta-form{grid-template-columns:1fr;padding:20px}}
-@media(max-width:600px){.section{margin:24px auto;padding:20px}}
-
-/* Hero logo mobile sizing */
-@media (max-width:700px){
-  /* 🟩 MOBIEL – PAS AAN HIER via variabelen bovenaan */
-  .hero-logo{width:clamp(var(--hero-logo-min-m), var(--hero-logo-vw-m), var(--hero-logo-max-m));margin:0 auto 18px}
-  .hero-logo img{transform:translateX(var(--hero-logo-nudge-m, 0))}
-}
-/* Extra boost voor zeer kleine schermen */
-@media (max-width:380px){
-  .hero-logo{width:min(94vw, var(--hero-logo-max-m))}
-}
-
-  .hero-logo img{transform:translateX(var(--hero-logo-nudge-m, 0))}
-}
-
-/* Mobiel compacter algemeen */
-@media (max-width:700px){
+/* Responsive */
+@media(max-width:700px){
   body{font-size:15px;line-height:1.7}
-  .nav-list a{padding:6px 8px;font-size:.95rem}
+  .nav-list a{padding:6px 12px;font-size:.95rem}
   .hero-banner{padding:20px 0 32px}
   .hero-banner h1{font-size:28px}
   .hero-banner p{font-size:1rem;margin-bottom:18px}
-  .hero-banner .buttons{gap:10px}
   .hero-banner .buttons a{padding:10px 16px}
-  .section{margin:20px auto;padding:18px;border-radius:10px}
-  .service-list{grid-template-columns:1fr;gap:14px}
-  .service-card{padding:14px}
+  .section{margin:20px auto;padding:18px}
+  .service-list{grid-template-columns:1fr}
   .cta-banner{padding:28px 14px;margin:28px auto}
   .cta-form{grid-template-columns:1fr;padding:16px;gap:12px}
   .cta-form button{padding:12px 20px;font-size:.95rem}
-  footer{padding:28px 16px}
-  .footer-container{gap:12px}
-  .footer-nav{font-size:.95rem}
 }
-/* Hero subline mobile refinements */
-@media (max-width:700px){
-  .hero-banner p{max-width:30ch;margin-left:auto;margin-right:auto;line-height:1.55}
-  .hero-banner p .nb{white-space:nowrap}
-  .hero-banner p .br-split{display:inline}
-}
-
-</style>
-<style>
-/* === Safe mobile nav overlay fix === */
-@media (max-width: 700px){
-  .nav-list{
-    display: none;
-    position: absolute;
-    left: 0; right: 0; top: 100%;
-    z-index: 1001; /* above content, below modals */
-  }
-  .site-nav[data-open="true"] .nav-list{ display: flex; }
-}
+@media(max-width:700px){.hero-logo{width:clamp(var(--hero-logo-min-m),var(--hero-logo-vw-m),var(--hero-logo-max-m));margin:0 auto 18px}.hero-logo img{transform:translateX(var(--hero-logo-nudge-m))}}
+@media(max-width:380px){.hero-logo{width:min(94vw,var(--hero-logo-max-m))}}
 </style>
 </head>
 <body>
 <nav class="site-nav" aria-label="Hoofdmenu">
-  <a class="brand" href="/index.html""><img id="navLogo" src="images/logo3.png?v=2" alt="OsmoseXpert"></a>
+  <!-- Geen nav-logo op de homepage -->
   <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu">
     <span class="label">Menu</span>
     <span class="burger"></span>
   </button>
   <ul class="nav-list" id="primary-nav">
-    <li><a href="/index.html"" aria-current="page">Home</a></li>
-    <li><a href="/over-ons.html"">Over ons</a></li>
-    <li><a href="/diensten.html"">Diensten</a></li>
-    <li><a href="/prijzen.html"">Prijzen</a></li>
-    <li><a href="/faq.html"">FAQ</a></li>
-    <li><a href="/onderhoudsplannen.html"">Onderhoudsplannen</a></li>
-    <li><a href="/contact.html"">Contact</a></li>
+    <li><a href="#" aria-current="page">Home</a></li>
+    <li><a href="#">Over ons</a></li>
+    <li><a href="#">Diensten</a></li>
+    <li><a href="#">Prijzen</a></li>
+    <li><a href="#">FAQ</a></li>
+    <li><a href="#">Onderhoudsplannen</a></li>
+    <li><a href="#">Contact</a></li>
   </ul>
 </nav>
+
 <header class="hero-banner">
   <div class="hero-logo" role="img" aria-label="OsmoseXpert logo">
     <img id="heroLogo" src="images/logo4.svg?v=1" alt="OsmoseXpert logo (SVG)">
@@ -211,11 +147,12 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
     <h1>Uw ramen, onze zorg.</h1>
     <p>Professionele ramenreiniging in <span class="nb">Ronse en omgeving</span>.<br class="br-split"/>Streeploos, veilig en zonder chemische producten.</p>
     <div class="buttons">
-      <a href="/contact.html"" class="btn primary">Vraag offerte</a>
-      <a href="/onderhoudsplannen.html"" class="btn secondary">Onderhoudsplan ontdekken</a>
+      <a href="#" class="btn primary">Vraag offerte</a>
+      <a href="#" class="btn secondary">Onderhoudsplan ontdekken</a>
     </div>
   </div>
 </header>
+
 <main id="content">
 <section class="section">
 <h2>Waarom OsmoseXpert?</h2>
@@ -234,83 +171,48 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
   </ul>
 </details>
 </section>
+
 <section class="section">
 <h2>Onze diensten</h2>
 <div class="service-list">
-  <div class="service-card">
-    <h3>Ramenreiniging</h3>
-    <p>Streeploos proper, zonder chemie, mét langere glans. We reinigen je ramen veilig vanaf de grond.</p>
-  </div>
-  <div class="service-card">
-    <h3>Zonnepanelen reinigen</h3>
-    <p>Optimaliseer het rendement van je zonnepanelen met een professionele osmosebeurt.</p>
-  </div>
-  <div class="service-card">
-    <h3>Veranda’s &amp; serres</h3>
-    <p>Ook moeilijk bereikbare plaatsen krijgen een glasheldere behandeling, zonder ladders.</p>
-  </div>
-  <div class="service-card">
-    <h3>Onderhoudsplannen</h3>
-    <p>Altijd proper zicht met regelmatige beurten op maat. Kies het plan dat bij je past.</p>
-    <a aria-label="Ga naar de pagina Onderhoudsplannen" class="btn link" href="/onderhoudsplannen.html"">Onderhoudsplannen bekijken</a>
-  </div>
+  <div class="service-card"><h3>Ramenreiniging</h3><p>Streeploos proper, zonder chemie, mét langere glans. We reinigen je ramen veilig vanaf de grond.</p></div>
+  <div class="service-card"><h3>Zonnepanelen reinigen</h3><p>Optimaliseer het rendement van je zonnepanelen met een professionele osmosebeurt.</p></div>
+  <div class="service-card"><h3>Veranda’s &amp; serres</h3><p>Ook moeilijk bereikbare plaatsen krijgen een glasheldere behandeling, zonder ladders.</p></div>
+  <div class="service-card"><h3>Onderhoudsplannen</h3><p>Altijd proper zicht met regelmatige beurten op maat. Kies het plan dat bij je past.</p></div>
 </div>
 </section>
+
 <section class="cta-banner" id="prijslijst">
 <h2>Prijslijst 2025 ontvangen?</h2>
 <p>Ontvang de actuele prijsgids per e-mail, met een korte uitleg en veelgestelde vragen.</p>
-<form action="https://formspree.io/f/xnnblpyn" class="cta-form" id="priceForm" method="POST">
-  <div class="row">
-    <label for="naam">Naam</label>
-    <input id="naam" name="naam" required type="text" placeholder="Uw naam"/>
-  </div>
-  <div class="row">
-    <label for="email">E-mail</label>
-    <input id="email" name="email" required type="email" placeholder="voorbeeld@email.com"/>
-  </div>
-  <div class="row">
-    <label for="gemeente">Gemeente</label>
-    <input id="gemeente" name="gemeente" required type="text" placeholder="Uw gemeente"/>
-  </div>
-  <div class="row">
-    <label for="dienst">Interesse</label>
-    <select id="dienst" name="interesse">
-      <option selected value="">— kies optie —</option>
-      <option value="Ramenreiniging">Ramenreiniging</option>
-      <option value="Zonnepanelen">Zonnepanelen reinigen</option>
-      <option value="Veranda/serre">Veranda/serre</option>
-      <option value="Andere">Andere / weet ik nog niet</option>
-    </select>
-  </div>
+<form class="cta-form" method="POST" action="https://formspree.io/f/xnnblpyn">
+  <div class="row"><label for="naam">Naam</label><input id="naam" name="naam" required type="text" placeholder="Uw naam"/></div>
+  <div class="row"><label for="email">E-mail</label><input id="email" name="email" required type="email" placeholder="voorbeeld@email.com"/></div>
+  <div class="row"><label for="gemeente">Gemeente</label><input id="gemeente" name="gemeente" required type="text" placeholder="Uw gemeente"/></div>
+  <div class="row"><label for="dienst">Interesse</label><select id="dienst" name="interesse"><option selected value="">— kies optie —</option><option value="Ramenreiniging">Ramenreiniging</option><option value="Zonnepanelen">Zonnepanelen reinigen</option><option value="Veranda/serre">Veranda/serre</option><option value="Andere">Andere / weet ik nog niet</option></select></div>
   <button class="btn primary" type="submit">Prijslijst aanvragen</button>
   <input name="_subject" type="hidden" value="Aanvraag Prijslijst 2025 OsmoseXpert"/>
   <input name="_language" type="hidden" value="nl"/>
   <input name="_redirect" type="hidden" value="bedankt.html"/>
   <input autocomplete="off" class="hp-field" name="_gotcha" tabindex="-1" type="text"/>
 </form>
-<p aria-live="polite" class="form-status" id="priceStatus" role="status"></p>
-<p style="margin-top:10px;font-size:.9rem;opacity:.9;">We delen je gegevens niet met derden.</p>
+<p class="form-status" aria-live="polite" role="status">We delen je gegevens niet met derden.</p>
 </section>
 </main>
+
 <footer>
 <div class="footer-container">
   <div class="footer-col">
     <h3>Snelle navigatie</h3>
-    <div class="footer-nav" style="display:grid;grid-template-columns:auto auto;gap:0 24px;list-style:none;padding:0;margin:0;">
-      <ul style="list-style:none;padding:0;margin:0">
-        <li><a href="/index.html"'>Home</a></li>
-        <li><a href="/over-ons.html"'>Over ons</a></li>
-        <li><a href="/diensten.html"'>Diensten</a></li>
-        <li><a href="/prijzen.html"'>Prijzen</a></li>
-        <li><a href="/faq.html"'>FAQ</a></li>
-      </ul>
-      <ul style="list-style:none;padding:0;margin:0">
-        <li><a href="/contact.html"'>Contact</a></li>
-        <li><a href="/onderhoudsplannen.html"'>Onderhoudsplannen</a></li>
-        <li><a href="/voorwaarden.html"'>Voorwaarden</a></li>
-        <li><a href="/privacy.html"'>Privacybeleid</a></li>
-      </ul>
-    </div>
+    <ul class="footer-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Over ons</a></li>
+      <li><a href="#">Diensten</a></li>
+      <li><a href="#">Prijzen</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Onderhoudsplannen</a></li>
+      <li><a href="#">Privacybeleid</a></li>
+    </ul>
   </div>
   <div class="footer-col">
     <h3>Contact</h3>
@@ -320,50 +222,27 @@ footer small{display:block;text-align:center;margin-top:20px;color:#94a3b8}
   </div>
   <div class="footer-col">
     <h3>OsmoseXpert</h3>
-    <p>BTW BE0799.924.863</p>
+    <p>BTW BE0733.924.863</p>
     <p>Professionele ramenreiniging in Ronse en omgeving.<br/>Streeploos, veilig en zonder chemische producten.</p>
     <p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
   </div>
 </div>
 <small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
 </footer>
-<script>
-  (function(){
-    const nav = document.querySelector('.site-nav');
-    const btn = nav?.querySelector('.nav-toggle');
-    if(btn){
-      btn.addEventListener('click', function(){
-        const open = nav.getAttribute('data-open') === 'true';
-        nav.setAttribute('data-open', String(!open));
-        btn.setAttribute('aria-expanded', String(!open));
-      });
-    }
-    // Logo fallbacks (optioneel)
-    function setFallbacks(id, list){
-      const img = document.getElementById(id); if(!img) return; let i=0;
-      img.onerror = function(){ if(i<list.length){ img.src = list[i++]; } else { img.onerror=null; } };
-    }
-    setFallbacks('heroLogo', ['images/logo4.png','img/logo4.svg','img/logo4.png','Images/logo4.svg','images/Logo4.svg']);
-    setFallbacks('navLogo',  ['images/logo3.svg','img/logo3.png','Images/logo3.png','images/Logo3.png']);
-  })();
-</script>
 
 <script>
-  (function(){
-    try{
-      var nav = document.querySelector('.site-nav');
-      if(!nav) return;
-      var links = nav.querySelectorAll('.nav-list a[href]');
-      links.forEach(function(a){
-        a.addEventListener('click', function(){
-          if(nav.hasAttribute('data-open')){
-            nav.removeAttribute('data-open');
-          }
-        });
-      });
-    }catch(e){}
-  })();
+// Mobile nav toggle
+(function(){
+  const nav = document.querySelector('.site-nav');
+  const btn = nav && nav.querySelector('.nav-toggle');
+  if(btn){
+    btn.addEventListener('click', function(){
+      const open = nav.getAttribute('data-open') === 'true';
+      nav.setAttribute('data-open', String(!open));
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+  }
+})();
 </script>
-
 </body>
 </html>
