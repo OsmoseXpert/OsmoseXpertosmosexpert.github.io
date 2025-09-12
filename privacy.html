@@ -1,219 +1,172 @@
 <!DOCTYPE html>
-
 <html lang="nl">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Privacybeleid | OsmoseXpert</title>
-<link href="style.css" rel="stylesheet"/>
+<link rel="canonical" href="https://osmose-xpert.be/privacy.html"/>
 <style>
-
-/* === MOBILE NAV & LAYOUT (injected) === */
-.site-nav{
-  position: sticky; top: 0; z-index: 100;
-  background:#fff; border-bottom:1px solid #e2e8f0;
-  display:flex; align-items:center; justify-content:space-between;
-  gap:12px; padding:12px 16px;
-}
-.site-nav .brand img{ display:block; height:28px; width:auto; }
-.nav-toggle{ display:none; border:1px solid #cbd5e1; background:#fff; border-radius:8px; padding:8px 10px; font-size:18px; line-height:1; cursor:pointer; }
-.nav-list{ display:flex; gap:16px; list-style:none; margin:0; padding:0; }
-.nav-list a{ display:block; padding:6px 10px; border-radius:6px; color:#1e293b; font-weight:600; }
-.nav-list a:hover{ color:#0f6ab8; background:#e6f0fa; }
-.nav-list a.active, .nav-list a[aria-current="page"]{ color:#fff; background:#0f6ab8; }
-
-/* Make images and embeds responsive */
-img, video, canvas { max-width:100%; height:auto; }
-
-/* Forms: avoid iOS zoom and improve tappable area */
-input, select, textarea, button{ font-size:16px; }
-button{ min-height:44px; }
-
-/* Subhero: consistent on desktop, flexible on mobile */
-.subhero{
-  background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
-  color:#fff;
-  height:180px;
-  padding:0 20px;
-  display:flex; align-items:center;
-}
-.subhero .wrap{
-  max-width:1100px; margin:0 auto;
-  display:flex; align-items:center; justify-content:space-between; gap:24px;
-  width:100%; height:100%;
-}
-.subhero h1{ margin:0; font-size:clamp(22px, 3vw, 32px); line-height:1.2; }
-.subhero p{ margin-top:8px; color:#e6f0fa; font-size:clamp(14px, 1.6vw, 16px); }
-.subhero img{ max-height:100%; width:auto; object-fit:contain; }
-
-/* Cards & grids: stack on mobile */
-.section{ max-width:1100px; margin:30px auto; padding:0 20px; }
-.grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; }
-@media (max-width: 900px){
-  .nav-toggle{ display:block; }
-  .nav-list{
-    position:absolute; left:0; right:0; top:100%;
-    background:#fff; border-bottom:1px solid #e2e8f0;
-    display:none; flex-direction:column; gap:0; padding:8px;
+  :root{
+    --brand:#0f6ab8; --ink:#1e293b; --bg:#f6f9fc; --banner:#0b3b53;
   }
-  .site-nav[data-open="true"] .nav-list{ display:flex; }
-  .grid{ grid-template-columns:1fr; }
-  .subhero{ background:#0f6ab8; height:auto; padding:28px 20px; }
-  .subhero .wrap{ flex-direction:column; text-align:center; height:auto; }
-  .subhero img{ margin-top:12px; max-height:120px; }
-}
-/* Accessibility helper */
-.sr-only{ position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Quicksand','Poppins','Nunito','Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:18px}
+  a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
 
-
-
-/* ==== DESKTOP-HERSTEL: behoud originele desktop look ==== */
-@media (min-width: 901px){
-  .site-nav{
-    position: static;
-    border-bottom: 1px solid #e2e8f0;
-    justify-content: center;
-    padding: 14px 20px;
+  /* NAV */
+  .site-nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;gap:12px;padding:10px clamp(12px,3vw,24px)}
+  .nav-list{display:flex;gap:clamp(8px,2vw,18px);list-style:none;margin:0;padding:0;overflow-x:auto}
+  .nav-list a{display:block;padding:6px 12px;border-radius:8px;color:var(--ink);font-weight:600;line-height:1}
+  .nav-list a:hover{background:#f1f5f9;color:var(--brand)}
+  .nav-list a[aria-current="page"], .nav-list a.active{background:var(--brand);color:#fff;box-shadow:0 2px 6px rgba(15,106,184,.15)}
+  .nav-toggle{display:none;border:0;background:transparent}
+  @media(max-width:700px){
+    .site-nav{justify-content:space-between}
+    .nav-toggle{display:block;padding:8px 14px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 4px 12px rgba(2,6,23,.08)}
+    .nav-list{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:8px;background:#f1f5f9;border-bottom:1px solid #e2e8f0;padding:8px 12px}
+    .site-nav[data-open="true"] .nav-list{display:flex}
   }
-  .site-nav .brand{ display: none; }
-  .nav-toggle{ display: none !important; }
-  .nav-list{ display: flex; gap: 20px; }
 
-  .subhero{
-    height: auto;
-    padding: 40px 20px;
-    background: linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
-  }
-  .subhero .wrap{ height: auto; }
-  .subhero img{ max-height: 160px; width: auto; object-fit: contain; }
+  /* SUBHERO */
+  .subhero{background:var(--banner);color:#fff;padding:34px 20px;text-align:center}
+  .subhero h1{font-size:clamp(24px,3.2vw,36px);line-height:1.2;margin:0}
+  .subhero p{color:#e6f0fa;margin-top:8px}
 
-  .grid{ grid-template-columns: 1.2fr .8fr; gap: 26px; }
-}
+  /* CONTENT */
+  .section{max-width:1100px;margin:26px auto;padding:0 20px}
+  .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:22px;box-shadow:0 6px 22px rgba(0,0,0,.05)}
+  .section h2{font-size:1.25rem;margin:18px 0 10px;color:#0a3d62}
+  .section p, .section li{margin:8px 0}
+  .note{background:#f5fbff;border:1px solid #cfe1f6;padding:12px 14px;border-radius:10px;color:#0b3854;margin-top:12px}
 
-/* ==== DESKTOP-ROLLBACK: herstel originele desktop look, behoud mobiel ==== */
-@media (min-width: 901px){
-
-  .site-nav{
-    position: static;
-    top: auto;
-    border-bottom: 1px solid #e2e8f0;
-    justify-content: center;
-    padding: 14px 20px;
-    background: #fff;
-  }
-  .site-nav .brand{ display: none !important; }
-  .nav-toggle{ display: none !important; }
-  .nav-list{ display: flex; gap: 20px; }
-
-  .subhero{
-    height: auto;
-    padding: 40px 20px;
-    text-align: left;
-  }
-  .subhero .wrap{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: auto;
-  }
-  .subhero .wrap > div,
-  .subhero img{
-    flex: initial;
-    max-width: none;
-  }
-  .subhero img{
-    max-height: 160px;
-    width: auto;
-    object-fit: contain;
-  }
-}
+  /* FOOTER */
+  footer{background:#0a3d62;color:rgba(255,255,255,.92);padding:18px 16px;font-size:.9rem;line-height:1.6;margin-top:30px}
+  .footer-container{max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+  .footer-col{flex:1 1 220px}
+  .footer-col h3{font-size:1rem;margin-bottom:10px;color:#e6f0fa;font-weight:700}
+  .footer-nav{list-style:none;padding:0;font-size:.9rem}
+  .footer-nav li{margin-bottom:6px}
+  .footer-nav a{color:#cfe8ff}
+  footer small{display:block;text-align:center;margin-top:14px;color:#94a3b8;font-size:.85rem}
 </style>
-
-<link rel="stylesheet" href="css/<link rel="stylesheet" href="css/desktop-rollback.css">
 </head>
-">
-</head>
-
 <body>
-<nav aria-label="Hoofdmenu" class="site-nav">
-<a class="brand" href="index.html">
-<img alt="OsmoseXpert" height="28" src="images/logo2.png"/>
-</a>
-<button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle">
-<span class="sr-only">Menu</span>
-    ☰
-  </button>
-<ul class="nav-list" id="primary-nav">
-<li><a href="index.html">Home</a></li>
-<li><a href="over-ons.html">Over ons</a></li>
-<li><a href="diensten.html">Diensten</a></li>
-<li><a href="prijzen.html">Prijzen</a></li>
-<li><a href="faq.html">FAQ</a></li>
-<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
+
+<nav class="site-nav" aria-label="Hoofdmenu">
+  <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu">☰ Menu</button>
+  <ul class="nav-list" id="primary-nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="over-ons.html">Over ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="prijzen.html">Prijzen</a></li>
+    <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="voorwaarden.html">Voorwaarden</a></li>
+    <li><a href="privacy.html" aria-current="page">Privacybeleid</a></li>
+  </ul>
 </nav>
+
 <header class="subhero">
-<h1>Privacybeleid</h1>
+  <h1>Privacybeleid</h1>
+  <p>Uw gegevens veilig en transparant verwerkt.</p>
 </header>
-<section class="section">
-<h2>1. Persoonsgegevens</h2>
-<p>OsmoseXpert hecht waarde aan uw privacy. We verzamelen enkel persoonsgegevens die u zelf verstrekt via ons contactformulier of via e‑mail/telefoon. Dit omvat uw naam, adres, e‑mail en telefoonnummer.</p>
-<h2>2. Doeleinden</h2>
-<p>De verzamelde gegevens worden uitsluitend gebruikt voor het beantwoorden van uw vragen, het opstellen van offertes en het uitvoeren van onze diensten. We gebruiken uw gegevens niet voor marketingdoeleinden zonder uw expliciete toestemming.</p>
-<h2>3. Delen met derden</h2>
-<p>Uw gegevens worden niet gedeeld met derden, tenzij dit noodzakelijk is voor de uitvoering van de overeenkomst (bv. boekhoudkundige verwerking) of indien wij daartoe wettelijk verplicht zijn.</p>
-<h2>4. Beveiliging</h2>
-<p>Wij nemen passende technische en organisatorische maatregelen om uw gegevens te beveiligen tegen misbruik, verlies of ongeoorloofde toegang.</p>
-<h2>5. Bewaartermijn</h2>
-<p>Uw persoonsgegevens worden niet langer bewaard dan strikt nodig is om de doelen te realiseren waarvoor ze worden verzameld of zolang de wet dit vereist.</p>
-<h2>6. Rechten</h2>
-<p>U heeft het recht om uw persoonsgegevens in te zien, te corrigeren of te laten verwijderen. U kunt hiervoor contact opnemen via <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a> of telefonisch via <a href="tel:0493673484">0493 67 34 84</a>. Ook voor andere vragen of klachten over uw privacy kunt u ons contacteren.</p>
-<h2>7. Wijzigingen</h2>
-<p>Dit privacybeleid kan worden aangepast. Raadpleeg steeds de laatste versie op onze website. Deze versie is opgesteld op 4 september 2025.</p>
-</section>
+
+<main>
+  <section class="section">
+    <div class="card">
+      <h2>1. Verwerkingsverantwoordelijke</h2>
+      <p>OsmoseXpert, gevestigd te Ronse, is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in dit privacybeleid. Contact: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a>.</p>
+
+      <h2>2. Persoonsgegevens die wij verwerken</h2>
+      <p>Wij verwerken persoonsgegevens die u zelf aan ons verstrekt, zoals:</p>
+      <ul>
+        <li>Naam en voornaam</li>
+        <li>Adresgegevens</li>
+        <li>Telefoonnummer</li>
+        <li>E-mailadres</li>
+        <li>Eventuele informatie die u vrijwillig deelt in het contactformulier</li>
+      </ul>
+
+      <h2>3. Doeleinden</h2>
+      <p>De gegevens worden gebruikt voor:</p>
+      <ul>
+        <li>Het beantwoorden van vragen of aanvragen</li>
+        <li>Het opstellen en opvolgen van offertes</li>
+        <li>Het plannen en uitvoeren van onderhoudsplannen en eenmalige diensten</li>
+        <li>Het factureren en voeren van onze boekhouding</li>
+        <li>Wettelijke verplichtingen (zoals fiscale verplichtingen)</li>
+      </ul>
+
+      <h2>4. Grondslagen</h2>
+      <p>Wij verwerken persoonsgegevens uitsluitend op basis van:</p>
+      <ul>
+        <li>Uw toestemming (bijv. bij vrijwillig invullen van het contactformulier)</li>
+        <li>Uitvoering van een overeenkomst (bv. onderhoudsplan of reinigingsbeurt)</li>
+        <li>Wettelijke verplichting</li>
+        <li>Gerechtvaardigd belang (klantenbeheer en zakelijke communicatie)</li>
+      </ul>
+
+      <h2>5. Delen met derden</h2>
+      <p>Uw gegevens worden niet verkocht of gedeeld voor commerciële doeleinden. We delen enkel gegevens met derden indien nodig voor uitvoering van de overeenkomst (bv. boekhouder, softwareleveranciers) of indien wettelijk verplicht.</p>
+
+      <h2>6. Bewaartermijn</h2>
+      <p>Wij bewaren persoonsgegevens niet langer dan noodzakelijk. Financiële gegevens worden conform de wettelijke bewaartermijn (7 jaar) bewaard. Andere gegevens verwijderen we zodra ze niet meer nodig zijn.</p>
+
+      <h2>7. Beveiliging</h2>
+      <p>Wij nemen passende technische en organisatorische maatregelen om misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan.</p>
+
+      <h2>8. Uw rechten</h2>
+      <p>U heeft recht op inzage, correctie, beperking en verwijdering van uw persoonsgegevens, evenals recht op bezwaar en overdraagbaarheid. U kunt dit verzoek richten aan <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a>. Wij reageren binnen 30 dagen.</p>
+
+      <h2>9. Klachten</h2>
+      <p>Indien u klachten heeft over de verwerking van uw gegevens, kunt u zich wenden tot ons via bovenstaand contactadres of een klacht indienen bij de Gegevensbeschermingsautoriteit (www.gegevensbeschermingsautoriteit.be).</p>
+
+      <h2>10. Wijzigingen</h2>
+      <p>Wij behouden ons het recht voor om dit privacybeleid aan te passen. De meest recente versie is steeds beschikbaar op onze website.</p>
+
+      <div class="note">Dit beleid is opgesteld in overeenstemming met de Algemene Verordening Gegevensbescherming (AVG / GDPR) en Belgische wetgeving.</div>
+    </div>
+  </section>
+</main>
+
 <footer>
-<div class="footer-container">
-<div class="footer-col">
-<h3>Snelle navigatie</h3>
-<ul class="footer-nav">
-<li><a href="index.html">Home</a></li>
-<li><a href="over-ons.html">Over ons</a></li>
-<li><a href="diensten.html">Diensten</a></li>
-<li><a href="prijzen.html">Prijzen</a></li>
-<li><a href="faq.html">FAQ</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
-<li><a href="voorwaarden.html">Voorwaarden</a></li>
-<li><a href="privacy.html">Privacybeleid</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h3>Contact</h3>
-<p>Ronse · Kluisbergen · Oudenaarde</p>
-<p>Tel: <a href="tel:0493673484">0493 67 34 84</a>
-<a aria-label="WhatsApp" class="whatsapp-link" href="https://wa.me/32493673484">
-<svg fill="#25D366" height="20" style="margin-left:5px; vertical-align:middle;" viewbox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.472 14.381c-.297-.149-1.758-.867-2.028-.967-.271-.099-.468-.148-.666.149-.197.297-.764.967-.936 1.164-.173.198-.345.223-.642.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.481-1.761-1.654-2.059-.173-.297-.018-.458.131-.606.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.371-.025-.52-.074-.148-.666-1.611-.913-2.21-.242-.579-.487-.5-.666-.51-.173-.01-.371-.012-.57-.012-.198 0-.52.074-.792.371-.271.297-1.04 1.016-1.04 2.479s1.064 2.877 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.412.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path>
-<path d="M20.52 3.48C18.244 1.205 15.313 0 12.005 0 5.373 0 .047 5.327 .047 11.959c0 2.1.546 4.147 1.583 5.942L0 24l6.286-1.654c1.73.943 3.675 1.436 5.719 1.436h.002c6.631 0 11.959-5.327 11.959-11.959 0-3.308-1.205-6.239-3.447-8.469zM12.007 21.8h-.002c-1.847 0-3.654-.499-5.205-1.442l-.374-.223-3.727.979.995-3.636-.243-.374C2.541 15.97 2.053 14.005 2.053 11.96c0-5.484 4.463-9.947 9.947-9.947 2.649 0 5.139 1.032 7.01 2.902 1.871 1.872 2.904 4.361 2.904 7.01.001 5.484-4.463 9.948-9.947 9.948z"></path>
-</svg>
-</a>
-</p>
-<p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
-</div>
-<div class="footer-col">
-<h3>OsmoseXpert</h3>
-<p>Professionele ramenreiniging met osmosewater in Ronse, Kluisbergen en Oudenaarde.</p>
-</div>
-</div>
-<small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Snelle navigatie</h3>
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="over-ons.html">Over ons</a></li>
+        <li><a href="diensten.html">Diensten</a></li>
+        <li><a href="prijzen.html">Prijzen</a></li>
+        <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+        <li><a href="voorwaarden.html">Voorwaarden</a></li>
+        <li><a href="privacy.html" aria-current="page">Privacybeleid</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <p>Ronse · Kluisbergen · Oudenaarde</p>
+      <p>Tel: <a href="tel:0493673484">0493 67 34 84</a></p>
+      <p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>OsmoseXpert</h3>
+      <p>BTW BE0733.924.863</p>
+      <p>Professionele ramenreiniging in Ronse en omgeving.<br/>Streeploos, veilig en zonder chemische producten.</p>
+      <p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
+    </div>
+  </div>
+  <small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
 </footer>
+
 <script>
-  // Mobile nav toggle (injected)
   (function(){
     const nav = document.querySelector('.site-nav');
-    const btn = nav?.querySelector('.nav-toggle');
-    if(!nav || !btn) return;
+    const btn = nav && nav.querySelector('.nav-toggle');
+    if(!btn) return;
     btn.addEventListener('click', () => {
       const open = nav.getAttribute('data-open') === 'true';
       nav.setAttribute('data-open', String(!open));
@@ -221,5 +174,6 @@ button{ min-height:44px; }
     });
   })();
 </script>
+
 </body>
 </html>
