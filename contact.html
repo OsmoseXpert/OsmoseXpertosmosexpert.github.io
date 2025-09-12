@@ -263,6 +263,31 @@ button{ min-height:44px; }
   display:block;
 }
 }
+
+/* ===== FIX: center logo perfectly in right (white) half of 50/50 banner ===== */
+.subhero .wrap{
+  display:grid;
+  grid-template-columns: 1fr 1fr; /* links tekst, rechts logo */
+  align-items:center;
+}
+.subhero .wrap > img{
+  grid-column:2;
+  justify-self:center;     /* horizontaal centreren in de witte helft */
+  max-width:90%;
+  max-height:100%;
+  width:auto;
+}
+@media (max-width:900px){
+  .subhero .wrap{
+    display:block;         /* mobiel: gewone stapeling */
+  }
+  .subhero .wrap > img{
+    display:block;
+    margin:16px auto 0;    /* mooi gecentreerd onder de tekst */
+    max-width:70%;
+  }
+}
+
 </style>
 
 <link rel="stylesheet" href="css/<link rel="stylesheet" href="css/desktop-rollback.css">
