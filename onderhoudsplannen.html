@@ -243,6 +243,15 @@
 <style>
   .chatbase-bubble, .chatbase-widget { z-index: 2147483000 !important; }
 </style>
+<style>
+  .chatbase-widget { 
+    max-width: 380px !important; 
+    max-height: 72vh !important; 
+    right: 16px !important; 
+    bottom: 16px !important; 
+  }
+  .chatbase-bubble { right: 16px !important; bottom: 16px !important; }
+</style>
 <!-- Chatbase identity (set BEFORE embed script) -->
 <script>
 (async () => {
@@ -289,6 +298,17 @@
     document.body.appendChild(script)
   };
   if(document.readyState==="complete"){ onLoad() } else { window.addEventListener("load",onLoad) }
+})();
+</script>
+<script>
+/* Auto-minimize Chatbase on load so it doesn't cover the homepage */
+(function(){
+  function tryClose(){ try{ window.chatbase && window.chatbase('close'); }catch(e){} }
+  var mo = new MutationObserver(function(){
+    if (document.querySelector('.chatbase-widget')) { tryClose(); mo.disconnect(); }
+  });
+  mo.observe(document.documentElement || document.body, { childList:true, subtree:true });
+  window.addEventListener('load', function(){ setTimeout(tryClose, 250); });
 })();
 </script>
 </body>
