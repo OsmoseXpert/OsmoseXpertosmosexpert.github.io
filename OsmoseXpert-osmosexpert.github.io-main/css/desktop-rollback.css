@@ -1,0 +1,39 @@
+/* ==== DESKTOP-ROLLBACK: herstel originele desktop look, behoud mobiel ==== */
+@media (min-width: 901px){
+
+  /* Nav terug klassiek: niet-sticky, menu gecentreerd, geen brand-logo */
+  .site-nav{
+    position: static;
+    top: auto;
+    border-bottom: 1px solid #e2e8f0;
+    justify-content: center;
+    padding: 14px 20px;
+    background: #fff;
+  }
+  .site-nav .brand{ display: none !important; }
+  .nav-toggle{ display: none !important; }
+  .nav-list{ display: flex; gap: 20px; }
+
+  /* Subhero/hero: auto hoogte, klassieke padding, géén geforceerde kolombreedtes */
+  .subhero{
+    height: auto;
+    padding: 40px 20px;
+    text-align: left;
+  }
+  .subhero .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+  }
+  .subhero .wrap > div,
+  .subhero img{
+    flex: initial;
+    max-width: none;
+  }
+  .subhero img{
+    max-height: 160px;
+    width: auto;
+    object-fit: contain;
+  }
+}
