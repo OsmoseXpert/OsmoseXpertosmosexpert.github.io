@@ -1,0 +1,30 @@
+
+/* === Global buttons === */
+.btn-primary{background:#0b2b46;color:#fff;padding:.85rem 1.1rem;border-radius:.75rem;font-weight:700;display:inline-block;text-decoration:none}
+.btn-primary:hover,.btn-primary:focus{filter:brightness(1.05);outline:2px solid #1e5180;outline-offset:2px}
+
+/* === Navbar === */
+.navbar{display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;position:sticky;top:0;background:#fff;z-index:50}
+.navbar .brand{margin-right:auto}
+.navbar .nav-list{display:flex;justify-content:flex-end;gap:1.25rem;align-items:center}
+.navbar .nav-list a{color:#0b2b46;text-decoration:none;font-weight:600}
+.burger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px}
+.burger span{display:block;height:2px;background:#0b2b46;margin:7px 8px}
+
+@media (max-width: 1024px){
+  .navbar .nav-list{display:none;position:absolute;top:64px;right:1rem;left:1rem;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.1);padding:1rem;flex-direction:column}
+  .burger{display:block;margin-left:auto}
+  .nav-open .nav-list{display:flex;}
+}
+
+/* === Calendly Modal === */
+.modal.hidden{display:none}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:grid;place-items:center;z-index:9999}
+.modal-content{width:min(900px,95vw);height:min(720px,90vh);background:#fff;border-radius:16px;position:relative;overflow:hidden}
+#calFrame{width:100%;height:100%;display:block;border:0}
+.modal-close{position:absolute;top:.5rem;right:.75rem;background:none;border:0;font-size:2rem;cursor:pointer}
+
+/* === Banners & logo utility === */
+.banner{position:relative;min-height:320px;display:grid;place-items:center;background:#0b2b46;color:#fff}
+.banner .banner-logo{position:absolute;top:48px;left:48px;width:160px;height:auto}
+.home-hero .banner-logo{left:32px;transform:translateX(-8px)}
