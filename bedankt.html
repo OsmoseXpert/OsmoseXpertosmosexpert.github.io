@@ -142,8 +142,57 @@ button{ min-height:44px; }
   }
 }
 </style>
-<link href="https://osmose-xpert.be/bedankt.html" rel="canonical"/><link href="assets/styles.css" rel="stylesheet"/><link href="assets/css/fixes.css" rel="stylesheet"/><script defer="True" src="assets/js/booking.js"></script><meta content="OsmoseXpert ramenreiniging in Ronse, Oudenaarde, Kluisbergen. Professioneel &amp; streeploos." name="description"/></head>
-<body data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="site-nav">
+<link href="https://osmose-xpert.be/bedankt.html" rel="canonical"/><link href="assets/styles.css" rel="stylesheet"/><link href="assets/css/fixes.css" rel="stylesheet"/><script defer="True" src="assets/js/booking.js"></script><meta content="OsmoseXpert ramenreiniging in Ronse, Oudenaarde, Kluisbergen. Professioneel &amp; streeploos." name="description"/><style>
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+.float-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+.close-btn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px; right: 20px;
+  cursor: pointer;
+}
+@media(max-width: 600px) {
+  .float-btn {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+</style></head>
+<body data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered">
 <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle btn">☰ Menu</button>
 <ul class="nav-list" id="primary-nav">
 <li><a href="index.html">Home</a></li>
@@ -209,5 +258,73 @@ button{ min-height:44px; }
 </div>
 </div>
 <small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
-</footer><script src="assets/script.js"></script><script src="assets/dynamic.js"></script><div class="sticky-cta-wrap"><a class="btn-book book sticky-cta js-book-now btn" href="#boek-nu">Boek nu</a><a class="sticky-cta offerte" href="contact.html">Offerte aanvragen</a></div><div>Kortingen t.o.v. losse beurten. Kortingsvoorstel op basis van frequentie/bundel: Bronze −5%, Silver −10%, Gold −12%. Add-ons volgen dezelfde korting.</div></body>
+</footer><script src="assets/script.js"></script><script src="assets/dynamic.js"></script><div>Kortingen t.o.v. losse beurten. Kortingsvoorstel op basis van frequentie/bundel: Bronze −5%, Silver −10%, Gold −12%. Add-ons volgen dezelfde korting.</div>
+
+<div class="modal" id="calendlyModal">
+<div class="modal-content">
+<span class="close-btn" id="closeCalendly">×</span>
+<iframe frameborder="0" src="https://calendly.com/osmose-xpert-info/new-meeting" style="width:100%; height:600px;"></iframe>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("calendlyModal");
+    const openBtn = document.getElementById("openCalendly");
+    const closeBtn = document.getElementById("closeCalendly");
+    const floatBtns = document.getElementById("floating-buttons");
+
+    openBtn.onclick = () => modal.style.display = "block";
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+
+    let scrollTimer;
+    window.addEventListener("scroll", () => {
+        floatBtns.style.opacity = "0";
+        floatBtns.style.transition = "opacity 0.5s ease-out";
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            floatBtns.style.opacity = "1";
+        }, 1000);
+    });
+});
+</script>
+
+<div class="floating-offerte" id="floating-offerte">
+<button class="float-btn second" id="openOfferte">Offerte aanvragen</button>
+</div>
+<div class="modal" id="offerteModal">
+<div class="modal-content">
+<span class="close-btn" id="closeOfferte">×</span>
+<iframe frameborder="0" src="https://calendly.com/osmose-xpert-info/new-meeting" style="width:100%; height:600px;"></iframe>
+</div>
+</div>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const oModal = document.getElementById("offerteModal");
+            const oOpen = document.getElementById("openOfferte");
+            const oClose = document.getElementById("closeOfferte");
+            const floatO = document.getElementById("floating-offerte");
+            oOpen.onclick = () => oModal.style.display = "block";
+            oClose.onclick = () => oModal.style.display = "none";
+            window.onclick = e => { if (e.target === oModal) oModal.style.display = "none"; }
+            let t;
+            window.addEventListener("scroll", () => {
+                floatO.style.opacity = "0";
+                clearTimeout(t);
+                t = setTimeout(() => floatO.style.opacity = "1", 1000);
+            });
+        });
+        </script>
+<style>
+        .floating-offerte {
+          position: fixed;
+          bottom: 80px;
+          right: 20px;
+          z-index: 9998;
+        }
+        .float-btn.second {
+          background-color: #28a745;
+        }
+        </style>
+</body>
 </html>
