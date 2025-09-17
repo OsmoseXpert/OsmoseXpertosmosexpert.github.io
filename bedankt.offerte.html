@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head><script>window.CALENDLY_DEFAULT='https://calendly.com/osmose-xpert-info/new-meeting';</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Bedankt | OsmoseXpert</title>
+<meta content="Bedankt voor je aanvraag bij OsmoseXpert. We nemen snel contact met je op." name="description"/>
+<meta content="OsmoseXpert – Bedankt" property="og:title"/>
+<meta content="Je aanvraag is goed ontvangen. Wij contacteren je spoedig." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="#011a3a" name="theme-color"/>
+<meta content="images/logo3.svg" property="og:image"/>
+<style>
+    body { font-family: Arial, sans-serif; background:#f6f9fc; color:#1e293b; line-height:1.6; text-align:center; padding:60px 20px; }
+    .container { max-width:700px; margin:0 auto; background:#fff; padding:40px 30px; border-radius:16px; box-shadow:0 6px 28px rgba(0,0,0,0.08); }
+    img { max-width:160px; margin-bottom:20px; }
+    h1 { font-size:32px; margin-bottom:16px; color:#0f6ab8; }
+    p { font-size:18px; margin-bottom:24px; color:#334155; }
+    a.btn { display:inline-block; padding:14px 24px; border-radius:10px; background:#0f6ab8; color:#fff; font-weight:700; text-decoration:none; }
+    a.btn:hover { filter:brightness(0.95); }
+  
+
+/* === MOBILE NAV & LAYOUT (injected) === */
+.site-nav{
+  position: sticky; top: 0; z-index: 100;
+  background:#fff; border-bottom:1px solid #e2e8f0;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:12px 16px;
+}
+.site-nav .brand img{ display:block; height:28px; width:auto; }
+.nav-toggle{ display:none; border:1px solid #cbd5e1; background:#fff; border-radius:8px; padding:8px 10px; font-size:18px; line-height:1; cursor:pointer; }
+.nav-list{ display:flex; gap:16px; list-style:none; margin:0; padding:0; }
+.nav-list a{ display:block; padding:6px 10px; border-radius:6px; color:#1e293b; font-weight:600; }
+.nav-list a:hover{ color:#0f6ab8; background:#e6f0fa; }
+.nav-list a.active, .nav-list a[aria-current="page"]{ color:#fff; background:#0f6ab8; }
+
+/* Make images and embeds responsive */
+img, video, canvas { max-width:100%; height:auto; }
+
+/* Forms: avoid iOS zoom and improve tappable area */
+input, select, textarea, button{ font-size:16px; }
+button{ min-height:44px; }
+
+/* Subhero: consistent on desktop, flexible on mobile */
+.subhero{
+  background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  color:#fff;
+  height:180px;
+  padding:0 20px;
+  display:flex; align-items:center;
+}
+.subhero .wrap{
+  max-width:1100px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  width:100%; height:100%;
+}
+.subhero h1{ margin:0; font-size:clamp(22px, 3vw, 32px); line-height:1.2; }
+.subhero p{ margin-top:8px; color:#e6f0fa; font-size:clamp(14px, 1.6vw, 16px); }
+.subhero img{ max-height:100%; width:auto; object-fit:contain; }
+
+/* Cards & grids: stack on mobile */
+.section{ max-width:1100px; margin:30px auto; padding:0 20px; }
+.grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; }
+@media (max-width: 900px){
+  .nav-toggle{ display:block; }
+  .nav-list{
+    position:absolute; left:0; right:0; top:100%;
+    background:#fff; border-bottom:1px solid #e2e8f0;
+    display:none; flex-direction:column; gap:0; padding:8px;
+  }
+  .site-nav[data-open="true"] .nav-list{ display:flex; }
+  .grid{ grid-template-columns:1fr; }
+  .subhero{ background:#0f6ab8; height:auto; padding:28px 20px; }
+  .subhero .wrap{ flex-direction:column; text-align:center; height:auto; }
+  .subhero img{ margin-top:12px; max-height:120px; }
+}
+/* Accessibility helper */
+.sr-only{ position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+
+
+/* ==== DESKTOP-HERSTEL: behoud originele desktop look ==== */
+@media (min-width: 901px){
+  .site-nav{
+    position: static;
+    border-bottom: 1px solid #e2e8f0;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+  .site-nav .brand{ display: none; }
+  .nav-toggle{ display: none !important; }
+  .nav-list{ display: flex; gap: 20px; }
+
+  .subhero{
+    height: auto;
+    padding: 40px 20px;
+    background: linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  }
+  .subhero .wrap{ height: auto; }
+  .subhero img{ max-height: 160px; width: auto; object-fit: contain; }
+
+  .grid{ grid-template-columns: 1.2fr .8fr; gap: 26px; }
+}
+
+/* ==== DESKTOP-ROLLBACK: herstel originele desktop look, behoud mobiel ==== */
+@media (min-width: 901px){
+
+  .site-nav{
+    position: static;
+    top: auto;
+    border-bottom: 1px solid #e2e8f0;
+    justify-content: center;
+    padding: 14px 20px;
+    background: #fff;
+  }
+  .site-nav .brand{ display: none !important; }
+  .nav-toggle{ display: none !important; }
+  .nav-list{ display: flex; gap: 20px; }
+
+  .subhero{
+    height: auto;
+    padding: 40px 20px;
+    text-align: left;
+  }
+  .subhero .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+  }
+  .subhero .wrap > div,
+  .subhero img{
+    flex: initial;
+    max-width: none;
+  }
+  .subhero img{
+    max-height: 160px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+</style>
+<link href="https://osmose-xpert.be/bedankt.html" rel="canonical"/><link href="assets/styles.css?v=20250917-1303" rel="stylesheet"/><link href="assets/css/fixes.css" rel="stylesheet"/><script defer="True" src="assets/js/booking.js"></script><style>
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+.float-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+.close-btn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px; right: 20px;
+  cursor: pointer;
+}
+@media(max-width: 600px) {
+  .float-btn {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+</style><link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/><script async="" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<style>
+/* ==== Live Hotfix 20250917-1303: force-remove legacy hero/banner background ==== */
+.hero,.hero-banner,.banner,.header-hero,.hero-section,#hero,#banner {
+  background-image: none !important;
+  background: var(--bg, #0c3a47) !important;
+  background-size: auto !important;
+  background-position: center !important;
+}
+/* Floating CTA base & scroll auto-hide */
+.floating-cta{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;flex-direction:column;gap:12px;transition:opacity .25s ease, transform .25s ease}
+.floating-cta.hidden{opacity:0;transform:translateY(16px);pointer-events:none}
+.floating-cta .cta-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:999px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.15);transition:transform .15s ease,box-shadow .15s ease}
+.floating-cta .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.2)}
+.floating-cta .cta-offerte{background:#10b981}
+.floating-cta .cta-boek{background:#2563eb}
+@media (max-width: 480px){.floating-cta{right:12px;bottom:12px} .floating-cta .cta-btn{padding:12px 14px;font-size:15px}}
+/* Mobile menu consistent */
+@media (min-width:1024px){.ox-mm-btn,.ox-mm,.ox-mm-overlay{display:none !important}}
+@media (max-width:1023.98px){
+  .ox-mm-btn{position:fixed;top:12px;right:12px;z-index:10010;width:48px;height:48px;border-radius:12px;border:none;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rgba(0,0,0,.18);cursor:pointer}
+  .ox-mm-btn .bars{position:relative;width:22px;height:2px;background:#fff}
+  .ox-mm-btn .bars::before,.ox-mm-btn .bars::after{content:"";position:absolute;left:0;width:22px;height:2px;background:#fff}
+  .ox-mm-btn .bars::before{top:-6px} .ox-mm-btn .bars::after{top:6px}
+  .ox-mm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;z-index:10000}
+  .ox-mm{position:fixed;top:64px;right:12px;width:min(86vw,320px);max-height:70vh;overflow:auto;background:#fff;border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,.2);padding:10px;display:none;z-index:10011}
+  .ox-mm.open,.ox-mm-overlay.open{display:block}
+  .ox-mm a{display:block;padding:12px 10px;text-decoration:none;color:#111;border-radius:10px}
+  .ox-mm a:hover,.ox-mm a:focus{background:#f3f4f6}
+  header .hamburger, header .menu, .old-menu, .nav-toggle, .navbar-toggle { display:none !important; }
+}
+</style>
+</head>
+<body data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered">
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle btn">☰ Menu</button>
+<ul class="nav-list" id="primary-nav">
+<li><a href="index.html">Home</a></li>
+<li><a href="over-ons.html">Over ons</a></li>
+<li><a href="diensten.html">Diensten</a></li>
+<li><a href="prijzen.html">Prijzen</a></li>
+<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+</nav><header class="subhero" role="banner"><div class="wrap"><div class="subhero-left"><h1 class="motion-text">Bedankt</h1><p></p></div><div class="subhero-right"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><a class="site-logo" href="index.html"><img alt="OsmoseXpert" class="site-logo-img" loading="lazy" src="images/logo3.svg"/></a></picture></div></div></header>
+<div class="container">
+<img alt="OsmoseXpert logo" loading="lazy" src="logo1.png"/>
+<h1>Bedankt voor je aanvraag!</h1>
+<p>We hebben je aanvraag goed ontvangen. Ons team neemt zo snel mogelijk contact met je op.</p>
+<a class="btn" href="index.html">Terug naar Home</a>
+</div>
+<script>
+  // Mobile nav toggle (injected)
+  (function(){
+    const nav = document.querySelector('.site-nav');
+    const btn = nav?.querySelector('.nav-toggle');
+    if(!nav || !btn) return;
+    btn.addEventListener('click', () => {
+      const open = nav.getAttribute('data-open') === 'true';
+      nav.setAttribute('data-open', String(!open));
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+  })();
+</script>
+<footer>
+<div class="footer-container">
+<div class="footer-col">
+<h3>Snelle navigatie</h3>
+<ul class="footer-nav">
+<li><a href="index.html">Home</a></li>
+<li><a href="over-ons.html">Over ons</a></li>
+<li><a href="diensten.html">Diensten</a></li>
+<li><a href="prijzen.html">Prijzen</a></li>
+<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="voorwaarden.html">Voorwaarden</a></li>
+<li><a href="privacy.html">Privacybeleid</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h3>Contact</h3>
+<p>Ronse · Kluisbergen · Oudenaarde</p>
+<p>Tel: <a href="tel:+32493673484">+32 493 67 34 84</a></p>
+<p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+</div>
+<div class="footer-col">
+<h3>OsmoseXpert</h3>
+<p>BTW BE0733.924.863</p>
+<p>Professionele ramenreiniging in Ronse en omgeving.<br/>Streeploos, veilig en zonder chemische producten.</p>
+<p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
+</div>
+</div>
+<small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
+</footer><script src="assets/script.js"></script><script src="assets/dynamic.js"></script><div>Kortingen t.o.v. losse beurten. Kortingsvoorstel op basis van frequentie/bundel: Bronze −5%, Silver −10%, Gold −12%. Add-ons volgen dezelfde korting.</div>
+<div class="modal" id="calendlyModal">
+<div class="modal-content">
+<span class="close-btn" id="closeCalendly">×</span>
+<iframe frameborder="0" src="https://calendly.com/osmose-xpert-info/new-meeting" style="width:100%; height:600px;"></iframe>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("calendlyModal");
+    const openBtn = document.getElementById("openCalendly");
+    const closeBtn = document.getElementById("closeCalendly");
+    const floatBtns = document.getElementById("floating-buttons");
+
+    openBtn.onclick = () => modal.style.display = "block";
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+
+    let scrollTimer;
+    window.addEventListener("scroll", () => {
+        floatBtns.style.opacity = "0";
+        floatBtns.style.transition = "opacity 0.5s ease-out";
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            floatBtns.style.opacity = "1";
+        }, 1000);
+    });
+});
+</script>
+<div class="floating-offerte" id="floating-offerte">
+<button class="float-btn second" id="openOfferte">Offerte aanvragen</button>
+</div>
+<div class="modal" id="offerteModal">
+<div class="modal-content">
+<span class="close-btn" id="closeOfferte">×</span>
+<iframe frameborder="0" src="https://calendly.com/osmose-xpert-info/new-meeting" style="width:100%; height:600px;"></iframe>
+</div>
+</div>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const oModal = document.getElementById("offerteModal");
+            const oOpen = document.getElementById("openOfferte");
+            const oClose = document.getElementById("closeOfferte");
+            const floatO = document.getElementById("floating-offerte");
+            oOpen.onclick = () => oModal.style.display = "block";
+            oClose.onclick = () => oModal.style.display = "none";
+            window.onclick = e => { if (e.target === oModal) oModal.style.display = "none"; }
+            let t;
+            window.addEventListener("scroll", () => {
+                floatO.style.opacity = "0";
+                clearTimeout(t);
+                t = setTimeout(() => floatO.style.opacity = "1", 1000);
+            });
+        });
+        </script>
+<style>
+        .floating-offerte {
+          position: fixed;
+          bottom: 80px;
+          right: 20px;
+          z-index: 9998;
+        }
+        .float-btn.second {
+          background-color: #28a745;
+        }
+        </style>
+
+<!-- Floating CTAs -->
+<div aria-label="Acties" class="floating-cta" role="region">
+<a class="cta-btn cta-offerte" href="offerte.html">Offerte aanvragen</a>
+<a class="cta-btn cta-boek" href="#" onclick="try{Calendly.initPopupWidget({url:'https://calendly.com/osmose-xpert-info/new-meeting?hide_gdpr_banner=1&amp;hide_event_type_details=1&amp;primary_color=2563eb'});}catch(e){} return false;">Boek nu</a>
+</div>
+
+<!-- OX Mobile Menu -->
+<div aria-hidden="true" class="ox-mm-overlay" id="oxMobileMenuOverlay"></div>
+<nav aria-label="Mobiele navigatie" class="ox-mm" id="oxMobileMenu">
+<a href="osmosexpert_cleaned_site_fixed/contact.html">Contact</a>
+<a href="osmosexpert_cleaned_site_fixed/diensten.html">Diensten</a>
+<a href="osmosexpert_cleaned_site_fixed/faq.html">Faq</a>
+<a href="osmosexpert_cleaned_site_fixed/index.html">Home</a>
+<a href="osmosexpert_cleaned_site_fixed/onderhoudsplannen.html">Onderhoudsplannen</a>
+<a href="osmosexpert_cleaned_site_fixed/over-ons.html">Over Ons</a>
+<a href="osmosexpert_cleaned_site_fixed/prijslijst-2025.html">Prijslijst 2025</a>
+<a href="osmosexpert_cleaned_site_fixed/prijzen.html">Prijzen</a>
+<a href="osmosexpert_cleaned_site_fixed/privacy.html">Privacy</a>
+<a href="osmosexpert_cleaned_site_fixed/voorwaarden.html">Voorwaarden</a>
+</nav>
+<button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn">
+<span aria-hidden="true" class="bars"></span>
+</button>
+
+<script>
+(function(){
+  function ready(fn){ if(document.readyState!='loading'){fn()} else {document.addEventListener('DOMContentLoaded', fn)} }
+  ready(function(){
+    // Floating hide/show on scroll
+    var cta = document.querySelector('.floating-cta'); 
+    if(cta){
+      var t;
+      window.addEventListener('scroll', function(){
+        cta.classList.add('hidden');
+        if(t) clearTimeout(t);
+        t = setTimeout(function(){ cta.classList.remove('hidden'); }, 500);
+      }, {passive:true});
+    }
+    // Remove legacy top-left menu buttons
+    var btnId = 'oxMobileMenuBtn';
+    Array.from(document.querySelectorAll('button, a, div, span')).forEach(function(el){
+      if(el.id === btnId) return;
+      var txt = (el.textContent || '').trim().toLowerCase();
+      var cls = (el.className || '').toString().toLowerCase();
+      var ok = /menu|hamburger|nav|toggle/.test(cls) || txt==='menu' || txt==='☰' || txt==='≡';
+      var r = el.getBoundingClientRect ? el.getBoundingClientRect() : {top:999,left:999};
+      if(ok && r.top < 120 && r.left < 120){ el.style.display='none'; }
+    });
+    // Mobile menu toggle
+    var btn = document.getElementById('oxMobileMenuBtn');
+    var menu = document.getElementById('oxMobileMenu');
+    var ovl = document.getElementById('oxMobileMenuOverlay');
+    if(btn && menu && ovl){
+      function openM(){menu.classList.add('open'); ovl.classList.add('open'); btn.setAttribute('aria-expanded','true');}
+      function closeM(){menu.classList.remove('open'); ovl.classList.remove('open'); btn.setAttribute('aria-expanded','false');}
+      function toggle(e){ if(e) e.preventDefault(); menu.classList.contains('open')? closeM(): openM(); }
+      btn.addEventListener('click', toggle);
+      ovl.addEventListener('click', closeM);
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeM(); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
