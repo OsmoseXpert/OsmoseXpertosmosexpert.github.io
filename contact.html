@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head><script>window.CALENDLY_DEFAULT='https://calendly.com/osmose-xpert-info/new-meeting';</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Contact | OsmoseXpert – Professionele ramenreiniging in Ronse, Kluisbergen &amp; Oudenaarde</title>
+<meta content="Contacteer OsmoseXpert voor professionele ramenreiniging met osmosewater. Snelle offertes, transparante prijzen en onderhoudsplannen in Ronse, Kluisbergen en Oudenaarde." name="description"/>
+<meta content="OsmoseXpert – Contact" property="og:title"/>
+<meta content="Stel je vraag of vraag een vrijblijvende offerte via ons contactformulier. Snelle responstijd en streeploos resultaat." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="#011a3a" name="theme-color"/>
+<meta content="images/logo3.svg" property="og:image"/>
+<style>
+/* Reset en basis */
+* { box-sizing: border-box; margin:0; padding:0; }
+:root { --brand:#0f6ab8; --ink:#1e293b; --bg:#f6f9fc; --dark:#011a3a; --muted:#64748b; }
+body { font-family: Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+a { color:var(--brand); text-decoration:none; transition: all .2s ease; }
+a:hover { text-decoration:underline; }
+
+/* Navbar (zelfde look & feel als andere pagina's) */
+nav { background:#fff; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:14px 20px; position:sticky; top:0; z-index:100; }
+nav ul { display:flex; gap:20px; }
+nav li { list-style:none; }
+nav a { color:var(--ink); font-weight:600; padding:6px 10px; border-radius:6px; }
+nav a:hover { color:var(--brand); background:#e6f0fa; }
+nav a.active, nav a[aria-current="page"] { color:#fff; background:var(--brand); }
+
+/* Subhero */
+.subhero {
+  background: linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  color: #fff;
+  height: 180px;          /* vaste bannerhoogte */
+  padding: 0 20px;        /* géén verticale padding, anders groeit de hoogte */
+  display: flex;          /* center de inhoud netjes verticaal */
+  align-items: center;
+}
+.subhero .wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;     /* verticaal centreren binnen de wrap */
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  height: 100%;            /* laat de wrap de volledige bannerhoogte nemen */
+}
+.subhero h1 { margin: 0; font-size: 32px; line-height: 1.2; }
+.subhero p  { margin-top: 8px; color: #e6f0fa; }
+.subhero img {
+  max-height: 100%;        /* logo past binnen de bannerhoogte */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Grid */
+.section { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+.grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 26px; }
+
+/* Mobiel: banner mag automatisch in hoogte */
+@media (max-width: 900px){
+  .grid { grid-template-columns: 1fr; }
+  .subhero {
+    background: #0f6ab8;
+    height: auto;           /* laat op mobiel meeschalen */
+    padding: 40px 20px;     /* veilige verticale ruimte terug */
+    flex-direction: column;
+    text-align: center;
+  }
+  .subhero .wrap { height: auto; }
+  .subhero img { margin-top: 16px; max-height: 120px; }
+}
+
+
+/* Form */
+.card { background:#fff; border:1px solid #e2e8f0; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,0.05); padding:22px; }
+.card h2 { margin-bottom:10px; color:#0a3d62; }
+.card p.lead { color:#334155; margin-bottom:16px; }
+.contact-form label { display:block; font-weight:600; margin:12px 0 6px; }
+.contact-form input,
+.contact-form select,
+.contact-form textarea { width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:10px; font:inherit; }
+.contact-form textarea { resize:vertical; }
+.contact-form textarea::placeholder { color:#9ca3af; opacity:1; }
+.contact-form button { margin-top:14px; display:inline-block; padding:12px 18px; border-radius:10px; font-weight:700; text-align:center; border:1px solid transparent; background:var(--brand); color:#fff; cursor:pointer; }
+.contact-form button:hover { filter:brightness(0.95); }
+.small { font-size:13px; color:#64748b; }
+
+/* Info kolom */
+.kv { display:grid; grid-template-columns: 24px 1fr; gap:10px 12px; align-items:start; }
+.kv svg { flex:0 0 24px; }
+.kv p { margin:0; }
+.kv a { word-break:break-word; }
+.badge { display:inline-block; padding:6px 10px; border-radius:999px; background:#eef6fc; color:#0f6ab8; font-weight:700; font-size:12px; margin-top:6px; }
+
+/* Footer (consistent) */
+footer { background:#0a3d62; color:#fff; padding:40px 20px; margin-top:30px; }
+.footer-container { max-width:1100px; margin:auto; display:flex; flex-wrap:wrap; justify-content: space-between; gap:20px; }
+.footer-container > div { flex:1 1 220px; }
+.footer-nav { list-style:none; padding:0; }
+.footer-nav li { margin-bottom:8px; }
+.footer-nav a { color:#cfe8ff; }
+footer small { display:block; text-align:center; margin-top:20px; color:#94a3b8; }
+
+/* A11y */
+.skip-link{ position:absolute; left:-9999px; top:auto; }
+.skip-link:focus{ left:12px; top:12px; background:#fff; padding:8px 12px; border:2px solid var(--brand); border-radius:6px; z-index:1000; }
+:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  
+
+/* === MOBILE NAV & LAYOUT (injected) === */
+.site-nav{
+  position: sticky; top: 0; z-index: 100;
+  background:#fff; border-bottom:1px solid #e2e8f0;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:12px 16px;
+}
+.site-nav .brand img{ display:block; height:28px; width:auto; }
+.site-nav .brand{margin-left:auto;}
+.nav-toggle{ display:none; border:1px solid #cbd5e1; background:#fff; border-radius:8px; padding:8px 10px; font-size:18px; line-height:1; cursor:pointer; }
+.nav-list{ display:flex; gap:16px; list-style:none; margin:0; padding:0; }
+.nav-list a{ display:block; padding:6px 10px; border-radius:6px; color:#1e293b; font-weight:600; }
+.nav-list a:hover{ color:#0f6ab8; background:#e6f0fa; }
+.nav-list a.active, .nav-list a[aria-current="page"]{ color:#fff; background:#0f6ab8; }
+
+/* Make images and embeds responsive */
+img, video, canvas { max-width:100%; height:auto; }
+
+/* Forms: avoid iOS zoom and improve tappable area */
+input, select, textarea, button{ font-size:16px; }
+button{ min-height:44px; }
+
+/* Subhero: consistent on desktop, flexible on mobile */
+.subhero{
+  background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  color:#fff;
+  height:180px;
+  padding:0 20px;
+  display:flex; align-items:center;
+}
+.subhero .wrap{
+  max-width:1100px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  width:100%; height:100%;
+}
+.subhero h1{ margin:0; font-size:clamp(22px, 3vw, 32px); line-height:1.2; }
+.subhero p{ margin-top:8px; color:#e6f0fa; font-size:clamp(14px, 1.6vw, 16px); }
+.subhero img{
+  flex:0 0 40%;
+  max-height:100%;
+  width:auto;
+  object-fit:contain;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+
+/* Cards & grids: stack on mobile */
+.section{ max-width:1100px; margin:30px auto; padding:0 20px; }
+.grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; }
+@media (max-width: 900px){
+  .nav-toggle{ display:block; }
+  .nav-list{
+    position:absolute; left:0; right:0; top:100%;
+    background:#fff; border-bottom:1px solid #e2e8f0;
+    display:none; flex-direction:column; gap:0; padding:8px;
+  }
+  .site-nav[data-open="true"] .nav-list{ display:flex; }
+  .grid{ grid-template-columns:1fr; }
+  .subhero{ background:#0f6ab8; height:auto; padding:28px 20px; }
+  .subhero .wrap{ flex-direction:column; text-align:center; height:auto; }
+  .subhero img{
+  flex:0 0 40%;
+  max-height:100%;
+  width:auto;
+  object-fit:contain;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+}
+/* Accessibility helper */
+.sr-only{ position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+
+
+/* ==== DESKTOP-HERSTEL: behoud originele desktop look ==== */
+@media (min-width: 901px){
+  .site-nav{
+    position: static;
+    border-bottom: 1px solid #e2e8f0;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+  .site-nav .brand{ display: none; }
+  .nav-toggle{ display: none !important; }
+  .nav-list{ display: flex; gap: 20px; }
+
+  .subhero{
+    height: auto;
+    padding: 40px 20px;
+    background: linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  }
+  .subhero .wrap{ height: auto; }
+  .subhero img{
+  flex:0 0 40%;
+  max-height:100%;
+  width:auto;
+  object-fit:contain;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+
+  .grid{ grid-template-columns: 1.2fr .8fr; gap: 26px; }
+}
+
+/* ==== DESKTOP-ROLLBACK: herstel originele desktop look, behoud mobiel ==== */
+@media (min-width: 901px){
+
+  .site-nav{
+    position: static;
+    top: auto;
+    border-bottom: 1px solid #e2e8f0;
+    justify-content: center;
+    padding: 14px 20px;
+    background: #fff;
+  }
+  .site-nav .brand{ display: none !important; }
+  .nav-toggle{ display: none !important; }
+  .nav-list{ display: flex; gap: 20px; }
+
+  .subhero{
+    height: auto;
+    padding: 40px 20px;
+    text-align: left;
+  }
+  .subhero .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+  }
+  .subhero .wrap > div,
+  .subhero img{
+  flex:0 0 40%;
+  max-height:100%;
+  width:auto;
+  object-fit:contain;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+  .subhero img{
+  flex:0 0 40%;
+  max-height:100%;
+  width:auto;
+  object-fit:contain;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+}
+
+</style>
+<link href="https://osmose-xpert.be/contact.html" rel="canonical"/><link href="assets/styles.css" rel="stylesheet"/><link href="assets/css/fixes.css" rel="stylesheet"/><script defer="True" src="assets/js/booking.js"></script><style>
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+.float-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+.close-btn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px; right: 20px;
+  cursor: pointer;
+}
+@media(max-width: 600px) {
+  .float-btn {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+</style></head>
+<body data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered">
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle btn">☰ Menu</button>
+<ul class="nav-list" id="primary-nav">
+<li><a href="index.html">Home</a></li>
+<li><a href="over-ons.html">Over ons</a></li>
+<li><a href="diensten.html">Diensten</a></li>
+<li><a href="prijzen.html">Prijzen</a></li>
+<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+<li><a aria-current="page" class="active" href="contact.html">Contact</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+</nav>
+<a class="skip-link" href="#content">Snel naar inhoud</a>
+<header class="subhero" role="banner">
+<div class="wrap"><div class="subhero-left"><h1 class="motion-text">Contacteer ons</h1><p>Snelle responstijd, transparante prijzen en streeploos resultaat.</p></div><div class="subhero-right"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><a class="site-logo" href="index.html"><img alt="OsmoseXpert" class="site-logo-img" loading="lazy" src="images/logo3.svg"/></a></picture></div></div>
+</header>
+<main class="section" id="content" role="main">
+<div class="grid">
+<!-- Formulier: zelfde Formspree endpoint + velden als de oude contact.html -->
+<section aria-labelledby="form-title" class="card">
+<h2 class="motion-text" id="form-title">Neem contact op</h2>
+<p class="lead">Vul het formulier in. We antwoorden doorgaans dezelfde werkdag.</p>
+<form action="https://formspree.io/f/mrbagbro" class="contact-form" method="POST">
+<label>Naam + Voornaam
+  <input name="naam" required="" type="text"/>
+</label>
+<label>E-mail
+            <input name="email" required="" type="email"/>
+</label>
+<label>Telefoon
+            <input name="telefoon" type="tel"/>
+</label>
+<label>Adres
+            <input name="adres" type="text"/>
+</label>
+<label>Onderhoudsplan
+            
+<select name="pakket">
+<option value="">Geen onderhoudsplan</option>
+<option value="Bronze">Bronze – 2× per jaar, -5% korting</option>
+<option value="Silver">Silver – 4× per jaar, 1-10% korting</option>
+<option value="Gold">Gold – 4× per jaar + 1× zonnepanelen reinigen, 12% korting</option>
+</select>
+</label>
+<label>Bericht
+            <textarea name="bericht" placeholder="Bijvoorbeeld: aantal ramen, verdiepingen, veranda, zonnepanelen of specifieke wensen..." rows="4"></textarea>
+</label>
+<!-- Zelfde submit-ervaring; redirect wordt beheerd zoals ingesteld voor dit Formspree-formulier. -->
+<button class="btn" type="submit">Verstuur</button>
+<p class="small">We delen je gegevens niet met derden.</p>
+</form>
+</section>
+<!-- Contactinfo -->
+<aside aria-labelledby="info-title" class="card">
+<h2 id="info-title">Direct contact</h2>
+<div class="kv" style="margin-top:6px;">
+<svg aria-hidden="true" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V21a1 1 0 01-1 1C10.85 22 2 13.15 2 2a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" fill="currentColor"></path></svg>
+<p>Tel: <a href="tel:+32493673484">+32 493 67 34 84</a> <a aria-label="WhatsApp" class="badge" href="https://wa.me/32493673484">WhatsApp</a></p>
+<svg aria-hidden="true" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"></path></svg>
+<p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+<svg aria-hidden="true" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" fill="currentColor"></path></svg>
+<p>Regio: Ronse · Kluisbergen · Oudenaarde</p>
+</div>
+<p class="small" style="margin-top:12px;">BTW BE0733.924.863</p>
+</aside>
+</div>
+<!-- SEO-sectie met servicegebied en korte uitleg -->
+<section aria-labelledby="seo-title" class="card" style="margin-top:20px;">
+<h2 id="seo-title">Onze service</h2>
+<p>Professionele ramenreiniging met osmosewater (0 ppm), veilig vanaf de grond tot 15 meter. Ideaal voor ramen, veranda’s, serres, glasgevels en zonnepanelen. Lokale specialist in Ronse, Kluisbergen en Oudenaarde met snelle responstijd en transparante prijzen.</p>
+</section>
+</main>
+<!-- JSON-LD LocalBusiness voor rijkere kaarten -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"OsmoseXpert","url":"https://osmose-xpert.be/contact.html","image":"https://osmose-xpert.be/images/logo3.svg","email":"info@osmose-xpert.be","telephone":"+32 493 67 34 84","areaServed":["Ronse","Kluisbergen","Oudenaarde"],"address":{"@type":"PostalAddress","addressCountry":"BE"}}</script>
+<script>
+  // Mobile nav toggle (injected)
+  (function(){
+    const nav = document.querySelector('.site-nav');
+    const btn = nav?.querySelector('.nav-toggle');
+    if(!nav || !btn) return;
+    btn.addEventListener('click', () => {
+      const open = nav.getAttribute('data-open') === 'true';
+      nav.setAttribute('data-open', String(!open));
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+  })();
+</script>
+<style>
+  .chatbase-bubble, .chatbase-widget { z-index: 2147483000 !important; }
+</style>
+<style>
+  .chatbase-widget { 
+    max-width: 380px !important; 
+    max-height: 72vh !important; 
+    right: 16px !important; 
+    bottom: 16px !important; 
+  }
+  .chatbase-bubble { right: 16px !important; bottom: 16px !important; }
+</style>
+<!-- Chatbase identity (set BEFORE embed script) -->
+<script>
+(async () => {
+  try {
+    const lsKey = "ox_uid";
+    let uid = localStorage.getItem(lsKey);
+    if (!uid) {
+      uid = (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now());
+      localStorage.setItem(lsKey, uid);
+    }
+    const payload = {
+      user_id: "web:" + uid,
+      user_metadata: { name: "Websitebezoeker", source: "github-pages" }
+    };
+    let cfg = { user_id: payload.user_id, user_metadata: payload.user_metadata };
+    try {
+      const resp = await fetch("https://osmose-xpert-osmosexpert-github-4cjttth42-osmosexperts-projects.vercel.app/api/chatbase-identify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (resp.ok) {
+        cfg = await resp.json();
+      }
+    } catch(e) {}
+    window.chatbaseUserConfig = cfg;
+  } catch(e) {
+    window.chatbaseUserConfig = { user_id: "web:guest", user_metadata: { source: "github-pages" } };
+  }
+})();
+</script>
+<!-- Chatbase widget -->
+<script>
+(function(){
+  if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+    window.chatbase=(...arguments)=>{ if(!window.chatbase.q){window.chatbase.q=[]} window.chatbase.q.push(arguments) };
+    window.chatbase=new Proxy(window.chatbase,{ get(target,prop){ if(prop==="q"){return target.q} return(...args)=>target(prop,...args) } })
+  }
+  const onLoad=function(){
+    const script=document.createElement("script");
+    script.src="https://www.chatbase.co/embed.min.js";
+    script.id="MjQNxm0-RM-G44z9g2jkE";
+    script.domain="www.chatbase.co";
+    document.body.appendChild(script)
+  };
+  if(document.readyState==="complete"){ onLoad() } else { window.addEventListener("load",onLoad) }
+})();
+</script>
+<script>
+/* Auto-minimize Chatbase on load so it doesn't cover the homepage */
+(function(){
+  function tryClose(){ try{ window.chatbase && window.chatbase('close'); }catch(e){} }
+  var mo = new MutationObserver(function(){
+    if (document.querySelector('.chatbase-widget')) { tryClose(); mo.disconnect(); }
+  });
+  mo.observe(document.documentElement || document.body, { childList:true, subtree:true });
+  window.addEventListener('load', function(){ setTimeout(tryClose, 250); });
+})();
+</script>
+<footer>
+<div class="footer-container">
+<div class="footer-col">
+<h3>Snelle navigatie</h3>
+<ul class="footer-nav">
+<li><a href="index.html">Home</a></li>
+<li><a href="over-ons.html">Over ons</a></li>
+<li><a href="diensten.html">Diensten</a></li>
+<li><a href="prijzen.html">Prijzen</a></li>
+<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="voorwaarden.html">Voorwaarden</a></li>
+<li><a href="privacy.html">Privacybeleid</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h3>Contact</h3>
+<p>Ronse · Kluisbergen · Oudenaarde</p>
+<p>Tel: <a href="tel:+32493673484">+32 493 67 34 84</a></p>
+<p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+</div>
+<div class="footer-col">
+<h3>OsmoseXpert</h3>
+<p>BTW BE0733.924.863</p>
+<p>Professionele ramenreiniging in Ronse en omgeving.<br/>Streeploos, veilig en zonder chemische producten.</p>
+<p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
+</div>
+</div>
+<small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
+</footer><script src="assets/script.js"></script><script src="assets/dynamic.js"></script><div>Kortingen t.o.v. losse beurten. Kortingsvoorstel op basis van frequentie/bundel: Bronze −5%, Silver −10%, Gold −12%. Add-ons volgen dezelfde korting.</div>
+<div class="modal" id="calendlyModal">
+<div class="modal-content">
+<span class="close-btn" id="closeCalendly">×</span>
+<iframe frameborder="0" src="https://calendly.com/osmose-xpert-info/new-meeting" style="width:100%; height:600px;"></iframe>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("calendlyModal");
+    const openBtn = document.getElementById("openCalendly");
+    const closeBtn = document.getElementById("closeCalendly");
+    const floatBtns = document.getElementById("floating-buttons");
+
+    openBtn.onclick = () => modal.style.display = "block";
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+
+    let scrollTimer;
+    window.addEventListener("scroll", () => {
+        floatBtns.style.opacity = "0";
+        floatBtns.style.transition = "opacity 0.5s ease-out";
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            floatBtns.style.opacity = "1";
+        }, 1000);
+    });
+});
+</script>
+<div class="floating-offerte" id="floating-offerte">
+<button class="float-btn second" id="openOfferte">Offerte aanvragen</button>
+</div>
+<div class="modal" id="offerteModal">
+<div class="modal-content">
+<span class="close-btn" id="closeOfferte">×</span>
+<iframe frameborder="0" src="https://calendly.com/osmose-xpert-info/new-meeting" style="width:100%; height:600px;"></iframe>
+</div>
+</div>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const oModal = document.getElementById("offerteModal");
+            const oOpen = document.getElementById("openOfferte");
+            const oClose = document.getElementById("closeOfferte");
+            const floatO = document.getElementById("floating-offerte");
+            oOpen.onclick = () => oModal.style.display = "block";
+            oClose.onclick = () => oModal.style.display = "none";
+            window.onclick = e => { if (e.target === oModal) oModal.style.display = "none"; }
+            let t;
+            window.addEventListener("scroll", () => {
+                floatO.style.opacity = "0";
+                clearTimeout(t);
+                t = setTimeout(() => floatO.style.opacity = "1", 1000);
+            });
+        });
+        </script>
+<style>
+        .floating-offerte {
+          position: fixed;
+          bottom: 80px;
+          right: 20px;
+          z-index: 9998;
+        }
+        .float-btn.second {
+          background-color: #28a745;
+        }
+        </style>
+</body>
+</html>
