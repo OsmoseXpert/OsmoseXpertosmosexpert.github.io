@@ -116,3 +116,16 @@ footer small{display:block;text-align:center;margin-top:14px;color:#94a3b8;font-
             flex-direction:column; gap:8px; background:#f1f5f9; border-bottom:1px solid #e2e8f0; padding:8px 12px}
   .site-nav[data-open="true"] .nav-list{display:flex !important}
 }
+/* ==== Hotfix: verwijder legacy waterdruppel-achtergrond op de hero ==== */
+.hero,
+.hero-banner,
+.banner,
+.header-hero,
+.hero-section,
+#hero,
+#banner {
+  background-image: none !important;
+  background: #0c3a47 !important;  /* of laat weg als je je huidige kleur wil behouden */
+  background-size: auto !important;
+  background-position: center !important;
+}
