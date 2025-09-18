@@ -413,3 +413,43 @@ footer small {
   color:#fff;
   font-weight:700;
 }
+
+/* === OSMOSEXPERT OVERRIDES (2025-09-18) === */
+
+/* Mobile subhero: no blue background; keep white with dark text */
+@media (max-width: 900px) {
+  .subhero {
+    background: #fff !important;
+    color: #0a3d62 !important;
+    height: auto;
+    padding: 28px 20px;
+  }
+  .subhero .wrap {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+  }
+  .subhero img {
+    margin-top: 12px;
+    max-height: 120px;
+    width: auto;
+  }
+}
+
+/* Hamburger icon: three centered bars */
+.ox-mm-btn .bars,
+.ox-mm-btn .bars::before,
+.ox-mm-btn .bars::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+.ox-mm-btn .bars { top: 50%; transform: translate(-50%, -50%); }
+.ox-mm-btn .bars::before { top: -6px; }
+.ox-mm-btn .bars::after { top: 6px; }
