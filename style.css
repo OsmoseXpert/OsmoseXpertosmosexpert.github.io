@@ -545,3 +545,12 @@ footer small {
   color: #fff;
   border-radius: 8px;
 }
+
+/* Desktop: logo in banner kleiner maken (zelfde als over-ons) */
+@media (min-width: 901px) {
+  .subhero .site-logo-img {
+    max-height: 160px !important;
+    width: auto;
+    height: auto;
+  }
+}
