@@ -460,3 +460,10 @@ footer small {
     color: #011a3a !important; /* typical dark blue from index banner */
   }
 }
+
+/* Position hamburger slightly behind top banner border like index */
+@media (max-width: 1023.98px) {
+  .ox-mm-btn {
+    top: -4px !important; /* raise slightly so it tucks behind banner edge */
+  }
+}
