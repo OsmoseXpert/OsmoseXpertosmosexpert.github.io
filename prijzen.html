@@ -112,8 +112,73 @@
   header .hamburger, header .menu, .old-menu, .nav-toggle, .navbar-toggle { display:none !important; }
 }
 </style>
-</head>
-<body data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered">
+<style>
+/* === OX PRIJZEN desktop nav centeren + active kleur === */
+@media (min-width: 901px){
+  nav.nav{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+  }
+  nav.nav ul{ margin:0 auto; }
+  nav.nav .nav-list a.active,
+  nav.nav .nav-list a[aria-current="page"]{
+    background:#0f6ab8 !important;
+    color:#fff !important;
+  }
+}
+
+
+/* === OX PRIJZEN banner desktop/mobiel === */
+@media (min-width: 901px){
+  body.prijzen-page .subhero{
+    background:#ffffff !important;
+    color:#1e293b !important;
+    padding: 40px 20px !important;
+  }
+  body.prijzen-page .subhero .wrap{
+    max-width:1100px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+  }
+  body.prijzen-page .subhero .site-logo-img{
+    max-height:160px !important; height:auto !important; width:auto !important;
+    object-fit:contain;
+  }
+}
+@media (max-width: 900px){
+  body.prijzen-page .subhero{
+    background:#0f6ab8 !important;
+    color:#fff !important;
+    padding: 28px 20px !important;
+  }
+  body.prijzen-page .subhero .wrap{ flex-direction:column; text-align:center; }
+  body.prijzen-page .subhero .subhero-left .title-prijzen{ display:none !important; }
+  body.prijzen-page .subhero .site-logo-img{ max-height:120px !important; }
+}
+
+
+/* === OX HAMBURGER: 3 echte balkjes === */
+@media (max-width:1023.98px){
+  .ox-mm-btn{
+    position:fixed; top:12px; right:12px; z-index:10010;
+    width:48px; height:48px;
+    border:none; border-radius:12px;
+    background:#2563eb !important; color:#fff !important;
+    display:flex !important; flex-direction:column !important;
+    align-items:center !important; justify-content:center !important;
+    gap:5px !important;
+    box-shadow:0 10px 20px rgba(0,0,0,.18);
+  }
+  .ox-mm-btn .bar{ display:block; width:22px; height:2px; background:#fff; border-radius:1px; }
+  .ox-mm-btn .bars, .ox-mm-btn .bars::before, .ox-mm-btn .bars::after{ display:none !important; }
+}
+</style><style>
+/* Show title only on desktop, hide on mobile */
+@media (max-width: 900px){
+  body.prijzen-page .subhero .only-desktop-title{ display:none !important; }
+}
+</style></head>
+<body class="prijzen-page" data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered">
 <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle btn">☰ Menu</button>
 <ul class="nav-list" id="primary-nav">
 <li><a href="index.html">Home</a></li>
@@ -124,7 +189,7 @@
 <li><a href="contact.html">Contact</a></li>
 <li><a href="faq.html">FAQ</a></li>
 </ul>
-</nav><header class="subhero" role="banner"><div class="wrap"><div class="subhero-left"><h1 class="motion-text">Prijzen</h1><p></p></div><div class="subhero-right"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><a class="site-logo" href="index.html"><img alt="OsmoseXpert" class="site-logo-img" loading="lazy" src="images/logo3.svg"/></a></picture></div></div></header>
+</nav><header class="subhero" role="banner"><div class="wrap"><div class="subhero-left"><h1 class="motion-text only-desktop-title title-prijzen">Prijzen</h1><p></p></div><div class="subhero-right"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><a class="site-logo" href="index.html"><img alt="OsmoseXpert" class="site-logo-img" loading="lazy" src="images/logo3.svg"/></a></picture></div></div></header>
 <a class="skip-link" href="#content">Snel naar inhoud</a>
 <main id="content">
 <section class="section">
@@ -266,68 +331,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
-<div class="floating-offerte" id="floating-offerte">
-<button class="float-btn second" id="openOfferte">Offerte aanvragen</button>
-</div>
-<div class="modal" id="offerteModal">
-<div class="modal-content">
-<span class="close-btn" id="closeOfferte">×</span>
-<iframe frameborder="0" src="https://calendly.com/osmose-xpert-info/new-meeting" style="width:100%; height:600px;"></iframe>
-</div>
-</div>
-<script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const oModal = document.getElementById("offerteModal");
-            const oOpen = document.getElementById("openOfferte");
-            const oClose = document.getElementById("closeOfferte");
-            const floatO = document.getElementById("floating-offerte");
-            oOpen.onclick = () => oModal.style.display = "block";
-            oClose.onclick = () => oModal.style.display = "none";
-            window.onclick = e => { if (e.target === oModal) oModal.style.display = "none"; }
-            let t;
-            window.addEventListener("scroll", () => {
-                floatO.style.opacity = "0";
-                clearTimeout(t);
-                t = setTimeout(() => floatO.style.opacity = "1", 1000);
-            });
-        });
-        </script>
-<style>
-        .floating-offerte {
-          position: fixed;
-          bottom: 80px;
-          right: 20px;
-          z-index: 9998;
-        }
-        .float-btn.second {
-          background-color: #28a745;
-        }
-        </style>
-
 <!-- Floating CTAs -->
 <div aria-label="Acties" class="floating-cta" role="region">
 <a class="cta-btn cta-offerte" href="offerte.html">Offerte aanvragen</a>
 <a class="cta-btn cta-boek" href="#" onclick="try{Calendly.initPopupWidget({url:'https://calendly.com/osmose-xpert-info/new-meeting?hide_gdpr_banner=1&amp;hide_event_type_details=1&amp;primary_color=2563eb'});}catch(e){} return false;">Boek nu</a>
 </div>
-
 <!-- OX Mobile Menu -->
 <div aria-hidden="true" class="ox-mm-overlay" id="oxMobileMenuOverlay"></div>
-<nav aria-label="Mobiele navigatie" class="ox-mm" id="oxMobileMenu">
-<a href="osmosexpert_cleaned_site_fixed/contact.html">Contact</a>
-<a href="osmosexpert_cleaned_site_fixed/diensten.html">Diensten</a>
-<a href="osmosexpert_cleaned_site_fixed/faq.html">Faq</a>
-<a href="osmosexpert_cleaned_site_fixed/index.html">Home</a>
-<a href="osmosexpert_cleaned_site_fixed/onderhoudsplannen.html">Onderhoudsplannen</a>
-<a href="osmosexpert_cleaned_site_fixed/over-ons.html">Over Ons</a>
-<a href="osmosexpert_cleaned_site_fixed/prijslijst-2025.html">Prijslijst 2025</a>
-<a href="osmosexpert_cleaned_site_fixed/prijzen.html">Prijzen</a>
-<a href="osmosexpert_cleaned_site_fixed/privacy.html">Privacy</a>
-<a href="osmosexpert_cleaned_site_fixed/voorwaarden.html">Voorwaarden</a>
-</nav>
-<button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn">
-<span aria-hidden="true" class="bars"></span>
-</button>
-
+<nav aria-label="Mobiele navigatie" class="ox-mm" id="oxMobileMenu"><a href="index.html">Home</a><a href="over-ons.html">Over ons</a><a href="diensten.html">Diensten</a><a aria-current="page" class="active" href="prijzen.html">Prijzen</a><a href="onderhoudsplannen.html">Onderhoudsplannen</a><a href="contact.html">Contact</a><a href="faq.html">FAQ</a></nav>
+<button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
 <script>
 (function(){
   function ready(fn){ if(document.readyState!='loading'){fn()} else {document.addEventListener('DOMContentLoaded', fn)} }
