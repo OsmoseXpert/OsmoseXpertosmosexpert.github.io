@@ -292,6 +292,15 @@ button{ min-height:44px; }
   /* Neutraliseer oude variant die 1 (pseudo)streepje tekent */
   .ox-mm-btn .bars, .ox-mm-btn .bars::before, .ox-mm-btn .bars::after{ display:none !important; }
 }
+</style><style>
+/* === OX page-scoped logo size (Diensten) === */
+@media (min-width: 901px){
+  body.diensten-page .subhero .site-logo-img{
+    max-height: 120px !important; /* match Over-ons visual scale */
+    height: auto !important;
+    width: auto !important;
+  }
+}
 </style></head>
 <body class="diensten-page" data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered">
 <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle btn">☰ Menu</button>
