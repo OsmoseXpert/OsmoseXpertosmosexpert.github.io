@@ -487,3 +487,17 @@ footer small {
     z-index: 500;
   }
 }
+
+/* === Mobile dropdown active item (same as Over-ons) === */
+.ox-mm a.active,
+.ox-mm a[aria-current="page"] {
+  background: #0f6ab8;
+  color: #fff !important;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.ox-mm a.active:hover,
+.ox-mm a[aria-current="page"]:hover {
+  background: #0d5ea3;
+  color: #fff !important;
+}
