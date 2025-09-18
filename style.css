@@ -501,3 +501,47 @@ footer small {
   background: #0d5ea3;
   color: #fff !important;
 }
+
+/* Forceer desktop nav centreren op over-ons, overschrijft inline styles */
+@media (min-width: 901px) {
+  body.over-ons-page nav.nav {
+    justify-content: center !important;
+  }
+}
+
+/* === Desktop nav hard-center like index (force) === */
+@media (min-width: 901px) {
+  nav.nav {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  nav.nav .nav-list {
+    display: flex !important;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+  }
+  nav.nav .nav-list li {
+    list-style: none;
+  }
+}
+
+/* Skip link only visible on focus (accessibility) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: #0f6ab8;
+  color: #fff;
+  border-radius: 8px;
+}
