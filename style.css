@@ -470,10 +470,20 @@ footer small {
   }
 }
 
-/* Over-ons: vlag-effect zoals index */
+/* === Over-ons: banner-overlay en vlag-effect (2025-09-18) === */
 @media (max-width: 1023.98px) {
+  /* Banner moet boven de knop liggen zodat de knop erachter 'inzakt' */
+  .over-ons-page .subhero {
+    position: relative;
+    z-index: 1000;
+  }
+  /* Hamburger iets lager en onder de bannerlaag */
   .over-ons-page .ox-mm-btn {
-    top: 4px !important;   /* iets lager dan -8 zodat hij netjes achter de rand valt */
-    z-index: 10010;
+    top: 4px !important;   /* finetune naar 3-6px indien nodig */
+    z-index: 900;          /* lager dan subhero */
+  }
+  /* Floating CTA's onder de banner houden */
+  .over-ons-page .floating-cta {
+    z-index: 500;
   }
 }
