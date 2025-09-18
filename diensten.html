@@ -277,7 +277,22 @@ button{ min-height:44px; }
   header .hamburger, header .menu, .old-menu, .nav-toggle, .navbar-toggle { display:none !important; }
 }
 </style>
-</head>
+<style>
+/* === OX HAMBURGER FIX (2025-09-19): 3 bars + kill legacy pseudo-elements === */
+@media (max-width:1023.98px){
+  .ox-mm-btn{
+    background:#2563eb !important; color:#fff !important;
+    display:flex !important; flex-direction:column !important;
+    align-items:center !important; justify-content:center !important;
+    gap:5px !important;
+    width:48px; height:48px; border-radius:12px; border:none;
+    box-shadow:0 10px 20px rgba(0,0,0,.18);
+  }
+  .ox-mm-btn .bar{ display:block; width:22px; height:2px; background:#fff; border-radius:1px; }
+  /* Neutraliseer oude variant die 1 (pseudo)streepje tekent */
+  .ox-mm-btn .bars, .ox-mm-btn .bars::before, .ox-mm-btn .bars::after{ display:none !important; }
+}
+</style></head>
 <body data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered">
 <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle btn">☰ Menu</button>
 <ul class="nav-list" id="primary-nav">
@@ -494,9 +509,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- OX Mobile Menu -->
 <div aria-hidden="true" class="ox-mm-overlay" id="oxMobileMenuOverlay"></div>
 <nav aria-label="Mobiele navigatie" class="ox-mm" id="oxMobileMenu"><a href="index.html">Home</a><a href="over-ons.html">Over ons</a><a aria-current="page" class="active" href="diensten.html">Diensten</a><a href="prijzen.html">Prijzen</a><a href="onderhoudsplannen.html">Onderhoudsplannen</a><a href="contact.html">Contact</a><a href="faq.html">FAQ</a></nav>
-<button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn">
-<span aria-hidden="true" class="bars"></span>
-</button>
+<button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
 <script>
 (function(){
   function ready(fn){ if(document.readyState!='loading'){fn()} else {document.addEventListener('DOMContentLoaded', fn)} }
