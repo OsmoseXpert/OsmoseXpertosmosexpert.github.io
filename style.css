@@ -546,11 +546,23 @@ footer small {
   border-radius: 8px;
 }
 
-/* Desktop: logo in banner kleiner maken (zelfde als over-ons) */
-@media (min-width: 901px) {
-  .subhero .site-logo-img {
-    max-height: 160px !important;
-    width: auto;
-    height: auto;
+/* === OSMOSEXPERT: Page-scoped fixes (2025-09-19) === */
+
+/* Desktop logo size per page to avoid cross-page bleed */
+@media (min-width: 901px){
+  body.diensten-page .subhero .site-logo-img{ max-height:160px !important; width:auto; height:auto; }
+  body.over-ons-page .subhero .site-logo-img{ max-height:160px !important; width:auto; height:auto; }
+}
+
+/* Mobile hamburger: 3 real bars; neutralize old .bars pseudo variant */
+@media (max-width:1023.98px){
+  .ox-mm-btn{
+    background:#2563eb !important; color:#fff !important;
+    display:flex !important; flex-direction:column !important;
+    align-items:center !important; justify-content:center !important;
+    gap:5px !important; width:48px; height:48px;
+    border:none; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.18);
   }
+  .ox-mm-btn .bar{ display:block; width:22px; height:2px; background:#fff; border-radius:1px; }
+  .ox-mm-btn .bars, .ox-mm-btn .bars::before, .ox-mm-btn .bars::after{ display:none !important; }
 }
