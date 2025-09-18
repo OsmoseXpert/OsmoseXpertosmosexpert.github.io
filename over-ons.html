@@ -174,6 +174,38 @@ button{ min-height:44px; }
     object-fit: contain;
   }
 }
+
+/* Desktop: center nav menu and highlight active link */
+@media (min-width: 1024px){
+  nav.nav{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+  }
+  nav.nav ul{
+    margin:0 auto;
+  }
+  nav a.active, nav a[aria-current="page"]{
+    background:#0f6ab8 !important;
+    color:#fff !important;
+  }
+}
+
+/* === HAMBURGER FIX: show 3 bars and neutralize old pseudo-elements === */
+@media (max-width:1023.98px){
+  .ox-mm-btn{
+    position:fixed; top:12px; right:12px; z-index:10010;
+    width:48px; height:48px;
+    border:none; border-radius:12px;
+    background:#2563eb; cursor:pointer;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:5px;
+    box-shadow:0 10px 20px rgba(0,0,0,.18);
+  }
+  .ox-mm-btn .bar{ width:22px; height:2px; background:#fff; border-radius:1px; display:block; }
+  /* Kill legacy .bars and pseudo bars that might conflict */
+  .ox-mm-btn .bars, .ox-mm-btn .bars::before, .ox-mm-btn .bars::after{ display:none !important; }
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"OsmoseXpert","areaServed":["Ronse","Kluisbergen","Oudenaarde"],"description":"Professionele ramenreiniging met osmosewater.","vatID":"BE0799.924.863","url":"https://osmose-xpert.be","telephone":"+32 493 67 34 84","image":"https://osmose-xpert.be/images/logo3.svg"}</script>
 <link href="https://osmose-xpert.be/over-ons.html" rel="canonical"/><link href="assets/styles.css?v=20250917-1303" rel="stylesheet"/><link href="assets/css/fixes.css" rel="stylesheet"/><script defer="True" src="assets/js/booking.js"></script><style>
@@ -260,7 +292,6 @@ button{ min-height:44px; }
   
 }
 </style>
-
 <style>
 /* ---- Title reveal animation ---- */
 .reveal{opacity:0;transform:translateY(14px);will-change:opacity,transform;transition:opacity .6s ease, transform .6s ease;transition-delay:var(--d,0s)}
@@ -269,7 +300,6 @@ button{ min-height:44px; }
   .reveal{opacity:1 !important; transform:none !important; transition:none !important}
 }
 </style>
-
 <style>
 
 @media (max-width:700px){
@@ -288,7 +318,6 @@ button{ min-height:44px; }
 }
 
 </style>
-
 <style>
 @media (max-width:700px){
   /* Als witte logo actief is, haal de pill weg */
@@ -299,21 +328,19 @@ button{ min-height:44px; }
   }
 }
 </style>
-
-
-<link rel="stylesheet" href="style.css?v=17"/>
+<link href="style.css?v=17" rel="stylesheet"/>
 </head>
 <body class="over-ons-page" data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered">
 <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle btn">☰ Menu</button>
 <ul class="nav-list" id="primary-nav">
 <li><a href="index.html">Home</a></li>
-<li><a href="over-ons.html" aria-current="page" class="active">Over ons</a></li>
+<li><a aria-current="page" class="active" href="over-ons.html">Over ons</a></li>
 <li><a href="diensten.html">Diensten</a></li>
 <li><a href="prijzen.html">Prijzen</a></li>
 <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
 <li><a href="contact.html">Contact</a></li>
 <li><a href="faq.html">FAQ</a></li>
-  </ul>
+</ul>
 </nav><header class="subhero" role="banner"><div class="wrap"><div class="subhero-left"><h1 class="motion-text">Over ons</h1><p></p></div><div class="subhero-right"><picture><source media="(max-width: 900px)" srcset="images/logo3.svg"/><a class="site-logo" href="index.html"><img alt="OsmoseXpert" class="site-logo-img" loading="lazy" src="images/logo3.svg"/></a></picture></div></div></header>
 <a class="skip-link" href="#content">Snel naar inhoud</a>
 <main id="content">
@@ -487,22 +514,18 @@ button{ min-height:44px; }
 <a class="cta-btn cta-offerte" href="offerte.html">Offerte aanvragen</a>
 <a class="cta-btn cta-boek" href="#" onclick="try{Calendly.initPopupWidget({url:'https://calendly.com/osmose-xpert-info/new-meeting'});}catch(e){} return false;">Boek nu</a>
 </div>
-
 <!-- OX Mobile Menu -->
 <div aria-hidden="true" class="ox-mm-overlay" id="oxMobileMenuOverlay"></div>
 <nav aria-label="Mobiele navigatie" class="ox-mm" id="oxMobileMenu">
-  <a href="index.html">Home</a>
-  <a href="over-ons.html" aria-current="page" class="active">Over ons</a>
-  <a href="diensten.html">Diensten</a>
-  <a href="prijzen.html">Prijzen</a>
-  <a href="onderhoudsplannen.html">Onderhoudsplannen</a>
-  <a href="contact.html">Contact</a>
-  <a href="faq.html">FAQ</a>
+<a href="index.html">Home</a>
+<a aria-current="page" class="active" href="over-ons.html">Over ons</a>
+<a href="diensten.html">Diensten</a>
+<a href="prijzen.html">Prijzen</a>
+<a href="onderhoudsplannen.html">Onderhoudsplannen</a>
+<a href="contact.html">Contact</a>
+<a href="faq.html">FAQ</a>
 </nav>
-<button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn">
-<span aria-hidden="true" class="bars"></span>
-</button>
-
+<button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
 <script>
 (function(){
   function ready(fn){ if(document.readyState!='loading'){fn()} else {document.addEventListener('DOMContentLoaded', fn)} }
@@ -542,7 +565,6 @@ button{ min-height:44px; }
   });
 })();
 </script>
-
 <script>
 (function(){
   function ready(fn){ if(document.readyState!='loading'){fn()} else {document.addEventListener('DOMContentLoaded', fn)} }
@@ -586,6 +608,5 @@ button{ min-height:44px; }
   });
 })();
 </script>
-
 </body>
 </html>
