@@ -177,6 +177,24 @@ button{ min-height:44px; }
   .ox-mm-btn{background:#2563eb !important; color:#fff !important;}
   .ox-mm-btn .bars, .ox-mm-btn .bars::before, .ox-mm-btn .bars::after{background:#fff !important;}
 }
+
+@media (max-width: 1023px){
+  .subhero .site-logo-img{ max-height:120px; height:auto; width:auto; }
+}
+
+/* Mobile: hide Diensten title and enlarge logo */
+@media (max-width: 1023px){
+  .subhero-left .title-diensten{ display:none !important; }
+  .subhero .site-logo-img{ max-height:160px !important; }
+}
+
+/* Desktop: make active nav item feller blauw */
+@media (min-width: 1024px){
+  nav a.active, nav a[aria-current="page"]{
+    background:#0f6ab8 !important;
+    color:#fff !important;
+  }
+}
 </style>
 <link href="https://osmose-xpert.be/diensten.html" rel="canonical"/><link href="assets/styles.css?v=20250917-1303" rel="stylesheet"/><link href="assets/css/fixes.css" rel="stylesheet"/><script defer="True" src="assets/js/booking.js"></script><style>
 .floating-buttons {
@@ -271,7 +289,7 @@ button{ min-height:44px; }
 <li><a href="contact.html">Contact</a></li>
 <li><a href="faq.html">FAQ</a></li>
 </ul>
-</nav><header class="subhero" role="banner"><div class="wrap"><div class="subhero-left"><h1 class="motion-text">Diensten</h1><p></p></div><div class="subhero-right"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><a class="site-logo" href="index.html"><img alt="OsmoseXpert" class="site-logo-img" loading="lazy" src="images/logo4.svg"/></a></picture></div></div></header>
+</nav><header class="subhero" role="banner"><div class="wrap"><div class="subhero-left"><h1 class="motion-text title-diensten">Diensten</h1><p></p></div><div class="subhero-right"><picture><source media="(max-width: 1023px)" srcset="images/logo4.svg"/><img alt="OsmoseXpert" class="site-logo-img" loading="lazy" src="images/logo3.svg"/></picture></div></div></header>
 <a class="skip-link" href="#content">Snel naar inhoud</a>
 <main id="content">
 <section class="section">
