@@ -453,3 +453,10 @@ footer small {
 .ox-mm-btn .bars { top: 50%; transform: translate(-50%, -50%); }
 .ox-mm-btn .bars::before { top: -6px; }
 .ox-mm-btn .bars::after { top: 6px; }
+
+/* Desktop subhero title color */
+@media (min-width: 901px) {
+  .subhero h1 {
+    color: #011a3a !important; /* typical dark blue from index banner */
+  }
+}
