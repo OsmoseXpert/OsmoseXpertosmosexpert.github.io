@@ -461,16 +461,19 @@ footer small {
   }
 }
 
-/* Over-ons: hamburger net onder de top-rand laten zakken zoals op index */
-.over-ons-page .ox-mm-btn {
-  top: -8px !important;  /* finetune indien nodig (-6, -7 of -8) */
+/* finetune indien nodig (-6, -7 of -8) */
   z-index: 1000;
 }
 
-/* Over-ons: vlag-effect voor hamburger achter de bovengrens */
+/* finetune desnoods naar -6 of -7 */
+    z-index: 10010;
+  }
+}
+
+/* Over-ons: vlag-effect zoals index */
 @media (max-width: 1023.98px) {
   .over-ons-page .ox-mm-btn {
-    top: -8px !important;   /* finetune desnoods naar -6 of -7 */
+    top: 4px !important;   /* iets lager dan -8 zodat hij netjes achter de rand valt */
     z-index: 10010;
   }
 }
