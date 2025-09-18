@@ -245,9 +245,10 @@ button{ min-height:44px; }
 /* Mobile menu consistent */
 @media (min-width:1024px){.ox-mm-btn,.ox-mm,.ox-mm-overlay{display:none !important}}
 @media (max-width:1023.98px){
-  .ox-mm-btn{position:fixed;top:12px;right:12px;z-index:10010;width:48px;height:48px;border-radius:12px;border:none;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rgba(0,0,0,.18);cursor:pointer}
-  .ox-mm-btn .bars{position:relative;width:22px;height:2px;background:#fff}
-  .ox-mm-btn .bars::before,.ox-mm-btn .bars::after{content:"";position:absolute;left:0;width:22px;height:2px;background:#fff}
+  .ox-mm-btn{position:fixed;top:12px;right:12px;z-index:10010;width:48px;height:48px;border-radius:12px;border:1px solid rgba(255,255,255,.7);background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rgba(0,0,0,.18);cursor:pointer}
+  .ox-mm-btn .bars::before,.ox-mm-btn .bars::after{top:6px}
+
+  .ox-mm-btn .bars{position:relative;width:22px;height:2px;background:#fff;position:absolute;left:0;width:22px;height:2px;background:#fff}
   .ox-mm-btn .bars::before{top:-6px} .ox-mm-btn .bars::after{top:6px}
   .ox-mm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;z-index:10000}
   .ox-mm{position:fixed;top:64px;right:12px;width:min(86vw,320px);max-height:70vh;overflow:auto;background:#fff;border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,.2);padding:10px;display:none;z-index:10011}
@@ -255,6 +256,8 @@ button{ min-height:44px; }
   .ox-mm a{display:block;padding:12px 10px;text-decoration:none;color:#111;border-radius:10px}
   .ox-mm a:hover,.ox-mm a:focus{background:#f3f4f6}
   header .hamburger, header .menu, .old-menu, .nav-toggle, .navbar-toggle { display:none !important; }
+
+  
 }
 </style>
 
@@ -302,13 +305,13 @@ button{ min-height:44px; }
 <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle btn">☰ Menu</button>
 <ul class="nav-list" id="primary-nav">
 <li><a href="index.html">Home</a></li>
-<li><a aria-current="page" class="active" href="over-ons.html">Over ons</a></li>
+<li><a href="over-ons.html" aria-current="page" class="active">Over ons</a></li>
 <li><a href="diensten.html">Diensten</a></li>
 <li><a href="prijzen.html">Prijzen</a></li>
 <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
 <li><a href="contact.html">Contact</a></li>
 <li><a href="faq.html">FAQ</a></li>
-</ul>
+  </ul>
 </nav><header class="subhero" role="banner"><div class="wrap"><div class="subhero-left"><h1 class="motion-text">Over ons</h1><p></p></div><div class="subhero-right"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><a class="site-logo" href="index.html"><img alt="OsmoseXpert" class="site-logo-img" loading="lazy" src="images/logo3.svg"/></a></picture></div></div></header>
 <a class="skip-link" href="#content">Snel naar inhoud</a>
 <main id="content">
@@ -480,22 +483,19 @@ button{ min-height:44px; }
 <!-- Floating CTAs -->
 <div aria-label="Acties" class="floating-cta" role="region">
 <a class="cta-btn cta-offerte" href="offerte.html">Offerte aanvragen</a>
-<a class="cta-btn cta-boek" href="#" onclick="try{Calendly.initPopupWidget({url:'https://calendly.com/osmose-xpert-info/new-meeting'});}catch(e){} return false;"  >Boek nu</a>
+<a class="cta-btn cta-boek" href="#" onclick="try{Calendly.initPopupWidget({url:'https://calendly.com/osmose-xpert-info/new-meeting'});}catch(e){} return false;">Boek nu</a>
 </div>
 
 <!-- OX Mobile Menu -->
 <div aria-hidden="true" class="ox-mm-overlay" id="oxMobileMenuOverlay"></div>
 <nav aria-label="Mobiele navigatie" class="ox-mm" id="oxMobileMenu">
-<a href="osmosexpert_cleaned_site_fixed/contact.html">Contact</a>
-<a href="osmosexpert_cleaned_site_fixed/diensten.html">Diensten</a>
-<a href="osmosexpert_cleaned_site_fixed/faq.html">Faq</a>
-<a href="osmosexpert_cleaned_site_fixed/index.html">Home</a>
-<a href="osmosexpert_cleaned_site_fixed/onderhoudsplannen.html">Onderhoudsplannen</a>
-<a href="osmosexpert_cleaned_site_fixed/over-ons.html">Over Ons</a>
-<a href="osmosexpert_cleaned_site_fixed/prijslijst-2025.html">Prijslijst 2025</a>
-<a href="osmosexpert_cleaned_site_fixed/prijzen.html">Prijzen</a>
-<a href="osmosexpert_cleaned_site_fixed/privacy.html">Privacy</a>
-<a href="osmosexpert_cleaned_site_fixed/voorwaarden.html">Voorwaarden</a>
+  <a href="index.html">Home</a>
+  <a href="over-ons.html" aria-current="page" class="active">Over ons</a>
+  <a href="diensten.html">Diensten</a>
+  <a href="prijzen.html">Prijzen</a>
+  <a href="onderhoudsplannen.html">Onderhoudsplannen</a>
+  <a href="contact.html">Contact</a>
+  <a href="faq.html">FAQ</a>
 </nav>
 <button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn">
 <span aria-hidden="true" class="bars"></span>
