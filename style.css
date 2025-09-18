@@ -461,10 +461,16 @@ footer small {
   }
 }
 
-/* Hamburger knop als vlaggetje achter de banner-rand */
+/* Over-ons: hamburger net onder de top-rand laten zakken zoals op index */
+.over-ons-page .ox-mm-btn {
+  top: -8px !important;  /* finetune indien nodig (-6, -7 of -8) */
+  z-index: 1000;
+}
+
+/* Over-ons: vlag-effect voor hamburger achter de bovengrens */
 @media (max-width: 1023.98px) {
-  .ox-mm-btn {
-    top: -4px !important;   /* schuif iets omhoog zodat topje achter rand steekt */
-    z-index: 10010;         /* blijft klikbaar */
+  .over-ons-page .ox-mm-btn {
+    top: -8px !important;   /* finetune desnoods naar -6 of -7 */
+    z-index: 10010;
   }
 }
