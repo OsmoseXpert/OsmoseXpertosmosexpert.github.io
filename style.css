@@ -461,9 +461,10 @@ footer small {
   }
 }
 
-/* Position hamburger slightly behind top banner border like index */
+/* Hamburger knop als vlaggetje achter de banner-rand */
 @media (max-width: 1023.98px) {
   .ox-mm-btn {
-    top: -4px !important; /* raise slightly so it tucks behind banner edge */
+    top: -4px !important;   /* schuif iets omhoog zodat topje achter rand steekt */
+    z-index: 10010;         /* blijft klikbaar */
   }
 }
