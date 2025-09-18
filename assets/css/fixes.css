@@ -104,3 +104,13 @@ img { max-width: 100%; height: auto; display: block; }
 }
 /* Hide Calendly floating badge if present by not using it; this is just a precaution */
 .calendly-badge-widget { display: none !important; }
+/* === Fix hamburger drie streepjes op Over-ons === */
+.ox-mm-btn .bars::before,
+.ox-mm-btn .bars::after {
+  content: "";               /* zonder dit zie je enkel het middenstreepje */
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+}
