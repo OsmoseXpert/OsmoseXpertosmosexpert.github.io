@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head><script>window.CALENDLY_DEFAULT='https://calendly.com/osmose-xpert-info/new-meeting';</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>OsmoseXpert — Prijslijst 2025</title>
+<style>
+    :root {
+      --bg: #f6f9fc;
+      --card: #fff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --primary: #0a3d62;
+      --primary-50: #e6f0fa;
+      --accent: #0f6ab8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .wrap { max-width: 1000px; margin: 32px auto; padding: 0 20px; }
+    .page-head { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+    .brand img { height: 48px; width: auto; }
+    h1 { font-size: 28px; line-height: 1.2; color: var(--primary); margin: 0; }
+    .lead { color: var(--muted); margin: 6px 0 24px; }
+    .section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 18px 0;
+      box-shadow: 0 6px 18px rgba(2,8,23,0.04);
+    }
+    .section h2 { font-size: 22px; margin: 0 0 12px; color: var(--primary); }
+    .section h3 { font-size: 16px; margin: 16px 0 8px; color: var(--text); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td { padding: 10px 12px; text-align: left; }
+    thead th {
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    tbody tr:not(:last-child) td { border-bottom: 1px solid var(--line); }
+    ul.clean { list-style: none; padding: 0; margin: 8px 0; }
+    ul.clean li { padding: 6px 0; border-bottom: 1px dashed var(--line); }
+    ul.clean li:last-child { border-bottom: 0; }
+    .note {
+      background: linear-gradient(180deg, #f1f8ff, #eef7ff);
+      border: 1px solid #cfe2ff;
+      color: #0b3b69;
+      padding: 10px 12px;
+      border-radius: 10px;
+    }
+    .muted { color: var(--muted); }
+    .chip {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--primary-50);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 12px;
+    }
+    .page-break { page-break-before: always; }
+    @media print {
+      body { background: #fff; }
+      .section { box-shadow: none; }
+      table th, table td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  
+
+/* === MOBILE NAV & LAYOUT (injected) === */
+.site-nav{
+  position: sticky; top: 0; z-index: 100;
+  background:#fff; border-bottom:1px solid #e2e8f0;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:12px 16px;
+}
+.site-nav .brand img{ display:block; height:28px; width:auto; }
+.nav-toggle{ display:none; border:1px solid #cbd5e1; background:#fff; border-radius:8px; padding:8px 10px; font-size:18px; line-height:1; cursor:pointer; }
+.nav-list{ display:flex; gap:16px; list-style:none; margin:0; padding:0; }
+.nav-list a{ display:block; padding:6px 10px; border-radius:6px; color:#1e293b; font-weight:600; }
+.nav-list a:hover{ color:#0f6ab8; background:#e6f0fa; }
+.nav-list a.active, .nav-list a[aria-current="page"]{ color:#fff; background:#0f6ab8; }
+
+/* Make images and embeds responsive */
+img, video, canvas { max-width:100%; height:auto; }
+
+/* Forms: avoid iOS zoom and improve tappable area */
+input, select, textarea, button{ font-size:16px; }
+button{ min-height:44px; }
+
+/* Subhero: consistent on desktop, flexible on mobile */
+.subhero{
+  background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  color:#fff;
+  height:180px;
+  padding:0 20px;
+  display:flex; align-items:center;
+}
+.subhero .wrap{
+  max-width:1100px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  width:100%; height:100%;
+}
+.subhero h1{ margin:0; font-size:clamp(22px, 3vw, 32px); line-height:1.2; }
+.subhero p{ margin-top:8px; color:#e6f0fa; font-size:clamp(14px, 1.6vw, 16px); }
+.subhero img{ max-height:100%; width:auto; object-fit:contain; }
+
+/* Cards & grids: stack on mobile */
+.section{ max-width:1100px; margin:30px auto; padding:0 20px; }
+.grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; }
+@media (max-width: 900px){
+  .nav-toggle{ display:block; }
+  .nav-list{
+    position:absolute; left:0; right:0; top:100%;
+    background:#fff; border-bottom:1px solid #e2e8f0;
+    display:none; flex-direction:column; gap:0; padding:8px;
+  }
+  .site-nav[data-open="true"] .nav-list{ display:flex; }
+  .grid{ grid-template-columns:1fr; }
+  .subhero{ background:#0f6ab8; height:auto; padding:28px 20px; }
+  .subhero .wrap{ flex-direction:column; text-align:center; height:auto; }
+  .subhero img{ margin-top:12px; max-height:120px; }
+}
+/* Accessibility helper */
+.sr-only{ position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+
+
+/* ==== DESKTOP-HERSTEL: behoud originele desktop look ==== */
+@media (min-width: 901px){
+  .site-nav{
+    position: static;
+    border-bottom: 1px solid #e2e8f0;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+  .site-nav .brand{ display: none; }
+  .nav-toggle{ display: none !important; }
+  .nav-list{ display: flex; gap: 20px; }
+
+  .subhero{
+    height: auto;
+    padding: 40px 20px;
+    background: linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  }
+  .subhero .wrap{ height: auto; }
+  .subhero img{ max-height: 160px; width: auto; object-fit: contain; }
+
+  .grid{ grid-template-columns: 1.2fr .8fr; gap: 26px; }
+}
+
+/* ==== DESKTOP-ROLLBACK: herstel originele desktop look, behoud mobiel ==== */
+@media (min-width: 901px){
+
+  .site-nav{
+    position: static;
+    top: auto;
+    border-bottom: 1px solid #e2e8f0;
+    justify-content: center;
+    padding: 14px 20px;
+    background: #fff;
+  }
+  .site-nav .brand{ display: none !important; }
+  .nav-toggle{ display: none !important; }
+  .nav-list{ display: flex; gap: 20px; }
+
+  .subhero{
+    height: auto;
+    padding: 40px 20px;
+    text-align: left;
+  }
+  .subhero .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+  }
+  .subhero .wrap > div,
+  .subhero img{
+    flex: initial;
+    max-width: none;
+  }
+  .subhero img{
+    max-height: 160px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+</style>
+<link href="https://osmose-xpert.be/prijslijst-2025.html" rel="canonical"/><link href="assets/styles.css?v=20250917-1303" rel="stylesheet"/><link href="assets/css/fixes.css" rel="stylesheet"/><script defer="True" src="assets/js/booking.js"></script><meta content="OsmoseXpert ramenreiniging in Ronse, Oudenaarde, Kluisbergen. Professioneel &amp; streeploos." name="description"/><style>
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+.float-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+.close-btn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px; right: 20px;
+  cursor: pointer;
+}
+@media(max-width: 600px) {
+  .float-btn {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+</style><link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/><script async="" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<style>
+/* ==== Live Hotfix 20250917-1303: force-remove legacy hero/banner background ==== */
+.hero,.hero-banner,.banner,.header-hero,.hero-section,#hero,#banner {
+  background-image: none !important;
+  background: var(--bg, #0c3a47) !important;
+  background-size: auto !important;
+  background-position: center !important;
+}
+/* Floating CTA base & scroll auto-hide */
+.floating-cta{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;flex-direction:column;gap:12px;transition:opacity .25s ease, transform .25s ease}
+.floating-cta.hidden{opacity:0;transform:translateY(16px);pointer-events:none}
+.floating-cta .cta-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:999px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.15);transition:transform .15s ease,box-shadow .15s ease}
+.floating-cta .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.2)}
+.floating-cta .cta-offerte{background:#10b981}
+.floating-cta .cta-boek{background:#2563eb}
+@media (max-width: 480px){.floating-cta{right:12px;bottom:12px} .floating-cta .cta-btn{padding:12px 14px;font-size:15px}}
+/* Mobile menu consistent */
+@media (min-width:1024px){.ox-mm-btn,.ox-mm,.ox-mm-overlay{display:none !important}}
+@media (max-width:1023.98px){
+  .ox-mm-btn{position:fixed;top:12px;right:12px;z-index:10010;width:48px;height:48px;border-radius:12px;border:none;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rgba(0,0,0,.18);cursor:pointer}
+  .ox-mm-btn .bars{position:relative;width:22px;height:2px;background:#fff}
+  .ox-mm-btn .bars::before,.ox-mm-btn .bars::after{content:"";position:absolute;left:0;width:22px;height:2px;background:#fff}
+  .ox-mm-btn .bars::before{top:-6px} .ox-mm-btn .bars::after{top:6px}
+  .ox-mm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;z-index:10000}
+  .ox-mm{position:fixed;top:64px;right:12px;width:min(86vw,320px);max-height:70vh;overflow:auto;background:#fff;border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,.2);padding:10px;display:none;z-index:10011}
+  .ox-mm.open,.ox-mm-overlay.open{display:block}
+  .ox-mm a{display:block;padding:12px 10px;text-decoration:none;color:#111;border-radius:10px}
+  .ox-mm a:hover,.ox-mm a:focus{background:#f3f4f6}
+  header .hamburger, header .menu, .old-menu, .nav-toggle, .navbar-toggle { display:none !important; }
+}
+</style>
+  <link rel="stylesheet" href="assets/css/cookie-banner.css">
+</head>
+<body data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered">
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle btn">☰ Menu</button>
+<ul class="nav-list" id="primary-nav">
+<li><a href="index.html">Home</a></li>
+<li><a href="over-ons.html">Over ons</a></li>
+<li><a href="diensten.html">Diensten</a></li>
+<li><a href="prijzen.html">Prijzen</a></li>
+<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+</nav><header class="subhero" role="banner"><div class="wrap"><div class="subhero-left"><h1 class="motion-text">OsmoseXpert — Prijslijst 2025</h1><p></p></div><div class="subhero-right"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><a class="site-logo" href="index.html"><img alt="OsmoseXpert" class="site-logo-img" loading="lazy" src="images/logo3.svg"/></a></picture></div></div></header>
+<div class="wrap">
+<header class="page-head">
+<div class="brand">
+<div>
+<h1>OsmoseXpert — Prijslijst 2025</h1>
+<div class="lead">Geldig vanaf <strong>01/01/2025</strong> • Particulieren <span class="chip">incl. 21% btw</span> • Bedrijven <span class="chip">excl. 21% btw</span></div>
+</div>
+</div>
+</header>
+<!-- ===================== -->
+<!-- 1) PARTICULIEREN -->
+<section class="section">
+<h2 class="motion-text">1) Particulieren</h2>
+<h3>1.1 Zones</h3>
+<ul class="clean">
+<li>Zone A (≤10 km): <strong>inclusief</strong></li>
+<li>Zone B (11–20 km): <strong>+€10</strong></li>
+<li>Zone C (21–30 km): <strong>+€20</strong></li>
+</ul>
+<h3>1.2 Buitenglas — pakketten</h3>
+<table>
+<thead><tr><th>Pakket</th><th>Grens</th><th>Prijs</th></tr></thead>
+<tbody>
+<tr><td>Mini-façade (kleine voorgevel)</td><td>tot 8 m²</td><td><strong>€35</strong></td></tr>
+<tr><td>Voorgevel standaard (voorzijde + voordeur)</td><td>tot 15 m²</td><td><strong>€79</strong></td></tr>
+<tr><td>Woning – klein (rijhuis, 2 gevels)</td><td>tot 25 m² — max. 6 m</td><td><strong>€149</strong></td></tr>
+<tr><td>Woning – standaard (halfopen)</td><td>tot 35 m² — max. 6 m</td><td><strong>€179</strong></td></tr>
+<tr><td>Woning – vrijstaand/groot (4 gevels)</td><td>tot 45 m² — 6–10 m + €1,80/m²</td><td><strong>€239</strong></td></tr>
+</tbody>
+</table>
+<h3>1.3 M²-tarieven (extra of maatwerk)</h3>
+<table>
+<thead><tr><th>Onderdeel</th><th>Eenheid</th><th>Prijs</th><th>Opmerking</th></tr></thead>
+<tbody>
+<tr><td>Buitenzijde glas (osmose)</td><td>per m²</td><td><strong>€7,25</strong></td><td>Consumentvriendelijke afronding</td></tr>
+<tr><td>Hoogtetoeslag (6–10 m)</td><td>per m² extra</td><td><strong>€1,80</strong></td><td>Bovenop m²-tarief</td></tr>
+<tr><td>Dakramen / Velux</td><td>per stuk</td><td><strong>€7,25</strong></td><td>Binnen + buiten indien bereikbaar</td></tr>
+<tr><td>Serre / veranda glas</td><td>per m²</td><td><strong>€9,10</strong></td><td>Complexe profielen op offerte</td></tr>
+</tbody>
+</table>
+<h3>1.4 Veelgevraagde extra’s</h3>
+<ul class="clean">
+<li>Rolluiken buiten: <strong>€8/stuk</strong> · <em>5 voor €35</em></li>
+<li>Garagepoort: <strong>€20</strong> (enkel) · <strong>€30</strong> (dubbel)</li>
+<li>Reclame- of verkeersborden:  <strong>vanaf €50</strong></li> per bord (basis), toeslag bij grotere of moeilijk bereikbare borden.
+      </ul>
+<h3>1.5 Zonnepanelen</h3>
+<table>
+<thead><tr><th>Bereikbaarheid</th><th>Eenheid</th><th>Prijs</th><th>Opmerking</th></tr></thead>
+<tbody>
+<tr><td>Laag bereik (makkelijk, tot net boven de dakgoot)</td><td>per paneel</td><td><strong>€3,60</strong></td><td>Osmosewater, geen chemie</td></tr>
+<tr><td>Hoog bereik (nokzone of moeilijker te bereiken)</td><td>per paneel</td><td><strong>€4,25</strong></td><td>Inclusief extra veiligheid en borging</td></tr>
+<tr><td>Minimum alleen zonnepanelen</td><td>per bezoek</td><td><strong>€83,50</strong></td><td>Vervalt bij combi met ramen</td></tr>
+</tbody>
+</table>
+<p class="note"><strong>Combi-korting:</strong> ramen + zonnepanelen op dezelfde dag → <strong>10% korting</strong> op zonnepanelen.</p>
+<h3>1.6 Terras/oprit reiniging</h3>
+<table>
+<thead><tr><th>Onderdeel</th><th>Eenheid</th><th>Prijs</th><th>Wat te verwachten</th></tr></thead>
+<tbody>
+<tr><td>Terras/oprit reinigen</td><td>per m²</td><td><strong>€3,00</strong></td><td>Stof, zand, lichte alg weg — geen hogedruk of chemie</td></tr>
+<tr><td>Kleine oprit bundel</td><td>tot 30 m²</td><td><strong>€65</strong></td><td></td></tr>
+<tr><td>Grote oprit bundel</td><td>tot 60 m²</td><td><strong>€110</strong></td><td>Extra m²: <strong>€1,50</strong></td></tr>
+</tbody>
+</table>
+<h3>1.7 Kortingen &amp; acties</h3>
+<ul class="clean">
+<li><strong>Wekelijks:</strong> −20%</li>
+<li><strong>Tweewekelijks:</strong> −15%</li>
+<li><strong>Maandelijks:</strong> −12%</li>
+<li><strong>Breng-een-buur:</strong> €15 krediet p.p. bij gezamenlijke afspraak op dezelfde dag en in dezelfde straat.</li>
+</ul></section>
+<!-- ===================== -->
+<!-- 2) BEDRIJVEN -->
+<section class="section page-break">
+<h2>2) Bedrijven</h2>
+<h3>2.1 Minimum per bezoek</h3>
+<ul class="clean">
+<li>Zone A (≤10 km): <strong>inclusief</strong></li>
+<li>Zone B (11–20 km): <strong>€99</strong></li>
+<li>Zone C (21–30 km): <strong>€119</strong></li>
+</ul>
+<h3>2.2 Glas buiten — per m²</h3>
+<ul class="clean">
+<li>Tot 6 m hoogte: <strong>€4,50</strong></li>
+<li>6–12 m hoogte: <strong>€6,50</strong></li>
+<li>&gt;12 m of speciale toegang (hoogwerker/rail): <strong>€8,50–€12,00</strong> + huur</li>
+</ul>
+<h3>2.3 Contract &amp; frequentie</h3>
+<ul class="clean">
+<li>Wekelijks: −20%</li>
+<li>Tweewekelijks: −15%</li>
+<li>Maandelijks: −10%</li>
+<li>Kwartaal: standaardtarief</li>
+</ul>
+<p class="muted">Facturatie: maandelijks (achteraf) of per bezoek.</p>
+<h3>2.4 Toeslagen &amp; opties</h3>
+<ul class="clean">
+<li>Buiten kantooruren/zondagen: <strong>+25%</strong></li>
+<li>Parking/stadscentrum: werkelijke kost + <strong>€5</strong> admin</li>
+<li>First-clean (bouw/ruwe vervuiling): <strong>+15–30%</strong> (eenmalig)</li>
+<li>Fast Response-optie (binnen 1–2 werkdagen): <strong>+10%</strong> op contract</li>
+</ul>
+<h3>2.5 Voorbeelden</h3>
+<p class="muted">Voorbeelden hoe de tarieven in praktijk worden berekend:</p>
+<div class="section" style="padding:16px">
+<strong>Kapsalon (Zone A)</strong><br/>
+        Buiten 12 m² × €4,50 = €54 → <em>minimum</em> <strong>€79</strong> per bezoek.<br/>
+        Tweewekelijks contract = €79 × 0,85 → <strong>€67,15</strong>.
+      </div>
+<div class="section" style="padding:16px">
+<strong>Kantoor/showroom (Zone B)</strong><br/>
+        Buiten 90 m² = €405 · Zone = €20 → <strong>€425</strong> per beurt.<br/>
+        Maandelijks contract × 0,90 → <strong>€382,50</strong>.
+      </div>
+</section>
+<!-- ===================== -->
+<!-- 3) SERVICEVOORWAARDEN -->
+<section class="section">
+<h2>3) Servicevoorwaarden (kort)</h2>
+<ul class="clean">
+<li><strong>Weer:</strong> regen is oké (osmose droogt streepvrij). Bij storm/ijzel plannen we opnieuw.</li>
+<li><strong>Tevredenheid:</strong> niet tevreden? Binnen <strong>5 dagen</strong> gratis herbeurt.</li>
+<li><strong>Frames-first:</strong> eerst frames reinigen, dan glas met royale eind-rinse.</li>
+<li><strong>Beperkingen reiniging:</strong> geen garantie op vlekken, olie of korstmossen — geen chemie of hogedruk.</li>
+<li><strong>Betaling:</strong> Bancontact, Payconiq, overschrijving. Factuur via e-mail.</li>
+<li><strong>Annulatie:</strong> &lt; 24 u → <strong>€25</strong> (reiskosten &amp; gereserveerde tijd).</li>
+</ul>
+</section>
+</div>
+<script>
+  // Mobile nav toggle (injected)
+  (function(){
+    const nav = document.querySelector('.site-nav');
+    const btn = nav?.querySelector('.nav-toggle');
+    if(!nav || !btn) return;
+    btn.addEventListener('click', () => {
+      const open = nav.getAttribute('data-open') === 'true';
+      nav.setAttribute('data-open', String(!open));
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+  })();
+</script>
+<style>
+  .chatbase-bubble, .chatbase-widget { z-index: 2147483000 !important; }
+</style>
+<style>
+  .chatbase-widget { 
+    max-width: 380px !important; 
+    max-height: 72vh !important; 
+    right: 16px !important; 
+    bottom: 16px !important; 
+  }
+  .chatbase-bubble { right: 16px !important; bottom: 16px !important; }
+</style>
+<!-- Chatbase identity (set BEFORE embed script) -->
+<script>
+(async () => {
+  try {
+    const lsKey = "ox_uid";
+    let uid = localStorage.getItem(lsKey);
+    if (!uid) {
+      uid = (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now());
+      localStorage.setItem(lsKey, uid);
+    }
+    const payload = {
+      user_id: "web:" + uid,
+      user_metadata: { name: "Websitebezoeker", source: "github-pages" }
+    };
+    let cfg = { user_id: payload.user_id, user_metadata: payload.user_metadata };
+    try {
+      const resp = await fetch("https://osmose-xpert-osmosexpert-github-4cjttth42-osmosexperts-projects.vercel.app/api/chatbase-identify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (resp.ok) {
+        cfg = await resp.json();
+      }
+    } catch(e) {}
+    window.chatbaseUserConfig = cfg;
+  } catch(e) {
+    window.chatbaseUserConfig = { user_id: "web:guest", user_metadata: { source: "github-pages" } };
+  }
+})();
+</script>
+<!-- Chatbase widget -->
+<script>
+(function(){
+  if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+    window.chatbase=(...arguments)=>{ if(!window.chatbase.q){window.chatbase.q=[]} window.chatbase.q.push(arguments) };
+    window.chatbase=new Proxy(window.chatbase,{ get(target,prop){ if(prop==="q"){return target.q} return(...args)=>target(prop,...args) } })
+  }
+  const onLoad=function(){
+    const script=document.createElement("script");
+    script.src="https://www.chatbase.co/embed.min.js";
+    script.id="MjQNxm0-RM-G44z9g2jkE";
+    script.domain="www.chatbase.co";
+    document.body.appendChild(script)
+  };
+  if(document.readyState==="complete"){ onLoad() } else { window.addEventListener("load",onLoad) }
+})();
+</script>
+<script>
+/* Auto-minimize Chatbase on load so it doesn't cover the homepage */
+(function(){
+  function tryClose(){ try{ window.chatbase && window.chatbase('close'); }catch(e){} }
+  var mo = new MutationObserver(function(){
+    if (document.querySelector('.chatbase-widget')) { tryClose(); mo.disconnect(); }
+  });
+  mo.observe(document.documentElement || document.body, { childList:true, subtree:true });
+  window.addEventListener('load', function(){ setTimeout(tryClose, 250); });
+})();
+</script>
+<footer>
+<div class="footer-container">
+<div class="footer-col">
+<h3>Snelle navigatie</h3>
+<ul class="footer-nav">
+<li><a href="index.html">Home</a></li>
+<li><a href="over-ons.html">Over ons</a></li>
+<li><a href="diensten.html">Diensten</a></li>
+<li><a href="prijzen.html">Prijzen</a></li>
+<li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="voorwaarden.html">Voorwaarden</a></li>
+<li><a href="privacy.html">Privacybeleid</a></li>
+      <li><a href="cookiebeleid.html">Cookiebeleid</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h3>Contact</h3>
+<p>Ronse · Kluisbergen · Oudenaarde</p>
+<p>Tel: <a href="tel:+32493673484">+32 493 67 34 84</a></p>
+<p>E-mail: <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+</div>
+<div class="footer-col">
+<h3>OsmoseXpert</h3>
+<p>BTW BE0733.924.863</p>
+<p>Professionele ramenreiniging in Ronse en omgeving.<br/>Streeploos, veilig en zonder chemische producten.</p>
+<p><strong>Tevredenheidsgarantie:</strong> niet tevreden, dan komen wij gratis terug</p>
+</div>
+</div>
+<small>© 2025 OsmoseXpert. Alle rechten voorbehouden.</small>
+</footer><script src="assets/script.js"></script><script src="assets/dynamic.js"></script><div>Kortingen t.o.v. losse beurten. Kortingsvoorstel op basis van frequentie/bundel: Bronze −5%, Silver −10%, Gold −12%. Add-ons volgen dezelfde korting.</div>
+<div class="modal" id="calendlyModal">
+<div class="modal-content">
+<span class="close-btn" id="closeCalendly">×</span>
+<iframe frameborder="0" src="https://calendly.com/osmose-xpert-info/new-meeting" style="width:100%; height:600px;"></iframe>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("calendlyModal");
+    const openBtn = document.getElementById("openCalendly");
+    const closeBtn = document.getElementById("closeCalendly");
+    const floatBtns = document.getElementById("floating-buttons");
+
+    openBtn.onclick = () => modal.style.display = "block";
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+
+    let scrollTimer;
+    window.addEventListener("scroll", () => {
+        floatBtns.style.opacity = "0";
+        floatBtns.style.transition = "opacity 0.5s ease-out";
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            floatBtns.style.opacity = "1";
+        }, 1000);
+    });
+});
+</script>
+<div class="floating-offerte" id="floating-offerte">
+<button class="float-btn second" id="openOfferte">Offerte aanvragen</button>
+</div>
+<div class="modal" id="offerteModal">
+<div class="modal-content">
+<span class="close-btn" id="closeOfferte">×</span>
+<iframe frameborder="0" src="https://calendly.com/osmose-xpert-info/new-meeting" style="width:100%; height:600px;"></iframe>
+</div>
+</div>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const oModal = document.getElementById("offerteModal");
+            const oOpen = document.getElementById("openOfferte");
+            const oClose = document.getElementById("closeOfferte");
+            const floatO = document.getElementById("floating-offerte");
+            oOpen.onclick = () => oModal.style.display = "block";
+            oClose.onclick = () => oModal.style.display = "none";
+            window.onclick = e => { if (e.target === oModal) oModal.style.display = "none"; }
+            let t;
+            window.addEventListener("scroll", () => {
+                floatO.style.opacity = "0";
+                clearTimeout(t);
+                t = setTimeout(() => floatO.style.opacity = "1", 1000);
+            });
+        });
+        </script>
+<style>
+        .floating-offerte {
+          position: fixed;
+          bottom: 80px;
+          right: 20px;
+          z-index: 9998;
+        }
+        .float-btn.second {
+          background-color: #28a745;
+        }
+        </style>
+
+<!-- Floating CTAs -->
+<div aria-label="Acties" class="floating-cta" role="region">
+<a class="cta-btn cta-offerte" href="offerte.html">Offerte aanvragen</a>
+<a class="cta-btn cta-boek" href="#" onclick="try{Calendly.initPopupWidget({url:'https://calendly.com/osmose-xpert-info/new-meeting?hide_gdpr_banner=1&amp;hide_event_type_details=1&amp;primary_color=2563eb'});}catch(e){} return false;">Boek nu</a>
+</div>
+
+<!-- OX Mobile Menu -->
+<div aria-hidden="true" class="ox-mm-overlay" id="oxMobileMenuOverlay"></div>
+<nav aria-label="Mobiele navigatie" class="ox-mm" id="oxMobileMenu">
+<a href="osmosexpert_cleaned_site_fixed/contact.html">Contact</a>
+<a href="osmosexpert_cleaned_site_fixed/diensten.html">Diensten</a>
+<a href="osmosexpert_cleaned_site_fixed/faq.html">Faq</a>
+<a href="osmosexpert_cleaned_site_fixed/index.html">Home</a>
+<a href="osmosexpert_cleaned_site_fixed/onderhoudsplannen.html">Onderhoudsplannen</a>
+<a href="osmosexpert_cleaned_site_fixed/over-ons.html">Over Ons</a>
+<a href="osmosexpert_cleaned_site_fixed/prijslijst-2025.html">Prijslijst 2025</a>
+<a href="osmosexpert_cleaned_site_fixed/prijzen.html">Prijzen</a>
+<a href="osmosexpert_cleaned_site_fixed/privacy.html">Privacy</a>
+<a href="osmosexpert_cleaned_site_fixed/voorwaarden.html">Voorwaarden</a>
+</nav>
+<button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn">
+<span aria-hidden="true" class="bars"></span>
+</button>
+
+<script>
+(function(){
+  function ready(fn){ if(document.readyState!='loading'){fn()} else {document.addEventListener('DOMContentLoaded', fn)} }
+  ready(function(){
+    // Floating hide/show on scroll
+    var cta = document.querySelector('.floating-cta'); 
+    if(cta){
+      var t;
+      window.addEventListener('scroll', function(){
+        cta.classList.add('hidden');
+        if(t) clearTimeout(t);
+        t = setTimeout(function(){ cta.classList.remove('hidden'); }, 500);
+      }, {passive:true});
+    }
+    // Remove legacy top-left menu buttons
+    var btnId = 'oxMobileMenuBtn';
+    Array.from(document.querySelectorAll('button, a, div, span')).forEach(function(el){
+      if(el.id === btnId) return;
+      var txt = (el.textContent || '').trim().toLowerCase();
+      var cls = (el.className || '').toString().toLowerCase();
+      var ok = /menu|hamburger|nav|toggle/.test(cls) || txt==='menu' || txt==='☰' || txt==='≡';
+      var r = el.getBoundingClientRect ? el.getBoundingClientRect() : {top:999,left:999};
+      if(ok && r.top < 120 && r.left < 120){ el.style.display='none'; }
+    });
+    // Mobile menu toggle
+    var btn = document.getElementById('oxMobileMenuBtn');
+    var menu = document.getElementById('oxMobileMenu');
+    var ovl = document.getElementById('oxMobileMenuOverlay');
+    if(btn && menu && ovl){
+      function openM(){menu.classList.add('open'); ovl.classList.add('open'); btn.setAttribute('aria-expanded','true');}
+      function closeM(){menu.classList.remove('open'); ovl.classList.remove('open'); btn.setAttribute('aria-expanded','false');}
+      function toggle(e){ if(e) e.preventDefault(); menu.classList.contains('open')? closeM(): openM(); }
+      btn.addEventListener('click', toggle);
+      ovl.addEventListener('click', closeM);
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeM(); });
+    }
+  });
+})();
+</script>
+
+  <script src="/assets/js/ox-cookie-banner.js"></script>
+</body>
+</html>
