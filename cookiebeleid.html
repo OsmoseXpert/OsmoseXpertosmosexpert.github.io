@@ -4,16 +4,21 @@
   <meta charset="utf-8">
   <title>Cookiebeleid – OsmoseXpert</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="/cookie-banner.css">
-  <style>main{max-width:850px;margin:40px auto;padding:0 16px;font-family:system-ui,Segoe UI,Inter,Arial,sans-serif;line-height:1.6}</style>
   <link rel="stylesheet" href="assets/css/cookie-banner.css">
+  <style>
+    main{max-width:850px;margin:40px auto;padding:0 16px;font-family:system-ui,Segoe UI,Inter,Arial,sans-serif;line-height:1.6}
+    table{border-collapse:collapse;width:100%}
+    th,td{border:1px solid #ccc;padding:8px;text-align:left}
+    button.cookie-reset{background:#0f6ab8;color:#fff;border:none;padding:10px 18px;border-radius:6px;cursor:pointer}
+    button.cookie-reset:hover{background:#0b4d84}
+  </style>
 </head>
 <body>
 <main>
   <h1>Cookiebeleid</h1>
   <p>Laatst bijgewerkt: <strong><script>document.write(new Date().toLocaleDateString('nl-BE'))</script></strong></p>
-  <p>We gebruiken cookies om onze site goed te laten werken en om (na jouw toestemming) statistieken en marketing te doen.
-     Je kunt je keuze op elk moment wijzigen via de knop “Cookie-instellingen” rechtsonder.</p>
+  <p>We gebruiken cookies om onze site goed te laten werken en – na jouw toestemming – statistieken en marketing te doen.
+     Je kunt je keuze op elk moment wijzigen via onderstaande knop.</p>
 
   <h2>Categorieën</h2>
   <ul>
@@ -23,12 +28,11 @@
   </ul>
 
   <h2>Overzicht cookies</h2>
-  <p>Onderstaande tabel is een voorbeeld. Vervang/aanvul naargelang je werkelijk gebruikte diensten.</p>
-  <table border="1" cellpadding="6" cellspacing="0">
+  <table>
     <thead><tr><th>Naam</th><th>Provider</th><th>Doel</th><th>Type</th><th>Bewaartermijn</th></tr></thead>
     <tbody>
       <tr><td>oxConsent</td><td>OsmoseXpert</td><td>Bewaren van je cookievoorkeuren</td><td>Functioneel</td><td>12 maanden</td></tr>
-      <tr><td>_ga*</td><td>Google Analytics</td><td>Statistische analyse van gebruik</td><td>Statistiek</td><td>2 jaar</td></tr>
+      <tr><td>_ga*</td><td>Google Analytics</td><td>Statistische analyse</td><td>Statistiek</td><td>2 jaar</td></tr>
       <tr><td>_gid</td><td>Google Analytics</td><td>Statistiek (sessie)</td><td>Statistiek</td><td>24 uur</td></tr>
       <tr><td>_fbp</td><td>Meta</td><td>Remarketing</td><td>Marketing</td><td>3 maanden</td></tr>
     </tbody>
@@ -36,15 +40,15 @@
 
   <h2>Je keuze wijzigen</h2>
   <p>Klik hieronder om je voorkeuren opnieuw te openen:</p>
-  <p><button onclick="(function(){var b=document.querySelector('#oxc-mini button'); if(b){b.click()} else {var s=document.createElement('script'); s.src='/cookie-banner.js'; document.body.appendChild(s); setTimeout(()=>document.querySelector('#oxc-mini button').click(),500);} })()">Cookie-instellingen</button></p>
+  <p><button class="cookie-reset" onclick="window.oxCookieBanner && window.oxCookieBanner.open()">Cookie-instellingen</button></p>
 
   <h2>Cookies beheren in je browser</h2>
-  <p>Je kunt cookies ook verwijderen of blokkeren via je browserinstellingen. Zie de help van je browser (Chrome, Firefox, Safari, Edge) voor de juiste stappen.</p>
+  <p>Je kunt cookies ook verwijderen of blokkeren via je browserinstellingen. Raadpleeg de help van Chrome, Firefox, Safari of Edge voor de juiste stappen.</p>
 </main>
 
-<script src="/cookie-banner.js"></script>
-  <script src="assets/script.js" defer></script>
-
-  <script src="/assets/js/ox-cookie-banner.js"></script>
+<!-- Load the bridge first; it will lazy-load your actual banner if needed -->
+<script src="assets/js/ox-cookie-bridge.js"></script>
+<!-- Optional: keep your existing banner script; the bridge will detect it -->
+<script src="assets/js/ox-cookie-banner.js" defer></script>
 </body>
 </html>
