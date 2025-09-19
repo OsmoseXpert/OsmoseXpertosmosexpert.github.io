@@ -130,6 +130,9 @@
   <script defer src="assets/js/booking.js"></script>
   <link rel="stylesheet" href="assets/css/cookie-banner.css">
 
+  
+
+
   <style id="prijzen-banner-override">
     .subhero{
       background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
@@ -138,13 +141,18 @@
     }
     .subhero .wrap{
       max-width:1100px; margin:0 auto; width:100%;
-      display:flex; justify-content:center;
+      display:flex; align-items:center; justify-content:space-between;
     }
     .brand-row{
-      display:flex; align-items:center; gap:16px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; width:100%;
     }
-    .brand-row .logo img{ max-height:120px; width:auto; object-fit:contain; }
-    .brand-row .title{ margin:0; font-size:clamp(24px,3vw,36px); line-height:1.2; color:#0a3d62; }
+    .brand-row .title{
+      margin:0; font-size:clamp(24px,3vw,36px); line-height:1.2; color:#0a3d62;
+    }
+    .brand-row .logo img{
+      max-height:120px; width:auto; object-fit:contain;
+    }
 
     /* Mobiel: volledig blauw, enkel wit logo, géén titel */
     @media (max-width: 900px){
@@ -174,19 +182,22 @@
   <!-- Banner -->
   
   <!-- ===== Banner: desktop = logo3 + titel; mobiel = enkel logo4 ===== -->
+  
+  <!-- ===== Banner: desktop = titel links + logo3 rechts; mobiel = enkel logo4 ===== -->
   <header class="subhero" role="banner">
     <div class="wrap">
       <div class="brand-row">
+        <h1 class="title">Prijzen</h1>
         <a class="logo" href="index.html" aria-label="OsmoseXpert home">
           <picture>
             <source media="(max-width: 900px)" srcset="images/logo4.svg"/>
             <img src="images/logo3.svg" alt="OsmoseXpert" class="site-logo-img" loading="lazy"/>
           </picture>
         </a>
-        <h1 class="title">Prijzen</h1>
       </div>
     </div>
   </header>
+
 
 
   <a class="skip-link" href="#content">Snel naar inhoud</a>
