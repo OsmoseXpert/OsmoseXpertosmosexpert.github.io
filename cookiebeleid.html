@@ -46,9 +46,8 @@
   <p>Je kunt cookies ook verwijderen of blokkeren via je browserinstellingen. Raadpleeg de help van Chrome, Firefox, Safari of Edge voor de juiste stappen.</p>
 </main>
 
-<!-- Load the bridge first; it will lazy-load your actual banner if needed -->
+<!-- Bridge laadt je banner (als die nog niet aanwezig is) en opent de instellingen.
+     Als er geen banner gevonden wordt, verschijnt een nette fallback-privacy modal. -->
 <script src="assets/js/ox-cookie-bridge.js"></script>
-<!-- Optional: keep your existing banner script; the bridge will detect it -->
-<script src="assets/js/ox-cookie-banner.js" defer></script>
 </body>
 </html>
