@@ -130,9 +130,6 @@
   <script defer src="assets/js/booking.js"></script>
   <link rel="stylesheet" href="assets/css/cookie-banner.css">
 
-  
-
-
   <style id="prijzen-banner-override">
     .subhero{
       background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
@@ -150,17 +147,20 @@
     .brand-row .title{
       margin:0; font-size:clamp(24px,3vw,36px); line-height:1.2; color:#0a3d62;
     }
-    .brand-row .logo img{
+    .brand-row .logo img,
+    .subhero .site-logo-img{
       max-height:120px; width:auto; object-fit:contain;
     }
-
-    /* Mobiel: volledig blauw, enkel wit logo, géén titel */
-    @media (max-width: 900px){
+    @media (max-width: 1023px){
       .subhero{ background:#0f6ab8; padding:28px 20px; }
       .brand-row{ justify-content:center; }
       .brand-row .title{ display:none !important; }
-      .brand-row .logo img{ max-height:120px; }
+      .brand-row .logo img,
+      .subhero .site-logo-img{ max-height:160px !important; }
     }
+  </style>
+  <style id="no-title-animations">
+    h1, h2, .title, .title-only { animation: none !important; transition: none !important; }
   </style>
 
 </head>
@@ -181,8 +181,6 @@
 
   <!-- Banner -->
   
-  <!-- ===== Banner: desktop = logo3 + titel; mobiel = enkel logo4 ===== -->
-  
   <!-- ===== Banner: desktop = titel links + logo3 rechts; mobiel = enkel logo4 ===== -->
   <header class="subhero" role="banner">
     <div class="wrap">
@@ -190,7 +188,7 @@
         <h1 class="title">Prijzen</h1>
         <a class="logo" href="index.html" aria-label="OsmoseXpert home">
           <picture>
-            <source media="(max-width: 900px)" srcset="images/logo4.svg"/>
+            <source media="(max-width: 1023px)" srcset="images/logo4.svg"/>
             <img src="images/logo3.svg" alt="OsmoseXpert" class="site-logo-img" loading="lazy"/>
           </picture>
         </a>
@@ -199,12 +197,11 @@
   </header>
 
 
-
   <a class="skip-link" href="#content">Snel naar inhoud</a>
 
   <main id="content">
     <section class="section">
-      <h2 class="motion-text">Hoe we prijzen bepalen</h2>
+      <h2 >Hoe we prijzen bepalen</h2>
       <p>Bij OsmoseXpert hanteren we <strong>transparante richtprijzen</strong>, afgestemd op het type woning of project. De prijs hangt af van factoren zoals:</p>
       <ul>
         <li>Woningtype en bereikbaarheid van ramen</li>
