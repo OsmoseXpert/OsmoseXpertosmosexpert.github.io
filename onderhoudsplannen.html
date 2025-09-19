@@ -553,5 +553,44 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 </script>
 <script src="/assets/js/ox-cookie-banner.js"></script>
-</body>
+<script>
+(function(){
+  function isGreen(color){
+    if(!color) return false;
+    color = color.toLowerCase().replace(/\s+/g,'');
+    return color.includes('rgb(0,128,0)') || color.includes('#008000') || color.includes('#00ff00') || color.includes('#0f0') || color.includes('green');
+  }
+  function shouldKeep(el){
+    if(!el) return true;
+    // whitelist known good widgets
+    return el.closest('.floating-cta, .floating-offerte') ||
+           el.id === 'openOfferte' ||
+           el.id === 'chatbase-bubble' ||
+           el.classList.contains('calendly-badge-widget');
+  }
+  function purge(){
+    const candidates = Array.from(document.querySelectorAll('a,button,div'));
+    let removed = 0;
+    candidates.forEach(el => {
+      if(shouldKeep(el)) return;
+      const cs = window.getComputedStyle(el);
+      if(!cs) return;
+      const fixed = cs.position === 'fixed';
+      const bottomy = /(bottom)/i.test(el.getAttribute('style')||'') || parseInt(cs.bottom||'0') >= 0;
+      const righty = /(right)/i.test(el.getAttribute('style')||'') || parseInt(cs.right||'0') >= 0;
+      const bg = cs.backgroundColor || '';
+      if(fixed && (bottomy || righty) && isGreen(bg)){
+        el.remove();
+        removed++;
+      }
+    });
+    // console.log('Purged legacy green buttons:', removed);
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', purge);
+  } else {
+    purge();
+  }
+})();
+</script></body>
 </html>
