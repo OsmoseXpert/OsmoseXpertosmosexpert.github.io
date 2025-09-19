@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bedankt – OsmoseXpert</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ox-dark:#0c3850;
+      --ox-brand:#2563eb;
+      --ox-bg:#f5f8fb;
+      --ink:#14212b;
+      --muted:#5f7587;
+      --radius:16px;
+      --shadow:0 10px 24px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--ox-bg); color:var(--ink);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+      line-height:1.5;
+    }
+    header{background:var(--ox-dark); color:#fff;}
+    .hero{max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:28px; padding:28px 20px}
+    .hero img{height:60px; width:auto}
+    .hero h1{margin:0; font-size:clamp(22px,3vw,30px)}
+    main{display:grid; place-items:center; padding:28px 20px}
+    .card{
+      background:#fff; border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:26px 22px; max-width:760px; width:100%; text-align:center; border:1px solid #e7eef6;
+    }
+    .card h2{margin:0 0 8px; font-size:26px; color:var(--ox-dark)}
+    .card p{margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .actions{margin-top:14px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+    .btn{display:inline-block; padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:700}
+    .btn-primary{background:var(--ox-brand); color:#fff}
+    .btn-primary:hover{filter:brightness(.95)}
+    .btn-dark{background:var(--ox-dark); color:#fff}
+    .btn-dark:hover{filter:brightness(.95)}
+    footer{max-width:1100px; margin:24px auto 40px; padding:0 20px; text-align:center; color:var(--muted); font-size:13px}
+  </style>
+  <link rel="stylesheet" href="assets/css/cookie-banner.css">
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <img src="images/logo4.jpg?v=1.0" alt="OsmoseXpert">
+      <h1>Bedankt</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="card" role="status" aria-live="polite">
+      <h2>Bedankt voor uw aanvraag</h2>
+      <p>We reageren binnen <strong>24 uur</strong> met een duidelijke terugkoppeling.</p>
+      <p class="muted">Intussen verder kijken? Gebruik de knoppen hieronder.</p>
+      <div class="actions">
+        <a class="btn btn-dark" href="index.html">Terug naar Home</a>
+        <a class="btn btn-primary" href="contact.html">Contact</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> OsmoseXpert — Ronse &amp; omgeving
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/script.js" defer></script>
+</body>
+</html>
