@@ -133,23 +133,25 @@
   <style id="prijzen-banner-override">
     .subhero{
       background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
-      color:#fff; height:auto; padding:40px 20px;
+      color:#fff; padding:40px 20px;
       display:flex; align-items:center;
     }
     .subhero .wrap{
-      max-width:1100px; margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between; gap:24px;
-      width:100%;
+      max-width:1100px; margin:0 auto; width:100%;
+      display:flex; justify-content:center;
     }
-    .subhero h1{ margin:0; font-size:clamp(22px, 3vw, 32px); line-height:1.2; }
-    .subhero .site-logo-img{ max-height:160px; width:auto; object-fit:contain; }
+    .brand-row{
+      display:flex; align-items:center; gap:16px;
+    }
+    .brand-row .logo img{ max-height:120px; width:auto; object-fit:contain; }
+    .brand-row .title{ margin:0; font-size:clamp(24px,3vw,36px); line-height:1.2; color:#0a3d62; }
 
-    /* Mobiel: volledig blauw, GEEN titel, wit logo (logo4.svg) */
+    /* Mobiel: volledig blauw, enkel wit logo, géén titel */
     @media (max-width: 900px){
       .subhero{ background:#0f6ab8; padding:28px 20px; }
-      .subhero .wrap{ flex-direction:column; text-align:center; }
-      .subhero .title-only{ display:none !important; }
-      .subhero .site-logo-img{ max-height:120px; }
+      .brand-row{ justify-content:center; }
+      .brand-row .title{ display:none !important; }
+      .brand-row .logo img{ max-height:120px; }
     }
   </style>
 
@@ -171,21 +173,17 @@
 
   <!-- Banner -->
   
-  <!-- ===== Banner (zoals over-ons): desktop = titel + logo3; mobiel = enkel logo4 ===== -->
+  <!-- ===== Banner: desktop = logo3 + titel; mobiel = enkel logo4 ===== -->
   <header class="subhero" role="banner">
     <div class="wrap">
-      <div class="subhero-left">
-        <h1 class="motion-text title-only">Prijzen</h1>
-      </div>
-      <div class="subhero-right">
-        <picture>
-          <!-- Mobiel: WIT logo (logo4.svg), GEEN titel -->
-          <source media="(max-width: 900px)" srcset="images/logo4.svg"/>
-          <!-- Desktop: donker logo -->
-          <a class="site-logo" href="index.html">
-            <img class="site-logo-img" src="images/logo3.svg" alt="OsmoseXpert" loading="lazy"/>
-          </a>
-        </picture>
+      <div class="brand-row">
+        <a class="logo" href="index.html" aria-label="OsmoseXpert home">
+          <picture>
+            <source media="(max-width: 900px)" srcset="images/logo4.svg"/>
+            <img src="images/logo3.svg" alt="OsmoseXpert" class="site-logo-img" loading="lazy"/>
+          </picture>
+        </a>
+        <h1 class="title">Prijzen</h1>
       </div>
     </div>
   </header>
