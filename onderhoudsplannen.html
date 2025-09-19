@@ -592,5 +592,94 @@ document.addEventListener("DOMContentLoaded", function () {
     purge();
   }
 })();
+</script><script>
+(function(){
+  function isGreenish(bg){
+    if(!bg) return false;
+    bg = bg.toLowerCase();
+    return bg.includes('green') || bg.includes('#008000') || bg.includes('#00ff00') || bg.includes('#0f0') ||
+           bg.includes('rgb(0, 128, 0)') || bg.includes('rgb(0,128,0)');
+  }
+  function whitelist(el){
+    if(!el) return true;
+    return el.closest('.floating-cta, .floating-offerte') ||
+           el.id === 'openOfferte' ||
+           (el.id && el.id.indexOf('chatbase')===0) ||
+           el.classList.contains('calendly-badge-widget');
+  }
+  function purgeOnce(){
+    const nodes = Array.from(document.querySelectorAll('a,button,div'));
+    nodes.forEach(el => {
+      if (whitelist(el)) return;
+      const cs = window.getComputedStyle(el);
+      if(!cs) return;
+      const fixed = cs.position === 'fixed';
+      const isBottom = parseInt(cs.bottom||'0') >= 0;
+      const isRight = parseInt(cs.right||'0') >= 0;
+      if (fixed && (isBottom || isRight) && isGreenish(cs.backgroundColor)){
+        el.remove();
+      }
+    });
+  }
+  // Run at start
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', purgeOnce);
+  } else {
+    purgeOnce();
+  }
+  // Watch for future injections
+  const mo = new MutationObserver(purgeOnce);
+  mo.observe(document.documentElement, { childList: true, subtree: true });
+  // Also clean on load events (just in case)
+  window.addEventListener('load', purgeOnce, { once: true });
+})();
+</script><script>
+(function(){
+  const allowed = [
+    'index.html',
+    'over-ons.html',
+    'diensten.html',
+    'prijzen.html',
+    'onderhoudsplannen.html',
+    'contact.html',
+    'faq.html'
+  ];
+  function norm(href){
+    if(!href) return '';
+    try {
+      // strip origin, query, hash
+      const a = document.createElement('a');
+      a.href = href;
+      let p = a.pathname || href;
+      p = p.split('?')[0].split('#')[0];
+      // keep only last part (file)
+      return p.substring(p.lastIndexOf('/')+1) || p;
+    } catch(e){ return href; }
+  }
+  function cleanList(root){
+    const links = root.querySelectorAll('a[href]');
+    links.forEach(a => {
+      const n = norm(a.getAttribute('href'));
+      if(!allowed.includes(n)){
+        const li = a.closest('li');
+        if(li) li.remove(); else a.remove();
+      }
+    });
+  }
+  function cleanAll(){
+    // Primary nav (desktop & mobile)
+    const primary = document.querySelectorAll('#primary-nav, nav.nav .nav-list');
+    primary.forEach(cleanList);
+    // Any overlay/dropdown menus injected by other scripts
+    document.querySelectorAll('.dropdown-menu, .mobile-menu, .menu, .menu-list, [role="menu"]').forEach(cleanList);
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', cleanAll);
+  } else { cleanAll(); }
+  // Keep it clean even if scripts inject later
+  const mo = new MutationObserver(cleanAll);
+  mo.observe(document.documentElement, { childList:true, subtree:true });
+  window.addEventListener('load', cleanAll, { once:true });
+})();
 </script></body>
 </html>
