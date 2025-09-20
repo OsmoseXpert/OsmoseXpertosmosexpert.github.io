@@ -567,12 +567,51 @@ footer small {
   .ox-mm-btn .bars, .ox-mm-btn .bars::before, .ox-mm-btn .bars::after{ display:none !important; }
 }
 
-/* === ACTIVE MENU ITEM STYLING (2025-09-20) === */
+/* === OSMOSEXPERT FIX (2025-09-20): Hamburger kleur + Active menu pill === */
+
+/* Force hamburger button to Osmose blue, ensure bars are white */
+.ox-mm-btn,
+.hamburger,
+.menu-toggle {
+  background-color: #0f6ab8 !important;
+  color: #ffffff !important;
+}
+.ox-mm-btn .bar,
+.hamburger .bar,
+.menu-toggle .bar,
+.ox-mm-btn .bars,
+.hamburger span,
+.menu-toggle span,
+.ox-mm-btn .bars::before,
+.ox-mm-btn .bars::after {
+  background-color: #ffffff !important;
+}
+
+/* Active menu item: white text on Osmose blue, bold, rounded */
 nav a.active,
-nav a[aria-current="page"] {
-  color: #fff !important;
-  background-color: #0f6ab8 !important; /* Osmose blauw */
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-weight: 600;
+nav a[aria-current="page"],
+nav.nav .nav-list a.active,
+nav.nav .nav-list a[aria-current="page"],
+nav.ox-mm a.active,
+nav.ox-mm a[aria-current="page"],
+#oxMobileMenu a.active,
+#oxMobileMenu a[aria-current="page"] {
+  background-color: #0f6ab8 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 8px 14px !important;
+}
+
+/* Hover state should keep white text */
+nav a.active:hover,
+nav a[aria-current="page"]:hover,
+nav.nav .nav-list a.active:hover,
+nav.nav .nav-list a[aria-current="page"]:hover,
+nav.ox-mm a.active:hover,
+nav.ox-mm a[aria-current="page"]:hover,
+#oxMobileMenu a.active:hover,
+#oxMobileMenu a[aria-current="page"]:hover {
+  background-color: #0d5ea3 !important;
+  color: #ffffff !important;
 }
