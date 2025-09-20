@@ -1,76 +1,110 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Offerte aanvragen | OsmoseXpert</title>
-  <meta name="description" content="Vraag snel en eenvoudig een vrijblijvende offerte aan voor ramenreiniging, zonnepanelenreiniging of een bundel. OsmoseXpert – streeploos resultaat, veilig vanaf de grond." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&v=1.0" rel="stylesheet">
-  <style>
-    :root{
-      --ox-dark:#0c3850;
-      --ox-mid:#184e74;
-      --ox-accent:#2563eb;
-      --ox-accent-dark:#1d4ed8;
-      --ox-bg:#f5f8fb;
-      --ox-text:#14212b;
-      --radius:16px;
-      --shadow:0 10px 24px rgba(0,0,0,.08);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--ox-bg); color:var(--ox-text);
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
-      line-height:1.5;
-    }
-    header{background:var(--ox-dark);color:#fff;}
-    .hero{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:28px;padding:32px 20px}
-    .hero img{height:64px;width:auto}
-    .hero h1{font-size:clamp(24px,3vw,34px);margin:0;font-weight:700}
-    .hero p{margin:6px 0 0;opacity:.9}
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Offerte aanvragen | OsmoseXpert</title>
+<meta name="description" content="Vraag snel en eenvoudig een vrijblijvende offerte aan voor ramenreiniging, zonnepanelenreiniging of een bundel. OsmoseXpert – streeploos resultaat, veilig vanaf de grond." />
+<link rel="stylesheet" href="assets/css/cookie-banner.css">
+<style>
 
-    .wrap{max-width:1100px;margin:28px auto;padding:0 20px}
-    .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .card h2{margin:0;padding:18px 22px;background:#fff;border-bottom:1px solid #e7eef6;font-size:20px}
-    .card .content{padding:22px}
+/* Reset and variables */
+* { box-sizing: border-box; margin:0; padding:0; }
+:root { --brand:#0f6ab8; --ink:#1e293b; --bg:#f6f9fc; --dark:#011a3a; }
+body { font-family: Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+a { color:var(--brand); text-decoration:none; transition: all .2s ease; }
+a:hover { text-decoration:underline; }
 
-    form label{display:block;font-weight:600;margin:14px 0 6px}
-    .req{color:var(--ox-accent);font-weight:700}
-    input, select, textarea{
-      width:100%;background:#fff;border:1px solid #d7e1eb;border-radius:12px;padding:12px 14px;font-size:15px;
-    }
-    input:focus, select:focus, textarea:focus{outline:none;border-color:var(--ox-accent);box-shadow:0 0 0 3px rgba(37,99,235,.15)}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media (max-width:700px){.row{grid-template-columns:1fr}}
+/* Desktop nav centered */
+nav.nav.centered { background:#fff; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:14px 20px; position:sticky; top:0; z-index:100; }
+nav.nav.centered ul { display:flex; gap:20px; }
+nav.nav.centered li { list-style:none; }
+nav.nav.centered a { color:var(--ink); font-weight:600; padding:6px 10px; border-radius:6px; }
+nav.nav.centered a:hover { color:var(--brand); background:#e6f0fa; }
+nav.nav.centered a.active, nav.nav.centered a[aria-current="page"] { color:#fff; background:var(--brand); }
 
-    .muted{font-size:13px;color:#5f7587}
-    .actions{display:flex;gap:12px;align-items:center;margin-top:18px;flex-wrap:wrap}
-    .btn{appearance:none;border:0;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
-    .btn-primary{background:var(--ox-accent);color:#fff}
-    .btn-primary:hover{background:var(--ox-accent-dark)}
-    .btn-dark{background:var(--ox-dark);color:#fff}
-    .btn-dark:hover{background:#052032}
+/* Banner (subhero) same as over-ons */
+.subhero {
+  background:linear-gradient(90deg, #0f6ab8 50%, #ffffff 50%);
+  color:#fff;
+  height:auto;
+  padding:40px 20px;
+  display:flex; align-items:center;
+}
+.subhero .wrap {
+  max-width:1100px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  width:100%;
+}
+.subhero h1 { margin:0; font-size:clamp(22px, 3vw, 32px); line-height:1.2; }
+.subhero p { margin-top:8px; color:#e6f0fa; font-size:clamp(14px, 1.6vw, 16px); }
+.subhero img { max-height:200px; width:auto; object-fit:contain; }
 
-    footer{max-width:1100px;margin:26px auto 40px;padding:0 20px;color:#5b6f80;font-size:13px;text-align:center}
-    footer img{margin-top:12px;max-width:160px}
-  </style>
-  <link rel="stylesheet" href="assets/css/cookie-banner.css">
+/* Mobile tweaks */
+@media (max-width: 900px){
+  .subhero{ background:#0f6ab8; padding:28px 20px; }
+  .subhero .wrap{ flex-direction:column; text-align:center; }
+  .subhero img{ margin-top:12px; max-height:120px; }
+}
+
+/* Form card styles retained from original offerte for content */
+.wrap{max-width:1100px;margin:28px auto;padding:0 20px}
+.card{background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.05);overflow:hidden}
+.card h2{margin:0;padding:18px 22px;background:#fff;border-bottom:1px solid #e7eef6;font-size:20px}
+.card .content{padding:22px}
+form label{display:block;font-weight:600;margin:14px 0 6px}
+.req{color:#0f6ab8;font-weight:700}
+input, select, textarea{ width:100%; background:#fff; border:1px solid #d7e1eb; border-radius:12px; padding:12px 14px; font-size:15px; }
+input:focus, select:focus, textarea:focus{ outline:none; border-color:#0f6ab8; box-shadow:0 0 0 3px rgba(15,106,184,.15) }
+.row{ display:grid; grid-template-columns:1fr 1fr; gap:14px }
+@media (max-width:700px){ .row{ grid-template-columns:1fr } }
+.muted{font-size:13px;color:#5f7587}
+.actions{display:flex;gap:12px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.btn{appearance:none;border:0;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-primary{background:#2563eb;color:#fff}
+.btn-primary:hover{background:#1d4ed8}
+.btn-dark{background:#011a3a;color:#fff}
+.btn-dark:hover{background:#052032}
+
+footer{max-width:1100px;margin:26px auto 40px;padding:0 20px;color:#5b6f80;font-size:13px;text-align:center}
+footer img{margin-top:12px;max-width:160px}
+
+
+
+.check-wrap{border:1px solid #cbd5e1;border-radius:6px;padding:8px 10px;margin-top:12px;background:#fff;display:flex;align-items:center;gap:8px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.check-wrap input[type=checkbox]{margin:0;width:16px;height:16px;accent-color:#0f6ab8;cursor:pointer}
+.check-wrap span{font-size:13px;color:#334155}
+
+</style>
 </head>
-<body>
-  <header>
-    <div class="hero">
-      <img src="images/logo4.jpg?v=1.0" alt="OsmoseXpert" />
-      <div>
-        <h1>Offerte aanvragen</h1>
-        <p>binnen 24 uur reactie op uw aanvraag.</p>
-      </div>
-    </div>
-  </header>
+<body class="offerte-page">
 
-  <main class="wrap">
+<nav class="nav centered" aria-label="Hoofdmenu">
+  <ul class="nav-list" id="primary-nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="over-ons.html">Over ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="prijzen.html">Prijzen</a></li>
+    <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+</nav>
+
+
+<header class="subhero" role="banner">
+  <div class="wrap">
+    <div class="subhero-left">
+      <h1>Offerte aanvragen</h1>
+      <p>binnen 24 uur reactie op uw aanvraag.</p>
+    </div>
+    <div class="subhero-right">
+      <a class="site-logo" href="index.html"><img src="images/logo3.svg" alt="OsmoseXpert"/></a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
     <section class="card">
       <h2>Uw gegevens</h2>
       <div class="content">
@@ -146,26 +180,25 @@
           <label for="opm">Opmerkingen</label>
           <textarea id="opm" name="opmerkingen" rows="4" placeholder="Handig: aantal verdiepingen, bereikbaarheid, specifieke wensen…"></textarea>
 
-          <label style="margin-top:14px; display:block"><input type="checkbox" required> Ik ga akkoord dat OsmoseXpert contact opneemt over mijn aanvraag.</label>
+          <div class="check-wrap"><label style="margin-top:14px; display:block"><input type="checkbox" required> <span> Ik ga akkoord dat OsmoseXpert contact opneemt over mijn aanvraag.</span></label></div>
 
           <div class="actions">
             <button class="btn btn-primary" type="submit">Verstuur offerte-aanvraag</button>
-            <a class="btn btn-dark" href="/prijzen.html?v=1.0">Bekijk richtprijzen</a>
-            <a class="btn btn-primary" href="#" onclick="try{Calendly.initPopupWidget({url:'https://calendly.com/osmose-xpert-info/new-meeting?hide_gdpr_banner=1&hide_event_type_details=1&primary_color=2563eb'});}catch(e){} return false;">Boek nu</a>
+            
+            
           </div>
           <p class="muted" style="margin-top:10px">Tevredenheidsgarantie: niet tevreden? Wij komen terug.</p>
         </form>
       </div>
     </section>
   </main>
-
-  <footer>
+<footer>
     <p>Onze chatbot beantwoordt elke vraag die met OsmoseXpert te maken heeft.</p>
     <img src="images/logo8.svg?v=1.0" alt="OsmoseXpert Chatbot" />
     <p>© <span id="y"></span> OsmoseXpert — Ronse & omgeving • <a href="/faq.html?v=1.0">FAQ</a></p>
   </footer>
-
-  <!-- Calendly widget for popup -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly widget for popup -->
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <script>
@@ -192,5 +225,6 @@
   <script src="assets/script.js" defer></script>
 
   <script src="/assets/js/ox-cookie-banner.js"></script>
+<script src="/assets/js/ox-cookie-banner.js"></script>
 </body>
 </html>
