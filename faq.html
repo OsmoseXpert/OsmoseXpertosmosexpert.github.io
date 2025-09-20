@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="nl">
 <head><script>window.CALENDLY_DEFAULT='https://calendly.com/osmose-xpert-info/new-meeting';</script>
 <meta charset="utf-8"/>
@@ -269,8 +268,27 @@ button{ min-height:44px; }
 }
 </style>
 <link href="assets/css/cookie-banner.css" rel="stylesheet"/>
-</head>
-<body data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered"><ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="over-ons.html">Over ons</a></li><li><a href="diensten.html">Diensten</a></li><li><a href="prijzen.html">Prijzen</a></li><li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li><li><a href="contact.html">Contact</a></li><li><a aria-current="page" class="active" href="faq.html">FAQ</a></li></ul></nav><header class="subhero" role="banner"><div class="wrap"><div class="subhero-left"><h1 class="motion-text">FAQ</h1><p></p></div><div class="subhero-right"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><a class="site-logo" href="index.html"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><img alt="OsmoseXpert" class="site-logo-img" src="images/logo3.svg"/></picture></a></picture></div></div></header>
+<style>
+/* --- Uniform mobile nav + hamburger --- */
+.hamburger{background:var(--brand,#0f6ab8);border:none;padding:8px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+/* Default hidden mobile list; toggle with .open */
+.nav-list{display:none;flex-direction:column;gap:12px;list-style:none;margin:12px 0 0 0;padding:0}
+.nav-list.open{display:flex}
+/* Ensure desktop centers nav if there's a desktop layout present */
+@media (min-width: 1024px){
+  nav .nav-list{display:flex !important;flex-direction:row;gap:20px;justify-content:center;align-items:center}
+  .hamburger{display:none}
+}
+</style><style>
+/* Force brand blue on the single mobile menu button (right) */
+.ox-mm-btn{background:var(--brand,#0f6ab8)!important;color:#fff!important;border:0!important;border-radius:12px!important}
+.ox-mm-btn .bars, .ox-mm-btn span, .ox-mm-btn svg, .ox-mm-btn i{background:#fff!important;color:#fff!important;border-color:#fff!important}
+</style><style>
+/* Active link highlight in mobile dropdown */
+#oxMobileMenu a.active{background:var(--brand,#0f6ab8)!important;color:#fff!important}
+</style></head>
+<body data-calendly="https://calendly.com/osmose-xpert-info/new-meeting"><nav aria-label="Hoofdmenu" class="nav centered">
+<ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="over-ons.html">Over ons</a></li><li><a href="diensten.html">Diensten</a></li><li><a href="prijzen.html">Prijzen</a></li><li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul></nav><header class="subhero" role="banner"><div class="wrap"><div class="subhero-left"><h1 class="motion-text">FAQ</h1><p></p></div><div class="subhero-right"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><a class="site-logo" href="index.html"><picture><source media="(max-width: 900px)" srcset="images/logo4.svg"/><img alt="OsmoseXpert" class="site-logo-img" src="images/logo3.svg"/></picture></a></picture></div></div></header>
 <a class="skip-link" href="#content">Snel naar inhoud</a>
 <main id="content">
 <section class="section">
@@ -309,7 +327,7 @@ button{ min-height:44px; }
 <details>
 <summary aria-expanded="false">Wat kost osmose ramenreiniging?</summary>
 <div class="answer">
-<p>De prijs hangt af van het type gebouw en het aantal ramen. Bekijk onze <a href="prijzen.html">prijzenpagina</a> voor transparante tarieven of vraag een <a href="contact.html">vrijblijvende offerte</a>.</p>
+<p>De prijs hangt af van het type gebouw en het aantal ramen. Bekijk onze <a href="prijzen.html">prijzenpagina</a> voor transparante tarieven of vraag een .</p>
 </div>
 </details>
 <details>
@@ -356,7 +374,6 @@ button{ min-height:44px; }
 </details>
 <!-- Afsluitende CTA -->
 <div aria-label="Acties" class="cta-wrap">
-<a class="btn btn-primary" href="contact.html">Vraag nu uw offerte aan</a>
 <a class="btn btn-ghost" href="prijzen.html">Bekijk prijzen</a>
 </div>
 </section>
@@ -562,7 +579,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 <!-- OX Mobile Menu -->
 <div aria-hidden="true" class="ox-mm-overlay" id="oxMobileMenuOverlay"></div>
-<nav aria-label="Mobiele navigatie" class="ox-mm" id="oxMobileMenu"><a href="index.html">Home</a><a href="over-ons.html">Over ons</a><a href="diensten.html">Diensten</a><a href="prijzen.html">Prijzen</a><a href="onderhoudsplannen.html">Onderhoudsplannen</a><a href="contact.html">Contact</a><a aria-current="page" class="active" href="faq.html">FAQ</a></nav>
+<nav aria-label="Mobiele navigatie" class="ox-mm" id="oxMobileMenu"><a class="" href="index.html">Home</a><a class="" href="over-ons.html">Over ons</a><a class="" href="diensten.html">Diensten</a><a class="" href="prijzen.html">Prijzen</a><a class="" href="onderhoudsplannen.html">Onderhoudsplannen</a><a class="" href="contact.html">Contact</a><a class="active" href="faq.html">FAQ</a></nav>
 <button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn">
 <span aria-hidden="true" class="bars"></span>
 </button>
@@ -606,5 +623,18 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 </script>
 <script src="/assets/js/ox-cookie-banner.js"></script>
-</body>
+<script>
+// --- Mobile hamburger toggle ---
+(function(){
+  var btn=document.querySelector('.hamburger');
+  var list=document.querySelector('nav .nav-list');
+  if(btn && list){
+    btn.addEventListener('click', function(){
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', (!expanded).toString());
+      list.classList.toggle('open');
+    });
+  }
+})();
+</script></body>
 </html>
