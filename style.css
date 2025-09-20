@@ -566,3 +566,13 @@ footer small {
   .ox-mm-btn .bar{ display:block; width:22px; height:2px; background:#fff; border-radius:1px; }
   .ox-mm-btn .bars, .ox-mm-btn .bars::before, .ox-mm-btn .bars::after{ display:none !important; }
 }
+
+/* === ACTIVE MENU ITEM STYLING (2025-09-20) === */
+nav a.active,
+nav a[aria-current="page"] {
+  color: #fff !important;
+  background-color: #0f6ab8 !important; /* Osmose blauw */
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: 600;
+}
