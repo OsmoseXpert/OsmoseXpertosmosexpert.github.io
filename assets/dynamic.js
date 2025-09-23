@@ -42,7 +42,7 @@
     var el = e.target.closest('.js-book-now');
     if(!el) return;
     e.preventDefault();
-    var url = 'https://calendly.com/osmose-xpert-info/new-meeting';
+    var url = 'https://calendly.com/osmose-xpert-info/ramenreiniging';
     window.open(url, '_blank', 'noopener');
   }, true);
 })();
