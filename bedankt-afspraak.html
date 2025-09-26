@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "OsmoseXpert",
+  "url": "https://www.osmose-xpert.be",
+  "logo": "https://www.osmose-xpert.be/images/brand/logo-social-512.png"
+}
+</script>
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/android-chrome-192.png">
+<link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png">
+<link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#0A5FD1">
+<meta name="theme-color" content="#0A5FD1">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bedankt – OsmoseXpert">
+<meta property="og:description" content="We hebben je aanvraag ontvangen. Je hoort snel van ons. Intussen ontdek je onze diensten en prijzen.">
+<meta property="og:url" content="https://www.osmose-xpert.be/">
+<meta property="og:image" content="https://www.osmose-xpert.be/images/social/osmosexpert-og-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bedankt – OsmoseXpert">
+<meta name="twitter:description" content="We hebben je aanvraag ontvangen. Je hoort snel van ons. Intussen ontdek je onze diensten en prijzen.">
+<meta name="twitter:image" content="https://www.osmose-xpert.be/images/social/osmosexpert-og-1200x630.png">
+
+<meta name="description" content="We hebben je aanvraag ontvangen. Je hoort snel van ons. Intussen ontdek je onze diensten en prijzen.">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Bedankt – OsmoseXpert</title>
+  <meta name="robots" content="noindex"/>
+  <style>
+    :root{
+      --brand:#0f6ab8; /* blauw */
+      --brand-dark:#0b3b53;
+      --ink:#0f172a;   /* tekst donker */
+      --muted:#64748b;
+      --bg:#f6f9fc;    /* lichtgrijs/blauw */
+      --card:#ffffff;
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,'Helvetica Neue',Arial, 'Apple Color Emoji','Segoe UI Emoji';
+      background:var(--bg);
+      color:var(--ink);
+    }
+    .wrap{
+      min-height:100dvh;
+      display:grid;
+      place-items:center;
+      padding:24px;
+    }
+    .card{
+      width:min(920px,100%);
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 25px 60px rgba(2,6,23,.12), 0 4px 14px rgba(2,6,23,.08);
+      padding:28px 22px;
+      text-align:center;
+      border:1px solid #e2e8f0;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size: clamp(26px, 4.6vw, 42px);
+      line-height:1.15;
+      color:#011a3a; /* jouw donkerblauw */
+      letter-spacing:.2px;
+      font-weight:800;
+    }
+    p{margin:0 0 14px; font-size:clamp(16px,2.8vw,18px)}
+    .muted{color:var(--muted)}
+    .buttons{
+      margin-top:14px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      border:2px solid transparent;
+      box-shadow:0 6px 20px rgba(15,106,184,.18);
+      transition:transform .1s ease, box-shadow .2s ease, background-color .15s ease;
+      min-width:170px;
+    }
+    .btn.primary{ background:var(--brand); color:#fff; }
+    .btn.primary:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(15,106,184,.25); }
+    .btn.secondary{ background:#fff; color:var(--brand); border-color:var(--brand); box-shadow:0 6px 16px rgba(2,6,23,.08); }
+    .btn.secondary:hover{ transform:translateY(-2px); }
+    .next{ margin-top:12px; color:var(--muted); font-size:.95rem }
+    /* hard disable any accidental floating widgets by hiding generic classes if they exist */
+    .floating-cta, .floating-offerte, #booking-overlay { display:none !important; }
+  </style>
+</head>
+<body>
+  <main class="wrap" aria-labelledby="title">
+    <section class="card" role="status" aria-live="polite">
+      <h1 id="title">Afspraak bevestigd</h1>
+      <p>Bedankt om te boeken bij <strong>OsmoseXpert</strong>. Uw afspraak voor <strong>ramenreiniging</strong> is succesvol ingepland. U ontvangt zo meteen een bevestiging via e‑mail.</p>
+      <p class="muted">Vragen intussen? We antwoorden meestal binnen 24 uur.</p>
+      <div class="buttons">
+        <a class="btn secondary" href="index.html" rel="home">Terug naar Home</a>
+        <a class="btn primary" href="contact.html">Contact</a>
+      </div>
+      <p class="next">U kunt deze pagina sluiten; uw afspraak staat veilig in onze planning.</p>
+    </section>
+  </main>
+</body>
+</html>
