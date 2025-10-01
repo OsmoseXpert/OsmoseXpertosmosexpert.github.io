@@ -294,7 +294,7 @@ button{ min-height:44px; }
 }
 
 </style>
-<link href="https://osmose-xpert.be/contact.html" rel="canonical"/><link href="assets/styles.css?v=20250917-1303" rel="stylesheet"><link href="assets/css/fixes.css" rel="stylesheet"/><script defer="True" src="assets/js/booking.js"></script><style>
+<link href="https://osmose-xpert.be/contact.html" rel="canonical"/><link href="assets/styles.css?v=20250917-1303" rel="stylesheet"/><link href="assets/css/fixes.css" rel="stylesheet"><script defer="True" src="assets/js/booking.js"></script><style>
 .floating-buttons {
   position: fixed;
   bottom: 20px;
@@ -428,6 +428,59 @@ button{ min-height:44px; }
   .subhero p {
     display: none !important;
   }
+}
+</style><style>
+@media (max-width: 900px) {
+  /* 1) MOBIEL: logo switch in blauwe banner */
+  .subhero img {
+    content: url("/images/logo4.svg") !important;
+  }
+
+  /* 2) MOBIEL: cookiebanner-knoppen identiek (blauw + witte tekst) */
+  .cookie-banner :is(button, .btn, [type="button"], [type="submit"]) {
+    background-color: #0f6ab8 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 10px 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+  }
+  .cookie-banner :is(button, .btn, [type="button"], [type="submit"]):hover {
+    background-color: #0c57a0 !important;
+  }
+  .cookie-banner input[type="text"] {
+    background: #fff !important;
+    color: #111 !important;
+    border: 1px solid #444 !important;
+    border-radius: 6px !important;
+    padding: 8px 10px !important;
+  }
+
+  /* 3) MOBIEL: hamburgerknop met drie streepjes */
+  button[aria-label="Menu"], .hamburger, .menu-toggle {
+    width: 40px; height: 40px;
+    background: #0f6ab8 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  button[aria-label="Menu"], .hamburger, .menu-toggle {
+    background-image:
+      linear-gradient(#fff, #fff),
+      linear-gradient(#fff, #fff),
+      linear-gradient(#fff, #fff);
+    background-size: 22px 2px, 22px 2px, 22px 2px;
+    background-position:
+      center 12px,
+      center 50%,
+      center calc(100% - 12px);
+    background-repeat: no-repeat;
+  }
+
+  /* Tekst in banner verbergen */
+  .subhero h1, .subhero p {display: none !important;}
 }
 </style></head>
 <body data-calendly="https://calendly.com/osmose-xpert-info/ramenreiniging"><nav aria-label="Hoofdmenu" class="nav centered">
