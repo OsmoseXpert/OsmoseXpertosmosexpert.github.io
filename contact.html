@@ -552,7 +552,6 @@ button{ min-height:44px; }
 </section>
 </main>
 <!-- JSON-LD LocalBusiness voor rijkere kaarten -->
-
 <style>
   .chatbase-bubble, .chatbase-widget { z-index: 2147483000 !important; }
 </style>
@@ -566,10 +565,7 @@ button{ min-height:44px; }
   .chatbase-bubble { right: 16px !important; bottom: 16px !important; }
 </style>
 <!-- Chatbase identity (set BEFORE embed script) -->
-
 <!-- Chatbase widget -->
-
-
 <footer>
 <div class="footer-container">
 <div class="footer-col">
@@ -608,7 +604,6 @@ button{ min-height:44px; }
 <iframe frameborder="0" src="https://calendly.com/osmose-xpert-info/ramenreiniging" style="width:100%; height:600px;"></iframe>
 </div>
 </div>
-
 <style>
         .floating-offerte {
           position: fixed;
@@ -631,7 +626,76 @@ button{ min-height:44px; }
 <button aria-expanded="false" aria-haspopup="true" aria-label="Menu" class="ox-mm-btn" id="oxMobileMenuBtn">
 <span aria-hidden="true" class="bars"></span>
 </button>
+<script src="assets/script.js"></script><script src="assets/dynamic.js"></script><script src="/assets/js/ox-cookie-banner.js"></script>
+<!-- Offerte Modal (global; STRICT) -->
+<div aria-hidden="true" aria-labelledby="offerteTitle" aria-modal="true" class="ox-modal" id="offerteModal" role="dialog">
+<div class="ox-backdrop" data-close=""></div>
+<div class="ox-dialog" role="document">
+<header class="ox-head">
+<img alt="OsmoseXpert" class="ox-logo" src="images/logo3.svg"/>
+<h2 id="offerteTitle">Offerte aanvragen</h2>
+<button aria-label="Sluit offerte" class="ox-close" data-close="" type="button">×</button>
+</header>
+<div class="ox-body">
+<iframe class="ox-frame" loading="lazy" src="offerte-standalone.html" title="Offerteformulier"></iframe>
+</div>
+</div>
+</div>
+<style>
+/* ===== Offerte Modal minimal styles ===== */
+.ox-modal[aria-hidden="true"]{display:none}
+.ox-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center}
+.ox-backdrop{position:absolute;inset:0;background:rgba(5,10,20,.6);backdrop-filter:saturate(140%) blur(2px)}
+.ox-dialog{position:relative;z-index:1;width:min(100%,950px);max-height:90vh;background:#fff;border-radius:18px;box-shadow:0 16px 60px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden}
+.ox-head{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #eef2f7;background:#fff}
+.ox-logo{height:28px;width:auto}
+.ox-head h2{margin:0;font-size:18px}
+.ox-close{margin-left:auto;font-size:26px;line-height:1;border:0;background:transparent;cursor:pointer;color:#0b1423}
+.ox-body{padding:0}
+.ox-frame{display:block;width:min(100vw,950px);height:calc(90vh - 56px);border:0}
+@media (max-width:720px){
+  .ox-dialog{width:96vw}
+  .ox-frame{width:96vw}
+}
+</style>
+<script>
+// ===== Offerte Modal controller (STRICT): only .floating-cta triggers =====
+(function(){
+  function ready(fn){ if(document.readyState!='loading'){fn()} else {document.addEventListener('DOMContentLoaded',fn)} }
+  ready(function(){
+    const modal = document.getElementById('offerteModal');
+    if(!modal) return;
 
+    const openers = document.querySelectorAll('.floating-cta');
+    let lastFocus = null;
 
-<script src="assets/script.js"></script><script src="assets/dynamic.js"></script><script src="/assets/js/ox-cookie-banner.js"></script></body>
+    function openModal(e){
+      if(e) e.preventDefault();
+      lastFocus = document.activeElement;
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      const closeBtn = modal.querySelector('.ox-close');
+      if(closeBtn) closeBtn.focus();
+    }
+    function closeModal(){
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+      try{ if(lastFocus) lastFocus.focus(); }catch(e){}
+    }
+
+    openers.forEach(el => {
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (e)=>{
+      if(modal.getAttribute('aria-hidden')==='false' && e.key === 'Escape'){ closeModal(); }
+    });
+  });
+})();
+</script>
+</body>
 </html>
