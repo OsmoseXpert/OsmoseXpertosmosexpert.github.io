@@ -542,6 +542,110 @@ header.contact-hero .tag-sub{font-size:13px;font-weight:600;color:#4a5568;margin
   header.contact-hero .tag-sub .line1,
   header.contact-hero .tag-sub .line2{display:block}
 }
+</style><style id="ox-mobile-button-style">
+/* MOBILE NAV — keep button as-is */
+#oxMobileMenuBtn{display:none}
+#oxMobileMenuOverlay{display:none}
+
+@media (max-width:768px){
+  nav{position:relative}
+
+  /* Button (unchanged) */
+  #oxMobileMenuBtn{
+    display:flex; position:fixed; right:12px; top:10px; z-index:1001;
+    width:42px; height:42px; border-radius:10px; border:0; cursor:pointer;
+    background:#0f6ab8; box-shadow:0 6px 18px rgba(0,0,0,.18);
+    align-items:center; justify-content:center;
+  }
+  #oxMobileMenuBtn .burger{
+    position:relative; width:24px; height:2px; background:#fff; border-radius:2px; display:block;
+  }
+  #oxMobileMenuBtn .burger::before, #oxMobileMenuBtn .burger::after{
+    content:""; position:absolute; left:0; width:24px; height:2px; background:#fff; border-radius:2px;
+  }
+  #oxMobileMenuBtn .burger::before{ top:-8px } 
+  #oxMobileMenuBtn .burger::after{ top:8px }
+
+  /* PANEL: force pure white and anchor directly under the button */
+  nav:not(.open) ul, nav:not(.open) .nav-links{ display:none !important; }
+  nav.open ul, nav.open .nav-links{
+    display:block !important; position:fixed !important; right:12px !important; 
+    top:58px !important; z-index:1000 !important;
+    background:#ffffff !important; color:#0f172a !important;
+    border-radius:12px !important; box-shadow:0 12px 28px rgba(0,0,0,.16) !important;
+    padding:6px !important; width:min(92vw, 320px) !important;
+  }
+  nav.open ul, nav.open li{ list-style:none; margin:0; padding:0 }
+  nav.open a{
+    display:block; padding:12px 14px; border-radius:10px;
+    color:#0f172a !important; text-decoration:none;
+  }
+  /* BLUE highlight for hover/active */
+  nav.open a:hover, nav.open a:focus, nav.open li.active > a{
+    background:#0f6ab8 !important; color:#ffffff !important;
+  }
+
+  /* Overlay */
+  #oxMobileMenuOverlay.open{
+    display:block; position:fixed; inset:0; background:rgba(0,0,0,.2); z-index:999;
+  }
+}
+</style>
+<!-- Custom mobile nav styling and cookie banner fix (contact page only) -->
+<style id="contact-mobile-nav-fix">
+/* Mobile nav: white panel with blue highlight anchored under button */
+@media (max-width: 768px) {
+  #oxMobileMenu {
+    display: none;
+    position: fixed;
+    right: 12px;
+    top: 58px;
+    width: min(92vw, 320px);
+    max-height: 70vh;
+    overflow: auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.16);
+    padding: 8px;
+    z-index: 1001;
+  }
+  #oxMobileMenu.open {
+    display: block;
+  }
+  #oxMobileMenu a {
+    display: block;
+    padding: 12px 14px;
+    color: #0f172a;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  #oxMobileMenu a:hover,
+  #oxMobileMenu a:focus {
+    background: #0f6ab8;
+    color: #ffffff;
+  }
+  #oxMobileMenuOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+  #oxMobileMenuOverlay.open {
+    display: block;
+  }
+}
+/* Cookie banner accept button: ensure visible text on white background */
+.cookie-banner .accept,
+.cookie-banner button.accept {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #0f172a !important;
+}
+.cookie-banner .accept:hover,
+.cookie-banner button.accept:hover {
+  background-color: #f3f4f6 !important;
+}
 </style></head>
 <body data-calendly="https://calendly.com/osmose-xpert-info/ramenreiniging"><nav aria-label="Hoofdmenu" class="nav centered">
 <ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="over-ons.html">Over ons</a></li><li><a href="diensten.html">Diensten</a></li><li><a href="prijzen.html">Prijzen</a></li><li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li><li><a aria-current="page" href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul></nav><header class="contact-hero"><div class="brand-row"><picture><source media="(max-width: 768px)" srcset="images/logo4.svg"/><img alt="OsmoseXpert logo (SVG)" src="images/logo3.svg"/></picture><div class="tag-wrap"><h1 class="tag-title">Uw ramen, onze zorg.</h1><div class="tag-sub"><span class="line1">Professionele ramenreiniging in Ronse en omgeving.</span><span class="line2">Streeploos, veilig en zonder chemische producten.</span></div></div></div></header>
@@ -565,7 +669,6 @@ header.contact-hero .tag-sub{font-size:13px;font-weight:600;color:#4a5568;margin
 <label>Adres
             <input name="adres" type="text"/>
 </label>
-
 <label>Bericht
             <textarea name="bericht" placeholder="Bijvoorbeeld: aantal ramen, verdiepingen, veranda, zonnepanelen of specifieke wensen..." rows="4"></textarea>
 </label>
@@ -795,5 +898,26 @@ header.contact-hero .tag-sub{font-size:13px;font-weight:600;color:#4a5568;margin
   });
 })();
 </script>
-</body>
+<script id="ox-mobile-toggle">
+// Mobile dropdown: robust toggle tied to #oxMobileMenuBtn
+(function(){
+  function ready(fn){ if(document.readyState!='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+  ready(function(){
+    var btn = document.getElementById('oxMobileMenuBtn');
+    // Use the dedicated mobile menu (#oxMobileMenu) instead of the first nav on the page
+    var nav = document.getElementById('oxMobileMenu');
+    if(!btn || !nav) return;
+    var ovl = document.getElementById('oxMobileMenuOverlay');
+    if(!ovl){ ovl = document.createElement('div'); ovl.id = 'oxMobileMenuOverlay'; document.body.appendChild(ovl); }
+    function open(){ nav.classList.add('open'); ovl.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    function close(){ nav.classList.remove('open'); ovl.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+    function toggle(){ (nav.classList.contains('open') ? close : open)(); }
+    btn.addEventListener('click', function(e){ e.preventDefault(); toggle(); });
+    ovl.addEventListener('click', close);
+    nav.addEventListener('click', function(e){
+      var a = e.target.closest('a'); if(a) close();
+    });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+  });
+})();</script></body>
 </html>
