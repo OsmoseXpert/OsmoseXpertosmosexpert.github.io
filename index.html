@@ -178,7 +178,137 @@ footer small{display:block;text-align:center;margin-top:14px;color:#94a3b8;font-
 <link href="assets/css/cookie-banner.css" rel="stylesheet"/>
 
   <link rel="stylesheet" href="assets/css/logo-anim.css">
-  <link rel="stylesheet" href="assets/css/hero-color-match.css"><link href="https://osmose-xpert.be/" rel="canonical"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"OsmoseXpert","image":"https://osmose-xpert.be/images/logo3.svg","@id":"https://osmose-xpert.be/","url":"https://osmose-xpert.be/","telephone":"+32 493 67 34 84","address":{"@type":"PostalAddress","addressLocality":"Ronse","addressCountry":"BE"},"areaServed":["Ronse","Kluisbergen","Oudenaarde"],"openingHours":"Mo-Fr 09:00-17:00","sameAs":[]}</script></head>
+  <link rel="stylesheet" href="assets/css/hero-color-match.css"><link href="https://osmose-xpert.be/" rel="canonical"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"OsmoseXpert","image":"https://osmose-xpert.be/images/logo3.svg","@id":"https://osmose-xpert.be/","url":"https://osmose-xpert.be/","telephone":"+32 493 67 34 84","address":{"@type":"PostalAddress","addressLocality":"Ronse","addressCountry":"BE"},"areaServed":["Ronse","Kluisbergen","Oudenaarde"],"openingHours":"Mo-Fr 09:00-17:00","sameAs":[]}</script>
+<style>
+  /* --- OX Mobile Enhancements (standalone demo) --- */
+  @media (max-width: 1023.98px) {
+    /* Verberg de desktop nav op mobiel */
+    .site-nav { display: none !important; }
+
+    /* Toon de OX hamburger (is al default aan op mobiel) en geef extra klikruimte */
+    .ox-mm-btn { top: 12px; right: 12px; width: 52px; height: 52px; border-radius: 14px; }
+
+    /* Zorg dat hero genoeg ademruimte heeft, niets onder de knop verstopt */
+    .hero-banner { padding-top: 76px !important; }
+
+    /* Video/logo styling: zacht afgerond en subtiele schaduw voor betere blend */
+    .logo-anim__video {
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+      /* Huidige blend + minuscule fade naar transparantie aan de rand voor minder “sticker”-effect */
+      -webkit-mask-image: radial-gradient(120% 120% at 50% 40%, rgba(0,0,0,1) 72%, rgba(0,0,0,0.98) 78%, rgba(0,0,0,0) 100%);
+              mask-image: radial-gradient(120% 120% at 50% 40%, rgba(0,0,0,1) 72%, rgba(0,0,0,0.98) 78%, rgba(0,0,0,0) 100%);
+    }
+
+    /* Tekst wat compacter op mobiel voor betere hiërarchie */
+    .hero-banner h1 { font-size: 26px !important; margin-bottom: 6px; }
+    .hero-banner p  { font-size: 15.5px !important; }
+  }
+
+  /* Iets vriendelijker schaalgedrag op kleine schermen in het algemeen */
+  .hero-logo { max-width: 92vw; }
+</style>
+
+
+<style>
+  /* --- OX Mobile Refinements v2 --- */
+  @media (max-width: 1023.98px) {
+    /* Zorg dat logo/video perfect centraal staat */
+    .hero-logo { 
+      display: block; 
+      width: min(88vw, 560px) !important; 
+      margin: 0 auto 10px !important; 
+    }
+    .logo-anim { display:block; }
+    .logo-anim__video {
+      display:block;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.16);
+      /* blend + zachte rand */
+      mix-blend-mode: lighten;
+      filter: brightness(1.02) contrast(1.05);
+      -webkit-mask-image: radial-gradient(120% 120% at 50% 42%, rgba(0,0,0,1) 74%, rgba(0,0,0,0.98) 80%, rgba(0,0,0,0) 100%);
+              mask-image: radial-gradient(120% 120% at 50% 42%, rgba(0,0,0,1) 74%, rgba(0,0,0,0.98) 80%, rgba(0,0,0,0) 100%);
+    }
+
+    /* Content-box strak centreren onder het logo */
+    .hero-banner .content {
+      max-width: 92vw !important;
+      margin: 8px auto 0 !important;
+      text-align: center !important;
+      padding: 0 12px !important;
+    }
+    .hero-banner h1 {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      letter-spacing: 0.1px;
+    }
+    .hero-banner p {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      max-width: 92vw !important;
+    }
+
+    /* Zorg dat CTA-knoppen gecentreerd en niet onder de hamburger vallen */
+    .hero-banner .buttons { 
+      justify-content: center !important; 
+      margin-top: 16px !important; 
+    }
+
+    /* Extra top-padding zodat hamburger niet overlapt met hero */
+    .hero-banner { padding-top: 80px !important; }
+  }
+</style>
+
+
+<style>
+  /* --- OX Desktop Refinements (mobile blijft onaangeroerd) --- */
+  @media (min-width: 1024px) {
+    /* Hero: strakker centreren en meer focus op logo/slogan */
+    .hero-banner { 
+      padding-top: 36px;
+      padding-bottom: 56px;
+    }
+
+    /* Logo/video groter en gecentreerd */
+    .hero-logo {
+      width: min(58vw, 1000px) !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .logo-anim__video {
+      display:block;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain;
+      mix-blend-mode: lighten;
+      filter: brightness(1.03) contrast(1.06);
+      /* lichtere afronding zodat de cirkelrand subtieler is op desktop */
+      border-radius: 18px;
+      box-shadow: 0 12px 38px rgba(0,0,0,.16);
+    }
+
+    /* Titels en paragraaf echt midden uitlijnen en in één kolom onder het logo */
+    .hero-banner .content {
+      max-width: 900px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      text-align: center !important;
+    }
+    .hero-banner h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+    .hero-banner p {
+      font-size: 18px;
+    }
+  }
+</style>
+
+</head>
 <body>
 <!-- NAV (zonder hamburger op desktop) -->
 <nav aria-label="Hoofdmenu" class="site-nav">
@@ -196,10 +326,10 @@ footer small{display:block;text-align:center;margin-top:14px;color:#94a3b8;font-
 <div aria-label="OsmoseXpert logo" class="hero-logo" role="img">
 <picture><div class="logo-anim" aria-label="OsmoseXpert animatielogo">
   <video class="logo-anim__video"
-         src="assets/video/grok_video_2025-10-10-20-08-56.mp4"
+         src="grok-video-ox-logo.mp4"
          poster="images/logo4.svg"
          autoplay muted loop playsinline preload="auto"
-         aria-hidden="true"></video>
+         aria-hidden="true" style="mix-blend-mode:lighten;filter:brightness(1.02) contrast(1.05);"></video>
   <img class="logo-anim__fallback" src="images/logo4.svg" alt="OsmoseXpert">
   <noscript><img src="images/logo4.svg" alt="OsmoseXpert"></noscript>
 </div></picture>
