@@ -1,0 +1,20 @@
+/* === OsmoseXpert — drop-in animatielogo CSS === */
+.logo-anim { position: relative; display: inline-block; line-height: 0; }
+.logo-anim__video, .logo-anim__fallback { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+/* Video zichtbaar, fallback verborgen */
+.logo-anim__video { display: block; }
+.logo-anim__fallback { display: none; }
+
+/* Zachte rand zodat het niet "opgeplakt" oogt */
+.logo-anim__video {
+  mask-image: radial-gradient(closest-side, #000 82%, transparent 100%);
+  -webkit-mask-image: radial-gradient(closest-side, #000 82%, transparent 100%);
+  filter: contrast(1.02) saturate(1.03);
+}
+
+/* Respecteer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo-anim__video { display: none !important; }
+  .logo-anim__fallback { display: block !important; }
+}
