@@ -342,7 +342,40 @@ header.hero-banner, .hero-banner{
 @media (prefers-reduced-motion: reduce){
   .logo-anim__video{ display:none !important; }
 }
-</style></head>
+</style>
+<style>
+/* --- Hero: ruimte onder de nav + logo duidelijk lager --- */
+.hero-banner{
+  /* extra ademruimte onder de sticky nav */
+  padding-top: 120px !important;
+  padding-bottom: 56px !important;
+}
+
+/* video duidelijk lager + iets kleiner zodat hij op de voorpagina past */
+.logo-anim__video{
+  object-position: center 90% !important; /* lager in beeld */
+  transform: translateY(36px) scale(.92) !important;  /* duwt nog wat naar beneden + verkleint */
+}
+
+/* Mobiel: nog iets lager + iets minder scaling */
+@media (max-width: 640px){
+  .hero-banner{ padding-top: 132px !important; }
+  .logo-anim__video{
+    object-position: center 92% !important;
+    transform: translateY(28px) scale(.94) !important;
+  }
+}
+
+/* (optioneel) heel zachte fade aan de bovenrand zodat niets 'plakt' onder de nav */
+.hero-banner::after{
+  content:"";
+  position: absolute; inset: 0 0 auto 0; height: 90px;
+  background: linear-gradient(to bottom, rgba(11,46,68,1) 0%, rgba(11,46,68,0) 100%);
+  pointer-events: none; z-index: 2;
+}
+</style>
+
+</head>
 <body>
 <!-- NAV (zonder hamburger op desktop) -->
 <nav aria-label="Hoofdmenu" class="site-nav">
@@ -359,7 +392,7 @@ header.hero-banner, .hero-banner{
 <header class="hero-banner">
 <div aria-label="OsmoseXpert logo" class="hero-logo" role="img">
 <picture><div aria-label="OsmoseXpert animatielogo" class="logo-anim">
-<video aria-hidden="true" autoplay="" class="logo-anim__video" loop="" muted="" playsinline="" poster="images/logo4.svg" preload="auto" src="/assets/assets/video/banner-anim.mp4" style="mix-blend-mode:lighten;filter:brightness(1.02) contrast(1.05);"></video>
+<video aria-hidden="true" autoplay="" class="logo-anim__video" loop="" muted="" playsinline="" poster="images/ox-logo-transparant-1920%20(2).png" preload="auto" src="assets/assets/video/logo-anim.mp4" style="mix-blend-mode:lighten;filter:brightness(1.02) contrast(1.05);"></video>
 <img alt="OsmoseXpert" class="logo-anim__fallback" src="images/logo4.svg"/>
 <noscript><img alt="OsmoseXpert" src="images/logo4.svg"/></noscript>
 </div></picture>
