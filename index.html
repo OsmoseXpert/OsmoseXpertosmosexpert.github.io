@@ -149,6 +149,30 @@ footer small{display:block;text-align:center;margin-top:14px;color:#94a3b8;font-
 /* Slightly larger top padding so it sits visually under the nav */
 .hero, .header-hero { padding-top: clamp(20px, 5vw, 64px); padding-bottom: clamp(20px, 5vw, 64px);}
 
+
+/* --- Hero video banner (final) --- */
+.hero-logo .hero-video{
+  display:block;
+  width:min(90vw, 1280px);
+  height:auto;
+  background:#002B45;
+  border-radius:0;
+  opacity:0;
+  animation: heroFade .3s ease-out forwards;
+}
+@media (min-width:1024px){
+  .hero-logo .hero-video{ width:min(68vw, 1320px); }
+}
+.hero, .header-hero{
+  padding-top:clamp(24px,4vw,56px);
+  padding-bottom:clamp(24px,4vw,56px);
+  background:#002B45;
+}
+@keyframes heroFade{
+  from{ opacity:0; transform:translateY(8px); }
+  to{ opacity:1; transform:none; }
+}
+
 </style>
 <link href="assets/styles.css?v=20250917-132442" rel="stylesheet"/>
 <link href="https://assets.calendly.com/assets/external/widget.css?v=20250917-132442" rel="stylesheet"/>
@@ -572,5 +596,27 @@ footer small{display:block;text-align:center;margin-top:14px;color:#94a3b8;font-
   });
 })();
 </script>
+
+<script>
+  (function(){
+    var v = document.getElementById('heroVideo');
+    if(!v) return;
+    function tryPlay(){
+      v.muted = true;
+      v.playsInline = true;
+      var p = v.play && v.play();
+      if (p && p.catch) p.catch(function(){});
+    }
+    window.addEventListener('load', tryPlay);
+    ['loadedmetadata','canplay','canplaythrough'].forEach(function(ev){
+      v.addEventListener(ev, tryPlay, { once:false });
+    });
+    document.addEventListener('visibilitychange', function(){
+      if(!document.hidden) tryPlay();
+    });
+    setTimeout(tryPlay, 400);
+  })();
+</script>
+
 </body>
 </html>
