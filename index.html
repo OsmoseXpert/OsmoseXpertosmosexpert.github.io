@@ -196,6 +196,7 @@
       .links{display:none !important}
     }
   </style>
+<style>.btn-agenda{font-weight:700}</style>
 </head>
 <body>
   <!-- NAV: logo NIET klikbaar, GEEN 'Boek nu' in de nav -->
@@ -449,7 +450,7 @@
   <!-- Floating CTAs (blijven bestaan) -->
   <div class="floating-cta" role="region" aria-label="Acties">
     <a class="cta-btn cta-offerte" href="offerte.html" data-offerte-open>Offerte aanvragen</a>
-    <a class="cta-btn cta-boek" href="#" onclick="try{Calendly.initPopupWidget({ url: 'https://calendly.com/osmose-xpert-info/ramenreiniging' });}catch(e){} return false;">Boek nu</a>
+    <a class="cta-btn cta-boek btn-agenda" href="#" onclick="openCalendly(); return false;">Boek nu</a>
   </div>
 
   <!-- OX Mobile Menu -->
@@ -624,5 +625,24 @@
       test('Mobile menu elementen', function(){ if(!document.getElementById('oxMobileMenuBtn')) throw new Error('btn'); if(!document.getElementById('oxMobileMenu')) throw new Error('menu'); if(!document.getElementById('oxMobileMenuOverlay')) throw new Error('overlay'); });
     })();
   </script>
+  
+<!-- Globale Calendly-popup helper -->
+<script>
+  function openCalendly(){
+    try{
+      Calendly.initPopupWidget({
+        url: 'https://calendly.com/osmose-xpert-info/ramenreiniging?hide_event_type_details=1&hide_gdpr_banner=1'
+      });
+    }catch(e){
+      window.open('https://calendly.com/osmose-xpert-info/ramenreiniging','_self');
+    }
+  }
+</script>
+
+<!-- Mini self-test: functie bestaat -->
+<script>(function(){
+  if(typeof openCalendly!=='function'){ console.error('❌ openCalendly ontbreekt'); }
+  else { console.log('✅ openCalendly aanwezig – gebruik in chatbot met <a href="#" onclick="openCalendly(); return false;">Toon agenda</a>'); }
+})();</script>
 </body>
 </html>
