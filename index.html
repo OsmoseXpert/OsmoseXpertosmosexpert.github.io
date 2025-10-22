@@ -356,7 +356,10 @@
     will-change: opacity, transform;
   }
 
-  $1 620px;                /* desktop compacter maar leesbaar */
+  .chat-wrapper iframe {
+    display: block;
+    width: 100%;
+    height: 660px;                /* desktop compacter maar leesbaar */
     border: 0;
     background: #ffffff;
     opacity: 0; transform: translateY(4px);
@@ -373,7 +376,11 @@
   }
 
   /* Mobile tweaks */
-  $1 720px; }
+  @media (max-width: 768px) {
+    .chatband { padding: 1.5rem 1rem; border-radius: 18px; }
+    .chatband::before{ border-top-left-radius:18px; border-top-right-radius:18px; }
+    .chat-wrapper { max-width: 100%; border-radius: 16px; }
+    .chat-wrapper iframe { height: 760px; }
   }
 </style>
   </main>
@@ -606,7 +613,7 @@
         <p><a href="voorwaarden.html">Voorwaarden</a></p>
       </div>
     </div>
-    <div class="container legal"><span class="btw">BTW BE0733.924.863</span> · <a href="tel:+32493673484" aria-label="Bel OsmoseXpert">0493 67 34 84</a><br/>© 2025 OsmoseXpert. Alle rechten voorbehouden.</div>
+    <div class="container legal"><span class="btw">BTW BE0733.924.863</span><br/>© 2025 OsmoseXpert. Alle rechten voorbehouden.</div>
   </footer>
 
   <!-- KLEINE ZELFTESTS i.p.v. echte test-suite -->
