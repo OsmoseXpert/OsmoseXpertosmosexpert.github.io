@@ -309,18 +309,12 @@
 
 <style>
   /* Container */
-  .section-chatbot.container {
-    max-width: 1100px;
-    margin: 0 auto;
+  $1 0 auto 72px;
     padding: 0 1rem;
   }
 
   /* Gekleurde band */
-  .chatband {
-    background: #0b364f;         /* jouw kleur */
-    color: #ffffff;               /* witte tekst */
-    border-radius: 20px;
-    padding: 2.25rem 1.25rem 2rem;
+  $1 1.75rem 1rem 1.5rem;
     box-shadow: 0 10px 30px rgba(0,0,0,.08);
   }
 
@@ -345,18 +339,13 @@
     border: 1px solid rgba(255,255,255,.15); /* subtiel randje voor diepte */
   }
 
-  .chat-wrapper iframe {
-    display: block;
-    width: 100%;
-    height: 700px;                /* desktophoogte */
+  $1 600px;                /* desktophoogte */
     border: 0;
     background: #ffffff;
   }
 
   /* Mobile tweaks */
-  @media (max-width: 768px) {
-    .chatband { padding: 1.5rem 1rem; border-radius: 16px; }
-    .chat-wrapper iframe { height: 780px; }
+  $1 680px; }
   }
 </style>
   </main>
