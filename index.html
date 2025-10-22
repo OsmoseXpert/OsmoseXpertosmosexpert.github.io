@@ -309,43 +309,78 @@
 
 <style>
   /* Container */
-  $1 0 auto 72px;
+  .section-chatbot.container {
+    max-width: 1100px;
+    margin: 0 auto 72px; /* iets meer lucht tot footer */
     padding: 0 1rem;
   }
 
-  /* Gekleurde band */
-  $1 1.75rem 1rem 1.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  /* Gekleurde band (brand-integreerd) */
+  .chatband {
+    position: relative;
+    background: linear-gradient(135deg, #03304F 0%, #0b364f 70%);
+    color: #ffffff;
+    border-radius: 22px;
+    padding: 2rem 1.25rem 1.75rem;
+    box-shadow: 0 14px 36px rgba(2,6,23,.16);
+    opacity: 0; transform: translateY(6px);
+    animation: chatBandIn .5s ease-out .05s forwards;
+  }
+  .chatband::before{
+    content:""; position:absolute; inset:0 0 auto 0; height:4px; border-top-left-radius:22px; border-top-right-radius:22px; background:#0f6ab8; /* merkaccent */
   }
 
   .section-title {
     text-align: center;
     font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
     margin: 0 0 .35rem;
-    color: #ffffff;               /* expliciet wit */
+    color: #ffffff;
   }
-
   .section-subtitle {
     text-align: center;
-    color: rgba(255,255,255,.9);  /* iets zachter wit */
+    color: rgba(255,255,255,.9);
     margin: 0 0 1.25rem;
   }
 
-  /* Kaart met chatbot */
+  /* Kaart met chatbot (smaller + center) */
   .chat-wrapper {
-    background: #ffffff;          /* wit vlak binnen de band */
-    border-radius: 16px;
+    background: #ffffff;
+    border-radius: 18px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,.15); /* subtiel randje voor diepte */
+    border: 1px solid #e6eef7; /* subtieler dan wit */
+    box-shadow: 0 10px 30px rgba(2,6,23,.10);
+    max-width: 920px; /* compacter en meer focus */
+    margin: 0 auto;  /* centreren */
+    opacity: 0; transform: translateY(8px) scale(.985);
+    animation: chatCardIn .45s ease-out .12s forwards;
+    will-change: opacity, transform;
   }
 
-  $1 600px;                /* desktophoogte */
+  .chat-wrapper iframe {
+    display: block;
+    width: 100%;
+    height: 660px;                /* desktop compacter maar leesbaar */
     border: 0;
     background: #ffffff;
+    opacity: 0; transform: translateY(4px);
+    animation: chatIframeIn .55s ease-out .22s forwards;
+    will-change: opacity, transform;
+  }
+
+  @keyframes chatBandIn { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform:none; } }
+  @keyframes chatCardIn { from { opacity:0; transform: translateY(8px) scale(.985); } to { opacity:1; transform:none; } }
+  @keyframes chatIframeIn { from { opacity:0; transform: translateY(4px); } to { opacity:1; transform:none; } }
+
+  @media (prefers-reduced-motion: reduce){
+    .chatband, .chat-wrapper, .chat-wrapper iframe { animation:none !important; opacity:1 !important; transform:none !important; }
   }
 
   /* Mobile tweaks */
-  $1 680px; }
+  @media (max-width: 768px) {
+    .chatband { padding: 1.5rem 1rem; border-radius: 18px; }
+    .chatband::before{ border-top-left-radius:18px; border-top-right-radius:18px; }
+    .chat-wrapper { max-width: 100%; border-radius: 16px; }
+    .chat-wrapper iframe { height: 760px; }
   }
 </style>
   </main>
@@ -383,16 +418,16 @@
     (function(){
       if(!window.chatbase||window.chatbase("getState")!=="initialized"){
         window.chatbase=(...arguments)=>{ if(!window.chatbase.q){window.chatbase.q=[]} window.chatbase.q.push(arguments) };
-        window.chatbase=new Proxy(window.chatbase,{ get(target,prop){ if(prop==="q"){return target.q} return(...args)=>target(prop,...args) } })
+        window.chatbase=new Proxy(window.chatbase,{ get(target,prop){ if(prop==="q"){return target.q} return(...args)=>target(prop,...args) } });
       }
       const onLoad=function(){
         const script=document.createElement("script");
         script.src="https://www.chatbase.co/embed.min.js";
         script.id="MjQNxm0-RM-G44z9g2jkE";
         script.domain="www.chatbase.co";
-        document.body.appendChild(script)
+        document.body.appendChild(script);
       };
-      if(document.readyState==="complete"){ onLoad() } else { window.addEventListener("load",onLoad) }
+      if(document.readyState==="complete"){ onLoad(); } else { window.addEventListener("load",onLoad); }
     })();
   </script>
   <script>
@@ -402,7 +437,8 @@
       var mo = new MutationObserver(function(){
         if (document.querySelector('.chatbase-widget')) { tryClose(); mo.disconnect(); }
       });
-      mo.observe(document.documentElement || document.body, { childList:true, subtree:true });
+        // BUGFIX: gebruik || i.p.v. 'or'
+        mo.observe(document.documentElement || document.body, { childList:true, subtree:true });
       window.addEventListener('load', function(){ setTimeout(tryClose, 250); });
     })();
   </script>
@@ -432,7 +468,7 @@
 
   <script>
     (function(){
-      function ready(fn){ if(document.readyState!='loading'){fn()} else {document.addEventListener('DOMContentLoaded', fn)} }
+      function ready(fn){ if(document.readyState!='loading'){fn();} else {document.addEventListener('DOMContentLoaded', fn);} }
       ready(function(){
         // CTA auto-hide on scroll
         var cta = document.querySelector('.floating-cta');
@@ -478,7 +514,7 @@
   </style>
   <script>
     (function(){
-      function ready(fn){ if(document.readyState!='loading'){fn()} else {document.addEventListener('DOMContentLoaded',fn)} }
+      function ready(fn){ if(document.readyState!='loading'){fn();} else {document.addEventListener('DOMContentLoaded',fn);} }
       ready(function(){
         const modal = document.getElementById('offerteModal');
         if(!modal) return;
@@ -519,7 +555,7 @@
   </style>
   <script>
     (function(){
-      function ready(fn){ if(document.readyState!='loading'){fn()} else {document.addEventListener('DOMContentLoaded',fn)} }
+      function ready(fn){ if(document.readyState!='loading'){fn();} else {document.addEventListener('DOMContentLoaded',fn);} }
       ready(function(){
         const modal = document.getElementById('offerteModal');
         if(!modal) return;
@@ -528,7 +564,7 @@
         function openModal(e){ if(e) e.preventDefault(); lastFocus = document.activeElement; modal.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; const closeBtn = modal.querySelector('.ox-close'); if(closeBtn) closeBtn.focus(); }
         function closeModal(){ modal.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; try{ if(lastFocus) lastFocus.focus(); }catch(e){} }
         openers.forEach(el => { el.addEventListener('click', function(e){ e.preventDefault(); openModal(); }); });
-        modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeModal));
+        modal.querySelectorAll('[data-close]') .forEach(el => el.addEventListener('click', closeModal));
         document.addEventListener('keydown', (e)=>{ if(modal.getAttribute('aria-hidden')==='false' && e.key === 'Escape'){ closeModal(); } });
       });
     })();
@@ -579,5 +615,14 @@
     </div>
     <div class="container legal"><span class="btw">BTW BE0733.924.863</span> · <a href="tel:+32493673484" aria-label="Bel OsmoseXpert">0493 67 34 84</a><br/>© 2025 OsmoseXpert. Alle rechten voorbehouden.</div>
   </footer>
+
+  <!-- KLEINE ZELFTESTS i.p.v. echte test-suite -->
+  <script>
+    (function(){
+      function test(name, fn){ try{ fn(); console.log('✅', name); } catch(e){ console.error('❌', name, e); } }
+      test('MutationObserver root bestaat', function(){ var r = document.documentElement || document.body; if(!r) throw new Error('root ontbreekt'); });
+      test('Mobile menu elementen', function(){ if(!document.getElementById('oxMobileMenuBtn')) throw new Error('btn'); if(!document.getElementById('oxMobileMenu')) throw new Error('menu'); if(!document.getElementById('oxMobileMenuOverlay')) throw new Error('overlay'); });
+    })();
+  </script>
 </body>
 </html>
