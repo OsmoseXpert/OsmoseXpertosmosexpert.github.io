@@ -1,121 +1,168 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "OsmoseXpert",
-    "url": "https://www.osmose-xpert.be",
-    "logo": "https://www.osmose-xpert.be/images/brand/OsmoseXpert Logo voor Raamreining.png"
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diensten – OsmoseXpert: ramen, gevels & zonnepanelen</title>
+  <meta name="description" content="OsmoseXpert in Ronse en omgeving biedt professionele ramenreiniging, glasgevels, veranda’s en zonnepanelen. Milieuvriendelijk osmosewater, streeploos en veilig." />
+
+  <!-- Basis styles -->
+  <style>
+    :root{ --brand:#0f6ab8; --brand2:#29ABE2; --ink:#0b364f; --bg:#f6f9fc; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#0f172a;background:var(--bg);line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* NAV: altijd rechts, hamburger met 3 streepjes; kleur wisselt met achtergrond */
+    .nav{position:sticky;top:0;z-index:100;display:flex;justify-content:flex-end;padding:10px 16px;background:#fff;border-bottom:1px solid #e2e8f0}
+    .nav.blue-bg{background:linear-gradient(90deg,#03304f,#00304e);border-bottom:0}
+    .nav-toggle{background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+    .nav-toggle .line{width:24px;height:3px;border-radius:2px;background:#0b364f}
+    .nav.white-bg .nav-toggle .line{background:#0b364f}
+    .nav.blue-bg .nav-toggle .line{background:#fff}
+    @media (min-width:901px){ .nav-toggle{display:none} }
+
+    .nav-list{display:none}
+    .nav-list.open{display:flex !important}
+    @media (max-width:900px){
+      .nav-list{position:absolute;top:56px;right:12px;display:none;flex-direction:column;gap:10px;background:#fff;border:1px solid #e2e8f0;padding:12px;border-radius:14px;box-shadow:0 12px 30px rgba(2,18,33,.22);width:min(86vw,360px);z-index:101}
+      .nav-list li{list-style:none}
+      .nav-list a{display:block;padding:12px 14px;color:var(--ink);border-radius:10px}
+      .nav-list a:hover{background:#eef5ff}
+      .nav-list a.active, .nav-list a[aria-current="page"]{background:#e7f1ff;box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
+    }
+    @media (min-width:901px){
+      .nav{justify-content:center}
+      .nav-list{display:flex;gap:20px;position:static;border:0;box-shadow:none;background:transparent;padding:0}
+      .nav-list a{padding:6px 12px;border-radius:6px;color:#0f172a}
+      .nav-list a:hover{background:#e6f0fa}
+      .nav-list a.active, .nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)}
+    }
+
+    /* Subhero (kop) */
+    .subhero{background:linear-gradient(90deg,#03304f,#00304e);color:#fff;padding:40px 20px;display:flex;align-items:center;justify-content:center}
+    .subhero .wrap{max-width:1100px;width:100%}
+    .subhero h1{margin:0 0 0 20px;font-size:clamp(22px,2.4vw,28px);color:#f3f7fb}
+    .subhero .subtitle{color:#cfe4ff;font-size:clamp(14px,1.4vw,17px);font-weight:500;margin-left:24px}
+
+    /* Content */
+    .section{max-width:1000px;margin:30px auto;padding:32px;background:#fff;border-radius:14px;box-shadow:0 6px 28px rgba(0,0,0,.06)}
+    .section h2{margin:0 0 14px;color:#0a3d62}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .card{border:1px solid #e2e8f0;border-radius:12px;padding:18px;transition:transform .2s ease;background:#fff}
+    .card:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+    /* Middencontent stijl zoals live: titels/links in huisblauw */
+    .card h3{color:var(--brand); margin:0 0 6px;}
+    .card a{color:var(--brand)}
+    .card a:hover{ text-decoration: underline; }
+
+    /* Footer (Over‑ons stijl) */ (Over‑ons stijl) */
+    .site-footer{background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;margin-top:28px}
+    .foot-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;align-items:start;text-align:left}
+    .site-footer a{color:#cfe8ff}
+    .site-footer .legal{border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:12px;text-align:center;color:#94a3b8;font-size:.95rem}
+  </style>
+  
+<style>
+  /* Hamburgerknop – altijd rechts, drie streepjes verticaal gecentreerd */
+  .nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: flex-end; padding-right: 16px; background: #fff; border-bottom: 1px solid #e2e8f0; }
+  .nav-toggle { background: transparent; border: 0; width: 44px; height: 44px; padding: 0; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; display: flex; }
+  .nav-toggle .line { width: 24px; height: 3px; background: #0b364f; border-radius: 2px; }
+  .nav-toggle:focus { outline: 2px solid #29ABE2; outline-offset: 2px; }
+
+  /* THEMA-KLEUR LOGICA VOOR DE DRIE STREEPJES */
+  /* Witte achtergrond => streepjes in huisblauw */
+  .nav.white-bg .nav-toggle .line { background: #0b364f; }
+  /* Donkere/blauwe achtergrond => streepjes wit */
+  .nav.blue-bg .nav-toggle .line,
+  .has-dark-header .nav-toggle .line { background: #ffffff; }
+
+  @media (max-width: 900px) {
+    .nav-list { position: absolute; top: 56px; right: 12px; display: none; flex-direction: column; gap: 10px; background: #fff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 14px; box-shadow: 0 12px 30px rgba(2,18,33,.22); width: min(86vw, 360px); z-index: 101; }
+    .nav-list.open { display: flex; }
+    .nav-list a { padding: 10px 12px; border-radius: 10px; }
+    .nav-list a:hover { background: #e6f0fa; }
   }
-  </script>
-  <!-- Favicons -->
-  <link href="/images/favicons/ChatGPT Image 22 aug 2025, 13_43_25.png" rel="icon" type="image/png"/>
-  <meta content="#0A5FD1" name="theme-color"/>
-  <!-- Open Graph -->
-  <meta content="website" property="og:type"/>
-  <meta content="OsmoseXpert – Ramen &amp; zonnepanelen reinigen" property="og:title"/>
-  <meta content="Streeploos resultaat met puur osmosewater. Veilig vanaf de grond, geen chemie, transparante prijzen. Boek meteen online." property="og:description"/>
-  <meta content="https://www.osmose-xpert.be/" property="og:url"/>
-  <meta content="https://www.osmose-xpert.be/images/social/logo4.jpg" property="og:image"/>
-  <!-- Twitter -->
-  <meta content="summary_large_image" name="twitter:card"/>
-  <meta content="OsmoseXpert – Ramen &amp; zonnepanelen reinigen" name="twitter:title"/>
-  <meta content="Streeploos resultaat met puur osmosewater. Veilig vanaf de grond, geen chemie, transparante prijzen. Boek meteen online." name="twitter:description"/>
-  <meta content="https://www.osmose-xpert.be/images/social/logo4.jpg" name="twitter:image"/>
-  <meta content="summary_large_image" name="twitter:card"/>
-  <meta content="Diensten – OsmoseXpert: ramen, gevels &amp; zonnepanelen" name="twitter:title"/>
-  <meta content="Professionele osmose-reiniging van ramen, glasgevels, veranda’s en zonnepanelen. Veilig, snel en altijd streeploos." name="twitter:description"/>
-  <meta content="https://www.osmose-xpert.be/images/social/osmosexpert-og-1200x630.png" name="twitter:image"/>
-  <meta content="Professionele osmose-reiniging van ramen, glasgevels, veranda’s en zonnepanelen. Veilig, snel en altijd streeploos." name="description"/>
-  <script>window.CALENDLY_DEFAULT='https://calendly.com/osmose-xpert-info/ramenreiniging';</script>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>Diensten – OsmoseXpert: ramen, gevels &amp; zonnepanelen</title>
-  <meta content="OsmoseXpert in Ronse en omgeving biedt professionele ramenreiniging, glasgevels, veranda’s en zonnepanelen. Milieuvriendelijk osmosewater, streeploos en veilig." name="description"/>
-  <meta content="OsmoseXpert – Diensten" property="og:title"/>
-  <meta content="Overzicht van diensten: ramen wassen, glasgevelreiniging, zonnepanelen, veranda’s en meer. Regionaal actief in Ronse, Kluisbergen en Oudenaarde." property="og:description"/>
-  <meta content="website" property="og:type"/>
-  <meta content="#011a3a" name="theme-color"/>
-  <meta content="images/logo4.svg" property="og:image"/>
+</style>
+<style>
+  /* Dropdown-styling zoals je screenshot */
+  .nav-list li{ list-style:none; }
+  .nav-list a{ display:block; padding:12px 14px; color:#0b364f; text-decoration:none; border-radius:10px; }
+  .nav-list a:hover{ background:#eef5ff; }
+  .nav-list a.active,
+  .nav-list a[aria-current="page"]{ background:#e7f1ff; box-shadow: inset 0 0 0 1px rgba(15,106,184,.08); }
+</style>
 
-  <!-- BASISSTYLES -->
-  <style>
-    * { box-sizing: border-box; margin:0; padding:0; }
-    :root { --brand:#0f6ab8; --ink:#1e293b; --bg:#f6f9fc; --dark:#011a3a; }
-    body { font-family: Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
-    a { color:var(--brand); text-decoration:none; transition: all .2s ease; }
-    a:hover { text-decoration:underline; }
 
-    /* Navbar */
-    nav { background:#fff; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:14px 20px; position:sticky; top:0; z-index:100; }
-    nav ul { display:flex; gap:20px; }
-    nav li { list-style:none; }
-    nav a { color:var(--ink); font-weight:600; padding:6px 12px; border-radius:6px; }
-    nav a:hover { color:var(--brand); background:#e6f0fa; }
-    /* (oude .active stijl bewust weggelaten) */
+  <!-- FINAL NAV OVERRIDES: desktop origineel, mobiel hamburger rechts -->
+  <style id="nav-fix-override">
+    /* Kleur streepjes */
+    .nav.white-bg .nav-toggle .line{background:#0b364f}
+    .nav.blue-bg .nav-toggle .line{background:#fff}
 
-    /* Sections */
-    .section { max-width:1000px; margin:40px auto; padding:40px; background:#fff; border-radius:14px; box-shadow:0 6px 28px rgba(0,0,0,0.06); }
-    .section h2 { margin-bottom:18px; color:#0a3d62; font-size:1.8rem; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
-    .card { border:1px solid #e2e8f0; border-radius:12px; padding:18px; background:#fff; transition:transform .2s ease; }
-    .card:hover { transform:translateY(-4px); box-shadow:0 6px 18px rgba(0,0,0,0.08); }
-    .card h3 { color:var(--brand); margin-bottom:6px; }
+    /* Desktop (origineel menu, geen hamburger) */
+    @media (min-width:901px){
+      .nav{justify-content:center !important; background:#fff; border-bottom:1px solid #e2e8f0}
+      .nav-toggle{display:none !important}
+      .nav-list{display:flex !important; gap:20px; position:static; box-shadow:none; background:transparent; padding:0; border:0; width:auto}
+      .nav-list a{padding:6px 12px; border-radius:6px}
+    }
 
-    /* A11y */
-    .skip-link{ position:absolute; left:-9999px; top:auto; }
-    .skip-link:focus{ left:12px; top:12px; background:#fff; padding:8px 12px; border:2px solid var(--brand); border-radius:6px; z-index:1000; }
-    :focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
-
-    img, video, canvas { max-width:100%; height:auto; }
-    input, select, textarea, button{ font-size:16px; }
-    button{ min-height:44px; }
-  </style>
-
-  <link href="assets/styles.css?v=20250917-1303" rel="stylesheet"/>
-  <link href="assets/css/fixes.css" rel="stylesheet"/>
-  <script defer src="assets/js/booking.js"></script>
-
-  <!-- SUBHERO (zoals Over‑ons) -->
-  <style>
-    .subhero { background: linear-gradient(90deg, #03304f, #00304e); color: #fff; padding: 40px 20px; display:flex; align-items:center; justify-content:center; }
-    .subhero .wrap { max-width: 1100px; width: 100%; }
-    .subhero h1 { margin: 0 0 0 20px; font-size: clamp(22px, 2.4vw, 28px); color: #f3f7fb; }
-    .subhero .subtitle { color: #cfe4ff; font-size: clamp(14px, 1.4vw, 17px); font-weight: 500; margin-left: 24px; }
-  </style>
-
-  <!-- NAV ACTIVE OVERRIDE (exact als Over‑ons)  -->
-  <style>
-    nav a.active,
-    nav a[aria-current="page"]{
-      background: linear-gradient(135deg, #0f6ab8, #29ABE2);
-      color:#fff;
-      border:1px solid rgba(255,255,255,.25);
-      border-radius:999px;
-      box-shadow:0 6px 14px rgba(15,106,184,.25);
+    /* Mobiel (hamburger rechts, dropdown) */
+    @media (max-width:900px){
+      .nav{justify-content:flex-end !important; padding-right:16px}
+      .nav-toggle{display:flex !important; width:44px; height:44px; border:0; background:transparent; align-items:center; justify-content:center; gap:5px}
+      .nav-toggle .line{width:24px; height:3px; border-radius:2px}
+      .nav-list{position:absolute; top:56px; right:12px; display:none; flex-direction:column; gap:10px; background:#fff; border:1px solid #e2e8f0; padding:12px; border-radius:14px; box-shadow:0 12px 30px rgba(2,18,33,.22); width:min(86vw,360px); z-index:1001}
+      .nav-list.open{display:flex !important}
+      .nav-list a{display:block; padding:12px 14px; border-radius:10px}
+      .nav-list a:hover{background:#eef5ff}
+      .nav-list a.active, .nav-list a[aria-current="page"]{background:#e7f1ff; box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
     }
   </style>
+  
+<style>
+  /* MOBILE: banner minder hoog (zoals Over‑ons) */
+  @media (max-width: 900px){
+    .subhero{ padding:20px 16px; }
+    .subhero h1{ margin:0; font-size:20px; }
+    .subhero .subtitle{ font-size:14px; margin:4px 0 0 20px; }
+  }
+</style>
 
-  <link href="assets/css/cookie-banner.css" rel="stylesheet"/>
-  <link href="https://osmose-xpert.be/diensten.html" rel="canonical"/>
+  <!-- DESKTOP NAV: match Over-ons exact look -->
+  <style id="nav-desktop-like-overons">
+    @media (min-width:901px){
+      .nav{ background:#fff !important; border-bottom:1px solid #e7eef5 !important; justify-content:center !important; }
+      .nav-list{ display:flex !important; gap:24px !important; position:static !important; background:transparent !important; box-shadow:none !important; padding:10px 0 !important; border:0 !important; }
+      .nav-list a{ color:#0b364f !important; font-weight:600; padding:8px 14px !important; border-radius:999px !important; line-height:1; }
+      .nav-list a:hover{ background:#eef5ff !important; }
+      .nav-list a.active,
+      .nav-list a[aria-current="page"]{ background:linear-gradient(135deg,#0f6ab8,#29ABE2) !important; color:#fff !important; box-shadow:0 6px 14px rgba(15,106,184,.25) !important; border:1px solid rgba(255,255,255,.6) !important; }
+    }
+  </style>
 </head>
+<body>
+  <!-- NAV: blauwe header => witte streepjes -->
+  <nav aria-label="Hoofdmenu" class="nav white-bg">
+  <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle" type="button">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </button>
+  <ul class="nav-list" id="primary-nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="over-ons.html">Over ons</a></li>
+    <li><a class="active" aria-current="page" href="diensten.html">Diensten</a></li>
+    <li><a href="prijzen.html">Prijzen</a></li>
+    <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+</nav>
 
-<body class="diensten-page" data-calendly="https://calendly.com/osmose-xpert-info/ramenreiniging">
-  <!-- NAV zonder hamburger -->
-  <nav aria-label="Hoofdmenu" class="nav centered">
-    <ul class="nav-list" id="primary-nav">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="over-ons.html">Over ons</a></li>
-      <li><a class="active" aria-current="page" href="diensten.html">Diensten</a></li>
-      <li><a href="prijzen.html">Prijzen</a></li>
-      <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-    </ul>
-  </nav>
-
+  <!-- HEADER -->
   <header class="subhero">
     <div class="wrap">
       <h1>Diensten</h1>
@@ -123,57 +170,55 @@
     </div>
   </header>
 
-  <a class="skip-link" href="#content">Snel naar inhoud</a>
-
-  <main id="content">
+  <!-- MAIN CONTENT -->
+  <main>
     <section class="section">
-      <h2 class="motion-text">Onze diensten</h2>
+      <h2>Onze diensten</h2>
       <p>OsmoseXpert biedt een compleet pakket voor glas- en buitenreiniging in <strong>Ronse, Kluisbergen en Oudenaarde</strong>. Alles wordt uitgevoerd met puur osmosewater: veilig, milieuvriendelijk en streeploos. Deze methode zorgt niet alleen voor glanzende ramen, maar verlengt ook de levensduur van kozijnen en glaspartijen.</p>
     </section>
 
     <section class="section">
       <h2>Particulieren</h2>
       <div class="grid">
-        <div class="card">
+        <article class="card">
           <h3>Ramen wassen</h3>
-          <p>Binnen- en buitenkant ramen, inclusief omlijstingen. Ladderloos en veilig tot 15 meter hoogte. Perfect voor wie een streeploos resultaat wil zonder chemische producten.</p>
-        </div>
-        <div class="card">
-          <h3>Veranda’s &amp; serres</h3>
-          <p>Volledig glaswerk in veranda’s en serres, voor een helder uitzicht en meer lichtinval. Een veelgevraagde dienst in woningen met grote glaspartijen.</p>
-        </div>
-        <div class="card">
+          <p>Binnen- en buitenkant ramen, inclusief omlijstingen. Ladderloos en veilig tot 15 meter hoogte. Perfect voor streeploos resultaat zonder chemie.</p>
+        </article>
+        <article class="card">
+          <h3>Veranda’s & serres</h3>
+          <p>Volledig glaswerk in veranda’s en serres, voor een helder uitzicht en meer lichtinval.</p>
+        </article>
+        <article class="card">
           <h3>Zonnepanelen</h3>
-          <p>Professionele reiniging van zonnepanelen met osmosewater voor maximaal rendement. Schone panelen leveren tot 20% meer energie op.</p>
-        </div>
+          <p>Reiniging met osmosewater voor maximaal rendement. Schone panelen leveren meer energie.</p>
+        </article>
       </div>
     </section>
 
     <section class="section">
       <h2>Bedrijven</h2>
       <div class="grid">
-        <div class="card">
-          <h3>Glasgevels &amp; showrooms</h3>
-          <p>Streeploos en professioneel resultaat voor een verzorgd imago van je bedrijf. Zeer geschikt voor autodealers, winkels en representatieve glaspartijen.</p>
-        </div>
-        <div class="card">
-          <h3>Kantoren &amp; KMO’s</h3>
-          <p>Regelmatige beurten voor inkompartijen, glaspartijen en signalisatie. Wij werken discreet en met respect voor medewerkers en klanten.</p>
-        </div>
-        <div class="card">
-          <h3>Scholen &amp; campussen</h3>
-          <p>Strakke planning mogelijk in vakantieperiodes of net voor de start van het schooljaar. Zo garanderen we een frisse start voor leerlingen en personeel.</p>
-        </div>
+        <article class="card">
+          <h3>Glasgevels & showrooms</h3>
+          <p>Streeploos en representatief resultaat voor autodealers, winkels en glaspartijen.</p>
+        </article>
+        <article class="card">
+          <h3>Kantoren & KMO’s</h3>
+          <p>Regelmatige beurten voor inkompartijen, glaspartijen en signalisatie. Discreet en netjes.</p>
+        </article>
+        <article class="card">
+          <h3>Scholen & campussen</h3>
+          <p>Planning in vakantieperiodes of net voor de start van het schooljaar.</p>
+        </article>
       </div>
     </section>
 
     <section class="section">
       <h2>Extra’s</h2>
-      <p>Naast onze kernactiviteiten bieden wij ook aanvullende diensten, vaak in combinatie geboekt om het geheel compleet te maken:</p>
       <ul>
-        <li>Rolluiken reinigen voor een verzorgd gevelaanzicht</li>
-        <li>Garagepoorten reinigen, zowel enkel als dubbel</li>
-        <li>Reclame- en verkeersborden reinigen, ideaal voor bedrijven en lokale besturen</li>
+        <li>Rolluiken reinigen</li>
+        <li>Garagepoorten reinigen</li>
+        <li>Reclame- en verkeersborden reinigen</li>
       </ul>
     </section>
 
@@ -182,25 +227,8 @@
     </section>
   </main>
 
-  <!-- Chatbase UI tweaks -->
-  <style>
-    .chatbase-bubble, .chatbase-widget { z-index: 2147483000 !important; }
-    .chatbase-widget { max-width: 380px !important; max-height: 72vh !important; right: 16px !important; bottom: 16px !important; }
-    .chatbase-bubble { right: 16px !important; bottom: 16px !important; }
-  </style>
-
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <style>
-      .site-footer{background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;font-size:.9rem;line-height:1.6}
-      .foot-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;align-items:start;text-align:left}
-      .foot-inner div p{margin:4px 0}
-      .foot-inner img{margin-bottom:10px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
-      .site-footer a{color:#cfe8ff;text-decoration:none}
-      .site-footer a:hover{text-decoration:underline}
-      .site-footer .legal{border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:12px;text-align:center;color:#94a3b8;font-size:.85rem;line-height:1.5}
-      @media(max-width:700px){.foot-inner{text-align:center}.foot-inner div{margin:auto}}
-    </style>
-
     <div class="foot-inner">
       <div>
         <p><strong>OsmoseXpert</strong></p>
@@ -219,9 +247,57 @@
         <p><a href="voorwaarden.html">Voorwaarden</a></p>
       </div>
     </div>
-    <div class="legal"><span class="btw">BTW BE0733.924.863</span><br/>© 2025 OsmoseXpert. Alle rechten voorbehouden.</div>
+    <div class="legal">© 2025 OsmoseXpert • BTW BE0733.924.863</div>
   </footer>
 
-  <script src="/assets/js/ox-cookie-banner.js"></script>
+  <!-- JS: hamburger toggle -->
+  <script>
+  // Hamburger: mobiel open/dicht, desktop origineel menu
+  (function(){
+    var btn = document.querySelector('.nav-toggle');
+    var list = document.getElementById('primary-nav');
+    if(!btn || !list) return;
+
+    function closeMenu(){
+      list.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      list.style.display = '';
+    }
+
+    // Toggle on click
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = list.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if(isOpen){ list.style.display='flex'; }
+      else { list.style.display=''; }
+    });
+
+    // Close on outside click (mobile)
+    document.addEventListener('click', function(e){
+      if(window.matchMedia('(max-width: 900px)').matches){
+        if(list.classList.contains('open') && !list.contains(e.target) && e.target !== btn){
+          closeMenu();
+        }
+      }
+    });
+
+    // Close on resize to desktop
+    window.addEventListener('resize', function(){
+      if(window.matchMedia('(min-width: 901px)').matches){
+        closeMenu();
+      }
+    });
+
+    // Close after selecting a link
+    list.addEventListener('click', function(e){
+      var a = e.target.closest('a');
+      if(a && window.matchMedia('(max-width: 900px)').matches){
+        closeMenu();
+      }
+    });
+  })();
+</script>
 </body>
 </html>
