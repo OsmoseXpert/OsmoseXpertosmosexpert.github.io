@@ -6,7 +6,6 @@
   <title>Diensten – OsmoseXpert: ramen, gevels & zonnepanelen</title>
   <meta name="description" content="OsmoseXpert in Ronse en omgeving biedt professionele ramenreiniging, glasgevels, veranda’s en zonnepanelen. Milieuvriendelijk osmosewater, streeploos en veilig." />
 
-  <!-- Basis styles -->
   <style>
     :root{ --brand:#0f6ab8; --brand2:#29ABE2; --ink:#0b364f; --bg:#f6f9fc; }
     *{box-sizing:border-box}
@@ -14,18 +13,20 @@
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* NAV: altijd rechts, hamburger met 3 streepjes; kleur wisselt met achtergrond */
+    /* Container helper (voor footer) */
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+
+    /* NAV */
     .nav{position:sticky;top:0;z-index:100;display:flex;justify-content:flex-end;padding:10px 16px;background:#fff;border-bottom:1px solid #e2e8f0}
-    .nav.blue-bg{background:linear-gradient(90deg,#03304f,#00304e);border-bottom:0}
-    .nav-toggle{background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
-    .nav-toggle .line{width:24px;height:3px;border-radius:2px;background:#0b364f}
     .nav.white-bg .nav-toggle .line{background:#0b364f}
     .nav.blue-bg .nav-toggle .line{background:#fff}
-    @media (min-width:901px){ .nav-toggle{display:none} }
-
-    .nav-list{display:none}
+    .nav-toggle{background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+    .nav-toggle .line{width:24px;height:3px;border-radius:2px}
+    .nav-list{display:none;list-style:none;margin:0;padding:0}
     .nav-list.open{display:flex !important}
+
     @media (max-width:900px){
+      .nav{justify-content:flex-end}
       .nav-list{position:absolute;top:56px;right:12px;display:none;flex-direction:column;gap:10px;background:#fff;border:1px solid #e2e8f0;padding:12px;border-radius:14px;box-shadow:0 12px 30px rgba(2,18,33,.22);width:min(86vw,360px);z-index:101}
       .nav-list li{list-style:none}
       .nav-list a{display:block;padding:12px 14px;color:var(--ink);border-radius:10px}
@@ -34,17 +35,23 @@
     }
     @media (min-width:901px){
       .nav{justify-content:center}
+      .nav-toggle{display:none}
       .nav-list{display:flex;gap:20px;position:static;border:0;box-shadow:none;background:transparent;padding:0}
-      .nav-list a{padding:6px 12px;border-radius:6px;color:#0f172a}
-      .nav-list a:hover{background:#e6f0fa}
-      .nav-list a.active, .nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)}
+      .nav-list a{padding:8px 14px;border-radius:999px;color:#0b364f;font-weight:600}
+      .nav-list a:hover{background:#eef5ff}
+      .nav-list a.active, .nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;box-shadow:0 6px 14px rgba(15,106,184,.25)}
     }
 
-    /* Subhero (kop) */
+    /* Banner */
     .subhero{background:linear-gradient(90deg,#03304f,#00304e);color:#fff;padding:40px 20px;display:flex;align-items:center;justify-content:center}
     .subhero .wrap{max-width:1100px;width:100%}
-    .subhero h1{margin:0 0 0 20px;font-size:clamp(22px,2.4vw,28px);color:#f3f7fb}
-    .subhero .subtitle{color:#cfe4ff;font-size:clamp(14px,1.4vw,17px);font-weight:500;margin-left:24px}
+    .subhero h1{margin:0 0 0 4px;font-size:clamp(22px,2.4vw,28px);color:#f3f7fb}
+    .subhero .subtitle{color:#cfe4ff;font-size:clamp(14px,1.4vw,17px);font-weight:500;margin-left:8px}
+    @media (max-width:900px){
+      .subhero{padding:20px 16px}
+      .subhero h1{margin:0;font-size:20px}
+      .subhero .subtitle{font-size:14px;margin:4px 0 0 0}
+    }
 
     /* Content */
     .section{max-width:1000px;margin:30px auto;padding:32px;background:#fff;border-radius:14px;box-shadow:0 6px 28px rgba(0,0,0,.06)}
@@ -52,125 +59,44 @@
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
     .card{border:1px solid #e2e8f0;border-radius:12px;padding:18px;transition:transform .2s ease;background:#fff}
     .card:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
-    /* Middencontent stijl zoals live: titels/links in huisblauw */
-    .card h3{color:var(--brand); margin:0 0 6px;}
-    .card a{color:var(--brand)}
-    .card a:hover{ text-decoration: underline; }
+    .card h3{color:var(--brand);margin:0 0 6px}
 
-    /* Footer (Over‑ons stijl) */
-    .site-footer{display:block;background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;margin-top:28px;width:100%}
-    .foot-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;align-items:start;text-align:left}
-    .site-footer a{color:#cfe8ff}
-    .site-footer .legal{border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:12px;text-align:center;color:#94a3b8;font-size:.95rem}
-  </style>
-  
-<style>
-  /* Hamburgerknop – altijd rechts, drie streepjes verticaal gecentreerd */
-  .nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: flex-end; padding-right: 16px; background: #fff; border-bottom: 1px solid #e2e8f0; }
-  .nav-toggle { background: transparent; border: 0; width: 44px; height: 44px; padding: 0; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; display: flex; }
-  .nav-toggle .line { width: 24px; height: 3px; background: #0b364f; border-radius: 2px; }
-  .nav-toggle:focus { outline: 2px solid #29ABE2; outline-offset: 2px; }
-
-  /* THEMA-KLEUR LOGICA VOOR DE DRIE STREEPJES */
-  /* Witte achtergrond => streepjes in huisblauw */
-  .nav.white-bg .nav-toggle .line { background: #0b364f; }
-  /* Donkere/blauwe achtergrond => streepjes wit */
-  .nav.blue-bg .nav-toggle .line,
-  .has-dark-header .nav-toggle .line { background: #ffffff; }
-
-  @media (max-width: 900px) {
-    .nav-list { position: absolute; top: 56px; right: 12px; display: none; flex-direction: column; gap: 10px; background: #fff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 14px; box-shadow: 0 12px 30px rgba(2,18,33,.22); width: min(86vw, 360px); z-index: 101; }
-    .nav-list.open { display: flex; }
-    .nav-list a { padding: 10px 12px; border-radius: 10px; }
-    .nav-list a:hover { background: #e6f0fa; }
-  }
-</style>
-<style>
-  /* Dropdown-styling zoals je screenshot */
-  .nav-list li{ list-style:none; }
-  .nav-list a{ display:block; padding:12px 14px; color:#0b364f; text-decoration:none; border-radius:10px; }
-  .nav-list a:hover{ background:#eef5ff; }
-  .nav-list a.active,
-  .nav-list a[aria-current="page"]{ background:#e7f1ff; box-shadow: inset 0 0 0 1px rgba(15,106,184,.08); }
-</style>
-
-
-  <!-- FINAL NAV OVERRIDES: desktop origineel, mobiel hamburger rechts -->
-  <style id="nav-fix-override">
-    /* Kleur streepjes */
-    .nav.white-bg .nav-toggle .line{background:#0b364f}
-    .nav.blue-bg .nav-toggle .line{background:#fff}
-
-    /* Desktop (origineel menu, geen hamburger) */
-    @media (min-width:901px){
-      .nav{justify-content:center !important; background:#fff; border-bottom:1px solid #e2e8f0}
-      .nav-toggle{display:none !important}
-      .nav-list{display:flex !important; gap:20px; position:static; box-shadow:none; background:transparent; padding:0; border:0; width:auto}
-      .nav-list a{padding:6px 12px; border-radius:6px}
-    }
-
-    /* Mobiel (hamburger rechts, dropdown) */
-    @media (max-width:900px){
-      .nav{justify-content:flex-end !important; padding-right:16px}
-      .nav-toggle{display:flex !important; width:44px; height:44px; border:0; background:transparent; align-items:center; justify-content:center; gap:5px}
-      .nav-toggle .line{width:24px; height:3px; border-radius:2px}
-      .nav-list{position:absolute; top:56px; right:12px; display:none; flex-direction:column; gap:10px; background:#fff; border:1px solid #e2e8f0; padding:12px; border-radius:14px; box-shadow:0 12px 30px rgba(2,18,33,.22); width:min(86vw,360px); z-index:1001}
-      .nav-list.open{display:flex !important}
-      .nav-list a{display:block; padding:12px 14px; border-radius:10px}
-      .nav-list a:hover{background:#eef5ff}
-      .nav-list a.active, .nav-list a[aria-current="page"]{background:#e7f1ff; box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
-    }
-  </style>
-  
-<style>
-  /* MOBILE: banner minder hoog (zoals Over‑ons) */
-  @media (max-width: 900px){
-    .subhero{ padding:20px 16px; }
-    .subhero h1{ margin:0; font-size:20px; }
-    .subhero .subtitle{ font-size:14px; margin:4px 0 0 20px; }
-  }
-</style>
-
-  <!-- DESKTOP NAV: match Over-ons exact look -->
-  <style id="nav-desktop-like-overons">
-    @media (min-width:901px){
-      .nav{ background:#fff !important; border-bottom:1px solid #e7eef5 !important; justify-content:center !important; }
-      .nav-list{ display:flex !important; gap:24px !important; position:static !important; background:transparent !important; box-shadow:none !important; padding:10px 0 !important; border:0 !important; }
-      .nav-list a{ color:#0b364f !important; font-weight:600; padding:8px 14px !important; border-radius:999px !important; line-height:1; }
-      .nav-list a:hover{ background:#eef5ff !important; }
-      .nav-list a.active,
-      .nav-list a[aria-current="page"]{ background:linear-gradient(135deg,#0f6ab8,#29ABE2) !important; color:#fff !important; box-shadow:0 6px 14px rgba(15,106,184,.25) !important; border:1px solid rgba(255,255,255,.6) !important; }
-    }
+    /* Footer */
+    .site-footer{display:block;background:#fff;color:#0b364f;padding:32px 0;margin-top:28px;width:100%;border-top:1px solid #e2e8f0}
+    .foot-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;align-items:start;text-align:left}
+    .site-footer a{color:var(--brand);text-decoration:none}
+    .site-footer a:hover{text-decoration:underline}
+    .site-footer .legal{border-top:1px solid #e2e8f0;margin-top:20px;padding-top:12px;text-align:center;color:#64748b;font-size:.95rem}
   </style>
 </head>
 <body>
-  <!-- NAV: blauwe header => witte streepjes -->
-  <nav aria-label="Hoofdmenu" class="nav white-bg">
-  <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle" type="button">
-    <span class="line"></span>
-    <span class="line"></span>
-    <span class="line"></span>
-  </button>
-  <ul class="nav-list" id="primary-nav">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="over-ons.html">Over ons</a></li>
-    <li><a class="active" aria-current="page" href="diensten.html">Diensten</a></li>
-    <li><a href="prijzen.html">Prijzen</a></li>
-    <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-  </ul>
-</nav>
 
-  <!-- HEADER -->
+  <!-- HEADER vervangen volgens opdracht -->
+  <nav aria-label="Hoofdmenu" class="nav white-bg">
+    <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle" type="button">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
+    <ul class="nav-list" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="over-ons.html">Over ons</a></li>
+      <li><a class="active" aria-current="page" href="diensten.html">Diensten</a></li>
+      <li><a href="prijzen.html">Prijzen</a></li>
+      <li><a href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+
   <header class="subhero">
-    <div class="wrap">
+    <div class="wrap container">
       <h1>Diensten</h1>
       <p class="subtitle">Onze specialisaties in glas- en zonnepaneelreiniging</p>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN CONTENT (ongewijzigd) -->
   <main>
     <section class="section">
       <h2>Onze diensten</h2>
@@ -227,11 +153,21 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (gekopieerd van over-ons pagina) -->
   <footer class="site-footer">
-    <div class="foot-inner">
-      <div>
-        <p><strong>OsmoseXpert</strong></p>
+    <style>
+      .site-footer{background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;font-size:.9rem;line-height:1.6}
+      .foot-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;align-items:start;text-align:left}
+      .foot-inner div p{margin:4px 0}
+      .foot-inner img{margin-bottom:10px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
+      .site-footer a{color:#cfe8ff;text-decoration:none}
+      .site-footer a:hover{text-decoration:underline}
+      .site-footer .legal{border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:12px;text-align:center;color:#94a3b8;font-size:.85rem;line-height:1.5}
+      @media(max-width:700px){.foot-inner{text-align:center}.foot-inner div{margin:auto}}
+    </style>
+
+    <div class="container foot-inner">
+      <div><p><strong>OsmoseXpert</strong></p>
         <p>Streeploos schoon, veilig en duurzaam.</p>
         <p>Ronse • Kluisbergen • Oudenaarde</p>
       </div>
@@ -247,12 +183,11 @@
         <p><a href="voorwaarden.html">Voorwaarden</a></p>
       </div>
     </div>
-    <div class="legal">© 2025 OsmoseXpert • BTW BE0733.924.863</div>
+    <div class="container legal"><span class="btw">BTW BE0733.924.863</span><br/>© 2025 OsmoseXpert. Alle rechten voorbehouden.</div>
   </footer>
 
   <!-- JS: hamburger toggle -->
   <script>
-  // Hamburger: mobiel open/dicht, desktop origineel menu
   (function(){
     var btn = document.querySelector('.nav-toggle');
     var list = document.getElementById('primary-nav');
@@ -264,7 +199,6 @@
       list.style.display = '';
     }
 
-    // Toggle on click
     btn.addEventListener('click', function(e){
       e.preventDefault();
       e.stopPropagation();
@@ -274,23 +208,20 @@
       else { list.style.display=''; }
     });
 
-    // Close on outside click (mobile)
     document.addEventListener('click', function(e){
       if(window.matchMedia('(max-width: 900px)').matches){
-        if(list.classList.contains('open') && !list.contains(e.target) && e.target !== btn){
+        if(list.classList.contains('open') && !list.contains(e.target) && !btn.contains(e.target)){
           closeMenu();
         }
       }
     });
 
-    // Close on resize to desktop
     window.addEventListener('resize', function(){
       if(window.matchMedia('(min-width: 901px)').matches){
         closeMenu();
       }
     });
 
-    // Close after selecting a link
     list.addEventListener('click', function(e){
       var a = e.target.closest('a');
       if(a && window.matchMedia('(max-width: 900px)').matches){
@@ -298,6 +229,6 @@
       }
     });
   })();
-</script>
+  </script>
 </body>
 </html>
