@@ -66,6 +66,11 @@
     .hero-logo .hero-video{display:block;width:100%;height:auto;background:#03304F;border-radius:0;opacity:0;animation:heroFade .3s ease-out forwards;transform:translateY(-0.6px) scale(1.012);transform-origin:50% 0;will-change:transform}
     @keyframes heroFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
+    /* MOBILE OVERRIDE: groter videologo */
+    @media (max-width: 768px){
+      .hero-logo{ width: min(92vw, 640px); min-width: 260px; }
+    }
+
     /* Chatbot blok */
     .section-chatbot.container{max-width:1100px;margin:0 auto 72px;padding:0 1rem}
     .chatband{position:relative;background:linear-gradient(135deg,#03304F 0%,#0b364f 70%);color:#fff;border-radius:22px;padding:2rem 1.25rem 1.75rem;box-shadow:0 14px 36px rgba(2,6,23,.16);opacity:0;transform:translateY(6px);animation:chatBandIn .5s ease-out .05s forwards}
@@ -88,6 +93,64 @@
     .site-footer a:hover{text-decoration:underline}
     .site-footer .legal{border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:12px;text-align:center;color:#94a3b8;font-size:.85rem;line-height:1.5}
     @media(max-width:700px){.foot-inner{text-align:center}.foot-inner div{margin:auto}}
+  
+
+    /* === MOBILE: Diensten-stijl hamburger === */
+    @media (max-width:900px){
+      .nav.centered{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:100;display:flex;justify-content:flex-end;padding:10px 16px}
+      .nav-toggle{display:flex !important;background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;margin:4px 8px}
+      .nav-toggle .line{width:24px;height:3px;border-radius:2px;background:#0b364f}
+      .nav.centered .nav-list{position:absolute;top:56px;right:12px;flex-direction:column;align-items:flex-start;gap:10px;background:#fff;border:1px solid #e2e8f0;padding:12px;border-radius:14px;box-shadow:0 12px 30px rgba(2,18,33,.22);width:min(86vw,360px);z-index:101;display:none}
+      .nav.centered .nav-list.open{display:flex !important}
+      .nav.centered .nav-list a{display:block;padding:12px 14px;color:#0b364f;border-radius:10px;text-decoration:none}
+      .nav.centered .nav-list a:hover{background:#eef5ff}
+      .nav.centered .nav-list a.active,.nav.centered .nav-list [aria-current="page"]{background:#e7f1ff;box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
+      .nav-toggle:focus-visible,.nav.centered .nav-list a:focus-visible{outline:2px solid #0f6ab8;outline-offset:3px;border-radius:10px}
+    }
+    }
+  
+
+    /* Floating CTA styles (zoals over-ons) */
+    .floating-cta{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;flex-direction:column;gap:12px;transition:opacity .25s ease,transform .25s ease}
+    .floating-cta.hidden{opacity:0;transform:translateY(16px);pointer-events:none}
+    .floating-cta .cta-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:999px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.15);transition:transform .15s ease,box-shadow .15s ease}
+    .floating-cta .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.2)}
+    .floating-cta .cta-offerte{background:#10b981}
+    .floating-cta .cta-boek{background:#2563eb}
+    @media (max-width:480px){.floating-cta{right:12px;bottom:12px}.floating-cta .cta-btn{padding:12px 14px;font-size:15px}}
+  
+
+    /* === USP (Waarom klanten voor ons kiezen) – dynamisch & met motion === */
+    .usp-mobile{border:1px solid #e2e8f0;background:#f8fbff;border-radius:14px;overflow:hidden}
+    .usp-mobile summary{cursor:pointer;user-select:none;list-style:none;display:flex;align-items:center;gap:10px;padding:14px 16px;font-weight:700;color:#0a3d62}
+    .usp-mobile summary::-webkit-details-marker{display:none}
+    .usp-mobile summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2px solid #0a3d62;border-bottom:2px solid #0a3d62;transform:rotate(45deg);transition:transform .25s ease}
+    .usp-mobile[open] summary::after{transform:rotate(-135deg)}
+
+    .usp-list{margin:0;padding:10px 14px 14px;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;max-height:0;opacity:.0;transform:translateY(-4px);
+      transition:max-height .45s ease, opacity .35s ease, transform .35s ease}
+    .usp-mobile[open] .usp-list{max-height:60vh;opacity:1;transform:none;overflow:auto}
+    .usp-list li{background:#fff;border:1px solid #e6eef7;border-radius:10px;padding:12px;box-shadow:0 6px 18px rgba(2,6,23,.06)}
+
+    /* Stagger animatie voor items */
+    .usp-mobile[open] .usp-list li{animation:uspFade .4s ease both}
+    .usp-mobile[open] .usp-list li:nth-child(1){animation-delay:.03s}
+    .usp-mobile[open] .usp-list li:nth-child(2){animation-delay:.06s}
+    .usp-mobile[open] .usp-list li:nth-child(3){animation-delay:.09s}
+    .usp-mobile[open] .usp-list li:nth-child(4){animation-delay:.12s}
+    .usp-mobile[open] .usp-list li:nth-child(5){animation-delay:.15s}
+    .usp-mobile[open] .usp-list li:nth-child(6){animation-delay:.18s}
+    .usp-mobile[open] .usp-list li:nth-child(7){animation-delay:.21s}
+
+    @keyframes uspFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+    /* Focus states voor toegankelijkheid */
+    .usp-mobile summary:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:12px}
+
+    @media (prefers-reduced-motion: reduce){
+      .usp-list{transition:none}
+      .usp-mobile[open] .usp-list li{animation:none}
+    }
   </style>
 
   <link rel="stylesheet" href="assets/styles.css?v=20250917-132442"/>
@@ -99,34 +162,6 @@
   <link rel="preload" as="image" href="https://osmose-xpert.be/images/ox-logo-transparant-1920%20(2).png"/>
   <link rel="preload" as="video" href="banner-amin.mp4"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"/>
-  <!-- MOBILE HAMBURGER (exact styling, alleen mobiel) -->
-  <style id="mobile-hamburger-overons">
-    :root{ --brand:#0f6ab8; --brand2:#29ABE2; --ink:#0b364f; }
-    /* Alleen mobile gedrag aanpassen, desktop ongemoeid laten */
-    @media (max-width:900px){
-      .nav{position:sticky;top:0;z-index:100;display:flex;justify-content:flex-end;padding:10px 16px;border-bottom:1px solid #e2e8f0}
-      .nav.white-bg{background:#fff}
-      .nav.blue-bg{background:transparent}
-      .nav-toggle{background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;margin:8px 12px}
-      .nav-toggle .line{width:24px;height:3px;border-radius:2px;background:#0b364f}
-      .nav.white-bg .nav-toggle .line{background:#0b364f}   /* witte header → donkere streepjes */
-      .nav.blue-bg  .nav-toggle .line{background:#fff}      /* blauwe header → witte streepjes */
-
-      /* Mobiele dropdown */
-      .nav-list{list-style:none;margin:0;padding:0;display:none}
-      .nav-list.open{display:flex !important}
-
-      .nav.centered .nav-list{
-        position:absolute;top:56px;right:12px;flex-direction:column;gap:10px;
-        background:#fff;border:1px solid #e2e8f0;padding:12px;border-radius:14px;
-        box-shadow:0 12px 30px rgba(2,18,33,.22);width:min(86vw,360px);z-index:101
-      }
-      .nav.centered .nav-list a{display:block;padding:12px 14px;color:var(--ink);border-radius:10px;text-decoration:none}
-      .nav.centered .nav-list a:hover{background:#eef5ff}
-      .nav.centered .nav-list a.active,.nav.centered .nav-list [aria-current="page"]{background:#e7f1ff;box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
-      .nav-toggle:focus-visible,.nav.centered .nav-list a:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:10px}
-    }
-  </style>
 </head>
 <body>
   <!-- NAV (1-op-1 met over-ons: Home pill + hamburger) -->
@@ -158,7 +193,7 @@
     <div class="hero-logo" aria-label="Banner video">
       <video id="heroVideo" class="hero-video" autoplay muted playsinline loop preload="auto" poster="https://osmose-xpert.be/images/ox-logo-transparant-1920%20(2).png">
         <source src="banner-amin.mp4" type="video/mp4"/>
-        <source src="https://www.osmose-xpert.be/assets/assets/video/logo-anim.mp4" type="video/mp4"/>
+        <source src="https://osmose-xpert.be/assets/assets/video/logo-anim.mp4" type="video/mp4"/>
         Uw browser ondersteunt het video-element niet.
       </video>
     </div>
@@ -229,6 +264,13 @@
     </section>
   </main>
 
+  <!-- Floating CTA buttons (zoals over-ons) -->
+  <div class="floating-cta" id="floatingCta">
+    <a class="cta-btn cta-offerte" href="offerte.html" aria-label="Offerte aanvragen">Offerte aanvragen</a>
+    <a class="cta-btn cta-boek" href="#boek" data-calendly aria-label="Afspraak boeken">Boek nu</a>
+  </div>
+
+
   <!-- Chatbase z-index fix -->
   <style>
     .chatbase-bubble, .chatbase-widget { z-index: 2147483000 !important }
@@ -296,28 +338,17 @@
     })();
   </script>
 
-  <!-- Nav toggle (hamburger) -->
+  <!-- Nav toggle (hamburger)  ›  Diensten-stijl -->
   <script>
     (function(){
       var btn=document.querySelector('.nav-toggle');
       var list=document.getElementById('primary-nav');
-      function closeMenu(){
-        if(!btn||!list) return;
-        btn.setAttribute('aria-expanded','false');
-        list.classList.remove('open');
-      }
-      if(btn && list){
-        btn.addEventListener('click', function(e){
-          e.stopPropagation();
-          var open = btn.getAttribute('aria-expanded')==='true';
-          btn.setAttribute('aria-expanded', String(!open));
-          list.classList.toggle('open', !open);
-        });
-        document.addEventListener('click', function(e){
-          if(!list.contains(e.target) && e.target!==btn) closeMenu();
-        });
-        document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
-      }
+      if(!btn||!list) return;
+      function close(){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+      function toggle(){ var open=list.classList.toggle('open'); btn.setAttribute('aria-expanded', String(open)); }
+      btn.addEventListener('click', function(e){ e.preventDefault(); toggle(); });
+      document.addEventListener('click', function(e){ if(!list.contains(e.target) && e.target!==btn && !btn.contains(e.target)){ close(); }});
+      window.addEventListener('resize', function(){ if(window.matchMedia('(min-width:901px)').matches){ close(); list.removeAttribute('style'); }});
     })();
   </script>
 
@@ -342,5 +373,38 @@
     </div>
     <div class="container legal"><span class="btw">BTW BE0733.924.863</span><br/>© 2025 OsmoseXpert. Alle rechten voorbehouden.</div>
   </footer>
+  <script>
+    // Auto-hide CTA on scroll + Calendly trigger (zoals over-ons)
+    (function(){
+      var cta=document.getElementById('floatingCta');
+      var lastY=window.scrollY; var t;
+      function onScroll(){ if(!cta) return; var y=window.scrollY; if(y>lastY && y>80){ cta.classList.add('hidden'); } else { cta.classList.remove('hidden'); } lastY=y; clearTimeout(t); t=setTimeout(function(){ cta.classList.remove('hidden'); },150); }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      document.addEventListener('click', function(e){ var btn=e.target.closest('[data-calendly]'); if(btn){ e.preventDefault(); try{ if(window.Calendly){ Calendly.initPopupWidget({url:'https://calendly.com/osmose-xpert-info/ramenreiniging'}); } else { window.open('https://calendly.com/osmose-xpert-info/ramenreiniging','_self'); } }catch(err){ window.open('https://calendly.com/osmose-xpert-info/ramenreiniging','_self'); } } });
+    })();
+  </script>
+  <script>
+    // Smooth open/close voor <details class="usp-mobile"> met berekende max-height
+    (function(){
+      var d = document.querySelector('.usp-mobile');
+      if(!d) return;
+      var list = d.querySelector('.usp-list');
+      if(!list) return;
+      function setHeight(open){
+        if(open){
+          list.style.maxHeight = '0px'; // reset voor meting
+          var h = list.scrollHeight;
+          list.style.maxHeight = h + 'px';
+        } else {
+          list.style.maxHeight = '0px';
+        }
+      }
+      // init (gesloten → 0px)
+      setHeight(d.open);
+      d.addEventListener('toggle', function(){ setHeight(d.open); });
+      // herbereken bij resize (grid kan rij-hoogte wijzigen)
+      window.addEventListener('resize', function(){ if(d.open){ setHeight(true); } });
+    })();
+  </script>
 </body>
 </html>
