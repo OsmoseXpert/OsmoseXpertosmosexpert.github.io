@@ -15,6 +15,9 @@
     a:hover{text-decoration:underline}
     .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 
+    /* utility */
+    .hidden{display:none!important}
+
     /* Subhero (zoals contact.html) */
     .subhero{background:linear-gradient(90deg,#03304f,#00304e);color:#fff;padding:40px 20px;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
     .subhero .inner{max-width:1100px;width:100%}
@@ -110,8 +113,8 @@
 
           <div class="row">
             <div>
-              <label for="tel">Telefoon</label>
-              <input id="tel" name="telefoon" type="tel" inputmode="tel" placeholder="Handig voor planning/updates" autocomplete="tel" pattern="^[0-9+()\s-]{6,}$"/>
+              <label for="tel">Telefoon <span class="req">*</span></label>
+              <input id="tel" name="telefoon" type="tel" inputmode="tel" placeholder="Handig voor planning/updates" autocomplete="tel" pattern="^[0-9+() -]{6,}$" required/>
             </div>
             <div>
               <label for="klant">Particulier of zakelijk (bedrijf / zelfstandige) <span class="req">*</span></label>
