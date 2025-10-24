@@ -48,6 +48,28 @@
     .section h2{margin-bottom:14px;color:#0a3d62}
     .section p{margin-bottom:14px}
 
+    /* Dynamische 'Waarom' opbouw (zonder vakjes) */
+    .lede{font-size:1.05rem;color:#334155;margin-bottom:18px}
+    .feature-row{display:flex;flex-wrap:wrap;gap:18px}
+    .feature-item{flex:1 1 280px;min-width:260px}
+    .feature-item h3{color:#0a3d62;margin:0 0 6px}
+    .feature-item p{margin:0}
+    .keylines{display:flex;flex-wrap:wrap;gap:10px 16px;list-style:none;padding:0;margin:16px 0 0}
+    .keylines li{position:relative;padding-left:14px}
+    .keylines li::before{content:'•';position:absolute;left:0;top:0;color:#0f6ab8}
+    .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .45s ease-out forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+    
+
+    /* Homepage-samenvatting grid */
+    .summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    @media(max-width:1000px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:620px){.summary-grid{grid-template-columns:1fr}}
+    .summary-grid .service-card h3{font-size:1.05rem}
+    .summary-grid .service-card p{font-size:.98rem}
+    .summary-grid .more{display:inline-block;margin-top:8px;font-weight:600}
+    
+
     /* Services Grid */
     .service-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
     @media(max-width:1000px){.service-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -199,6 +221,76 @@
   </header>
 
   <main id="content">
+
+    <!-- START: Waarom eerst, dynamisch en zonder vakjes -->
+    <section class="section why" aria-labelledby="why">
+      <h2 id="why" class="fade-up" style="animation-delay:.02s">Waarom OsmoseXpert?</h2>
+      <p class="lede fade-up" style="animation-delay:.06s">Streeploos schoon zonder chemie, veilig vanaf de grond en met vaste, transparante afspraken.</p>
+      <div class="feature-row">
+        <div class="feature-item fade-up" style="animation-delay:.10s">
+          <h3>Osmosekwaliteit</h3>
+          <p>Puur osmosewater spoelt vuil en mineralen weg. Geen strepen, wel langdurig helder glas en kozijnen die langer mooi blijven.</p>
+        </div>
+        <div class="feature-item fade-up" style="animation-delay:.14s">
+          <h3>Veilig & efficiënt</h3>
+          <p>Werken vanaf de grond tot ±15 m. Geen ladders tegen gevels, geen risico, wel tempo en zorg.</p>
+        </div>
+        <div class="feature-item fade-up" style="animation-delay:.18s">
+          <h3>Tevredenheidsgarantie</h3>
+          <p>Niet tevreden? We komen gewoon terug. Pas als jij tevreden bent, zijn wij dat ook.</p>
+        </div>
+      </div>
+      <ul class="keylines fade-up" style="animation-delay:.22s">
+        <li>Ronse • Kluisbergen • Oudenaarde</li>
+        <li>Particulier én bedrijf</li>
+        <li>Onderhoudsplannen met voordeel</li>
+      </ul>
+    </section>
+    <!-- END: Waarom blok -->
+
+
+    <!-- Homepage-samenvatting: wie, wat, waarom, vertrouwen, call-to-actions -->
+    <section class="section home-summary" aria-label="Samenvatting">
+      <h2>Kort over OsmoseXpert</h2>
+      <div class="summary-grid">
+        <div class="service-card">
+          <h3>Wie zijn we?</h3>
+          <p>Lokale specialist in streeploze ramenreiniging met osmosewater. Zorgzaam, discreet en professioneel.</p>
+          <a class="more" href="over-ons.html">Lees meer over ons →</a>
+        </div>
+        <div class="service-card">
+          <h3>Wat doen we (en niet)?</h3>
+          <p>Ramen, veranda’s/serres, zonnepanelen. Geen agressieve chemie of risicovolle ladders: wij werken veilig vanaf de grond.</p>
+          <a class="more" href="diensten.html">Bekijk alle diensten →</a>
+        </div>
+        <div class="service-card">
+          <h3>Welk probleem lossen we op?</h3>
+          <p>Vuile ramen en doffe panelen kosten zicht en rendement. Wij brengen helderheid terug—langdurig en zonder strepen.</p>
+          <a class="more" href="diensten.html#zonnepanelen">Meer over zonnepanelen reinigen →</a>
+        </div>
+        <div class="service-card">
+          <h3>Is dit relevant voor mij?</h3>
+          <p>Actief in Ronse, Kluisbergen en Oudenaarde—particulier én bedrijf. Afspraak = afspraak.</p>
+          <a class="more" href="contact.html">Werkgebied & contact →</a>
+        </div>
+        <div class="service-card">
+          <h3>Waarom kiezen voor ons?</h3>
+          <p>Moderne osmose‑technologie, strak proces en tevredenheidsgarantie. We behandelen elk pand alsof het van ons is.</p>
+          <a class="more" href="over-ons.html#waarden">Onze aanpak →</a>
+        </div>
+        <div class="service-card">
+          <h3>Kan ik je vertrouwen?</h3>
+          <p>Transparante prijzen, vaste onderhoudsplannen en herkomst van water & materialen helder uitgelegd.</p>
+          <a class="more" href="prijzen.html">Zie indicatieve prijzen →</a>
+        </div>
+        <div class="service-card">
+          <h3>Wat moet ik doen?</h3>
+          <p>Vraag een offerte of plan direct. Tip: onderhoudsplan = voordeel en vaste planning.</p>
+          <a class="more" href="onderhoudsplannen.html">Onderhoudsplannen →</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <h2 class="motion-text">Waarom OsmoseXpert?</h2>
       <p>Vakmanschap + osmose-technologie = langdurig schone, streeploze ramen en veilige werkwijze vanaf de grond.</p>
@@ -578,28 +670,4 @@
   window.cookieConsent = {
     open: function(){ show(); showOverlay(); },
     get: function(){ return loadState(); },
-    set: function(opts){ var prev=loadState()||{essential:true,analytics:false,marketing:false}; var cons=Object.assign({},prev,opts,{ts:Date.now()}); saveState(cons); apply(cons); }
-  };
-
-  function loadGA(){ 
-    if(!GA_ID || document.getElementById('ga4-src')) return; 
-    var s1=document.createElement('script'); s1.async=true; s1.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; s1.id='ga4-src'; document.head.appendChild(s1);
-    var s2=document.createElement('script'); s2.id='ga4-init'; s2.text="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','"+GA_ID+"',{anonymize_ip:true});"; document.head.appendChild(s2);
-  }
-
-  function enableChatbase(){ 
-    chatToggle.hidden=false; 
-    if(!chatLoaded){ 
-      var ifr=document.createElement('iframe'); 
-      ifr.src=CHATBASE_IFRAME_SRC; ifr.width='100%'; ifr.style.height='100%'; ifr.setAttribute('frameborder','0'); 
-      chatBox.appendChild(ifr); chatLoaded=true; 
-    } 
-  }
-  function disableChatbase(){ chatToggle.hidden=true; chatBox.style.display='none'; }
-  chatToggle.addEventListener('click', function(){ chatBox.style.display = (chatBox.style.display==='block'?'none':'block'); });
-})();
-</script>
-<!-- END OsmoseXpert Cookie Consent -->
-
-</body>
-</html>
+    set: function(opts){ var 
