@@ -79,6 +79,22 @@
     .card:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
     .card h3{color:var(--brand);margin:0 0 6px}
   </style>
+
+  <!-- Calendly widget (1:1 uit over-ons.html) -->
+  <script>window.CALENDLY_DEFAULT='https://calendly.com/osmose-xpert-info/ramenreiniging';</script>
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
+  
+  <!-- Floating CTA styles (1:1 uit over-ons.html) -->
+  <style id="floating-cta-styles">
+    .floating-cta{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;flex-direction:column;gap:12px;transition:opacity .25s ease,transform .25s ease}
+    .floating-cta.hidden{opacity:0;transform:translateY(16px);pointer-events:none}
+    .floating-cta .cta-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:999px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.15);transition:transform .15s ease,box-shadow .15s ease}
+    .floating-cta .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.2)}
+    .floating-cta .cta-offerte{background:#10b981}
+    .floating-cta .cta-boek{background:#2563eb}
+    @media (max-width:480px){.floating-cta{right:12px;bottom:12px}.floating-cta .cta-btn{padding:12px 14px;font-size:15px}}
+  </style>
 </head>
 
 <body class="diensten-page">
@@ -164,6 +180,12 @@
     </section>
   </main>
 
+  <!-- Floating CTA buttons (1:1 uit over-ons.html) -->
+  <div class="floating-cta" id="floatingCta">
+    <a class="cta-btn cta-offerte" href="offerte.html" aria-label="Offerte aanvragen">Offerte aanvragen</a>
+    <a class="cta-btn cta-boek" href="#boek" data-calendly aria-label="Afspraak boeken">Boek nu</a>
+  </div>
+
   <!-- FOOTER (1:1 van over-ons.html) -->
   <footer class="site-footer">
     <style>
@@ -197,6 +219,31 @@
     </div>
     <div class="container legal"><span class="btw">BTW BE0733.924.863</span><br/>© 2025 OsmoseXpert. Alle rechten voorbehouden.</div>
   </footer>
+
+  <!-- Scripts: CTA gedrag en Calendly popup (1:1 uit over-ons.html) -->
+  <script>
+    (function(){
+      const cta=document.getElementById('floatingCta');
+      let lastY=window.scrollY;
+      let t; 
+      function onScroll(){
+        const y=window.scrollY;
+        if(!cta) return;
+        if(y>lastY && y>80){ cta.classList.add('hidden'); } else { cta.classList.remove('hidden'); }
+        lastY=y; clearTimeout(t); t=setTimeout(()=>cta.classList.remove('hidden'),150);
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+
+      // Calendly trigger
+      document.addEventListener('click',function(e){
+        const btn=e.target.closest('[data-calendly]');
+        if(btn && window.Calendly){
+          e.preventDefault();
+          Calendly.initPopupWidget({url: window.CALENDLY_DEFAULT});
+        }
+      });
+    })();
+  </script>
 
   <!-- JS: hamburger toggle (identiek aan over-ons.html) -->
   <script>
