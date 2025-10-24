@@ -6,72 +6,83 @@
   <title>Diensten – OsmoseXpert: ramen, gevels & zonnepanelen</title>
   <meta name="description" content="OsmoseXpert in Ronse en omgeving biedt professionele ramenreiniging, glasgevels, veranda’s en zonnepanelen. Milieuvriendelijk osmosewater, streeploos en veilig." />
 
+  <!-- BASIS: variabelen en globale stijl -->
   <style>
     :root{ --brand:#0f6ab8; --brand2:#29ABE2; --ink:#0b364f; --bg:#f6f9fc; }
     *{box-sizing:border-box}
     body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#0f172a;background:var(--bg);line-height:1.6}
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  </style>
 
-    /* Container helper (voor footer) */
-    .container{max-width:1100px;margin:0 auto;padding:0 16px}
-
-    /* NAV */
+  <!-- NAV & DROPDOWN (1:1 van over-ons.html) -->
+  <style>
+    /* Sticky navigatie */
     .nav{position:sticky;top:0;z-index:100;display:flex;justify-content:flex-end;padding:10px 16px;background:#fff;border-bottom:1px solid #e2e8f0}
-    .nav.white-bg .nav-toggle .line{background:#0b364f}
-    .nav.blue-bg .nav-toggle .line{background:#fff}
-    .nav-toggle{background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
-    .nav-toggle .line{width:24px;height:3px;border-radius:2px}
-    .nav-list{display:none;list-style:none;margin:0;padding:0}
-    .nav-list.open{display:flex !important}
+    .nav.blue-bg{background:linear-gradient(90deg,#03304f,#00304e);border-bottom:0}
 
+    /* Hamburger rechts met drie streepjes */
+    .nav-toggle{background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+    .nav-toggle .line{width:24px;height:3px;border-radius:2px;background:#0b364f}
+    .nav.white-bg .nav-toggle .line{background:#0b364f}   /* witte achtergrond → huisblauw streepjes */
+    .nav.blue-bg .nav-toggle .line{background:#fff}       /* blauwe header → witte streepjes */
+    .nav-toggle:focus{outline:2px solid #29ABE2;outline-offset:2px}
+
+    /* Lijst basis */
+    .nav-list{display:none}
+
+    /* Mobiel dropdown */
     @media (max-width:900px){
-      .nav{justify-content:flex-end}
       .nav-list{position:absolute;top:56px;right:12px;display:none;flex-direction:column;gap:10px;background:#fff;border:1px solid #e2e8f0;padding:12px;border-radius:14px;box-shadow:0 12px 30px rgba(2,18,33,.22);width:min(86vw,360px);z-index:101}
+      .nav-list.open{display:flex !important}
       .nav-list li{list-style:none}
       .nav-list a{display:block;padding:12px 14px;color:var(--ink);border-radius:10px}
       .nav-list a:hover{background:#eef5ff}
-      .nav-list a.active, .nav-list a[aria-current="page"]{background:#e7f1ff;box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
+      .nav-list a.active,.nav-list a[aria-current="page"]{background:#e7f1ff;box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
     }
+
+    /* Desktop: gecentreerd menu (origineel, zonder hamburger) */
     @media (min-width:901px){
       .nav{justify-content:center}
       .nav-toggle{display:none}
       .nav-list{display:flex;gap:20px;position:static;border:0;box-shadow:none;background:transparent;padding:0}
-      .nav-list a{padding:8px 14px;border-radius:999px;color:#0b364f;font-weight:600}
-      .nav-list a:hover{background:#eef5ff}
-      .nav-list a.active, .nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;box-shadow:0 6px 14px rgba(15,106,184,.25)}
+      .nav-list li{list-style:none}
+      .nav-list a{padding:6px 12px;border-radius:6px;color:#0f172a;text-decoration:none;font-weight:600}
+      .nav-list a:hover{background:#e6f0fa}
+      /* Page selector (actieve tab) – gradient chip */
+      .nav-list a.active,.nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)}
     }
+  </style>
 
-    /* Banner */
+  <!-- SUBHERO/BANNER (1:1 stijl van over-ons.html; titel/subtitel aangepast voor Diensten) -->
+  <style>
     .subhero{background:linear-gradient(90deg,#03304f,#00304e);color:#fff;padding:40px 20px;display:flex;align-items:center;justify-content:center}
     .subhero .wrap{max-width:1100px;width:100%}
-    .subhero h1{margin:0 0 0 4px;font-size:clamp(22px,2.4vw,28px);color:#f3f7fb}
-    .subhero .subtitle{color:#cfe4ff;font-size:clamp(14px,1.4vw,17px);font-weight:500;margin-left:8px}
+    .subhero h1{margin:0 0 0 20px;font-size:clamp(22px,2.4vw,28px);color:#f3f7fb}
+    .subhero .subtitle{color:#cfe4ff;font-size:clamp(14px,1.4vw,17px);font-weight:500;margin-left:24px}
+
+    /* Mobiel: banner compacter */
     @media (max-width:900px){
       .subhero{padding:20px 16px}
       .subhero h1{margin:0;font-size:20px}
-      .subhero .subtitle{font-size:14px;margin:4px 0 0 0}
+      .subhero .subtitle{font-size:14px;margin:4px 0 0 20px}
     }
+  </style>
 
-    /* Content */
+  <!-- Pagina-specifiek -->
+  <style>
     .section{max-width:1000px;margin:30px auto;padding:32px;background:#fff;border-radius:14px;box-shadow:0 6px 28px rgba(0,0,0,.06)}
     .section h2{margin:0 0 14px;color:#0a3d62}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
     .card{border:1px solid #e2e8f0;border-radius:12px;padding:18px;transition:transform .2s ease;background:#fff}
     .card:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
     .card h3{color:var(--brand);margin:0 0 6px}
-
-    /* Footer */
-    .site-footer{display:block;background:#fff;color:#0b364f;padding:32px 0;margin-top:28px;width:100%;border-top:1px solid #e2e8f0}
-    .foot-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;align-items:start;text-align:left}
-    .site-footer a{color:var(--brand);text-decoration:none}
-    .site-footer a:hover{text-decoration:underline}
-    .site-footer .legal{border-top:1px solid #e2e8f0;margin-top:20px;padding-top:12px;text-align:center;color:#64748b;font-size:.95rem}
   </style>
 </head>
-<body>
 
-  <!-- HEADER vervangen volgens opdracht -->
+<body class="diensten-page">
+  <!-- HEADER (1:1 markup van over-ons, met active op Diensten) -->
   <nav aria-label="Hoofdmenu" class="nav white-bg">
     <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle" type="button">
       <span class="line"></span>
@@ -96,7 +107,7 @@
     </div>
   </header>
 
-  <!-- MAIN CONTENT (ongewijzigd) -->
+  <!-- MAIN CONTENT (ongewijzigd behouden) -->
   <main>
     <section class="section">
       <h2>Onze diensten</h2>
@@ -153,7 +164,7 @@
     </section>
   </main>
 
-  <!-- FOOTER (gekopieerd van over-ons pagina) -->
+  <!-- FOOTER (1:1 van over-ons.html) -->
   <footer class="site-footer">
     <style>
       .site-footer{background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;font-size:.9rem;line-height:1.6}
@@ -167,7 +178,8 @@
     </style>
 
     <div class="container foot-inner">
-      <div><p><strong>OsmoseXpert</strong></p>
+      <div>
+        <p><strong>OsmoseXpert</strong></p>
         <p>Streeploos schoon, veilig en duurzaam.</p>
         <p>Ronse • Kluisbergen • Oudenaarde</p>
       </div>
@@ -186,7 +198,7 @@
     <div class="container legal"><span class="btw">BTW BE0733.924.863</span><br/>© 2025 OsmoseXpert. Alle rechten voorbehouden.</div>
   </footer>
 
-  <!-- JS: hamburger toggle -->
+  <!-- JS: hamburger toggle (identiek aan over-ons.html) -->
   <script>
   (function(){
     var btn = document.querySelector('.nav-toggle');
@@ -204,13 +216,12 @@
       e.stopPropagation();
       var isOpen = list.classList.toggle('open');
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      if(isOpen){ list.style.display='flex'; }
-      else { list.style.display=''; }
+      if(isOpen){ list.style.display='flex'; } else { list.style.display=''; }
     });
 
     document.addEventListener('click', function(e){
       if(window.matchMedia('(max-width: 900px)').matches){
-        if(list.classList.contains('open') && !list.contains(e.target) && !btn.contains(e.target)){
+        if(list.classList.contains('open') && !list.contains(e.target) && e.target !== btn){
           closeMenu();
         }
       }
