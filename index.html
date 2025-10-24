@@ -6,19 +6,19 @@
   <meta name="theme-color" content="#0A5FD1"/>
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="OsmoseXpert – Ramen &amp; zonnepanelen reinigen"/>
+  <meta property="og:title" content="OsmoseXpert – Ramen & zonnepanelen reinigen"/>
   <meta property="og:description" content="Streeploos resultaat met puur osmosewater. Veilig vanaf de grond, geen chemie, transparante prijzen. Boek meteen online."/>
   <meta property="og:url" content="https://www.osmose-xpert.be/"/>
   <meta property="og:image" content="https://www.osmose-xpert.be/images/social/logo4.jpg"/>
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="OsmoseXpert – Ramen &amp; zonnepanelen reinigen"/>
+  <meta name="twitter:title" content="OsmoseXpert – Ramen & zonnepanelen reinigen"/>
   <meta name="twitter:description" content="Streeploos resultaat met puur osmosewater. Veilig vanaf de grond, geen chemie, transparante prijzen. Boek meteen online."/>
   <meta name="twitter:image" content="https://www.osmose-xpert.be/images/social/logo4.jpg"/>
   <meta name="description" content="Streeploos resultaat met puur osmosewater. Veilig vanaf de grond, geen chemie, transparante prijzen. Boek meteen online."/>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>OsmoseXpert – Ramen &amp; zonnepanelen reinigen (Ronse, Kluisbergen, Oudenaarde)</title>
+  <title>OsmoseXpert – Ramen & zonnepanelen reinigen (Ronse, Kluisbergen, Oudenaarde)</title>
   <style>
     html{scroll-behavior:smooth}
     :root{ --display:'Locanita','Poppins','Nunito','Segoe UI',sans-serif; --brand:#0f6ab8;--dark:#011a3a;--ink:#1e293b;--bg:#f6f9fc;--banner:#03304F; }
@@ -48,28 +48,6 @@
     .section h2{margin-bottom:14px;color:#0a3d62}
     .section p{margin-bottom:14px}
 
-    /* Dynamische 'Waarom' opbouw (zonder vakjes) */
-    .lede{font-size:1.05rem;color:#334155;margin-bottom:18px}
-    .feature-row{display:flex;flex-wrap:wrap;gap:18px}
-    .feature-item{flex:1 1 280px;min-width:260px}
-    .feature-item h3{color:#0a3d62;margin:0 0 6px}
-    .feature-item p{margin:0}
-    .keylines{display:flex;flex-wrap:wrap;gap:10px 16px;list-style:none;padding:0;margin:16px 0 0}
-    .keylines li{position:relative;padding-left:14px}
-    .keylines li::before{content:'•';position:absolute;left:0;top:0;color:#0f6ab8}
-    .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .45s ease-out forwards}
-    @keyframes fadeUp{to{opacity:1;transform:none}}
-    
-
-    /* Homepage-samenvatting grid */
-    .summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    @media(max-width:1000px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:620px){.summary-grid{grid-template-columns:1fr}}
-    .summary-grid .service-card h3{font-size:1.05rem}
-    .summary-grid .service-card p{font-size:.98rem}
-    .summary-grid .more{display:inline-block;margin-top:8px;font-weight:600}
-    
-
     /* Services Grid */
     .service-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
     @media(max-width:1000px){.service-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -94,18 +72,34 @@
     }
 
     /* Chatbot blok */
-    .section-chatbot.container{max-width:1100px;margin:0 auto 72px;padding:0 1rem}
-    .chatband{position:relative;background:linear-gradient(135deg,#03304F 0%,#0b364f 70%);color:#fff;border-radius:22px;padding:2rem 1.25rem 1.75rem;box-shadow:0 14px 36px rgba(2,6,23,.16);opacity:0;transform:translateY(6px);animation:chatBandIn .5s ease-out .05s forwards}
-    .chatband::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;border-top-left-radius:22px;border-top-right-radius:22px;background:#0f6ab8}
-    .section-title{text-align:center;font-size:clamp(1.5rem,2vw + 1rem,2rem);margin:0 0 .35rem;color:#fff}
-    .section-subtitle{text-align:center;color:rgba(255,255,255,.9);margin:0 0 1.25rem}
-    .chat-wrapper{background:#fff;border-radius:18px;overflow:hidden;border:1px solid #e6eef7;box-shadow:0 10px 30px rgba(2,6,23,.10);max-width:920px;margin:0 auto;opacity:0;transform:translateY(8px) scale(.985);animation:chatCardIn .45s ease-out .12s forwards;will-change:opacity,transform}
-    .chat-wrapper iframe{display:block;width:100%;height:660px;border:0;background:#fff;opacity:0;transform:translateY(4px);animation:chatIframeIn .55s ease-out .22s forwards;will-change:opacity,transform}
+    .section-chatbot.container{max-width:1100px;margin:0 auto 64px;padding:0 1rem}
+    .chatband{position:relative;background:linear-gradient(135deg,#03304F 0%,#0b364f 70%);color:#fff;border-radius:18px;padding:1.5rem 1rem 1.25rem;box-shadow:0 14px 36px rgba(2,6,23,.16);opacity:0;transform:translateY(6px);animation:chatBandIn .5s ease-out .05s forwards}
+    .chatband::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;border-top-left-radius:18px;border-top-right-radius:18px;background:#0f6ab8}
+    .section-title{text-align:center;font-size:clamp(1.35rem,1.6vw + 1rem,1.85rem);margin:0 0 .25rem;color:#fff}
+    .section-subtitle{text-align:center;color:rgba(255,255,255,.9);margin:0 0 1rem}
+
+    /* Compact card met toolbar */
+    .chat-wrapper{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e6eef7;box-shadow:0 10px 30px rgba(2,6,23,.10);max-width:760px;margin:0 auto;opacity:0;transform:translateY(6px) scale(.992);animation:chatCardIn .45s ease-out .12s forwards}
+    .chat-toolbar{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:8px 10px;background:linear-gradient(90deg,#0b364f, #0f6ab8);color:#fff}
+    .chat-toolbar .title{display:flex;align-items:center;gap:10px;font-weight:700}
+    .chat-toolbar .dot{width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.25)}
+    .chat-btn{appearance:none;border:0;border-radius:999px;background:#ffffff;color:#0b364f;font-weight:700;padding:6px 12px;cursor:pointer;box-shadow:0 2px 10px rgba(2,6,23,.18)}
+    .chat-btn.secondary{background:rgba(255,255,255,.15);color:#fff;box-shadow:none;border:1px solid rgba(255,255,255,.25)}
+
+    /* Iframe hoogtes: compact -> uitklapbaar */
+    .chat-wrapper iframe{display:block;width:100%;height:420px;border:0;background:#fff}
+    .chat-wrapper.expanded iframe{height:720px}
+
+    @media (max-width:900px){
+      .chat-wrapper{max-width:100%}
+      .chat-wrapper iframe{height:520px}
+      .chat-wrapper.expanded iframe{height:86vh}
+    }
+
     @keyframes chatBandIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-    @keyframes chatCardIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
-    @keyframes chatIframeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-    @media (prefers-reduced-motion: reduce){.chatband,.chat-wrapper,.chat-wrapper iframe{animation:none!important;opacity:1!important;transform:none!important}}
-    @media (max-width:768px){.chatband{padding:1.5rem 1rem;border-radius:18px}.chatband::before{border-top-left-radius:18px;border-top-right-radius:18px}.chat-wrapper{max-width:100%;border-radius:16px}.chat-wrapper iframe{height:760px}}
+    @keyframes chatCardIn{from{opacity:0;transform:translateY(6px) scale(.985)}to{opacity:1;transform:none}}
+
+    @media (prefers-reduced-motion: reduce){.chatband,.chat-wrapper{animation:none!important;opacity:1!important;transform:none!important}}
 
     /* Footer */
     .site-footer{background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;font-size:.9rem;line-height:1.6}
@@ -179,6 +173,10 @@
   <link rel="preload" as="image" href="https://osmose-xpert.be/images/ox-logo-transparant-1920%20(2).png"/>
   <link rel="preload" as="video" href="banner-anim.mp4"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"/>
+
+  <!-- TrustBox script -->
+  <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+  <!-- End TrustBox script -->
 </head>
 <body>
   <!-- NAV (1-op-1 met over-ons: Home pill + hamburger) -->
@@ -221,76 +219,6 @@
   </header>
 
   <main id="content">
-
-    <!-- START: Waarom eerst, dynamisch en zonder vakjes -->
-    <section class="section why" aria-labelledby="why">
-      <h2 id="why" class="fade-up" style="animation-delay:.02s">Waarom OsmoseXpert?</h2>
-      <p class="lede fade-up" style="animation-delay:.06s">Streeploos schoon zonder chemie, veilig vanaf de grond en met vaste, transparante afspraken.</p>
-      <div class="feature-row">
-        <div class="feature-item fade-up" style="animation-delay:.10s">
-          <h3>Osmosekwaliteit</h3>
-          <p>Puur osmosewater spoelt vuil en mineralen weg. Geen strepen, wel langdurig helder glas en kozijnen die langer mooi blijven.</p>
-        </div>
-        <div class="feature-item fade-up" style="animation-delay:.14s">
-          <h3>Veilig & efficiënt</h3>
-          <p>Werken vanaf de grond tot ±15 m. Geen ladders tegen gevels, geen risico, wel tempo en zorg.</p>
-        </div>
-        <div class="feature-item fade-up" style="animation-delay:.18s">
-          <h3>Tevredenheidsgarantie</h3>
-          <p>Niet tevreden? We komen gewoon terug. Pas als jij tevreden bent, zijn wij dat ook.</p>
-        </div>
-      </div>
-      <ul class="keylines fade-up" style="animation-delay:.22s">
-        <li>Ronse • Kluisbergen • Oudenaarde</li>
-        <li>Particulier én bedrijf</li>
-        <li>Onderhoudsplannen met voordeel</li>
-      </ul>
-    </section>
-    <!-- END: Waarom blok -->
-
-
-    <!-- Homepage-samenvatting: wie, wat, waarom, vertrouwen, call-to-actions -->
-    <section class="section home-summary" aria-label="Samenvatting">
-      <h2>Kort over OsmoseXpert</h2>
-      <div class="summary-grid">
-        <div class="service-card">
-          <h3>Wie zijn we?</h3>
-          <p>Lokale specialist in streeploze ramenreiniging met osmosewater. Zorgzaam, discreet en professioneel.</p>
-          <a class="more" href="over-ons.html">Lees meer over ons →</a>
-        </div>
-        <div class="service-card">
-          <h3>Wat doen we (en niet)?</h3>
-          <p>Ramen, veranda’s/serres, zonnepanelen. Geen agressieve chemie of risicovolle ladders: wij werken veilig vanaf de grond.</p>
-          <a class="more" href="diensten.html">Bekijk alle diensten →</a>
-        </div>
-        <div class="service-card">
-          <h3>Welk probleem lossen we op?</h3>
-          <p>Vuile ramen en doffe panelen kosten zicht en rendement. Wij brengen helderheid terug—langdurig en zonder strepen.</p>
-          <a class="more" href="diensten.html#zonnepanelen">Meer over zonnepanelen reinigen →</a>
-        </div>
-        <div class="service-card">
-          <h3>Is dit relevant voor mij?</h3>
-          <p>Actief in Ronse, Kluisbergen en Oudenaarde—particulier én bedrijf. Afspraak = afspraak.</p>
-          <a class="more" href="contact.html">Werkgebied & contact →</a>
-        </div>
-        <div class="service-card">
-          <h3>Waarom kiezen voor ons?</h3>
-          <p>Moderne osmose‑technologie, strak proces en tevredenheidsgarantie. We behandelen elk pand alsof het van ons is.</p>
-          <a class="more" href="over-ons.html#waarden">Onze aanpak →</a>
-        </div>
-        <div class="service-card">
-          <h3>Kan ik je vertrouwen?</h3>
-          <p>Transparante prijzen, vaste onderhoudsplannen en herkomst van water & materialen helder uitgelegd.</p>
-          <a class="more" href="prijzen.html">Zie indicatieve prijzen →</a>
-        </div>
-        <div class="service-card">
-          <h3>Wat moet ik doen?</h3>
-          <p>Vraag een offerte of plan direct. Tip: onderhoudsplan = voordeel en vaste planning.</p>
-          <a class="more" href="onderhoudsplannen.html">Onderhoudsplannen →</a>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
       <h2 class="motion-text">Waarom OsmoseXpert?</h2>
       <p>Vakmanschap + osmose-technologie = langdurig schone, streeploze ramen en veilige werkwijze vanaf de grond.</p>
@@ -300,7 +228,7 @@
           <li>Geen chemische producten</li>
           <li>Veilig tot ±15 m zonder ladder</li>
           <li>Langer schoon effect door osmosewater</li>
-          <li>Transparante prijzen &amp; snelle responstijd</li>
+          <li>Transparante prijzen & snelle responstijd</li>
           <li>Onderhoudsplannen met vaste planning</li>
           <li><strong>Tevredenheidsgarantie</strong></li>
         </ul>
@@ -319,7 +247,7 @@
           <p>Hou je rendement hoog: zachte, efficiënte reiniging met puur osmosewater.</p>
         </div>
         <div class="service-card">
-          <h3>Veranda’s &amp; serres</h3>
+          <h3>Veranda’s & serres</h3>
           <p>Moeilijk bereikbare plaatsen worden glashelder zonder ladder of risico.</p>
         </div>
         <div class="service-card">
@@ -335,7 +263,14 @@
       <div class="chatband">
         <h2 class="section-title">Hoe kunnen wij je vandaag helpen?</h2>
         <p class="section-subtitle">Stel gerust je vraag – we helpen meteen met prijzen, onderhoud of een afspraak.</p>
-        <div class="chat-wrapper">
+        <div class="chat-wrapper chat-compact" id="chatWrapper">
+          <div class="chat-toolbar">
+            <div class="title"><span class="dot" aria-hidden="true"></span><span>Digitale assistent</span></div>
+            <div class="tools">
+              <button type="button" class="chat-btn" id="chatToggleSize" aria-expanded="false">Vergroot</button>
+              <a class="chat-btn secondary" href="contact.html">Contact</a>
+            </div>
+          </div>
           <iframe
             src="https://www.chatbase.co/chatbot-iframe/TkHOZ_mxX3kecf30oT-ri"
             title="OsmoseXpert Chatvenster"
@@ -356,6 +291,20 @@
     <a class="cta-btn cta-offerte" href="offerte.html" aria-label="Offerte aanvragen">Offerte aanvragen</a>
     <a class="cta-btn cta-boek" href="#boek" data-calendly aria-label="Afspraak boeken">Boek nu</a>
   </div>
+
+  <!-- TrustBox widget - Review Collector (boven de footer) -->
+  <div class="section" style="margin-bottom:20px">
+    <div class="trustpilot-widget"
+         data-locale="fr-FR"
+         data-template-id="56278e9abfbbba0bdcd568bc"
+         data-businessunit-id="68fb3b244ed74fdfc3798889"
+         data-style-height="52px"
+         data-style-width="100%"
+         data-token="4d8792ff-8221-454d-ac80-72de3008604e">
+      <a href="https://fr.trustpilot.com/review/osmose-xpert.be" target="_blank" rel="noopener">Trustpilot</a>
+    </div>
+  </div>
+  <!-- End TrustBox widget -->
 
 
     <!-- Chatbase z-index fix -->
@@ -397,6 +346,19 @@
     })();
   </script>
 
+  <script>
+    // Toggle compact/expanded chatkaart
+    (function(){
+      var wrap=document.getElementById('chatWrapper');
+      var btn=document.getElementById('chatToggleSize');
+      if(!wrap||!btn) return;
+      btn.addEventListener('click', function(){
+        var exp = wrap.classList.toggle('expanded');
+        btn.setAttribute('aria-expanded', String(exp));
+        btn.textContent = exp ? 'Verklein' : 'Vergroot';
+      });
+    })();
+  </script>
   <!-- Auto-minimize Chatbase on load -->
   <script>
     (function(){
@@ -670,4 +632,28 @@
   window.cookieConsent = {
     open: function(){ show(); showOverlay(); },
     get: function(){ return loadState(); },
-    set: function(opts){ var 
+    set: function(opts){ var prev=loadState()||{essential:true,analytics:false,marketing:false}; var cons=Object.assign({},prev,opts,{ts:Date.now()}); saveState(cons); apply(cons); }
+  };
+
+  function loadGA(){ 
+    if(!GA_ID || document.getElementById('ga4-src')) return; 
+    var s1=document.createElement('script'); s1.async=true; s1.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; s1.id='ga4-src'; document.head.appendChild(s1);
+    var s2=document.createElement('script'); s2.id='ga4-init'; s2.text="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','"+GA_ID+"',{anonymize_ip:true});"; document.head.appendChild(s2);
+  }
+
+  function enableChatbase(){ 
+    chatToggle.hidden=false; 
+    if(!chatLoaded){ 
+      var ifr=document.createElement('iframe'); 
+      ifr.src=CHATBASE_IFRAME_SRC; ifr.width='100%'; ifr.style.height='100%'; ifr.setAttribute('frameborder','0'); 
+      chatBox.appendChild(ifr); chatLoaded=true; 
+    } 
+  }
+  function disableChatbase(){ chatToggle.hidden=true; chatBox.style.display='none'; }
+  chatToggle.addEventListener('click', function(){ chatBox.style.display = (chatBox.style.display==='block'?'none':'block'); });
+})();
+</script>
+<!-- END OsmoseXpert Cookie Consent -->
+
+</body>
+</html>
