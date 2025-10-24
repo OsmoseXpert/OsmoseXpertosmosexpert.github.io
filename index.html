@@ -72,34 +72,28 @@
     }
 
     /* Chatbot blok */
-    .section-chatbot.container{max-width:1100px;margin:0 auto 64px;padding:0 1rem}
-    .chatband{position:relative;background:linear-gradient(135deg,#03304F 0%,#0b364f 70%);color:#fff;border-radius:18px;padding:1.5rem 1rem 1.25rem;box-shadow:0 14px 36px rgba(2,6,23,.16);opacity:0;transform:translateY(6px);animation:chatBandIn .5s ease-out .05s forwards}
-    .chatband::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;border-top-left-radius:18px;border-top-right-radius:18px;background:#0f6ab8}
+    .section-chatbot.container{max-width:1100px;margin:0 auto 56px;padding:0 1rem}
+    .chatband{background:#0b364f;color:#fff;border-radius:16px;padding:12px;box-shadow:0 10px 28px rgba(2,6,23,.14)}
     .section-title{text-align:center;font-size:clamp(1.35rem,1.6vw + 1rem,1.85rem);margin:0 0 .25rem;color:#fff}
     .section-subtitle{text-align:center;color:rgba(255,255,255,.9);margin:0 0 1rem}
 
-    /* Compact card met toolbar */
-    .chat-wrapper{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e6eef7;box-shadow:0 10px 30px rgba(2,6,23,.10);max-width:760px;margin:0 auto;opacity:0;transform:translateY(6px) scale(.992);animation:chatCardIn .45s ease-out .12s forwards}
-    .chat-toolbar{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:8px 10px;background:linear-gradient(90deg,#0b364f, #0f6ab8);color:#fff}
+    /* Compact card met minimal toolbar */
+    .chat-wrapper{background:#fff;border:1px solid #e6eef7;border-radius:12px;overflow:hidden;box-shadow:0 10px 28px rgba(2,6,23,.10);max-width:720px;margin:0 auto}
+    .chat-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 10px;background:linear-gradient(90deg,#0b364f,#0f6ab8);color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
     .chat-toolbar .title{display:flex;align-items:center;gap:10px;font-weight:700}
-    .chat-toolbar .dot{width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.25)}
-    .chat-btn{appearance:none;border:0;border-radius:999px;background:#ffffff;color:#0b364f;font-weight:700;padding:6px 12px;cursor:pointer;box-shadow:0 2px 10px rgba(2,6,23,.18)}
-    .chat-btn.secondary{background:rgba(255,255,255,.15);color:#fff;box-shadow:none;border:1px solid rgba(255,255,255,.25)}
+    .chat-toolbar .dot{width:10px;height:10px;border-radius:50%;background:#10b981}
+    .chat-btn{appearance:none;border:0;border-radius:999px;background:#fff;color:#0b364f;font-weight:700;padding:6px 12px;cursor:pointer}
+    .chat-btn.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
 
-    /* Iframe hoogtes: compact -> uitklapbaar */
-    .chat-wrapper iframe{display:block;width:100%;height:420px;border:0;background:#fff}
-    .chat-wrapper.expanded iframe{height:720px}
+    /* Iframe hoogtes: compact → uitklapbaar */
+    .chat-wrapper iframe{display:block;width:100%;height:380px;border:0;background:#fff}
+    .chat-wrapper.expanded iframe{height:640px}
 
-    @media (max-width:900px){
+    @media(max-width:900px){
       .chat-wrapper{max-width:100%}
-      .chat-wrapper iframe{height:520px}
-      .chat-wrapper.expanded iframe{height:86vh}
+      .chat-wrapper iframe{height:480px}
+      .chat-wrapper.expanded iframe{height:82vh}
     }
-
-    @keyframes chatBandIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-    @keyframes chatCardIn{from{opacity:0;transform:translateY(6px) scale(.985)}to{opacity:1;transform:none}}
-
-    @media (prefers-reduced-motion: reduce){.chatband,.chat-wrapper{animation:none!important;opacity:1!important;transform:none!important}}
 
     /* Footer */
     .site-footer{background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;font-size:.9rem;line-height:1.6}
@@ -261,8 +255,8 @@
     <!-- Chatbase embed -->
     <section class="section-chatbot container" id="osmosexpert-chat">
       <div class="chatband">
-        <h2 class="section-title">Hoe kunnen wij je vandaag helpen?</h2>
-        <p class="section-subtitle">Stel gerust je vraag – we helpen meteen met prijzen, onderhoud of een afspraak.</p>
+        <h2 class="section-title">Snelle antwoorden nodig?</h2>
+        <p class="section-subtitle">Onze digitale assistent helpt je meteen met prijzen, onderhoud of het plannen van een afspraak.</p>
         <div class="chat-wrapper chat-compact" id="chatWrapper">
           <div class="chat-toolbar">
             <div class="title"><span class="dot" aria-hidden="true"></span><span>Digitale assistent</span></div>
@@ -294,59 +288,11 @@
 
   <!-- TrustBox widget - Review Collector (boven de footer) -->
   <div class="section" style="margin-bottom:20px">
-    <div class="trustpilot-widget"
-         data-locale="fr-FR"
-         data-template-id="56278e9abfbbba0bdcd568bc"
-         data-businessunit-id="68fb3b244ed74fdfc3798889"
-         data-style-height="52px"
-         data-style-width="100%"
-         data-token="4d8792ff-8221-454d-ac80-72de3008604e">
-      <a href="https://fr.trustpilot.com/review/osmose-xpert.be" target="_blank" rel="noopener">Trustpilot</a>
+    <div class="trustpilot-widget" data-locale="nl-BE" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="68fb3b244ed74fdfc3798889" data-style-height="52px" data-style-width="100%" data-token="e6ca4872-ca8a-4d34-bd32-6d937a95554c">
+      <a href="https://nl-be.trustpilot.com/review/osmose-xpert.be" target="_blank" rel="noopener">Trustpilot</a>
     </div>
   </div>
-  <!-- End TrustBox widget -->
-
-
-    <!-- Chatbase z-index fix -->
-  <style>
-    .chatbase-bubble, .chatbase-widget { z-index: 2147483000 !important }
-    .chatbase-widget { max-width: 380px !important; max-height: 72vh !important; right: 16px !important; bottom: 16px !important }
-    .chatbase-bubble { right: 16px !important; bottom: 16px !important }
-  </style>
-
-  <!-- Chatbase identity (set BEFORE embed script) -->
-  <script>
-    (async () => {
-      try {
-        const lsKey = "ox_uid";
-        let uid = localStorage.getItem(lsKey);
-        if (!uid) { uid = (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()); localStorage.setItem(lsKey, uid); }
-        const payload = { user_id: "web:" + uid, user_metadata: { name: "Websitebezoeker", source: "github-pages" } };
-        let cfg = { user_id: payload.user_id, user_metadata: payload.user_metadata };
-        try {
-          const resp = await fetch("https://osmose-xpert-osmosexpert-github-4cjttth42-osmosexperts-projects.vercel.app/api/chatbase-identify", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-          if (resp.ok) { cfg = await resp.json(); }
-        } catch(e) {}
-        window.chatbaseUserConfig = cfg;
-      } catch(e) {
-        window.chatbaseUserConfig = { user_id: "web:guest", user_metadata: { source: "github-pages" } };
-      }
-    })();
-  </script>
-
-  <!-- Chatbase widget loader -->
-  <script>
-    (function(){
-      if(!window.chatbase||window.chatbase("getState")!=="initialized"){
-        window.chatbase=(...arguments)=>{ if(!window.chatbase.q){window.chatbase.q=[]} window.chatbase.q.push(arguments) };
-        window.chatbase=new Proxy(window.chatbase,{ get(target,prop){ if(prop==="q"){return target.q} return(...args)=>target(prop,...args) } });
-      }
-      function onLoad(){ const s=document.createElement("script"); s.src="https://www.chatbase.co/embed.min.js"; s.id="MjQNxm0-RM-G44z9g2jkE"; s.domain="www.chatbase.co"; document.body.appendChild(s); }
-      if(document.readyState==="complete"){ onLoad(); } else { window.addEventListener("load",onLoad); }
-    })();
-  </script>
-
-  <script>
+  <!-- End TrustBox widget --><script>
     // Toggle compact/expanded chatkaart
     (function(){
       var wrap=document.getElementById('chatWrapper');
@@ -357,15 +303,6 @@
         btn.setAttribute('aria-expanded', String(exp));
         btn.textContent = exp ? 'Verklein' : 'Vergroot';
       });
-    })();
-  </script>
-  <!-- Auto-minimize Chatbase on load -->
-  <script>
-    (function(){
-      function tryClose(){ try{ window.chatbase && window.chatbase('close'); }catch(e){} }
-      var mo = new MutationObserver(function(){ if (document.querySelector('.chatbase-widget')) { tryClose(); mo.disconnect(); } });
-      mo.observe(document.documentElement || document.body, { childList:true, subtree:true });
-      window.addEventListener('load', function(){ setTimeout(tryClose, 250); });
     })();
   </script>
 
@@ -566,8 +503,8 @@
   </div>
 </div>
 
-<div id="ox-chatbase-container" aria-label="Digitale assistent"></div>
-<button id="ox-chatbase-toggle" hidden type="button">Digitale assistent</button>
+<div id="ox-chatbase-container" aria-label="Digitale assistent – snelle antwoorden"></div>
+<button id="ox-chatbase-toggle" hidden type="button" aria-label="Digitale assistent">Snelle antwoorden</button>
 
 <script>
 (function(){
