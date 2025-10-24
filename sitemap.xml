@@ -1,87 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Belangrijkste pagina’s -->
   <url>
-    <loc>https://www.osmose-xpert.be/bedankt.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.osmose-xpert.be/bedankt.offerte.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.osmose-xpert.be/contact.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.osmose-xpert.be/cookiebeleid.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.osmose-xpert.be/diensten.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.osmose-xpert.be/faq.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.osmose-xpert.be/index.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.osmose-xpert.be/</loc>
+    <lastmod>2025-10-24</lastmod>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://www.osmose-xpert.be/offerte.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.osmose-xpert.be/onderhoudsplannen.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://www.osmose-xpert.be/over-ons.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-10-24</lastmod>
+    <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://www.osmose-xpert.be/prijslijst-2025.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.osmose-xpert.be/diensten.html</loc>
+    <lastmod>2025-10-24</lastmod>
+    <priority>0.9</priority>
   </url>
+
   <url>
     <loc>https://www.osmose-xpert.be/prijzen.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-10-24</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://www.osmose-xpert.be/onderhoudsplannen.html</loc>
+    <lastmod>2025-10-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.osmose-xpert.be/contact.html</loc>
+    <lastmod>2025-10-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.osmose-xpert.be/faq.html</loc>
+    <lastmod>2025-10-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Juridische & beleids-pagina’s -->
   <url>
     <loc>https://www.osmose-xpert.be/privacy.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-10-24</lastmod>
+    <priority>0.4</priority>
   </url>
+
   <url>
     <loc>https://www.osmose-xpert.be/voorwaarden.html</loc>
-    <lastmod>2025-09-20T09:48:55Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-10-24</lastmod>
+    <priority>0.4</priority>
   </url>
+
+  <url>
+    <loc>https://www.osmose-xpert.be/cookiebeleid.html</loc>
+    <lastmod>2025-10-24</lastmod>
+    <priority>0.4</priority>
+  </url>
+
 </urlset>
