@@ -93,8 +93,6 @@
     .site-footer a:hover{text-decoration:underline}
     .site-footer .legal{border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:12px;text-align:center;color:#94a3b8;font-size:.85rem;line-height:1.5}
     @media(max-width:700px){.foot-inner{text-align:center}.foot-inner div{margin:auto}}
-  
-
     /* === MOBILE: Diensten-stijl hamburger === */
     @media (max-width:900px){
       .nav.centered{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:100;display:flex;justify-content:flex-end;padding:10px 16px}
@@ -107,9 +105,7 @@
       .nav.centered .nav-list a.active,.nav.centered .nav-list [aria-current="page"]{background:#e7f1ff;box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
       .nav-toggle:focus-visible,.nav.centered .nav-list a:focus-visible{outline:2px solid #0f6ab8;outline-offset:3px;border-radius:10px}
     }
-    }
-  
-
+    
     /* Floating CTA styles (zoals over-ons) */
     .floating-cta{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;flex-direction:column;gap:12px;transition:opacity .25s ease,transform .25s ease}
     .floating-cta.hidden{opacity:0;transform:translateY(16px);pointer-events:none}
@@ -118,11 +114,10 @@
     .floating-cta .cta-offerte{background:#10b981}
     .floating-cta .cta-boek{background:#2563eb}
     @media (max-width:480px){.floating-cta{right:12px;bottom:12px}.floating-cta .cta-btn{padding:12px 14px;font-size:15px}}
-  
 
     /* === USP (Waarom klanten voor ons kiezen) – dynamisch & met motion === */
     .usp-mobile{border:1px solid #e2e8f0;background:#f8fbff;border-radius:14px;overflow:hidden}
-    .usp-mobile summary{cursor:pointer;user-select:none;list-style:none;display:flex;align-items:center;gap:10px;padding:14px 16px;font-weight:700;color:#0a3d62}
+    .usp-mobile summary{cursor:pointer;user-select:none;display:flex;align-items:center;gap:10px;padding:14px 16px;font-weight:700;color:#0a3d62}
     .usp-mobile summary::-webkit-details-marker{display:none}
     .usp-mobile summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2px solid #0a3d62;border-bottom:2px solid #0a3d62;transform:rotate(45deg);transition:transform .25s ease}
     .usp-mobile[open] summary::after{transform:rotate(-135deg)}
@@ -160,7 +155,7 @@
   <link rel="canonical" href="https://osmose-xpert.be/"/>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"OsmoseXpert","image":"https://osmose-xpert.be/images/logo3.svg","@id":"https://osmose-xpert.be/","url":"https://osmose-xpert.be/","telephone":"+32 493 67 34 84","address":{"@type":"PostalAddress","addressLocality":"Ronse","addressCountry":"BE"},"areaServed":["Ronse","Kluisbergen","Oudenaarde"],"openingHours":"Mo-Fr 09:00-17:00","sameAs":[]}</script>
   <link rel="preload" as="image" href="https://osmose-xpert.be/images/ox-logo-transparant-1920%20(2).png"/>
-  <link rel="preload" as="video" href="banner-amin.mp4"/>
+  <link rel="preload" as="video" href="banner-anim.mp4"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"/>
 </head>
 <body>
@@ -192,7 +187,7 @@
   <header class="hero-banner">
     <div class="hero-logo" aria-label="Banner video">
       <video id="heroVideo" class="hero-video" autoplay muted playsinline loop preload="auto" poster="https://osmose-xpert.be/images/ox-logo-transparant-1920%20(2).png">
-        <source src="banner-amin.mp4" type="video/mp4"/>
+        <source src="banner-anim.mp4" type="video/mp4"/>
         <source src="https://osmose-xpert.be/assets/assets/video/logo-anim.mp4" type="video/mp4"/>
         Uw browser ondersteunt het video-element niet.
       </video>
@@ -200,7 +195,7 @@
     <div class="content">
       <h1>Uw ramen, onze zorg.</h1>
       <p>Professionele ramenreiniging in <span class="nb">Ronse en omgeving</span>.<br class="br-split"/>Streeploos, veilig en zonder chemische producten.</p>
-    </div>
+      </div>
   </header>
 
   <main id="content">
@@ -271,7 +266,7 @@
   </div>
 
 
-  <!-- Chatbase z-index fix -->
+    <!-- Chatbase z-index fix -->
   <style>
     .chatbase-bubble, .chatbase-widget { z-index: 2147483000 !important }
     .chatbase-widget { max-width: 380px !important; max-height: 72vh !important; right: 16px !important; bottom: 16px !important }
