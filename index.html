@@ -254,30 +254,144 @@
 
     <!-- Chatbase embed -->
     <section class="section-chatbot container" id="osmosexpert-chat">
-      <div class="chatband">
-        <h2 class="section-title">Snelle antwoorden nodig?</h2>
-        <p class="section-subtitle">Onze digitale assistent helpt je meteen met prijzen, onderhoud of het plannen van een afspraak.</p>
-        <div class="chat-wrapper chat-compact" id="chatWrapper">
-          <div class="chat-toolbar">
-            <div class="title"><span class="dot" aria-hidden="true"></span><span>Digitale assistent</span></div>
-            <div class="tools">
-              <button type="button" class="chat-btn" id="chatToggleSize" aria-expanded="false">Vergroot</button>
-              <a class="chat-btn secondary" href="contact.html">Contact</a>
-            </div>
-          </div>
-          <iframe
-            src="https://www.chatbase.co/chatbot-iframe/TkHOZ_mxX3kecf30oT-ri"
-            title="OsmoseXpert Chatvenster"
-            loading="lazy"
-            frameborder="0"
-            referrerpolicy="no-referrer"
-            sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-modals allow-top-navigation-by-user-activation"
-            allow="clipboard-read; clipboard-write"
-          ></iframe>
-        </div>
-        <noscript><p>Schakel JavaScript in om het chatvenster te gebruiken.</p></noscript>
+  <div class="chatband-modern">
+    <div class="chatband-header">
+      <div class="chatband-title">
+        <span class="status-dot"></span>
+        <h2>Digitale assistent</h2>
+        <img class="assist-gif" src="images/ox-assist.gif" alt="OsmoseXpert animatie" width="28" height="28" loading="lazy"/>
       </div>
-    </section>
+      <div class="chatband-actions">
+        <button id="chatExpand" class="chat-action">Vergroot</button>
+        <a href="contact.html" class="chat-action secondary">Contact</a>
+      </div>
+    </div>
+    <div class="chatband-body">
+      <iframe src="https://www.chatbase.co/chatbot-iframe/TkHOZ_mxX3kecf30oT-ri" title="OsmoseXpert Chatvenster" loading="lazy" allow="clipboard-read; clipboard-write" sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-modals"></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+.chatband-modern {
+  background: linear-gradient(145deg, #0b364f 0%, #0f6ab8 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.2);
+  overflow: hidden;
+  max-width: 860px;
+  margin: 40px auto;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.chatband-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+}
+
+.chatband-title {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* iets ruimer voor balans */
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.chatband-title h2{
+  margin: 0;               /* verwijder default marge */
+  line-height: 1;          /* cap-height uitlijning */
+  display: flex;
+  align-items: center;     /* optische uitlijning met GIF */
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+/* kleine animatie naast de titel */
+.assist-gif{
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 6px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.15));
+}
+@media (prefers-reduced-motion: reduce){
+  .assist-gif{ display:none; }
+}
+
+.chatband-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-action {
+  background: #fff;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #0b364f;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.chat-action:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.chat-action.secondary {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.4);
+  color: #fff;
+}
+
+.chatband-body iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+  background: #fff;
+  transition: height .4s ease;
+}
+
+.chatband-modern.expanded iframe {
+  height: 680px;
+}
+
+@media (max-width: 768px) {
+  .chatband-modern {
+    margin: 20px 12px;
+  }
+  .chatband-body iframe {
+    height: 500px;
+  }
+  .chatband-modern.expanded iframe {
+    height: 80vh;
+  }
+}
+</style>
+
+<script>
+  (function(){
+    const chatContainer = document.querySelector('.chatband-modern');
+    const expandBtn = document.getElementById('chatExpand');
+    if(expandBtn && chatContainer){
+      expandBtn.addEventListener('click', () => {
+        chatContainer.classList.toggle('expanded');
+        expandBtn.textContent = chatContainer.classList.contains('expanded') ? 'Verklein' : 'Vergroot';
+      });
+    }
+  })();
+</script>
   </main>
 
   <!-- Floating CTA buttons (zoals over-ons) -->
