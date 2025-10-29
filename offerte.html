@@ -47,15 +47,6 @@
     @media (max-width:700px){.row{grid-template-columns:1fr;gap:16px}}
     .muted{font-size:13px;color:#64748b;margin-top:6px;line-height:1.5}
 
-    /* File upload */
-    .file-upload-area{border:2px dashed #cbd5e1;border-radius:12px;padding:24px;text-align:center;background:#f8fafc;transition:all 0.2s ease;cursor:pointer;margin-top:8px}
-    .file-upload-area:hover,.file-upload-area.dragover{border-color:#0f6ab8;background:#f0f7ff}
-    .upload-content p{margin:8px 0 4px;color:#475569}
-    .upload-content p:first-of-type{font-weight:600;color:#334155}
-    .file-list{margin-top:16px;text-align:left}
-    .file-item{display:flex;align-items:center;gap:12px;padding:8px 12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px}
-    .file-item button{background:#ef4444;color:#fff;border:none;border-radius:6px;padding:4px 8px;font-size:12px;cursor:pointer}
-
     /* Tooltips */
     .tooltip{position:relative;display:inline-block}
     .tooltip .tooltiptext{visibility:hidden;width:200px;background:#1f2937;color:#fff;text-align:center;border-radius:8px;padding:8px 12px;position:absolute;z-index:1000;bottom:125%;left:50%;margin-left:-100px;opacity:0;transition:opacity 0.3s;font-size:13px;line-height:1.4}
@@ -270,25 +261,6 @@
 
           <label for="opm">Opmerkingen</label>
           <textarea id="opm" name="opmerkingen" rows="4" placeholder="Handig: aantal verdiepingen, bereikbaarheid, specifieke wensen, beste tijdstip voor contact…"></textarea>
-          
-          <label for="photos">Foto's uploaden (optioneel) 
-            <span class="tooltip">📸
-              <span class="tooltiptext">Foto's van uw ramen, zonnepanelen of specifieke situaties helpen ons een nauwkeurigere offerte te maken</span>
-            </span>
-          </label>
-          <div class="file-upload-area" id="fileUploadArea">
-            <input type="file" id="photos" name="photos" multiple accept="image/*" style="display:none">
-            <div class="upload-content">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21,15 16,10 5,21"/>
-              </svg>
-              <p><strong>Klik om foto's te selecteren</strong> of sleep ze hierheen</p>
-              <p class="muted">Foto's van ramen, zonnepanelen of specifieke situaties helpen ons een betere offerte te maken</p>
-            </div>
-            <div class="file-list" id="fileList"></div>
-          </div>
 
           <!-- Akkoorden -->
           <div class="check-wrap">
@@ -397,62 +369,6 @@
       document.getElementById('progressFill').style.width = progress + '%';
     }
 
-    // File upload functionality
-    const fileUploadArea = document.getElementById('fileUploadArea');
-    const fileInput = document.getElementById('photos');
-    const fileList = document.getElementById('fileList');
-    let uploadedFiles = [];
-
-    fileUploadArea.addEventListener('click', () => fileInput.click());
-    
-    fileUploadArea.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      fileUploadArea.classList.add('dragover');
-    });
-    
-    fileUploadArea.addEventListener('dragleave', () => {
-      fileUploadArea.classList.remove('dragover');
-    });
-    
-    fileUploadArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      fileUploadArea.classList.remove('dragover');
-      handleFiles(e.dataTransfer.files);
-    });
-    
-    fileInput.addEventListener('change', (e) => {
-      handleFiles(e.target.files);
-    });
-
-    function handleFiles(files) {
-      Array.from(files).forEach(file => {
-        if (file.type.startsWith('image/') && file.size < 5 * 1024 * 1024) { // 5MB limit
-          uploadedFiles.push(file);
-          displayFile(file);
-        }
-      });
-    }
-
-    function displayFile(file) {
-      const fileItem = document.createElement('div');
-      fileItem.className = 'file-item';
-      fileItem.innerHTML = `
-        <span>📷 ${file.name} (${(file.size / 1024).toFixed(1)} KB)</span>
-        <button type="button" onclick="removeFile('${file.name}')">Verwijder</button>
-      `;
-      fileList.appendChild(fileItem);
-    }
-
-    function removeFile(fileName) {
-      uploadedFiles = uploadedFiles.filter(file => file.name !== fileName);
-      const fileItems = fileList.querySelectorAll('.file-item');
-      fileItems.forEach(item => {
-        if (item.textContent.includes(fileName)) {
-          item.remove();
-        }
-      });
-    }
-
     // Form validation
     function validateField(field) {
       const parent = field.closest('div');
@@ -537,27 +453,58 @@
         
         const data = new FormData(form);
         
-        // Add uploaded files
-        uploadedFiles.forEach((file, index) => {
-          data.append(`photo_${index}`, file);
-        });
-        
         const btn = form.querySelector('button[type="submit"]');
         try{
           if(btn){ btn.disabled = true; btn.setAttribute('aria-busy','true'); }
-          const res = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+          
+          console.log('Submitting to:', form.action);
+          console.log('Form data entries:', [...data.entries()]);
+          
+          const res = await fetch(form.action, { 
+            method: 'POST', 
+            body: data, 
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          console.log('Response status:', res.status);
+          console.log('Response ok:', res.ok);
+          
           if(res.ok){ 
             // Show success message before redirect
             btn.innerHTML = '✅ Verzonden! Doorsturen...';
-            setTimeout(() => window.location.assign('bedankt.html'), 1500);
-          }
-          else{ 
-            throw new Error('Server error');
+            setTimeout(() => {
+              // Use relative path instead of absolute
+              window.location.href = 'bedankt.html';
+            }, 1500);
+          } else {
+            // Get more detailed error info
+            const errorText = await res.text();
+            console.log('Error response:', errorText);
+            throw new Error(`Server responded with ${res.status}: ${errorText}`);
           }
         }catch(err){ 
-          // Custom error modal instead of alert
-          showErrorModal('Er ging iets mis met verzenden. Controleer je verbinding en probeer opnieuw, of mail naar info@osmose-xpert.be');
-          if(btn){ btn.disabled=false; btn.removeAttribute('aria-busy'); btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>Verstuur offerte‑aanvraag'; }
+          console.error('Form submission error:', err);
+          
+          // More specific error messages
+          let errorMessage = 'Er ging iets mis met verzenden. ';
+          if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
+            errorMessage += 'Controleer je internetverbinding en probeer opnieuw.';
+          } else if (err.message.includes('403')) {
+            errorMessage += 'Het formulier kon niet worden verzonden. Controleer of alle velden correct zijn ingevuld.';
+          } else if (err.message.includes('422')) {
+            errorMessage += 'Sommige gegevens zijn niet geldig. Controleer je invoer en probeer opnieuw.';
+          } else {
+            errorMessage += 'Probeer het later opnieuw of mail naar info@osmose-xpert.be';
+          }
+          
+          showErrorModal(errorMessage);
+          if(btn){ 
+            btn.disabled = false; 
+            btn.removeAttribute('aria-busy'); 
+            btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>Verstuur offerte‑aanvraag'; 
+          }
         }
       });
     }
@@ -612,5 +559,5 @@
       function loadGA(){ if(!GA_ID || document.getElementById('ga4-src')) return; var s1=document.createElement('script'); s1.async=true; s1.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; s1.id='ga4-src'; document.head.appendChild(s1); var s2=document.createElement('script'); s2.id='ga4-init'; s2.text="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','"+GA_ID+"',{anonymize_ip:true});"; document.head.appendChild(s2); }
     })();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99607eff675990b8',t:'MTc2MTcxODA4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996094efb349b9bd',t:'MTc2MTcxODk4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
