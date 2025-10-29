@@ -1,62 +1,46 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prijzen – OsmoseXpert: transparante tarieven en onderhoudsformules</title>
-  <meta name="description" content="Transparante tarieven en onderhoudsformules voor ramen, zonnepanelen en glaspartijen. Professionele osmose-reiniging in Ronse, Kluisbergen en Oudenaarde."/>
-  <link rel="canonical" href="https://www.osmose-xpert.be/prijzen.html" />
-  <meta property="og:title" content="OsmoseXpert – Transparante prijzen &amp; onderhoud" />
-  <meta property="og:description" content="Heldere afspraken, eerlijke prijzen en professionele osmose-reiniging. Ontdek hoe OsmoseXpert jouw ramen langer schoon houdt." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" type="image/png" href="/images/favicons/ChatGPT Image 22 aug 2025, 13_43_25.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prijzen - OsmoseXpert | Transparante tarieven ramenreiniging</title>
+  <meta name="description" content="Transparante prijzen voor professionele ramenreiniging met osmosewater. Onderhoudsplannen met korting. Ronse, Kluisbergen, Oudenaarde.">
 
-  <!-- BASIS: variabelen en globale stijl (1:1 van over-ons.html) -->
+  <!-- Basis styling (1:1 van over-ons.html) -->
   <style>
-    :root{ --brand:#0f6ab8; --brand2:#29ABE2; --ink:#0b364f; --bg:#f6f9fc; }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#0f172a;background:var(--bg);line-height:1.6}
+    :root{--brand:#0f6ab8;--brand2:#29ABE2;--dark:#002B45;--ok:#10b981;--white:#ffffff;--line:#0a2b45}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{height:100%;scroll-behavior:smooth}
+    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;color:#0f172a;background:#f8fafc;height:100%;box-sizing:border-box}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    h1,h2,h3{color:var(--dark);font-weight:700;line-height:1.3}
+    h1{font-size:clamp(1.8rem,4vw,2.5rem)}
+    h2{font-size:clamp(1.4rem,3vw,1.8rem)}
+    p{margin-bottom:1rem}
+    ul{padding-left:1.5rem}
+    li{margin-bottom:0.5rem}
+    strong{color:var(--dark)}
+    .small{font-size:0.9rem;color:#64748b}
   </style>
 
-  <!-- NAV & DROPDOWN (1:1 van over-ons.html) -->
+  <!-- Navigatie styling (1:1 van over-ons.html) -->
   <style>
-    /* Sticky navigatie */
-    .nav{position:sticky;top:0;z-index:100;display:flex;justify-content:flex-end;padding:10px 16px;background:#fff;border-bottom:1px solid #e2e8f0}
-    .nav.blue-bg{background:linear-gradient(90deg,#03304f,#00304e);border-bottom:0}
-
-    /* Hamburger rechts met drie streepjes */
-    .nav-toggle{background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
-    .nav-toggle .line{width:24px;height:3px;border-radius:2px;background:#0b364f}
-    .nav.white-bg .nav-toggle .line{background:#0b364f}   /* witte achtergrond → huisblauw streepjes */
-    .nav.blue-bg .nav-toggle .line{background:#fff}       /* blauwe header → witte streepjes */
-    .nav-toggle:focus{outline:2px solid #29ABE2;outline-offset:2px}
-
-    /* Lijst basis */
-    .nav-list{display:none}
-
-    /* Mobiel dropdown */
+    .nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+    .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:4px;position:absolute;right:16px;top:50%;transform:translateY(-50%)}
+    .nav-toggle .line{width:24px;height:3px;background:var(--dark);border-radius:2px;transition:0.3s}
+    .nav-list{display:flex;list-style:none;justify-content:center;align-items:center;padding:0;margin:0;min-height:60px}
+    .nav-list li{margin:0 1.5rem}
+    .nav-list a{color:var(--dark);font-weight:500;padding:0.5rem 0;border-bottom:2px solid transparent;transition:0.3s}
+    .nav-list a:hover,.nav-list a.active{color:var(--brand);border-bottom-color:var(--brand);text-decoration:none}
     @media (max-width:900px){
-      .nav-list{position:absolute;top:56px;right:12px;display:none;flex-direction:column;gap:10px;background:#fff;border:1px solid #e2e8f0;padding:12px;border-radius:14px;box-shadow:0 12px 30px rgba(2,18,33,.22);width:min(86vw,360px);z-index:101}
-      .nav-list.open{display:flex !important}
-      .nav-list li{list-style:none}
-      .nav-list a{display:block;padding:12px 14px;color:var(--ink);border-radius:10px}
-      .nav-list a:hover{background:#eef5ff}
-      .nav-list a.active,.nav-list a[aria-current="page"]{background:#e7f1ff;box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
-    }
-
-    /* Desktop: gecentreerd menu (origineel, zonder hamburger) */
-    @media (min-width:901px){
-      .nav{justify-content:center}
-      .nav-toggle{display:none}
-      .nav-list{display:flex;gap:20px;position:static;border:0;box-shadow:none;background:transparent;padding:0}
-      .nav-list li{list-style:none}
-      .nav-list a{padding:6px 12px;border-radius:6px;color:#0f172a;text-decoration:none;font-weight:600}
-      .nav-list a:hover{background:#e6f0fa}
-      /* Page selector (actieve tab) – gradient chip identiek aan diensten.html */
-      .nav-list a.active,.nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)}
+      .nav{position:relative}
+      .nav-toggle{display:flex}
+      .nav-list{position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;box-shadow:0 4px 6px rgba(0,0,0,0.1);display:none;padding:1rem 0}
+      .nav-list.open{display:flex}
+      .nav-list li{margin:0.5rem 0;width:100%;text-align:center}
+      .nav-list a{display:block;padding:0.75rem 1rem}
     }
   </style>
 
@@ -84,6 +68,31 @@
     .section.notice{background:#f5faff;border-left:4px solid var(--brand)}
     .section.notice p{margin:0}
     .muted{color:#475569;font-size:.95rem}
+    
+    /* Pricing plans styling */
+    .pricing-plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0}
+    .plan{border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:transform .2s ease,box-shadow .2s ease}
+    .plan:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+    .plan-header{padding:16px;color:#fff;text-align:center}
+    .plan-header h3{margin:0;font-size:1.2rem;font-weight:700}
+    .plan-frequency{font-size:0.9rem;margin-top:4px;opacity:0.9}
+    .plan-discount{background:#fff;padding:12px;text-align:center;font-weight:600;font-size:1.1rem}
+    
+    /* Bronze plan */
+    .plan.bronze .plan-header{background:linear-gradient(135deg,#cd7f32,#b8722c)}
+    .plan.bronze .plan-discount{color:#cd7f32}
+    
+    /* Silver plan */
+    .plan.silver .plan-header{background:linear-gradient(135deg,#c0c0c0,#a8a8a8)}
+    .plan.silver .plan-discount{color:#888}
+    
+    /* Gold plan */
+    .plan.gold .plan-header{background:linear-gradient(135deg,#ffd700,#e6c200)}
+    .plan.gold .plan-discount{color:#b8860b}
+    
+    @media (max-width:600px){
+      .pricing-plans{grid-template-columns:1fr;gap:12px}
+    }
   </style>
 
   <!-- Calendly widget (voor 'Boek nu') -->
@@ -105,7 +114,7 @@
 
 <body class="prijzen-page">
   <!-- NAVIGATIE (1:1; active op Prijzen) -->
-  <nav aria-label="Hoofdmenu" class="nav white-bg">
+  <nav aria-label="Hoofdmenu" class="nav">
     <button class="nav-toggle" type="button" aria-label="Menu" aria-controls="primary-nav" aria-expanded="false">
       <span class="line"></span>
       <span class="line"></span>
@@ -133,74 +142,100 @@
   <!-- INHOUD (ongewijzigd – bestaande content van prijzen.html) -->
   <main id="content">
     <section class="section notice" aria-label="Indicatieve prijzen">
-      <p><strong>Indicatieve prijzen:</strong> de vermelde prijzen en voorbeelden zijn richtinggevend. De <strong>definitieve prijs</strong> wordt bevestigd na een korte intake (foto’s/locatie‑check) en hangt af van bereikbaarheid, oppervlak en frequentie. <span class="muted">Particulier: prijzen incl. btw • Zakelijk: excl. btw, tenzij anders vermeld.</span></p>
+      <p>Indicatieve prijzen: de vermelde prijzen en voorbeelden zijn richtinggevend. De definitieve prijs wordt bevestigd na een korte intake (foto's/locatie‑check) en hangt af van bereikbaarheid, oppervlak en frequentie. <span class="muted">Particulier: prijzen incl. btw • Zakelijk: excl. btw, tenzij anders vermeld.</span></p>
     </section>
     <section class="section">
       <h2>Hoe we prijzen bepalen</h2>
-      <p>Bij <strong>OsmoseXpert</strong> draait het om eerlijkheid, efficiëntie en kwaliteit. Wij werken met <strong>transparante tarieven</strong> die volledig afgestemd zijn op jouw woning of gebouw. Geen standaardformules, wel maatwerk. </p>
+      <p>Bij OsmoseXpert draait het om eerlijkheid, efficiëntie en kwaliteit. Wij werken met transparante tarieven die volledig afgestemd zijn op jouw woning of gebouw. Geen standaardformules, wel maatwerk. </p>
+      
+      <p><strong>Indicatieve prijsrange:</strong> De meeste woningen vallen tussen <strong>€60 - €95 per beurt</strong>, afhankelijk van grootte en complexiteit.</p>
+      
       <p>De prijs hangt af van factoren zoals:</p>
       <ul>
-        <li>het type woning of gebouw</li>
-        <li>de bereikbaarheid en hoogte van het glas</li>
-        <li>de frequentie van onderhoud</li>
-        <li>en eventuele combinaties (ramen, veranda, zonnepanelen…)</li>
+        <li>– het type woning of gebouw</li>
+        <li>– de bereikbaarheid en hoogte van het glas</li>
+        <li>– de frequentie van onderhoud</li>
+        <li>– en eventuele combinaties (ramen, veranda, zonnepanelen…)</li>
       </ul>
       <p>Door te werken met <em>osmosewater</em> reinigen we sneller, veiliger en grondiger. Jij betaalt dus enkel voor vakmanschap — nooit voor overbodige uren of producten.</p>
     </section>
 
     <section class="section">
       <h2>Heldere afspraken, geen verrassingen</h2>
-      <p>We vermijden kille prijstabellen — we tonen wél <strong>indicatieve richtprijzen</strong> en maken daarna een <strong>persoonlijke offerte</strong> met vaste prijs. Elke woning is anders, en daarom maken we na een korte inschatting een <strong>persoonlijke offerte</strong> met een vaste prijs. </p>
+      <p>We vermijden kille prijstabellen — we tonen wél indicatieve richtprijzen en maken daarna een persoonlijke offerte met vaste prijs. Elke woning is anders, en daarom maken we na een korte inschatting een persoonlijke offerte met een vaste prijs. </p>
       <p>Die prijs omvat alles: materiaal, water, verplaatsing en nazorg. Zo weet je exact wat je krijgt — <em>zonder verborgen kosten</em>.</p>
-      <p>Onze klanten waarderen vooral onze <strong>duidelijkheid, stiptheid</strong> en de zorg waarmee we hun ramen behandelen alsof het onze eigen zijn.</p>
+      <p>Onze klanten waarderen vooral onze duidelijkheid, stiptheid en de zorg waarmee we hun ramen behandelen alsof het onze eigen zijn.</p>
     </section>
 
     <section class="section">
       <h2>Onderhoudsformules met voordeel</h2>
       <p>Kies voor een onderhoudsplan met vaste frequentie en vaste korting. Zo blijft je glaswerk consequent in topvorm en geniet je van duidelijke afspraken.</p>
-      <ul>
-        <li><strong>Bronze</strong> – <strong>2× per jaar</strong> onderhoud → <strong>5% korting</strong></li>
-        <li><strong>Silver</strong> – <strong>4× per jaar</strong> onderhoud → <strong>10% korting</strong></li>
-        <li><strong>Gold</strong> – <strong>6× per jaar</strong> onderhoud → <strong>15% korting</strong></li>
-      </ul>
-      <p class="small">Tip: combineer ramen met veranda of zonnepanelen voor extra efficiëntie in één bezoek. <strong>Combi -korting: 10%</strong> bij gelijktijdige combinatie (ramen + veranda of ramen + zonnepanelen).</p>
+      
+      <div class="pricing-plans">
+        <div class="plan bronze">
+          <div class="plan-header">
+            <h3>Bronze</h3>
+            <div class="plan-frequency">2× per jaar</div>
+          </div>
+          <div class="plan-discount">5% korting</div>
+        </div>
+        
+        <div class="plan silver">
+          <div class="plan-header">
+            <h3>Silver</h3>
+            <div class="plan-frequency">4× per jaar</div>
+          </div>
+          <div class="plan-discount">10% korting</div>
+        </div>
+        
+        <div class="plan gold">
+          <div class="plan-header">
+            <h3>Gold</h3>
+            <div class="plan-frequency">6× per jaar</div>
+          </div>
+          <div class="plan-discount">15% korting</div>
+        </div>
+      </div>
+      
+      <p class="small">Tip: combineer ramen met veranda of zonnepanelen voor extra efficiëntie in één bezoek. Combi -korting: 10% bij gelijktijdige combinatie (ramen + veranda of ramen + zonnepanelen).</p>
     </section>
 
     <section class="section">
       <h2>Betalingsopties &amp; facturatie</h2>
       <p>Je kiest zelf hoe je betaalt, met heldere afspraken en zonder verborgen kosten.</p>
       <ul>
-        <li><strong>Per beurt</strong> – handig voor losse opdrachten of een eerste kennismaking.</li>
-        <li><strong>Onderhoudscontract</strong> – betaal per beurt, per kwartaal of het volledige contract vooraf.</li>
+        <li>– Per beurt – handig voor losse opdrachten of een eerste kennismaking.</li>
+        <li>– Onderhoudscontract – betaal per beurt, per kwartaal of het volledige contract vooraf.</li>
       </ul>
-      <p><strong>Voordeel:</strong> bij <em>elke betaling van een volledig onderhoudscontract</em> (<strong>Bronze, Silver of Gold</strong>) geniet je <strong>10% korting</strong> op het contractbedrag.</p>
+      <p><strong>Voordeel:</strong> bij <em>elke betaling van een volledig onderhoudscontract</em> (Bronze, Silver of Gold) geniet je <strong>10% korting</strong> op het contractbedrag.</p>
       <ul>
-        <li><strong>Betaalmethodes</strong>: Bancontact / Payconiq, bankkaart, QR ter plaatse of overschrijving.</li>
-        <li><strong>Facturatie</strong>: automatische btw‑factuur per mail; zakelijke klanten kunnen periodieke facturatie kiezen.</li>
+        <li>– Betaalmethodes: Bancontact / Payconiq, bankkaart, QR ter plaatse of overschrijving.</li>
+        <li>– Facturatie: automatische btw‑factuur per mail; zakelijke klanten kunnen periodieke facturatie kiezen.</li>
       </ul>
     </section>
 
     <section class="section">
-      <h2>Extra voordelen</h2>
+      <h2>Garanties &amp; verzekeringen</h2>
       <ul>
-        <li><strong>Milieuvriendelijk:</strong> osmosewater is 100% puur, zonder chemie of zeepresten.</li>
-        <li><strong>Veilig vanaf de grond:</strong> geen ladders, geen risico op schade.</li>
-        <li><strong>Afspraak = afspraak:</strong> we communiceren helder en komen stipt.</li>
-        <li><strong>Tevredenheidsgarantie:</strong> niet tevreden? Dan komen we gewoon terug.</li>
+        <li>– <strong>100% tevredenheidsgarantie:</strong> niet tevreden? Dan komen we binnen 48u terug.</li>
+        <li>– Volledig verzekerd: schade- en aansprakelijkheidsverzekering inbegrepen.</li>
+        <li>– Milieuvriendelijk: osmosewater is 100% puur, zonder chemie of zeepresten.</li>
+        <li>– Veilig vanaf de grond: geen ladders, geen risico op schade.</li>
+        <li>– Afspraak = afspraak: we communiceren helder en komen stipt.</li>
       </ul>
     </section>
 
     <section class="section">
       <h2>Regio's waar we actief zijn</h2>
-      <p>OsmoseXpert is lokaal verankerd in <strong>Ronse, Kluisbergen</strong> en <strong>Oudenaarde</strong>. We breiden stap voor stap uit naar omliggende gemeenten zoals <strong>Brakel</strong> en <strong>Zulzeke</strong>. </p>
+      <p>OsmoseXpert is lokaal verankerd in Ronse, Kluisbergen en Oudenaarde. We breiden stap voor stap uit naar omliggende gemeenten zoals Brakel en Zulzeke. </p>
       <p>Zo blijven we dicht bij onze klanten — letterlijk en figuurlijk.</p>
     </section>
 
     <section class="section">
       <h2>Vraag je offerte aan</h2>
-      <p>Een helder resultaat begint met een heldere prijs. Bezorg ons enkele foto’s of een korte beschrijving van je pand, en je ontvangt binnen 24 uur een vrijblijvende inschatting. </p>
-      <p>👉 <a href="offerte.html"><strong>Offerte aanvragen</strong></a><br/>
-         👉 <a href="https://calendly.com/osmose-xpert-info/ramenreiniging"><strong>Plan je onderhoud online</strong></a></p>
+      <p>Een helder resultaat begint met een heldere prijs. Bezorg ons enkele foto's of een korte beschrijving van je pand, en je ontvangt binnen 24 uur een vrijblijvende inschatting. </p>
+      <p>👉 <a href="offerte.html">Offerte aanvragen</a><br/>
+         👉 <a href="https://calendly.com/osmose-xpert-info/ramenreiniging">Plan je onderhoud online</a></p>
     </section>
   </main>
 
@@ -225,17 +260,17 @@
 
     <div class="container foot-inner">
       <div>
-        <p><strong>OsmoseXpert</strong></p>
+        <p>OsmoseXpert</p>
         <p>Streeploos schoon, veilig en duurzaam.</p>
         <p>Ronse • Kluisbergen • Oudenaarde</p>
       </div>
       <div>
-        <p><strong>Contact</strong></p>
+        <p>Contact</p>
         <p><a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
         <p><a href="tel:+32493673484">0493 67 34 84</a></p>
       </div>
       <div>
-        <p><strong>Informatie</strong></p>
+        <p>Informatie</p>
         <p><a href="privacy.html">Privacy</a></p>
         <p><a href="cookiebeleid.html">Cookies</a></p>
         <p><a href="voorwaarden.html">Voorwaarden</a></p>
@@ -330,8 +365,6 @@
   .ox-btn.ghost{background:#fff;border:1px solid #e5e7eb;color:#0f172a}
   @media(max-width:720px){.ox-cc-grid{flex-direction:column;align-items:flex-start}.ox-cc-actions{width:100%;justify-content:flex-end}.ox-cc-actions .ox-btn{flex:1}}
   #ox-chatbase-container{position:fixed;right:16px;bottom:92px;width:380px;height:560px;display:none;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff;z-index:9998;box-shadow:0 10px 30px rgba(0,0,0,.2)}
-  #ox-chatbase-toggle{position:fixed;right:16px;bottom:16px;z-index:9998;appearance:none;border:none;border-radius:999px;padding:12px 14px;background:#0f6ab8;color:#fff;cursor:pointer;font:600 14px/1 Arial,Helvetica,sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.18)}
-  #ox-chatbase-toggle[hidden]{display:none}
 </style>
 
 <div id="ox-cc-root" hidden>
@@ -341,7 +374,7 @@
     <div class="ox-cc-body">
       <div class="ox-cc-grid">
         <p class="ox-cc-text">
-          We gebruiken cookies om uw ervaring te verbeteren en onze prestaties te meten. U kunt <strong>instellingen aanpassen</strong> of <strong>alle cookies accepteren</strong>.
+          We gebruiken cookies om uw ervaring te verbeteren en onze prestaties te meten. U kunt instellingen aanpassen of alle cookies accepteren.
           Lees ons <a href="/cookiebeleid.html" target="_blank" rel="noopener">cookiebeleid</a> voor details.
         </p>
         <div class="ox-cc-actions">
@@ -396,7 +429,6 @@
 </div>
 
 <div id="ox-chatbase-container" aria-label="Digitale assistent"></div>
-<button id="ox-chatbase-toggle" hidden type="button">Digitale assistent</button>
 
 <script>
 (function(){
@@ -471,18 +503,16 @@
   }
 
   function enableChatbase(){ 
-    chatToggle.hidden=false; 
     if(!chatLoaded){ 
       var ifr=document.createElement('iframe'); 
       ifr.src=CHATBASE_IFRAME_SRC; ifr.width='100%'; ifr.style.height='100%'; ifr.setAttribute('frameborder','0'); 
       chatBox.appendChild(ifr); chatLoaded=true; 
     } 
   }
-  function disableChatbase(){ chatToggle.hidden=true; chatBox.style.display='none'; }
-  chatToggle.addEventListener('click', function(){ chatBox.style.display = (chatBox.style.display==='block'?'none':'block'); });
+  function disableChatbase(){ chatBox.style.display='none'; }
 })();
 </script>
 <!-- END OsmoseXpert Cookie Consent -->
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99643a2702a990b8',t:'MTc2MTc1NzIwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
