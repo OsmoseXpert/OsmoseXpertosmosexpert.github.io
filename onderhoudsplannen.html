@@ -1,23 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Onderhoudsplannen | OsmoseXpert</title>
-  <meta name="description" content="Altijd propere ramen met onze onderhoudsplannen. Transparant, voordelig en zorgeloos: Bronze, Silver of Gold." />
-
-  <!-- BASIS: variabelen en globale stijl (1:1 van over-ons.html) -->
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onderhoudsplannen Ramenreiniging | Bronze, Silver &amp; Gold | OsmoseXpert</title>
+  <meta name="description" content="Kies uit onze Bronze, Silver of Gold onderhoudsplannen voor ramenreiniging. Tot 15% korting, vaste planning en tevredenheidsgarantie. Osmosewater technologie in Ronse, Kluisbergen en Oudenaarde.">
+  <meta name="keywords" content="onderhoudsplan ramenreiniging, bronze silver gold pakket, ramen onderhoud abonnement, osmosewater reiniging, Ronse Kluisbergen Oudenaarde">
+  <meta property="og:title" content="Onderhoudsplannen Ramenreiniging | Bronze, Silver &amp; Gold | OsmoseXpert">
+  <meta property="og:description" content="Kies uit onze Bronze, Silver of Gold onderhoudsplannen voor ramenreiniging. Tot 15% korting, vaste planning en tevredenheidsgarantie.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://osmose-xpert.be/onderhoudsplannen.html">
+  <link rel="canonical" href="https://osmose-xpert.be/onderhoudsplannen.html"><!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Onderhoudsplannen Ramenreiniging",
+    "description": "Bronze, Silver en Gold onderhoudsplannen voor professionele ramenreiniging met osmosewater technologie",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "OsmoseXpert",
+      "telephone": "+32493673484",
+      "email": "info@osmose-xpert.be",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ronse",
+        "addressCountry": "BE"
+      }
+    },
+    "areaServed": ["Ronse", "Kluisbergen", "Oudenaarde"],
+    "serviceType": "Ramenreiniging",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Bronze Onderhoudsplan",
+        "description": "2x per jaar ramenreiniging met 5% korting",
+        "discount": "5%"
+      },
+      {
+        "@type": "Offer", 
+        "name": "Silver Onderhoudsplan",
+        "description": "4x per jaar ramenreiniging met 10% korting",
+        "discount": "10%"
+      },
+      {
+        "@type": "Offer",
+        "name": "Gold Onderhoudsplan", 
+        "description": "6x per jaar ramenreiniging met 15% korting",
+        "discount": "15%"
+      }
+    ]
+  }
+  </script><!-- CSS: basis + navigatie + banner (1:1 van over-ons.html) -->
   <style>
-    :root{ --brand:#0f6ab8; --brand2:#29ABE2; --ink:#0b364f; --bg:#f6f9fc; }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#0f172a;background:var(--bg);line-height:1.6}
-    a{color:var(--brand);text-decoration:none}
+    :root{--brand-blue:#0f6ab8;--brand-sky:#29abe2;--brand-ink:#0b364f;--bg:#f8fafc;--ok:#10b981;--white:#ffffff;--line:#0a2b45}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{height:100%;scroll-behavior:smooth}
+    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;color:#0f172a;background:var(--bg);height:100%;box-sizing:border-box}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+    a{color:var(--brand-blue);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-  </style>
+    h1,h2,h3{color:var(--brand-ink);font-weight:800;line-height:1.3}
+    h1{font-size:clamp(1.8rem,4vw,2.5rem)}
+    h2{font-size:clamp(1.4rem,3vw,1.8rem)}
+    p{margin-bottom:1rem}
+    ul{padding-left:1.5rem}
+    li{margin-bottom:0.5rem}
+    strong{color:var(--brand-ink)}
+    .small{font-size:0.9rem;color:#64748b}
 
-  <!-- NAV & DROPDOWN (1:1 van over-ons.html) -->
-  <style>
     /* Sticky navigatie */
     .nav{position:sticky;top:0;z-index:100;display:flex;justify-content:flex-end;padding:10px 16px;background:#fff;border-bottom:1px solid #e2e8f0}
     .nav.blue-bg{background:linear-gradient(90deg,#03304f,#00304e);border-bottom:0}
@@ -37,7 +89,7 @@
       .nav-list{position:absolute;top:56px;right:12px;display:none;flex-direction:column;gap:10px;background:#fff;border:1px solid #e2e8f0;padding:12px;border-radius:14px;box-shadow:0 12px 30px rgba(2,18,33,.22);width:min(86vw,360px);z-index:101}
       .nav-list.open{display:flex !important}
       .nav-list li{list-style:none}
-      .nav-list a{display:block;padding:12px 14px;color:var(--ink);border-radius:10px}
+      .nav-list a{display:block;padding:12px 14px;color:var(--brand-ink);border-radius:10px}
       .nav-list a:hover{background:#eef5ff}
       .nav-list a.active,.nav-list a[aria-current="page"]{background:#e7f1ff;box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
     }
@@ -50,15 +102,13 @@
       .nav-list li{list-style:none}
       .nav-list a{padding:6px 12px;border-radius:6px;color:#0f172a;text-decoration:none;font-weight:600}
       .nav-list a:hover{background:#e6f0fa}
-      .nav-list a.active,.nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)}
+      .nav-list a.active,.nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand-blue),var(--brand-sky));color:#fff;border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)}
     }
-  </style>
 
-  <!-- SUBHERO/BANNER (zelfde kleur/typografie als over-ons) -->
-  <style>
+    /* SUBHERO/BANNER (zelfde kleur/typografie als over-ons) */
     .subhero{background:linear-gradient(90deg,#03304f,#00304e);color:#fff;padding:40px 20px;display:flex;align-items:center;justify-content:center}
     .subhero .wrap{max-width:1100px;width:100%}
-    .subhero h1{margin:0 0 0 20px;font-size:clamp(22px,2.4vw,28px);color:#f3f7fb}
+    .subhero h1{margin:0 0 0 20px;font-size:clamp(22px,2.4vw,28px);color:#f3f7fb;font-weight:700}
     .subhero .subtitle{color:#cfe4ff;font-size:clamp(14px,1.4vw,17px);font-weight:500;margin-left:24px}
 
     @media (max-width:900px){
@@ -66,34 +116,54 @@
       .subhero h1{margin:0;font-size:20px}
       .subhero .subtitle{font-size:14px;margin:4px 0 0 20px}
     }
-  </style>
-
-  <!-- Pagina-secties -->
+  </style><!-- Pagina-secties -->
   <style>
     main .section{background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,.05);padding:22px;margin:26px 0}
-    .section h2{color:#0a3d62;font-size:1.4rem;margin-bottom:12px}
+    .section h2{color:var(--brand-ink);font-size:1.4rem;margin-bottom:12px;font-weight:800}
     .section p{margin-bottom:16px}
     .usp-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;padding:0}
     .usp-list li{position:relative;padding:10px 12px 10px 30px;border:1px solid #e2e8f0;border-radius:10px;background:#fafcff;box-shadow:0 2px 6px rgba(0,0,0,.03)}
-    .usp-list li::before{content:'✔';position:absolute;left:10px;top:10px;color:var(--brand);font-weight:700}
+    .usp-list li::before{content:'✔';position:absolute;left:10px;top:10px;color:var(--brand-blue);font-weight:700}
     .steps{counter-reset:step;list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
     .steps li{position:relative;padding:12px 14px 12px 44px;border:1px solid #e2e8f0;border-radius:10px;background:#fff}
-    .steps li::before{counter-increment:step;content:counter(step) ".";position:absolute;left:12px;top:12px;font-weight:700;color:#0f6ab8}
+    .steps li::before{counter-increment:step;content:counter(step) ".";position:absolute;left:12px;top:12px;font-weight:700;color:var(--brand-blue)}
 
-    .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-    .plan{border:1px solid #e2e8f0;border-radius:12px;padding:16px;background:#fff}
-    .plan h3{margin:0 0 6px 0;color:#0f6ab8}
-    .plan .badge{display:inline-block;margin:6px 0 10px;background:#e6f0fa;color:#0f6ab8;border:1px solid #cfe0f3;border-radius:999px;padding:4px 10px;font-weight:700;font-size:.9rem}
-    .plan ul{margin:0;padding:0 0 0 18px}
-    .muted{color:#64748b;font-size:.95rem}
-  </style>
-
-  <!-- Calendly widget (voor 'Boek nu') -->
+    /* Clean Modern Plan Cards */
+    .plans{display:flex;justify-content:center;gap:24px;margin:40px 0;padding:0 16px;align-items:flex-end}
+    .plan{border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.1);text-align:center;color:#fff;padding:30px 20px;width:250px;transition:transform 0.3s ease, box-shadow 0.3s ease;position:relative}
+    .plan:hover{transform:translateY(-10px);box-shadow:0 16px 40px rgba(0,0,0,0.15)}
+    
+    /* Plan Colors */
+    .plan.bronze{background:linear-gradient(145deg, #8B4513, #CD853F)}
+    .plan.silver{background:linear-gradient(145deg, #7F8C8D, #BDC3C7)}
+    .plan.gold{background:linear-gradient(145deg, #D4AF37, #FFD700)}
+    
+    /* Popular Badge for Silver */
+    .plan.silver::before{content:'POPULAIRSTE KEUZE';position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg, #10b981, #059669);color:#fff;padding:4px 12px;border-radius:6px;font-size:0.65rem;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;box-shadow:0 2px 8px rgba(16,185,129,0.3);z-index:10}
+    
+    /* Plan Content */
+    .plan h3{font-size:1.8rem;margin-bottom:10px;font-weight:800;color:#fff}
+    .plan .plan-description{font-size:0.95rem;margin-bottom:20px;line-height:1.4}
+    .plan .cta-button{border:none;background:#fff;color:inherit;font-weight:700;border-radius:30px;padding:10px 22px;cursor:pointer;transition:background 0.2s ease;text-decoration:none;display:inline-block}
+    .plan .cta-button:hover{background:rgba(255,255,255,0.85)}
+    
+    /* Bronze specific text color for button */
+    .plan.bronze .cta-button{color:#8B4513}
+    .plan.silver .cta-button{color:#7F8C8D}
+    .plan.gold .cta-button{color:#D4AF37}
+    
+    .muted{color:#64748b;font-size:.9rem}
+    
+    @media(max-width:768px){
+      .plans{flex-direction:column;align-items:center;gap:20px}
+      .plan{width:100%;max-width:280px}
+      .plan .cta-button{display:none}
+      .plan.silver::before{left:50%;transform:translateX(-50%)}
+    }
+  </style><!-- Calendly widget (voor 'Boek nu') -->
   <script>window.CALENDLY_DEFAULT='https://calendly.com/osmose-xpert-info/ramenreiniging';</script>
-  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
-  <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
-
-  <!-- Floating CTA styles (1:1) -->
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+  <script async src="https://assets.calendly.com/assets/external/widget.js"></script><!-- Floating CTA styles (1:1) -->
   <style id="floating-cta-styles">
     .floating-cta{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;flex-direction:column;gap:12px;transition:opacity .25s ease,transform .25s ease}
     .floating-cta.hidden{opacity:0;transform:translateY(16px);pointer-events:none}
@@ -103,125 +173,97 @@
     .floating-cta .cta-boek{background:#2563eb}
     @media (max-width:480px){.floating-cta{right:12px;bottom:12px}.floating-cta .cta-btn{padding:12px 14px;font-size:15px}}
   </style>
-</head>
-
-<body class="onderhoudsplannen-page">
-  <!-- NAVIGATIE (1:1; active op Onderhoudsplannen) -->
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body class="onderhoudsplannen-page"><!-- NAVIGATIE (1:1; active op Onderhoudsplannen) -->
   <nav aria-label="Hoofdmenu" class="nav white-bg">
-    <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle" type="button">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
-    </button>
+   <div class="container"><button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle" type="button"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </button>
     <ul class="nav-list" id="primary-nav">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="over-ons.html">Over ons</a></li>
-      <li><a href="diensten.html">Diensten</a></li>
-      <li><a href="prijzen.html">Prijzen</a></li>
-      <li><a class="active" aria-current="page" href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="faq.html">FAQ</a></li>
+     <li><a href="index.html">Home</a></li>
+     <li><a href="over-ons.html">Over ons</a></li>
+     <li><a href="diensten.html">Diensten</a></li>
+     <li><a href="prijzen.html">Prijzen</a></li>
+     <li><a class="active" aria-current="page" href="onderhoudsplannen.html">Onderhoudsplannen</a></li>
+     <li><a href="contact.html">Contact</a></li>
+     <li><a href="faq.html">FAQ</a></li>
     </ul>
-  </nav>
-
-  <!-- BANNER (zelfde stijl; eigen titel/subtitel) -->
+   </div>
+  </nav><!-- BANNER (originele versie) -->
   <header class="subhero">
-    <div class="wrap">
-      <h1>Onderhoudsplannen</h1>
-      <p class="subtitle">Altijd propere ramen — vaste planning zonder zorgen</p>
-    </div>
-  </header>
-
-  <!-- INHOUD -->
+   <div class="wrap">
+    <h1>Onderhoudsplannen</h1>
+    <p class="subtitle">Zorgeloos en voordelig • Vaste planning • Tot 15% korting</p>
+   </div>
+  </header><!-- INHOUD -->
   <main id="content" class="container">
-    <section class="section">
-      <h2>Zorgeloos en voordelig</h2>
-      <p>Kies een vaste frequentie en wij doen de rest. Je krijgt vooraf een herinnering (mail/sms) en we komen langs op het afgesproken ritme. Streeploos schoon met osmosewater, zonder chemische producten en met <strong>tevredenheidsgarantie</strong>.</p>
-      <ul class="usp-list">
-        <li><strong>Vaste planning:</strong> kwartaal-, twee-maandelijkse of halfjaarlijkse beurten.</li>
-        <li><strong>Voordeel:</strong> 5% / 10% / 15% bundelkorting naargelang het plan.</li>
-        <li><strong>Transparant:</strong> bevestiging per mail, heldere afspraken en duidelijke factuur.</li>
-        <li><strong>Flexibel:</strong> pauzeren of verschuiven kan in overleg bij verbouwing of vakantie.</li>
-      </ul>
-    </section>
-    <section class="section">
-      <h2>Onze formules</h2>
-      <div class="plans">
-        <div class="plan">
-          <h3>Bronze</h3>
-          <span class="badge">–5%</span>
-          <p class="muted">2× per jaar</p>
-          <ul>
-            <li>Alle buitenramen &amp; raamdeuren</li>
-            <li>Kaders en dorpels inbegrepen</li>
-            <li>Basis onderhoud met vaste planning</li>
-          </ul>
-        </div>
-
-        <div class="plan">
-          <h3>Silver</h3>
-          <span class="badge">–10%</span>
-          <p class="muted">4× per jaar</p>
-          <ul>
-            <li>Alle buitenramen &amp; raamdeuren</li>
-            <li>Vlekken en aanslag weg</li>
-            <li>Ideaal voor gezinnen en kantoren</li>
-          </ul>
-        </div>
-
-        <div class="plan">
-          <h3>Gold</h3>
-          <span class="badge">–15%</span>
-          <p class="muted">6× per jaar</p>
-          <ul>
-            <li>Maximale consistentie</li>
-            <li>Perfect voor representatieve gevels</li>
-            <li>Snelle nazorg waar nodig</li>
-          </ul>
-        </div>
-      </div>
-      <p class="muted">Kortingen gelden niet t.o.v. losse beurten. Ze worden enkel toegepast binnen een onderhoudsplan op het totaal (inclusief gekozen add-ons).</p>
-    </section>
-
-    <section class="section">
-      <h2>Hoe werkt het?</h2>
-      <ul class="steps">
-        <li><strong>Inspectie &amp; planning:</strong> we bekijken de ramen/glaspartijen en prikken een frequentie.</li>
-        <li><strong>Voorbereiding:</strong> los vuil wordt eerst grondig weggespoeld.</li>
-        <li><strong>Reiniging met osmosewater:</strong> ultra-zuiver water (0 ppm) droogt streeploos op.</li>
-        <li><strong>Nacontrole:</strong> we checken alles en werken bij waar nodig.</li>
-        <li><strong>Opvolging:</strong> reminder per sms/mail voor de volgende beurt.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Wat is inbegrepen?</h2>
-      <ul class="usp-list">
-        <li>Ramen, kaders en dorpels vanaf de grond (waterfed pole).</li>
-        <li>Discreet en netjes: we ruimen alles op en laten het proper achter.</li>
-        <li>Tevredenheidsgarantie: niet tevreden? Dan komen we gratis terug.</li>
-      </ul>
-      <p class="muted">Add-ons: veranda/serre, dakramen, glasgevels, zonnepanelen, poorten… (korting van je plan wordt ook op add-ons toegepast).</p>
-    </section>
-
-    <section class="section">
-      <h2>Betaling &amp; voorwaarden</h2>
-      <ul class="usp-list">
-        <li><strong>Betaling:</strong> per beurt (Bancontact/overschrijving) of per periode.</li>
-        <li><strong>Wijziging:</strong> frequentie kan aangepast worden na evaluatie.</li>
-      </ul>
-    </section>
-  </main>
-
-  <!-- Floating CTA buttons (1:1) -->
-  <div class="floating-cta" id="floatingCta">
-    <a class="cta-btn cta-offerte" href="offerte.html" aria-label="Offerte aanvragen">Offerte aanvragen</a>
-    <a class="cta-btn cta-boek" href="#boek" data-calendly aria-label="Afspraak boeken">Boek nu</a>
-  </div>
-
-  <!-- Footer (1:1 van over-ons.html) -->
+   <section class="section">
+    <h2>Van ramen wassen naar professioneel onderhoud</h2>
+    <p>Meer dan eenmalig ramen wassen - kies voor een vaste onderhoudsfrequentie en wij doen de rest. Je krijgt vooraf een herinnering (mail/sms) en we komen langs op het afgesproken ritme. Streeploos schoon met <strong>osmosewater technologie</strong>, zonder chemische producten en met <strong>100% tevredenheidsgarantie</strong>.</p>
+    <ul class="usp-list">
+     <li><strong>Vaste planning:</strong> kwartaal-, twee-maandelijkse of halfjaarlijkse beurten.</li>
+     <li><strong>Aantrekkelijke korting:</strong> 5% / 10% / 15% bundelkorting naargelang het gekozen plan.</li>
+     <li><strong>Transparant:</strong> bevestiging per mail, heldere afspraken en duidelijke factuur.</li>
+     <li><strong>Flexibel:</strong> pauzeren of verschuiven kan in overleg bij verbouwing of vakantie.</li>
+    </ul>
+   </section>
+   <section class="section">
+    <h2>Onze onderhoudsplannen voor ramenreiniging</h2>
+    <p>Of u nu gewend bent aan traditioneel ramen wassen of op zoek bent naar een moderne aanpak - elk plan biedt professionele ramenreiniging met osmosewater technologie. Kies het plan dat het beste bij uw behoeften past:</p>
+    <div class="plans">
+     <div class="plan bronze">
+      <h3>Bronze</h3>
+      <p class="plan-description">2× per jaar ramenreiniging<br>
+       met 5% korting</p><a href="#boek" class="cta-button" data-calendly>5% korting</a>
+     </div>
+     <div class="plan silver">
+      <h3>Silver</h3>
+      <p class="plan-description">4× per jaar ramenreiniging<br>
+       met 10% korting</p><a href="#boek" class="cta-button" data-calendly>10% korting</a>
+     </div>
+     <div class="plan gold">
+      <h3>Gold</h3>
+      <p class="plan-description">6× per jaar ramenreiniging<br>
+       met 15% korting</p><a href="#boek" class="cta-button" data-calendly>15% korting</a>
+     </div>
+    </div>
+    <p class="muted">Alle kortingen gelden op het totaalbedrag van uw onderhoudsplan (inclusief eventuele add-ons zoals veranda's, dakramen of zonnepanelen).</p>
+   </section>
+   <section class="section">
+    <h2>Hoe werkt het?</h2>
+    <ol class="steps">
+     <li><strong>Inspectie &amp; planning:</strong> we bekijken de ramen/glaspartijen en prikken een frequentie.</li>
+     <li><strong>Voorbereiding:</strong> los vuil wordt eerst grondig weggespoeld.</li>
+     <li><strong>Reiniging met osmosewater:</strong> ultra-zuiver water (0 ppm) droogt streeploos op.</li>
+     <li><strong>Nacontrole:</strong> we checken alles en werken bij waar nodig.</li>
+     <li><strong>Opvolging:</strong> reminder per sms/mail voor de volgende beurt.</li>
+    </ol>
+   </section>
+   <section class="section">
+    <h2>Wat is inbegrepen?</h2>
+    <ul class="usp-list">
+     <li><strong>Ramen, kaders en dorpels</strong> vanaf de grond (waterfed pole).</li>
+     <li><strong>Discreet en netjes:</strong> we ruimen alles op en laten het proper achter.</li>
+     <li><strong>Tevredenheidsgarantie:</strong> niet tevreden? Dan komen we gratis terug.</li>
+     <li><strong>Add-ons:</strong> veranda/serre, dakramen, glasgevels, zonnepanelen, poorten… (korting van je plan wordt ook op add-ons toegepast).</li>
+    </ul>
+   </section>
+   <section class="section">
+    <h2>Veelgestelde vragen over ramenreiniging abonnementen</h2>
+    <ul class="usp-list">
+     <li><strong>Wat is het verschil met eenmalig ramen wassen?</strong> Onze onderhoudsplannen bieden vaste planning, kortingen en gebruik van osmosewater technologie.</li>
+     <li><strong>Kan ik mijn plan aanpassen?</strong> Ja, frequentie kan aangepast worden na evaluatie in overleg.</li>
+     <li><strong>Hoe wordt er betaald?</strong> Per beurt (Bancontact/overschrijving) of per periode, zoals u verkiest.</li>
+     <li><strong>Wat bij slecht weer?</strong> We plannen opnieuw in - geen extra kosten.</li>
+    </ul>
+   </section>
+  </main><!-- Floating CTA buttons (1:1) -->
+  <div class="floating-cta" id="floatingCta"><a class="cta-btn cta-offerte" href="offerte.html" aria-label="Offerte aanvragen">Offerte aanvragen</a> <a class="cta-btn cta-boek" href="#boek" data-calendly aria-label="Afspraak boeken">Boek nu</a>
+  </div><!-- FOOTER (1:1 van over-ons.html) -->
   <footer class="site-footer">
-    <style>
+   <style>
       .site-footer{background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;font-size:.9rem;line-height:1.6}
       .foot-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;align-items:start;text-align:left}
       .foot-inner div p{margin:4px 0}
@@ -231,29 +273,29 @@
       .site-footer .legal{border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:12px;text-align:center;color:#94a3b8;font-size:.85rem;line-height:1.5}
       @media(max-width:700px){.foot-inner{text-align:center}.foot-inner div{margin:auto}}
     </style>
-
-    <div class="container foot-inner">
-      <div>
-        <p><strong>OsmoseXpert</strong></p>
-        <p>Streeploos schoon, veilig en duurzaam.</p>
-        <p>Ronse • Kluisbergen • Oudenaarde</p>
-      </div>
-      <div>
-        <p><strong>Contact</strong></p>
-        <p><a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
-        <p><a href="tel:+32493673484">0493 67 34 84</a></p>
-      </div>
-      <div>
-        <p><strong>Informatie</strong></p>
-        <p><a href="privacy.html">Privacy</a></p>
-        <p><a href="cookiebeleid.html">Cookies</a></p>
-        <p><a href="voorwaarden.html">Voorwaarden</a></p>
-      </div>
+   <div class="container foot-inner">
+    <div>
+     <p>OsmoseXpert</p>
+     <p>Streeploos schoon, veilig en duurzaam.</p>
+     <p>Ronse • Kluisbergen • Oudenaarde</p>
     </div>
-    <div class="container legal"><span class="btw">BTW BE0733.924.863</span><br/>© 2025 OsmoseXpert. Alle rechten voorbehouden.</div>
-  </footer>
-
-  <!-- Scripts: CTA gedrag en Calendly popup (1:1) -->
+    <div>
+     <p>Contact</p>
+     <p><a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+     <p><a href="tel:+32493673484">0493 67 34 84</a></p>
+    </div>
+    <div>
+     <p>Informatie</p>
+     <p><a href="privacy.html">Privacy</a></p>
+     <p><a href="cookiebeleid.html">Cookies</a></p>
+     <p><a href="voorwaarden.html">Voorwaarden</a></p>
+    </div>
+   </div>
+   <div class="container legal">
+    <span class="btw">BTW BE0733.924.863</span><br>
+    © 2025 OsmoseXpert. Alle rechten voorbehouden.
+   </div>
+  </footer><!-- Scripts: CTA gedrag en Calendly popup (1:1) -->
   <script>
     (function(){
       const cta=document.getElementById('floatingCta');
@@ -272,9 +314,7 @@
         if(btn && window.Calendly){ e.preventDefault(); Calendly.initPopupWidget({url: window.CALENDLY_DEFAULT}); }
       });
     })();
-  </script>
-
-  <!-- JS: hamburger toggle (1:1) -->
+  </script><!-- JS: hamburger toggle (1:1) -->
   <script>
   (function(){
     var btn = document.querySelector('.nav-toggle');
@@ -300,14 +340,13 @@
 
     list.addEventListener('click', function(e){ var a = e.target.closest('a'); if(a && window.matchMedia('(max-width: 900px)').matches){ closeMenu(); } });
   })();
-  </script>
-
-<!-- BEGIN OsmoseXpert Cookie Consent (page-lock, modal, 2 buttons) -->
-<style>
+  </script><!-- BEGIN OsmoseXpert Cookie Consent (page-lock, modal, 2 buttons) -->
+  <style>
   :root {
-    --brand:#0f6ab8;
-    --brand2:#29ABE2;
-    --dark:#002B45;
+    --brand-blue:#0f6ab8;
+    --brand-sky:#29abe2;
+    --brand-ink:#0b364f;
+    --bg:#f8fafc;
     --ok:#10b981;
     --white:#ffffff;
     --line:#0a2b45;
@@ -315,18 +354,18 @@
   body.ox-lock { overflow:hidden!important; }
   .ox-cc-backdrop{position:fixed;inset:0;background:rgba(2,10,20,.65);backdrop-filter:saturate(120%) blur(2px);z-index:9998}
   .ox-cc-panel{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(92vw,980px);border-radius:16px;border:1px solid var(--line);overflow:hidden;z-index:9999;box-shadow:0 24px 60px rgba(0,0,0,.25)}
-  .ox-cc-head{background:linear-gradient(180deg,#083A5C,var(--dark));color:var(--white);padding:18px 22px;border-bottom:3px solid var(--brand2)}
+  .ox-cc-head{background:linear-gradient(180deg,#083A5C,var(--brand-ink));color:var(--white);padding:18px 22px;border-bottom:3px solid var(--brand-sky)}
   .ox-cc-head h2{margin:0;font-size:18px}
   .ox-cc-body{background:#fff;padding:20px 22px}
   .ox-cc-grid{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
   .ox-cc-text{flex:1;line-height:1.6;color:#0f172a}
-  .ox-cc-text a{color:#0f6ab8;text-decoration:none;font-weight:600}
+  .ox-cc-text a{color:var(--brand-blue);text-decoration:none;font-weight:600}
   .ox-cc-text a:hover{text-decoration:underline}
   .ox-cc-actions{display:flex;gap:10px;flex-wrap:wrap}
   .ox-btn{appearance:none;border:none;border-radius:10px;cursor:pointer;font-weight:700;font-size:14px;padding:12px 18px;transition:.2s}
   .ox-btn:focus{outline:3px solid #93c5fd;outline-offset:2px}
-  .ox-btn.settings{background:#29ABE2;color:#fff}
-  .ox-btn.settings:hover{background:#0f6ab8}
+  .ox-btn.settings{background:var(--brand-sky);color:#fff}
+  .ox-btn.settings:hover{background:var(--brand-blue)}
   .ox-btn.accept{background:#10b981;color:#fff}
   .ox-btn.accept:hover{background:#0d9469}
   .ox-modal{position:fixed;inset:0;display:none;z-index:10000;align-items:center;justify-content:center;padding:20px;background:rgba(2,10,20,.55)}
@@ -342,80 +381,60 @@
   .ox-switch input{opacity:0;width:0;height:0}
   .ox-slider{position:absolute;inset:0;background:#e5e7eb;border-radius:999px;transition:.2s}
   .ox-slider:before{content:"";position:absolute;height:18px;width:18px;left:3px;top:3px;background:#fff;border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.2);transition:.2s}
-  .ox-switch input:checked + .ox-slider{background:#0f6ab8}
+  .ox-switch input:checked + .ox-slider{background:var(--brand-blue)}
   .ox-switch input:checked + .ox-slider:before{transform:translateX(20px)}
   .ox-btn.ghost{background:#fff;border:1px solid #e5e7eb;color:#0f172a}
   @media(max-width:720px){.ox-cc-grid{flex-direction:column;align-items:flex-start}.ox-cc-actions{width:100%;justify-content:flex-end}.ox-cc-actions .ox-btn{flex:1}}
-  #ox-chatbase-container{position:fixed;right:16px;bottom:92px;width:380px;height:560px;display:none;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff;z-index:9998;box-shadow:0 10px 30px rgba(0,0,0,.2)}
-  #ox-chatbase-toggle{position:fixed;right:16px;bottom:16px;z-index:9998;appearance:none;border:none;border-radius:999px;padding:12px 14px;background:#0f6ab8;color:#fff;cursor:pointer;font:600 14px/1 Arial,Helvetica,sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.18)}
-  #ox-chatbase-toggle[hidden]{display:none}
+  #ox-chatbase-container{display:none}
+  #ox-chatbase-toggle{display:none}
 </style>
-
-<div id="ox-cc-root" hidden>
-  <div class="ox-cc-backdrop" aria-hidden="false"></div>
-  <section class="ox-cc-panel" role="dialog" aria-modal="true" aria-label="Cookiekeuze">
-    <header class="ox-cc-head"><h2>Cookies bij OsmoseXpert</h2></header>
+  <div id="ox-cc-root" hidden>
+   <div class="ox-cc-backdrop" aria-hidden="false"></div>
+   <section class="ox-cc-panel" role="dialog" aria-modal="true" aria-label="Cookiekeuze">
+    <header class="ox-cc-head">
+     <h2>Cookies bij OsmoseXpert</h2>
+    </header>
     <div class="ox-cc-body">
-      <div class="ox-cc-grid">
-        <p class="ox-cc-text">
-          We gebruiken cookies om uw ervaring te verbeteren en onze prestaties te meten. U kunt <strong>instellingen aanpassen</strong> of <strong>alle cookies accepteren</strong>.
-          Lees ons <a href="/cookiebeleid.html" target="_blank" rel="noopener">cookiebeleid</a> voor details.
-        </p>
-        <div class="ox-cc-actions">
-          <button class="ox-btn settings" type="button" id="ox-btn-settings">Instellingen aanpassen</button>
-          <button class="ox-btn accept" type="button" id="ox-btn-accept">Alles accepteren</button>
-        </div>
+     <div class="ox-cc-grid">
+      <p class="ox-cc-text">We gebruiken cookies om uw ervaring te verbeteren en onze prestaties te meten. U kunt <strong>instellingen aanpassen</strong> of <strong>alle cookies accepteren</strong>. Lees ons <a href="/cookiebeleid.html" target="_blank" rel="noopener">cookiebeleid</a> voor details.</p>
+      <div class="ox-cc-actions"><button class="ox-btn settings" type="button" id="ox-btn-settings">Instellingen aanpassen</button> <button class="ox-btn accept" type="button" id="ox-btn-accept">Alles accepteren</button>
       </div>
+     </div>
     </div>
-  </section>
-</div>
-
-<div class="ox-modal" id="ox-settings-modal" aria-hidden="true" aria-label="Cookie-instellingen">
-  <div class="ox-modal-card" role="document">
-    <div class="ox-modal-hd"><h3>Cookie‑instellingen</h3><button class="ox-btn ghost" id="ox-btn-close" aria-label="Sluiten">Sluiten</button></div>
-    <div class="ox-modal-bd">
-      <div class="ox-opt">
-        <div class="ox-switch" aria-hidden="true">
-          <input type="checkbox" checked disabled>
-          <span class="ox-slider"></span>
-        </div>
-        <div>
-          <h4>Essentiële cookies <small>(altijd aan)</small></h4>
-          <p>Nodig voor beveiliging, navigatie en basisfunctionaliteit.</p>
-        </div>
-      </div>
-      <div class="ox-opt">
-        <label class="ox-switch" for="ox-tog-analytics">
-          <input type="checkbox" id="ox-tog-analytics">
-          <span class="ox-slider"></span>
-        </label>
-        <div>
-          <h4>Analytische cookies</h4>
-          <p>Helpen ons gebruik en prestaties te meten (bijv. GA4).</p>
-        </div>
-      </div>
-      <div class="ox-opt">
-        <label class="ox-switch" for="ox-tog-marketing">
-          <input type="checkbox" id="ox-tog-marketing">
-          <span class="ox-slider"></span>
-        </label>
-        <div>
-          <h4>Marketingcookies</h4>
-          <p>Voor widgets/pixels en relevante content (bijv. chat).</p>
-        </div>
-      </div>
-    </div>
-    <div class="ox-modal-ft">
-      <button class="ox-btn ghost" id="ox-btn-cancel">Annuleren</button>
-      <button class="ox-btn accept" id="ox-btn-save">Bewaren</button>
-    </div>
+   </section>
   </div>
-</div>
-
-<div id="ox-chatbase-container" aria-label="Digitale assistent"></div>
-<button id="ox-chatbase-toggle" hidden type="button">Digitale assistent</button>
-
-<script>
+  <div class="ox-modal" id="ox-settings-modal" aria-hidden="true" aria-label="Cookie-instellingen">
+   <div class="ox-modal-card" role="document">
+    <div class="ox-modal-hd">
+     <h3>Cookie‑instellingen</h3><button class="ox-btn ghost" id="ox-btn-close" aria-label="Sluiten">Sluiten</button>
+    </div>
+    <div class="ox-modal-bd">
+     <div class="ox-opt">
+      <div class="ox-switch" aria-hidden="true"><input type="checkbox" checked disabled> <span class="ox-slider"></span>
+      </div>
+      <div>
+       <h4>Essentiële cookies <small>(altijd aan)</small></h4>
+       <p>Nodig voor beveiliging, navigatie en basisfunctionaliteit.</p>
+      </div>
+     </div>
+     <div class="ox-opt"><label class="ox-switch" for="ox-tog-analytics"> <input type="checkbox" id="ox-tog-analytics"> <span class="ox-slider"></span> </label>
+      <div>
+       <h4>Analytische cookies</h4>
+       <p>Helpen ons gebruik en prestaties te meten (bijv. GA4).</p>
+      </div>
+     </div>
+     <div class="ox-opt"><label class="ox-switch" for="ox-tog-marketing"> <input type="checkbox" id="ox-tog-marketing"> <span class="ox-slider"></span> </label>
+      <div>
+       <h4>Marketingcookies</h4>
+       <p>Voor widgets/pixels en relevante content (bijv. chat).</p>
+      </div>
+     </div>
+    </div>
+    <div class="ox-modal-ft"><button class="ox-btn ghost" id="ox-btn-cancel">Annuleren</button> <button class="ox-btn accept" id="ox-btn-save">Bewaren</button>
+    </div>
+   </div>
+  </div>
+  <script>
 (function(){
   var KEY='ox_cookie_consent_v1';
   var GA_ID='G-FE95SCP0KD';
@@ -478,7 +497,7 @@
   window.cookieConsent = {
     open: function(){ show(); showOverlay(); },
     get: function(){ return loadState(); },
-    set: function(opts){ var prev=loadState()||{essential:true,analytics:false,marketing:false}; var cons=Object.assign({},prev,opts,{ts:Date.now()}); saveState(cons); apply(cons); }
+    set: function(opts){ var prev=loadState()||{essential:true,analytics:false,marketing:false}; var cons=Object.assign({},prev,opts,{ts:Date.now()}); saveState(cons); }
   };
 
   function loadGA(){ 
@@ -498,8 +517,6 @@
   function disableChatbase(){ chatToggle.hidden=true; chatBox.style.display='none'; }
   chatToggle.addEventListener('click', function(){ chatBox.style.display = (chatBox.style.display==='block'?'none':'block'); });
 })();
-</script>
-<!-- END OsmoseXpert Cookie Consent -->
-
-</body>
+</script><!-- END OsmoseXpert Cookie Consent -->
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9968e437267bb9bd',t:'MTc2MTgwNjExNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
