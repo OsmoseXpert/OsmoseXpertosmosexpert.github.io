@@ -578,41 +578,45 @@
       }
     }
   </style>
-  <script>
-    let lastScrollTop = 0;
-    const floatingCta = document.querySelector('.floating-cta');
-    
-    window.addEventListener('scroll', function() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      if (scrollTop > lastScrollTop) {
-        // Scrolling down - hide buttons
-        floatingCta.classList.add('hidden');
-      } else {
-        // Scrolling up - show buttons
-        floatingCta.classList.remove('hidden');
-      }
-      
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+<script>
+  let lastScrollTop = 0;
+  const floatingCta = document.querySelector('.floating-cta');
+
+  // FIX: null-guard zodat JS niet crasht vóór de hamburgerhandlers binden
+  window.addEventListener('scroll', function () {
+    if (!floatingCta) return;
+
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      // naar beneden scrollen → knoppen verbergen
+      floatingCta.classList.add('hidden');
+    } else {
+      // naar boven scrollen → knoppen tonen
+      floatingCta.classList.remove('hidden');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, { passive: true });
+
+  // Hamburger toggle (mobiel) — ongewijzigd laten
+  (function(){
+    var btn  = document.querySelector('.nav-toggle');
+    var list = document.getElementById('primary-nav');
+    if(!btn || !list) return;
+
+    function close(){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+    function toggle(){ var open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', String(open)); }
+
+    btn.addEventListener('click', function(e){ e.preventDefault(); toggle(); });
+    document.addEventListener('click', function(e){
+      if(!list.contains(e.target) && !btn.contains(e.target)) close();
     });
+    window.addEventListener('resize', function(){
+      if(window.matchMedia('(min-width:990px)').matches){ close(); }
+      list.removeAttribute('style');
+    });
+  })();
+</script>
 
-    // Hamburger toggle (mobiel)
-    (function(){
-      var btn=document.querySelector('.nav-toggle');
-      var list=document.getElementById('primary-nav');
-      if(!btn||!list) return;
-      function close(){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
-      function toggle(){ var open=list.classList.toggle('open'); btn.setAttribute('aria-expanded', String(open)); }
-      btn.addEventListener('click', function(e){ e.preventDefault(); toggle(); });
-      document.addEventListener('click', function(e){
-        if(!list.contains(e.target) && e.target!==btn && !btn.contains(e.target)){ close(); }
-      });
-      window.addEventListener('resize', function(){
-        if(window.matchMedia('(min-width:901px)').matches){ close(); list.removeAttribute('style'); }
-      });
-    })();
-
-  </script>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
