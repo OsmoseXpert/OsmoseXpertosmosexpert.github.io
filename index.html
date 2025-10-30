@@ -705,8 +705,45 @@
     </div>
    </section>
   </main>
-  <div class="floating-cta"><a class="cta-btn cta-offerte" href="offerte.html">Offerte aanvragen</a> <a class="cta-btn cta-boek" href="#boek">Boek nu</a>
-  </div><!-- === OsmoseXpert footer — CANVA-PROOF (alle styles inline) === -->
+  <!-- Floating CTA buttons (1:1 kopie van index (53)) -->
+<div class="floating-cta" id="floatingCta">
+  <a class="cta-btn cta-offerte" href="offerte.html" aria-label="Offerte aanvragen">Offerte aanvragen</a>
+  <a class="cta-btn cta-boek" href="#boek" data-calendly aria-label="Afspraak boeken">Boek nu</a>
+</div>
+
+<script>
+  // Auto-hide CTA on scroll + Calendly trigger (zoals in index 53)
+  (function(){
+    var cta = document.getElementById('floatingCta');
+    var lastY = window.scrollY; var t;
+    function onScroll(){
+      if(!cta) return;
+      var y = window.scrollY;
+      if(y > lastY && y > 80){ cta.classList.add('hidden'); }
+      else { cta.classList.remove('hidden'); }
+      lastY = y;
+      clearTimeout(t);
+      t = setTimeout(function(){ cta.classList.remove('hidden'); },150);
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest('[data-calendly]');
+      if(btn){
+        e.preventDefault();
+        try{
+          if(window.Calendly){
+            Calendly.initPopupWidget({ url:'https://calendly.com/osmose-xpert-info/ramenreiniging' });
+          } else {
+            window.open('https://calendly.com/osmose-xpert-info/ramenreiniging','_self');
+          }
+        }catch(err){
+          window.open('https://calendly.com/osmose-xpert-info/ramenreiniging','_self');
+        }
+      }
+    });
+  })();
+</script>
+!-- === OsmoseXpert footer — CANVA-PROOF (alle styles inline) === -->
   <div role="contentinfo" style="background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;font-size:14.4px;line-height:1.6;"><!-- bovenste rij -->
    <div style="max-width:1100px;margin:0 auto;">
     <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:space-between;"><!-- blok 1 -->
