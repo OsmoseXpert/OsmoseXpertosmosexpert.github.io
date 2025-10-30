@@ -579,45 +579,45 @@
     }
   </style>
 <script>
+  // --- Scroll hide/show voor .floating-cta ---
   let lastScrollTop = 0;
-  const floatingCta = document.querySelector('.floating-cta');
+  let floatingCta = null;
 
-  // FIX: null-guard zodat JS niet crasht vóór de hamburgerhandlers binden
   window.addEventListener('scroll', function () {
-    if (!floatingCta) return;
-
+    if (!floatingCta) return; // null-guard
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > lastScrollTop) {
-      // naar beneden scrollen → knoppen verbergen
       floatingCta.classList.add('hidden');
     } else {
-      // naar boven scrollen → knoppen tonen
       floatingCta.classList.remove('hidden');
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }, { passive: true });
 
-  // Hamburger toggle (mobiel) — ongewijzigd laten
-  (function(){
-    var btn  = document.querySelector('.nav-toggle');
-    var list = document.getElementById('primary-nav');
-    if(!btn || !list) return;
+  // --- Hamburger pas binden wanneer DOM klaar is ---
+  document.addEventListener('DOMContentLoaded', function () {
+    floatingCta = document.querySelector('.floating-cta');
 
-    function close(){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
-    function toggle(){ var open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', String(open)); }
+    const btn  = document.querySelector('.nav-toggle');
+    const list = document.getElementById('primary-nav');
+    if (!btn || !list) return;
 
-    btn.addEventListener('click', function(e){ e.preventDefault(); toggle(); });
-    document.addEventListener('click', function(e){
-      if(!list.contains(e.target) && !btn.contains(e.target)) close();
+    function closeMenu()  { list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+    function toggleMenu() { const open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', String(open)); }
+
+    btn.addEventListener('click', function (e) { e.preventDefault(); toggleMenu(); });
+
+    document.addEventListener('click', function (e) {
+      if (!list.contains(e.target) && !btn.contains(e.target)) closeMenu();
     });
-    window.addEventListener('resize', function(){
-      if(window.matchMedia('(min-width:990px)').matches){ close(); }
+
+    window.addEventListener('resize', function () {
+      if (window.matchMedia('(min-width:990px)').matches) closeMenu();
       list.removeAttribute('style');
     });
-  })();
+  });
 </script>
-
-  <style>@view-transition { navigation: auto; }</style>
+ <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
