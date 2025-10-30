@@ -163,45 +163,15 @@
     }
     
     /* Navigation */
-    .nav {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px var(--shadow);
+    .nav.centered{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:100}
+    .nav.centered .nav-list{display:flex;gap:20px;justify-content:center;padding:14px 0;list-style:none;margin:0}
+    .nav.centered a{color:#1e293b;font-weight:600;padding:6px 10px;border-radius:6px;text-decoration:none}
+    .nav.centered a.active,.nav.centered a[aria-current="page"]{
+      background:linear-gradient(135deg,#0f6ab8,#29ABE2);
+      color:#fff;border:1px solid rgba(255,255,255,.25);
+      border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)
     }
-    
-    .nav-list {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
-      list-style: none;
-      margin: 0;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    
-    .nav a {
-      color: var(--text);
-      font-weight: 500;
-      padding: 0.75rem 1.5rem;
-      border-radius: 999px;
-      transition: all 0.3s ease;
-    }
-    
-    .nav a:hover {
-      background: rgba(15, 106, 184, 0.1);
-      color: var(--primary);
-    }
-    
-    .nav a.active,
-    .nav a[aria-current="page"] {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: var(--white);
-      box-shadow: 0 4px 12px rgba(15, 106, 184, 0.3);
-    }
+    .nav-toggle{display:none}
     
     /* Layout */
     .section {
@@ -214,29 +184,28 @@
       box-shadow: 0 4px 24px var(--shadow);
     }
     
-    /* Hero Section */
-    .hero-section {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: var(--white);
-      text-align: center;
-      padding: 5rem 2rem;
-      margin-bottom: 0;
+    /* Hero Banner with Video */
+    .hero-banner{
+      background:#03304F;
+      text-align:center;
+      padding:20px 0 28px;
+      display:flex;flex-direction:column;align-items:center
     }
-    
-    .hero-section h1 {
-      font-size: 3.25rem;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      color: var(--white);
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    .hero-logo{
+      width:min(44vw,680px);min-width:220px;margin:0 auto 10px;
+      position:relative;overflow:hidden;line-height:0;background:#03304F;border-radius:0
     }
-    
-    .hero-section p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      opacity: 0.95;
-      font-weight: 500;
+    .hero-logo video{
+      display:block;width:100%;height:auto;border-radius:0;background:#03304F;object-fit:cover
     }
+    /* naadje verbergen + subtiele fade-in */
+    .hero-logo::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:#03304F;z-index:2;pointer-events:none}
+    .hero-logo .hero-video{opacity:0;animation:heroFade .3s ease-out forwards;transform:translateY(-0.6px) scale(1.012);transform-origin:50% 0;will-change:transform}
+    @keyframes heroFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+    .hero-banner .content{max-width:820px;color:#fff;padding:0 20px;margin-top:0}
+    .hero-banner h1{font-family:'Poppins','Inter',sans-serif;margin:0 0 10px;font-size:30px;line-height:1.2;font-weight:700;color:#f3f7fb}
+    .hero-banner p{margin:0 0 22px;color:#e6f0fa;font-size:1.05rem;font-weight:500}
     
     /* CTA Buttons */
     .cta-hero {
@@ -558,25 +527,35 @@
       padding-top: 1.5rem;
     }
     
+    /* Mobile Navigation */
+    @media(max-width:900px){
+      .nav.centered{display:flex;justify-content:flex-end;padding:10px 16px}
+      .nav-toggle{display:flex;background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;margin:4px 8px}
+      .nav-toggle .line{width:24px;height:3px;border-radius:2px;background:var(--text)}
+      .nav.centered .nav-list{
+        position:absolute;top:56px;right:12px;flex-direction:column;align-items:flex-start;gap:10px;
+        background:#fff;border:1px solid #e2e8f0;padding:12px;border-radius:14px;
+        box-shadow:0 12px 30px rgba(2,18,33,.22);width:min(86vw,360px);z-index:101;display:none
+      }
+      .nav.centered .nav-list.open{display:flex !important}
+      .nav.centered .nav-list a{display:block;padding:12px 14px;color:var(--text);border-radius:10px;text-decoration:none}
+      .nav.centered .nav-list a:hover{background:#eef5ff}
+      .nav.centered .nav-list a.active,.nav.centered .nav-list [aria-current="page"]{
+        background:#e7f1ff;box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)
+      }
+      .nav-toggle:focus-visible,.nav.centered .nav-list a:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:10px}
+    }
+
+    /* Mobile Hero Video */
+    @media (max-width:768px){
+      .hero-logo{ width:min(92vw,640px); min-width:260px; }
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 3rem;
-      }
-      
       h1 { font-size: 3rem; }
       h2 { font-size: 2.25rem; }
       h3 { font-size: 1.875rem; }
-      
-      .hero-section {
-        padding: 3rem 1.5rem;
-      }
-      
-      .nav-list {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        padding: 1rem;
-      }
       
       .section {
         margin: 1.5rem;
@@ -616,7 +595,22 @@
       
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
-    
+
+    // Hamburger toggle (mobiel)
+    (function(){
+      var btn=document.querySelector('.nav-toggle');
+      var list=document.getElementById('primary-nav');
+      if(!btn||!list) return;
+      function close(){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+      function toggle(){ var open=list.classList.toggle('open'); btn.setAttribute('aria-expanded', String(open)); }
+      btn.addEventListener('click', function(e){ e.preventDefault(); toggle(); });
+      document.addEventListener('click', function(e){
+        if(!list.contains(e.target) && e.target!==btn && !btn.contains(e.target)){ close(); }
+      });
+      window.addEventListener('resize', function(){
+        if(window.matchMedia('(min-width:901px)').matches){ close(); list.removeAttribute('style'); }
+      });
+    })();
 
   </script>
   <style>@view-transition { navigation: auto; }</style>
@@ -624,9 +618,9 @@
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
  </head>
- <body>
-  <nav class="nav">
-   <ul class="nav-list">
+ <body><!-- === NAV (desktop + mobiel) === -->
+  <nav aria-label="Hoofdmenu" class="nav centered white-bg"><button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle" type="button"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </button>
+   <ul class="nav-list" id="primary-nav">
     <li><a href="index.html" class="active" aria-current="page">Home</a></li>
     <li><a href="over-ons.html">Over ons</a></li>
     <li><a href="diensten.html">Diensten</a></li>
@@ -635,11 +629,18 @@
     <li><a href="contact.html">Contact</a></li>
     <li><a href="faq.html">FAQ</a></li>
    </ul>
-  </nav><!-- Hero Section for Better Conversion -->
-  <section class="hero-section">
-   <h1>Professionele Ramenreiniging in Ronse &amp; Omgeving</h1>
-   <p>Streeploos resultaat met osmosewater • Veilig tot 15m zonder ladder • Tevredenheidsgarantie</p><a href="offerte.html" class="cta-hero">Gratis Offerte Aanvragen</a>
-  </section>
+  </nav><!-- === HERO (logo-animatie + slogan) === -->
+  <header class="hero-banner">
+   <div class="hero-logo" aria-label="Banner video">
+    <video id="heroVideo" class="hero-video" autoplay muted playsinline loop preload="auto" poster="images/ox-logo-transparant-1920 (2).png"><source src="banner-anim.mp4" type="video/mp4"> <!-- optionele fallback --> <source src="assets/assets/video/logo-anim.mp4" type="video/mp4"> Uw browser ondersteunt het video-element niet.
+    </video>
+   </div>
+   <div class="content">
+    <h1>Uw ramen, onze zorg.</h1>
+    <p>Professionele ramenreiniging in <span class="nb">Ronse en omgeving</span>.<br class="br-split">
+      Streeploos, veilig en zonder chemische producten.</p>
+   </div>
+  </header>
   <main id="content">
    <section class="section">
     <h1 style="font-size: clamp(1.8rem, 4vw, 2.13rem); font-weight: 900; margin-bottom: 1rem; line-height: 1.2;">Waarom Kiezen voor OsmoseXpert Ramenreiniging?</h1>
@@ -705,32 +706,31 @@
    </section>
   </main>
   <div class="floating-cta"><a class="cta-btn cta-offerte" href="offerte.html">Offerte aanvragen</a> <a class="cta-btn cta-boek" href="#boek">Boek nu</a>
+  </div><!-- === OsmoseXpert footer — CANVA-PROOF (alle styles inline) === -->
+  <div role="contentinfo" style="background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;font-size:14.4px;line-height:1.6;"><!-- bovenste rij -->
+   <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:space-between;"><!-- blok 1 -->
+     <div style="min-width:200px;flex:1;">
+      <p style="margin:4px 0 4px 0;"><strong>OsmoseXpert</strong></p>
+      <p style="margin:4px 0 4px 0;">Streeploos schoon, veilig en duurzaam.</p>
+      <p style="margin:4px 0 4px 0;">Ronse • Kluisbergen • Oudenaarde</p>
+     </div><!-- blok 2 -->
+     <div style="min-width:200px;flex:1;">
+      <p style="margin:4px 0 4px 0;"><strong>Contact</strong></p>
+      <p style="margin:4px 0 4px 0;"><a href="mailto:info@osmose-xpert.be" style="color:#cfe8ff;text-decoration:none;">info@osmose-xpert.be</a></p>
+      <p style="margin:4px 0 4px 0;"><a href="tel:+32493673484" style="color:#cfe8ff;text-decoration:none;">0493 67 34 84</a></p>
+     </div><!-- blok 3 -->
+     <div style="min-width:200px;flex:1;">
+      <p style="margin:4px 0 4px 0;"><strong>Informatie</strong></p>
+      <p style="margin:4px 0 4px 0;"><a href="privacy.html" style="color:#cfe8ff;text-decoration:none;">Privacy</a></p>
+      <p style="margin:4px 0 4px 0;"><a href="cookiebeleid.html" style="color:#cfe8ff;text-decoration:none;">Cookies</a></p>
+      <p style="margin:4px 0 4px 0;"><a href="voorwaarden.html" style="color:#cfe8ff;text-decoration:none;">Voorwaarden</a></p>
+     </div>
+    </div><!-- scheidingslijn + legal -->
+    <div style="border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:12px;text-align:center;color:#94a3b8;font-size:13.6px;line-height:1.5;"><span>BTW BE0733.924.863</span><br>
+      © 2025 OsmoseXpert. Alle rechten voorbehouden.
+    </div>
+   </div>
   </div>
-  <footer class="site-footer">
-   <div class="foot-inner">
-    <div>
-     <p><strong>OsmoseXpert Ramenreiniging</strong></p>
-     <p>Professionele ramenreiniging met osmosewater</p>
-     <p>Streeploos schoon, veilig en duurzaam</p>
-     <p><strong>Werkgebied:</strong> Ronse • Kluisbergen • Oudenaarde</p>
-    </div>
-    <div>
-     <p><strong>Contact &amp; Offerte</strong></p>
-     <p><a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
-     <p><a href="tel:+32493673484">0493 67 34 84</a></p>
-     <p>Gratis offerte binnen 24u</p>
-    </div>
-    <div>
-     <p><strong>Informatie</strong></p>
-     <p><a href="privacy.html">Privacy</a></p>
-     <p><a href="cookiebeleid.html">Cookies</a></p>
-     <p><a href="voorwaarden.html">Voorwaarden</a></p>
-     <p><a href="sitemap.xml">Sitemap</a></p>
-    </div>
-   </div>
-   <div class="legal"><span class="btw">BTW BE0733.924.863</span><br>
-     © 2025 OsmoseXpert Ramenreiniging. Alle rechten voorbehouden.
-   </div>
-  </footer>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9969877072c2b9bd',t:'MTc2MTgxMjgwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9969aba897a9b9bd',t:'MTc2MTgxNDI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
