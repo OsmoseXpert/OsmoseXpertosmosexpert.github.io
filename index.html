@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ramenreiniging Ronse | OsmoseXpert - Streeploos &amp; Veilig | Boek Online</title>
-  <meta name="description" content="⭐ Professionelle ramenreiniging in Ronse, Kluisbergen &amp; Oudenaarde. Streeploos resultaat met osmosewater. Veilig tot 15m zonder ladder. Tevredenheidsgarantie. Boek nu online!">
+  <meta name="description" content="⭐ Professionele ramenreiniging in Ronse, Kluisbergen &amp; Oudenaarde. Streeploos resultaat met osmosewater. Veilig tot 15m zonder ladder. Tevredenheidsgarantie. Boek nu online!">
   <link rel="canonical" href="https://osmose-xpert.be/"><!-- Enhanced SEO Meta Tags -->
   <meta name="keywords" content="ramenreiniging Ronse, glazenwasser Kluisbergen, ramen wassen Oudenaarde, osmosewater reiniging, professionele ramenreiniging, zonnepanelen reinigen, veranda reiniging, onderhoudsplan ramen">
   <meta name="author" content="OsmoseXpert">
@@ -618,9 +618,9 @@
   });
 </script>
  <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
-  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript" defer></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript" defer></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript" defer></script>
  </head>
  <body><!-- === NAV (desktop + mobiel) === -->
   <nav aria-label="Hoofdmenu" class="nav centered white-bg"><button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle" type="button"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </button>
@@ -636,8 +636,11 @@
   </nav><!-- === HERO (logo-animatie + slogan) === -->
   <header class="hero-banner">
    <div class="hero-logo" aria-label="Banner video">
-    <video id="heroVideo" class="hero-video" autoplay muted playsinline loop preload="auto" poster="images/ox-logo-transparant-1920 (2).png"><source src="banner-anim.mp4" type="video/mp4"> <!-- optionele fallback --> <source src="assets/assets/video/logo-anim.mp4" type="video/mp4"> Uw browser ondersteunt het video-element niet.
-    </video>
+    <video id="heroVideo" class="hero-video" playsinline muted loop preload="metadata" poster="images/ox-logo-transparant-1920 (2).png">
+  <source src="assets/assets/video/logo-anim.webm" type="video/webm">
+  <source src="assets/assets/video/logo-anim.mp4" type="video/mp4">
+  Uw browser ondersteunt het video-element niet.
+</video>
    </div>
    <div class="content">
     <h1>Uw ramen, onze zorg.</h1>
@@ -772,5 +775,20 @@
     </div>
    </div>
   </div>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9969aba897a9b9bd',t:'MTc2MTgxNDI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9969aba897a9b9bd',t:'MTc2MTgxNDI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>
+(function(){
+  var v = document.getElementById('heroVideo');
+  if(!v) return;
+  var play = function(){ if(v.paused){ v.play().catch(function(){}); } };
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(e){
+      if(e[0] && e[0].isIntersecting){ play(); io.disconnect(); }
+    },{rootMargin:'120px 0px'});
+    io.observe(v);
+  } else {
+    window.addEventListener('load', play, {once:true});
+  }
+})();
+</script>
+</body>
 </html>
