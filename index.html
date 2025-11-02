@@ -3,34 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Ramenreiniging Ronse | OsmoseXpert - Streeploos &amp; Veilig | Boek Online</title>
   <meta name="description" content="⭐ Professionele ramenreiniging in Ronse, Kluisbergen &amp; Oudenaarde. Streeploos resultaat met osmosewater. Veilig tot 15m zonder ladder. Tevredenheidsgarantie. Boek nu online!">
   <link rel="canonical" href="https://osmose-xpert.be/">
 
-  <!-- Open Graph / Facebook -->
+  <!-- 1) Host-normalisatie: forceer zonder 'www.' -->
+  <script>
+    (function(){
+      var h = location.hostname;
+      if (h.startsWith('www.')) {
+        location.replace(location.protocol + '//' + h.slice(4) + location.pathname + location.search + location.hash);
+      }
+    })();
+  </script>
+
+  <!-- 2) Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://osmose-xpert.be/">
   <meta property="og:title" content="Ramenreiniging Ronse | OsmoseXpert - Streeploos &amp; Veilig">
   <meta property="og:description" content="Professionele ramenreiniging in Ronse, Kluisbergen &amp; Oudenaarde. Streeploos resultaat met osmosewater. Tevredenheidsgarantie.">
-  <meta property="og:image" content="https://www.osmose-xpert.be/images/osmosexpert_logo_blauw.png">
+  <meta property="og:image" content="https://osmose-xpert.be/images/social/logo4.jpg">
+  <meta property="og:image:secure_url" content="https://osmose-xpert.be/images/social/logo4.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="OsmoseXpert – professionele ramenreiniging">
 
-  <!-- Twitter -->
+  <!-- 3) Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://osmose-xpert.be/">
   <meta name="twitter:title" content="Ramenreiniging Ronse | OsmoseXpert - Streeploos &amp; Veilig">
   <meta name="twitter:description" content="Professionele ramenreiniging in Ronse, Kluisbergen &amp; Oudenaarde. Streeploos resultaat met osmosewater.">
-  <meta name="twitter:image" content="https://www.osmose-xpert.be/images/osmosexpert_logo_blauw.png">
+  <meta name="twitter:image" content="https://osmose-xpert.be/images/social/logo4.jpg">
 
-  <!-- Fonts, basis CSS (uit je repo) -->
+  <!-- Fonts & basis CSS -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
-    :root {
+
+    :root{
       --primary:#0f6ab8; --secondary:#29abe2; --text:#0b364f; --background:#f8fafc;
-      --success:#10b981; --cta-blue:#2563eb; --white:#ffffff; --border:#e2e8f0; --shadow:rgba(11,54,79,0.08);
+      --success:#10b981; --cta-blue:#2563eb; --white:#ffffff; --border:#e2e8f0; --shadow:rgba(11,54,79,.08);
     }
-    * { box-sizing:border-box; }
-    body { font-family:'Inter','Poppins',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--background); color:var(--text); line-height:1.6; margin:0; font-weight:400; }
-    h1,h2,h3,h4,h5,h6 { font-family:'Poppins','Inter',sans-serif; font-weight:700; line-height:1.3; color:#0b364f; margin:0 0 1rem; }
+    *{box-sizing:border-box}
+    body{font-family:'Inter','Poppins',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--background);color:var(--text);line-height:1.6;margin:0;font-weight:400}
+    h1,h2,h3,h4,h5,h6{font-family:'Poppins','Inter',sans-serif;font-weight:700;line-height:1.3;color:#0b364f;margin:0 0 1rem}
     h1{font-size:4rem;font-weight:800} h2{font-size:3rem} h3{font-size:2.25rem} h4{font-size:1.75rem;font-weight:600}
     p{margin:0 0 1rem} a{color:var(--primary);text-decoration:none;transition:.2s} a:hover{color:var(--secondary)}
 
@@ -38,11 +54,14 @@
     .nav.centered{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:100}
     .nav.centered .nav-list{display:flex;gap:20px;justify-content:center;padding:14px 0;list-style:none;margin:0}
     .nav.centered a{color:#1e293b;font-weight:600;padding:6px 10px;border-radius:6px;text-decoration:none}
-    .nav.centered a.active,.nav.centered a[aria-current="page"]{background:linear-gradient(135deg,#0f6ab8,#29ABE2); color:#fff; border:1px solid rgba(255,255,255,.25); border-radius:999px; box-shadow:0 6px 14px rgba(15,106,184,.25)}
+    .nav.centered a.active,.nav.centered a[aria-current="page"]{
+      background:linear-gradient(135deg,#0f6ab8,#29ABE2);color:#fff;border:1px solid rgba(255,255,255,.25);
+      border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)
+    }
     .nav-toggle{display:none}
 
     /* Pagina-secties */
-    .section {max-width:1100px;margin:3rem auto;padding:3rem;background:var(--white);border-radius:12px;border:1px solid var(--border);box-shadow:0 4px 24px var(--shadow)}
+    .section{max-width:1100px;margin:3rem auto;padding:3rem;background:var(--white);border-radius:12px;border:1px solid var(--border);box-shadow:0 4px 24px var(--shadow)}
 
     /* HERO */
     .hero-banner{background:#03304F;text-align:center;padding:20px 0 28px;display:flex;flex-direction:column;align-items:center}
@@ -56,21 +75,20 @@
     .hero-banner p{margin:0 0 22px;color:#e6f0fa;font-size:1.05rem;font-weight:500}
 
     /* CTA Buttons */
-    .cta-hero{background:var(--success);color:var(--white);padding:1rem 2rem;border-radius:999px;font-weight:700;font-size:1.1rem;display:inline-block;box-shadow:0 4px 16px rgba(16,185,129,.3);transition:.3s}
+    .cta-hero{background:var(--success);color:#fff;padding:1rem 2rem;border-radius:999px;font-weight:700;font-size:1.1rem;display:inline-block;box-shadow:0 4px 16px rgba(16,185,129,.3);transition:.3s}
     .cta-hero:hover{background:#059669;transform:translateY(-2px);box-shadow:0 6px 20px rgba(16,185,129,.4);color:#fff}
 
     /* USP/Services */
     .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
-    .benefit-item{background:var(--white);padding:2rem;border-radius:12px;border:1px solid var(--border);box-shadow:0 2px 12px var(--shadow);transition:.3s}
+    .benefit-item{background:#fff;padding:2rem;border-radius:12px;border:1px solid var(--border);box-shadow:0 2px 12px var(--shadow);transition:.3s}
     .benefit-item:hover{transform:translateY(-4px);box-shadow:0 8px 24px var(--shadow)}
     .benefit-item h4{color:#0b364f;margin-bottom:1rem;font-size:1.25rem;font-weight:700;display:flex;align-items:center;gap:.75rem}
     .benefit-item h4::before{content:"✓";background:var(--success);color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.875rem;font-weight:700;flex-shrink:0}
 
     .service-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem}
-    .service-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem;box-shadow:0 2px 12px var(--shadow);transition:.3s}
+    .service-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:2rem;box-shadow:0 2px 12px var(--shadow);transition:.3s}
     .service-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px var(--shadow)}
     .service-card h3{color:#0b364f;margin-bottom:1rem}
-
     .guarantee-note{margin-top:2rem;padding:1.5rem;border-radius:12px;background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(16,185,129,.05));border:1px solid rgba(16,185,129,.2);color:var(--text);font-weight:500}
 
     .local-areas{background:linear-gradient(135deg,rgba(15,106,184,.1),rgba(41,171,226,.05));padding:2rem;border-radius:12px;margin-top:2rem;text-align:center;border:1px solid rgba(15,106,184,.1)}
@@ -133,37 +151,14 @@
     }
   </style>
 
-  <script>
-    // Scroll hide/show voor .floating-cta
-    let lastScrollTop = 0; let floatingCta = null;
-    window.addEventListener('scroll', function () {
-      if (!floatingCta) return;
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) { floatingCta.classList.add('hidden'); }
-      else { floatingCta.classList.remove('hidden'); }
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    }, { passive: true });
-
-    // Hamburger pas binden wanneer DOM klaar is
-    document.addEventListener('DOMContentLoaded', function () {
-      floatingCta = document.querySelector('.floating-cta');
-      const btn  = document.querySelector('.nav-toggle');
-      const list = document.getElementById('primary-nav');
-      if (!btn || !list) return;
-      function closeMenu(){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
-      function toggleMenu(){ const open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', String(open)); }
-      btn.addEventListener('click', function (e) { e.preventDefault(); toggleMenu(); });
-      document.addEventListener('click', function (e) { if (!list.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
-      window.addEventListener('resize', function (){ if (window.matchMedia('(min-width:990px)').matches) closeMenu(); list.removeAttribute('style'); });
-    });
-  </script>
-
   <style>@view-transition { navigation: auto; }</style>
+
+  <!-- (optioneel) je SDK's, laad uitgesteld -->
   <script src="/_sdk/data_sdk.js" type="text/javascript" defer></script>
   <script src="/_sdk/element_sdk.js" type="text/javascript" defer></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript" defer></script>
 
-  <!-- BEGIN OsmoseXpert Cookie Consent CSS (uit contact.html) -->
+  <!-- Cookie Consent CSS (uit contact.html) -->
   <style>
     :root { --brand:#0f6ab8; --brand2:#29ABE2; --dark:#002B45; --ok:#10b981; --white:#ffffff; --line:#0a2b45; }
     body.ox-lock { overflow:hidden!important; }
@@ -201,7 +196,6 @@
     .ox-btn.ghost{background:#fff;border:1px solid #e5e7eb;color:#0f172a}
     @media(max-width:720px){.ox-cc-grid{flex-direction:column;align-items:flex-start}.ox-cc-actions{width:100%;justify-content:flex-end}.ox-cc-actions .ox-btn{flex:1}}
   </style>
-  <!-- END Cookie Consent CSS -->
 </head>
 
 <body>
@@ -287,39 +281,6 @@
     <a class="cta-btn cta-boek" href="#boek" data-calendly aria-label="Afspraak boeken">Boek nu</a>
   </div>
 
-  <script>
-    // Auto-hide CTA + Calendly trigger
-    (function(){
-      var cta = document.getElementById('floatingCta');
-      var lastY = window.scrollY; var t;
-      function onScroll(){
-        if(!cta) return;
-        var y = window.scrollY;
-        if(y > lastY && y > 80){ cta.classList.add('hidden'); }
-        else { cta.classList.remove('hidden'); }
-        lastY = y;
-        clearTimeout(t);
-        t = setTimeout(function(){ cta.classList.remove('hidden'); },150);
-      }
-      window.addEventListener('scroll', onScroll, {passive:true});
-      document.addEventListener('click', function(e){
-        var btn = e.target.closest('[data-calendly]');
-        if(btn){
-          e.preventDefault();
-          try{
-            if(window.Calendly){
-              Calendly.initPopupWidget({ url:'https://calendly.com/osmose-xpert-info/ramenreiniging' });
-            } else {
-              window.open('https://calendly.com/osmose-xpert-info/ramenreiniging','_self');
-            }
-          }catch(err){
-            window.open('https://calendly.com/osmose-xpert-info/ramenreiniging','_self');
-          }
-        }
-      });
-    })();
-  </script>
-
   <!-- Footer -->
   <div role="contentinfo" style="background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;font-size:14.4px;line-height:1.6;">
     <div style="max-width:1100px;margin:0 auto;">
@@ -350,8 +311,48 @@
   <!-- Cloudflare anti-bot snippet (laten staan) -->
   <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9969aba897a9b9bd',t:'MTc2MTgxNDI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 
+  <!-- Lazy-play hero video + Floating CTA + Hamburger -->
   <script>
-    // Lazy-play hero video
+    // Scroll hide/show voor .floating-cta
+    let lastScrollTop = 0; let floatingCta = null;
+    window.addEventListener('scroll', function () {
+      if (!floatingCta) return;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop && scrollTop > 80) { floatingCta.classList.add('hidden'); }
+      else { floatingCta.classList.remove('hidden'); }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, { passive: true });
+
+    // DOM ready: bind hamburger + cache CTA
+    document.addEventListener('DOMContentLoaded', function () {
+      floatingCta = document.querySelector('.floating-cta');
+
+      const btn  = document.querySelector('.nav-toggle');
+      const list = document.getElementById('primary-nav');
+      if (btn && list){
+        function closeMenu(){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+        function toggleMenu(){ const open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', String(open)); }
+        btn.addEventListener('click', function (e) { e.preventDefault(); toggleMenu(); });
+        document.addEventListener('click', function (e) { if (!list.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
+        window.addEventListener('resize', function (){ if (window.matchMedia('(min-width:990px)').matches) closeMenu(); list.removeAttribute('style'); });
+      }
+    });
+
+    // Calendly trigger
+    (function(){
+      document.addEventListener('click', function(e){
+        var btn = e.target.closest('[data-calendly]');
+        if(btn){ e.preventDefault();
+          try{
+            if(window.Calendly){
+              Calendly.initPopupWidget({ url:'https://calendly.com/osmose-xpert-info/ramenreiniging' });
+            } else { window.open('https://calendly.com/osmose-xpert-info/ramenreiniging','_self'); }
+          }catch(err){ window.open('https://calendly.com/osmose-xpert-info/ramenreiniging','_self'); }
+        }
+      });
+    })();
+
+    // Lazy-play video
     (function(){
       var v = document.getElementById('heroVideo'); if(!v) return;
       var play = function(){ if(v.paused){ v.play().catch(function(){}); } };
@@ -364,7 +365,7 @@
     })();
   </script>
 
-  <!-- BEGIN OsmoseXpert Cookie Consent (markup) -->
+  <!-- Cookie Consent markup -->
   <div id="ox-cc-root" hidden>
     <div class="ox-cc-backdrop" aria-hidden="false"></div>
     <section class="ox-cc-panel" role="dialog" aria-modal="true" aria-label="Cookiekeuze">
@@ -372,7 +373,7 @@
       <div class="ox-cc-body">
         <div class="ox-cc-grid">
           <p class="ox-cc-text">
-            We gebruiken cookies om uw ervaring te verbeteren en onze prestaties te meten.
+            We gebruiken cookies om uw ervaring te verbeteren en prestaties te meten.
             U kunt <strong>instellingen aanpassen</strong> of <strong>alle cookies accepteren</strong>.
             Lees ons <a href="/cookiebeleid.html" target="_blank" rel="noopener">cookiebeleid</a> voor details.
           </p>
@@ -385,6 +386,7 @@
     </section>
   </div>
 
+  <!-- Cookie settings modal -->
   <div class="ox-modal" id="ox-settings-modal" aria-hidden="true" aria-label="Cookie-instellingen">
     <div class="ox-modal-card" role="document">
       <div class="ox-modal-hd">
@@ -411,69 +413,60 @@
       </div>
     </div>
   </div>
-  <!-- END Cookie Consent (markup) -->
 
-  <!-- BEGIN Cookie Consent Controller -->
+  <!-- Cookie Consent controller (+ force_cc hook) -->
   <script>
     (function(){
       var KEY='ox_cookie_consent_v1';
-      var GA_ID='G-FE95SCP0KD';
-
       var root = document.getElementById('ox-cc-root');
-      var btnAccept = document.getElementById('ox-btn-accept');
-      var btnSettings = document.getElementById('ox-btn-settings');
       var modal = document.getElementById('ox-settings-modal');
-      var btnSave = document.getElementById('ox-btn-save');
-      var btnCancel = document.getElementById('ox-btn-cancel');
-      var btnClose = document.getElementById('ox-btn-close');
-      var togA = document.getElementById('ox-tog-analytics');
-      var togM = document.getElementById('ox-tog-marketing');
+      var qs = new URLSearchParams(location.search);
+      var state = { analytics:false, marketing:false };
 
-      function loadState(){ try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e){ return null; } }
-      function saveState(v){ localStorage.setItem(KEY, JSON.stringify(v)); }
+      function showPanel(){ if(root){ root.hidden = false; document.body.classList.add('ox-lock'); } }
+      function hidePanel(){ if(root){ root.hidden = true; document.body.classList.remove('ox-lock'); } }
+      function openModal(){ if(modal){ modal.setAttribute('aria-hidden','false'); } }
+      function closeModal(){ if(modal){ modal.setAttribute('aria-hidden','true'); } }
 
-      function show(){ root.hidden=false; document.body.classList.add('ox-lock'); }
-      function hide(){ root.hidden=true; document.body.classList.remove('ox-lock'); }
-
-      function openSettings(){ modal.setAttribute('aria-hidden','false'); }
-      function closeSettings(){ modal.setAttribute('aria-hidden','true'); }
-
-      function showOverlay(){ root.querySelector('.ox-cc-backdrop').style.display='block'; root.querySelector('.ox-cc-panel').style.display='block'; }
-      function hideOverlay(){ root.querySelector('.ox-cc-backdrop').style.display='none'; root.querySelector('.ox-cc-panel').style.display='none'; }
-
-      function apply(cons){
-        document.documentElement.dataset.ccAnalytics = cons.analytics ? '1' : '0';
-        document.documentElement.dataset.ccMarketing = cons.marketing ? '1' : '0';
-        document.dispatchEvent(new CustomEvent('cookie-consent-changed',{detail:cons}));
-        if(cons.analytics) loadGA();
+      function saveConsent(){
+        try{
+          localStorage.setItem(KEY, JSON.stringify({
+            ts: Date.now(), analytics: !!state.analytics, marketing: !!state.marketing
+          }));
+        }catch(e){}
+      }
+      function hasConsent(){
+        try{
+          return !!localStorage.getItem(KEY);
+        }catch(e){ return false; }
       }
 
-      function acceptAll(){
-        var cons = { essential:true, analytics:true, marketing:true, ts:Date.now() };
-        saveState(cons); apply(cons); hide(); closeSettings(); hideOverlay();
-      }
-
-      btnAccept.addEventListener('click', acceptAll);
-      btnSettings.addEventListener('click', function(){ openSettings(); });
-      btnCancel.addEventListener('click', function(){ closeSettings(); });
-      btnClose.addEventListener('click', function(){ closeSettings(); });
-
-      btnSave.addEventListener('click', function(){
-        var cons = { essential:true, analytics: !!togA.checked, marketing: !!togM.checked, ts:Date.now() };
-        saveState(cons); apply(cons); hide(); closeSettings(); hideOverlay();
+      // Buttons
+      document.getElementById('ox-btn-accept')?.addEventListener('click', function(){
+        state.analytics = true; state.marketing = true; saveConsent(); hidePanel(); closeModal();
       });
+      document.getElementById('ox-btn-settings')?.addEventListener('click', openModal);
+      document.getElementById('ox-btn-close')?.addEventListener('click', closeModal);
+      document.getElementById('ox-btn-cancel')?.addEventListener('click', closeModal);
+      document.getElementById('ox-btn-save')?.addEventListener('click', function(){ saveConsent(); hidePanel(); closeModal(); });
 
-      var current = loadState();
-      if(!current){ show(); showOverlay(); }
-      else { apply(current); }
+      // Toggles
+      var tA = document.getElementById('ox-tog-analytics');
+      var tM = document.getElementById('ox-tog-marketing');
+      tA && tA.addEventListener('change', function(){ state.analytics = !!this.checked; });
+      tM && tM.addEventListener('change', function(){ state.marketing = !!this.checked; });
 
-      function loadGA(){
-        if(!GA_ID || document.getElementById('ga4-src')) return;
-        var s1=document.createElement('script'); s1.async=true; s1.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; s1.id='ga4-src'; document.head.appendChild(s1);
-        var s2=document.createElement('script'); s2.id='ga4-init'; s2.text="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','"+GA_ID+"',{anonymize_ip:true});"; document.head.appendChild(s2);
+      // Force-show via query
+      if (qs.get('force_cc') === '1') {
+        try{ localStorage.removeItem(KEY); }catch(e){}
+        showPanel();
+        return;
       }
+
+      // Init
+      if (!hasConsent()) { showPanel(); }
     })();
   </script>
-  <!-- END Cookie Consent Controller -->
+
 </body>
 </html>
