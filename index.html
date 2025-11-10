@@ -84,6 +84,11 @@
     .benefit-item:hover{transform:translateY(-4px);box-shadow:0 8px 24px var(--shadow)}
     .benefit-item h4{color:#0b364f;margin-bottom:1rem;font-size:1.25rem;font-weight:700;display:flex;align-items:center;gap:.75rem}
     .benefit-item h4::before{content:"✓";background:var(--success);color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.875rem;font-weight:700;flex-shrink:0}
+    .benefit-item.benefit-expandable{cursor:default}
+    .benefit-toggle{display:flex;align-items:center;justify-content:space-between;gap:.75rem;cursor:pointer}
+    .benefit-toggle h4{margin-bottom:0}
+    .benefit-arrow{font-size:.95rem;transition:transform .2s ease}
+    .benefit-extra{margin-top:.75rem}
 
     .service-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem}
     .service-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:2rem;box-shadow:0 2px 12px var(--shadow);transition:.3s}
@@ -103,12 +108,16 @@
     .chatband-modern{background:linear-gradient(135deg,#03304f,#00304e);border-radius:12px;box-shadow:0 8px 32px var(--shadow);overflow:hidden;margin:0}
     .chatband-header{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2rem;background:rgba(255,255,255,.1)}
     .chatband-title{display:flex;align-items:center;gap:.75rem;color:#e6f0fa !important;font-weight:600}
+    .chatband-title h2{color:#ffffff !important;margin:0;font-size:1.4rem;font-weight:600}
     .chatband-actions{display:flex;gap:1rem}
     .chat-action{background:#fff;border:none;border-radius:999px;font-weight:600;color:var(--text);padding:.75rem 1.5rem;cursor:pointer;transition:.3s}
     .chat-action:hover{background:var(--background)}
     .chat-action.secondary{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff}
     .chat-action.secondary:hover{background:rgba(255,255,255,.1)}
-    iframe{width:100%;height:500px;border:none;background:#fff}
+    iframe{width:100%;height:500px;border:1px solid #e2e8f0;background:#f8fafc;border-radius:0 0 12px 12px}
+    .chat-hints{background:#f8fafc;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 12px 12px;padding:.75rem 1.5rem;font-size:.9rem;color:#475569;display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
+    .chat-hints-label{font-weight:600;margin-right:.25rem}
+    .chat-hints-text{font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 
     /* Floating CTA */
     .floating-cta{position:fixed;right:1.5rem;bottom:1.5rem;z-index:9999;display:flex;flex-direction:column;gap:.75rem;opacity:1;transition:opacity .3s}
@@ -240,7 +249,17 @@
         <div class="benefit-item"><h4>Veilig &amp; Professioneel</h4><p>Moderne telescopische systemen tot 15 meter hoogte, geen ladder nodig.</p></div>
         <div class="benefit-item"><h4>Milieuvriendelijk</h4><p>Geen chemische producten, alleen puur osmosewater voor optimale reiniging.</p></div>
         <div class="benefit-item"><h4>Snelle Service</h4><p>Transparante prijzen, snelle responstijd en flexibele planning.</p></div>
+        <div class="benefit-item benefit-expandable">
+          <div class="benefit-toggle" role="button" tabindex="0" aria-expanded="false">
+            <h4>Digitale opvolging &amp; automatische planning</h4>
+            <span class="benefit-arrow" aria-hidden="true">Meer ▾</span>
+          </div>
+          <div class="benefit-extra" hidden>
+            <p>Bij OsmoseXpert combineren we vakmanschap met digitale precisie. Onze klanten hoeven nooit te controleren of we langskomen – onze opvolging en planning zijn volledig geautomatiseerd. Elke beurt wordt vooraf bevestigd, uitgevoerd volgens schema en opgevolgd via een digitaal systeem. Zo garanderen we een transparante service, zonder verrassingen en zonder zorgen.</p>
+          </div>
+        </div>
       </div>
+</div>
 
       <div class="local-areas">
         <h3>Werkgebied: Professionele Ramenreiniging</h3>
@@ -267,10 +286,20 @@
     <section class="section" id="osmosexpert-chat">
       <div class="chatband-modern">
         <div class="chatband-header">
-          <div class="chatband-title"><span class="status-dot"></span><h2>Digitale assistent - Direct antwoord op je vragen</h2></div>
+          <div class="chatband-title">
+            <span class="status-dot"></span>
+            <div>
+              <h2>Digitale assistent - Direct antwoord op je vragen</h2>
+              <p style="margin:2px 0 0 0;font-size:.9rem;color:#e2f2ff;">Typ je vraag in het tekstvak onderaan het chatvenster en krijg meteen een antwoord.</p>
+            </div>
+          </div>
           <div class="chatband-actions"><button class="chat-action">Vergroot</button> <a href="contact.html" class="chat-action secondary">Contact</a></div>
         </div>
         <iframe src="https://www.chatbase.co/chatbot-iframe/TkHOZ_mxX3kecf30oT-ri" title="OsmoseXpert Chatvenster - Stel je vraag over ramenreiniging" loading="lazy"></iframe>
+        <div class="chat-hints">
+          <span class="chat-hints-label">Voorbeeldvragen:</span>
+          <span class="chat-hints-text" id="chatHintRotator"></span>
+        </div>
       </div>
     </section>
   </main>
@@ -313,14 +342,28 @@
 
   <!-- Lazy-play hero video + Floating CTA + Hamburger -->
   <script>
-    // Scroll hide/show voor .floating-cta
-    let lastScrollTop = 0; let floatingCta = null;
+    // Scroll hide/show voor .floating-cta + automatische terugkeer
+    let lastScrollTop = 0;
+    let floatingCta = null;
+    let scrollTimeout;
+
     window.addEventListener('scroll', function () {
       if (!floatingCta) return;
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop && scrollTop > 80) { floatingCta.classList.add('hidden'); }
-      else { floatingCta.classList.remove('hidden'); }
+
+      // CTA verbergen bij naar beneden scrollen
+      if (scrollTop > lastScrollTop && scrollTop > 80) {
+        floatingCta.classList.add('hidden');
+      } else {
+        floatingCta.classList.remove('hidden');
+      }
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+      // Na 3 seconden geen scrollen: CTA automatisch terug tonen
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function () {
+        floatingCta.classList.remove('hidden');
+      }, 3000);
     }, { passive: true });
 
     // DOM ready: bind hamburger + cache CTA
@@ -335,6 +378,52 @@
         btn.addEventListener('click', function (e) { e.preventDefault(); toggleMenu(); });
         document.addEventListener('click', function (e) { if (!list.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
         window.addEventListener('resize', function (){ if (window.matchMedia('(min-width:990px)').matches) closeMenu(); list.removeAttribute('style'); });
+      }
+
+      // Uitklapbare benefit-tegel
+      document.querySelectorAll('.benefit-item.benefit-expandable .benefit-toggle').forEach(function(toggle){
+        toggle.addEventListener('click', function(){
+          var item = toggle.closest('.benefit-item');
+          var extra = item ? item.querySelector('.benefit-extra') : null;
+          var expanded = toggle.getAttribute('aria-expanded') === 'true';
+          var arrow = toggle.querySelector('.benefit-arrow');
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          if(extra){
+            if(expanded){
+              extra.setAttribute('hidden','');
+              item.classList.remove('benefit-open');
+              if(arrow){ arrow.textContent = 'Meer ▾'; }
+            } else {
+              extra.removeAttribute('hidden');
+              item.classList.add('benefit-open');
+              if(arrow){ arrow.textContent = 'Minder ▴'; }
+            }
+          }
+        });
+        // keyboard support
+        toggle.addEventListener('keydown', function(e){
+          if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            toggle.click();
+          }
+        });
+      });
+
+      // Roterende voorbeeldvragen onder het chatvenster
+      var hintEl = document.getElementById('chatHintRotator');
+      if(hintEl){
+        var hints = [
+          '"Wat kost ramen wassen in Ronse?"',
+          '"Hoe vaak raden jullie onderhoud aan?"',
+          '"Kunnen jullie ook onze zonnepanelen reinigen?"'
+        ];
+        var hintIndex = 0;
+        function showNextHint(){
+          hintEl.textContent = hints[hintIndex];
+          hintIndex = (hintIndex + 1) % hints.length;
+        }
+        showNextHint();
+        setInterval(showNextHint, 5000);
       }
     });
 
