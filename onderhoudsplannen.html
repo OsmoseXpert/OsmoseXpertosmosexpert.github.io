@@ -110,7 +110,7 @@
     }
 
     .plan.platinum::before{
-      content:'By professionals, for professionals';
+      content:'By professionals for professionals';
       position:absolute;top:-10px;left:50%;transform:translateX(-50%);
       background:rgba(15,23,42,0.95);
       color:#e0f2fe;padding:4px 14px;border-radius:999px;
@@ -139,7 +139,14 @@
       .plan{width:100%;max-width:280px}
       .plan .cta-button{display:inline-block;margin-top:12px}
       .plan.silver::before{left:50%;transform:translateX(-50%)}
-      .plan.platinum::before{left:50%;transform:translateX(-50%);white-space:normal}
+      .plan.platinum::before{
+        left:50%;
+        transform:translateX(-50%);
+        white-space:nowrap;
+        font-size:0.6rem;
+        padding:3px 10px;
+        line-height:1;
+      }
     }
   </style>
 
