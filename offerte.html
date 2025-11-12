@@ -14,47 +14,12 @@
     header h1{margin:0;font-size:28px;font-weight:700} header p{margin:0;opacity:.95;font-size:16px}
     main{max-width:800px;margin:0 auto;padding:20px;padding-right:100px}
 
-    .progress-bar{
-      position:fixed;
-      top:12px;
-      right:12px;
-      width:auto;
-      height:auto;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:12px;
-      z-index:200;
-      padding:8px 10px;
-      background:transparent;
-      pointer-events:none;
-    }
+    .progress-bar{position:fixed;top:0;right:120px;height:100%;width:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:1000;padding:40px 0;pointer-events:none}
     .progress-bar.stop-at-footer{position:absolute;top:auto;bottom:0}
     .progress-meter{display:flex;flex-direction:column;align-items:center;gap:10px;flex:1;justify-content:center}
-    .progress-track{
-      background:rgba(226,232,240,.6);
-      width:6px;
-      height:120px;
-      border-radius:3px;
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      box-shadow:inset 0 1px 3px rgba(0,0,0,.05);
-    }
-    .progress-fill{
-      background:linear-gradient(180deg,#10b981 0%,#22c55e 100%);
-      height:0%;
-      width:100%;
-      border-radius:0 0 3px 3px;
-      box-shadow:0 -2px 8px rgba(16,185,129,.3);
-    }
-    .progress-percentage{
-      font-size:18px;
-      font-weight:600;
-      color:#64748b;
-      letter-spacing:-.25px;
-    }
+    .progress-track{background:rgba(226,232,240,.6);width:6px;height:60%;max-height:400px;border-radius:3px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:inset 0 1px 3px rgba(0,0,0,.05)}
+    .progress-fill{background:linear-gradient(180deg,#10b981 0%,#059669 100%);width:100%;height:0%;transition:height .4s cubic-bezier(.4,0,.2,1);border-radius:0 0 3px 3px;box-shadow:0 -2px 8px rgba(16,185,129,.3)}
+    .progress-percentage{font-size:24px;font-weight:600;color:#64748b;letter-spacing:-.5px}
 
     .form-container{background:#fff;border-radius:12px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
     .form-container h2{margin:0 0 24px;font-size:24px;color:#0f172a}
@@ -141,8 +106,7 @@
       <!-- Inline onsubmit = extra zekerheid dat klik altijd iets doet -->
       <form id="offerteForm"
             action="https://formspree.io/f/xvgbjdav"
-            method="POST"
-            onsubmit="return OX_submit(event)">
+            method="POST">
         <label for="klant">Type klant <span class="req">*</span></label>
         <select id="klant" name="klanttype" required>
           <option value="">Maak een keuze…</option>
@@ -378,14 +342,9 @@
     // file:// wordt getest, laat onsubmit gewoon doorgaan zodat de browser zijn standaardvalidatie uitvoert.
     function OX_submit(e){
       const form = e.target;
-      // Mark fields (UX), but let the browser handle the actual submit
-      let ok = true;
-      form.querySelectorAll('input,select,textarea').forEach(el => { try { if (!validateField(el)) ok = false; } catch(_){} });
-      const valid = (typeof form.reportValidity === 'function') ? form.reportValidity() : form.checkValidity();
-      if (!ok || !valid) { return false; }
-      // No preventDefault; allow native submit to Formspree (respects _redirect)
-      return true;
-    
+      // Local file:// → standaard gedrag. Zonder preventDefault werkt browservalidatie normaal
+      if (location.protocol === 'file:') {
+        return true;
       }
       // Voorkom standaard submit; we handelen hem zelf af
       e.preventDefault();
@@ -431,17 +390,17 @@
 
     // Progress-stickiness t.o.v. footer
     function handleProgressBarPosition(){
-      const progressBar = document.querySelector('.progress-bar');
-      const footer = document.querySelector('footer');
-      if(!progressBar || !footer) return;
-      // We keep a safe distance; no dynamic bottoming-out needed.
-    }
+      const progressBar=document.querySelector('.progress-bar');
+      const footer=document.querySelector('footer');
+      if(!progressBar||!footer||innerWidth<=640) return;
+      const fr=footer.getBoundingClientRect(); const wh=innerHeight; const ph=progressBar.offsetHeight;
+      if(fr.top<wh){ progressBar.classList.add('stop-at-footer'); const top=footer.offsetTop; progressBar.style.top=(top - ph - 40)+'px'; }
       else{ progressBar.classList.remove('stop-at-footer'); progressBar.style.top=''; }
     }
     addEventListener('scroll',handleProgressBarPosition);
     addEventListener('resize',handleProgressBarPosition);
     handleProgressBarPosition();
   </script>
-  <script src="offerte_hotfix.js?v=2025-11-12-3"></script>
+  <script src="offerte_hotfix.js" defer></script>
 </body>
 </html>
