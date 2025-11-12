@@ -5,17 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Vraag uw vrijblijvende offerte aan voor ramen- en zonnepanelenreiniging in Ronse, Oudenaarde en Kluisbergen. Binnen 24 uur een transparant prijsvoorstel van OsmoseXpert.">
   <title>Offerte aanvragen — OsmoseXpert</title>
-
-  <!-- ✅ SEO & Open Graph -->
-  <meta name="robots" content="index,follow">
-  <meta property="og:title" content="Offerte aanvragen — OsmoseXpert">
-  <meta property="og:description" content="Vraag uw vrijblijvende offerte aan voor ramen- en zonnepanelenreiniging in Ronse, Oudenaarde en Kluisbergen.">
-  <meta property="og:image" content="https://i.imgur.com/CUAlnGg.png">
-  <meta property="og:url" content="https://osmose-xpert.be/offerte.html">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="nl_BE">
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-
   <style>
     body {
       box-sizing: border-box;
@@ -1053,29 +1042,40 @@
       document.getElementById('progressPercentage').textContent = Math.round(progress) + '%';
     }
 
+    // ★★★ FIXED validateField (robuust) ★★★
     function validateField(field) {
-      const parent = field.closest('div');
-      parent.classList.remove('field-error', 'field-success');
-      
-      if (field.hasAttribute('required') && !field.value.trim()) {
-        parent.classList.add('field-error');
-        return false;
-      }
-      
-      if (field.type === 'email' && field.value && !field.value.includes('@')) {
-        parent.classList.add('field-error');
-        return false;
-      }
-      
-      if (field.type === 'tel' && field.value && field.value.replace(/\D/g,'').length < 6) {
-        parent.classList.add('field-error');
-        return false;
-      }
-      
-      if (field.value.trim()) {
-        parent.classList.add('field-success');
-      }
-      
+      // Zoek een nette container, val terug op parent of het veld zelf
+      const container =
+        field.closest('.field, .row > div') ||
+        (field.parentElement && field.parentElement.tagName !== 'FORM' ? field.parentElement : null);
+
+      // Zoek een error element direct na het veld (jouw markup gebruikt dat patroon)
+      const errEl = (field.nextElementSibling && field.nextElementSibling.classList && field.nextElementSibling.classList.contains('error-message'))
+        ? field.nextElementSibling
+        : null;
+
+      const setState = (state) => {
+        if (container) {
+          container.classList.remove('field-error','field-success');
+          if (state) container.classList.add(state);
+        }
+        if (errEl) errEl.style.display = state === 'field-error' ? 'block' : 'none';
+      };
+
+      // Required leeg?
+      if (field.hasAttribute('required') && !field.value.trim()) { setState('field-error'); return false; }
+
+      // E-mail check
+      if (field.type === 'email' && field.value && !field.value.includes('@')) { setState('field-error'); return false; }
+
+      // Telefoon: min 6 cijfers
+      if (field.type === 'tel' && field.value && field.value.replace(/\D/g,'').length < 6) { setState('field-error'); return false; }
+
+      // Select leeg?
+      if (field.tagName === 'SELECT' && field.hasAttribute('required') && !field.value.trim()) { setState('field-error'); return false; }
+
+      // OK
+      setState('field-success');
       return true;
     }
 
