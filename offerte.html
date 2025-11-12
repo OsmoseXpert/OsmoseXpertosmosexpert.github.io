@@ -343,9 +343,14 @@
     // file:// wordt getest, laat onsubmit gewoon doorgaan zodat de browser zijn standaardvalidatie uitvoert.
     function OX_submit(e){
       const form = e.target;
-      // Local file:// → standaard gedrag. Zonder preventDefault werkt browservalidatie normaal
-      if (location.protocol === 'file:') {
-        return true;
+      // Mark fields (UX), but let the browser handle the actual submit
+      let ok = true;
+      form.querySelectorAll('input,select,textarea').forEach(el => { try { if (!validateField(el)) ok = false; } catch(_){} });
+      const valid = (typeof form.reportValidity === 'function') ? form.reportValidity() : form.checkValidity();
+      if (!ok || !valid) { return false; }
+      // No preventDefault; allow native submit to Formspree (respects _redirect)
+      return true;
+    
       }
       // Voorkom standaard submit; we handelen hem zelf af
       e.preventDefault();
