@@ -1,0 +1,19 @@
+/* === OsmoseXpert — Hero/banner kleurmatch voor videologo === */
+/* Pas --hero-bg aan naar de exacte videokleur indien nodig */
+:root { --hero-bg: #062036; }
+
+/* Generic hero targets (pakt jouw huidige hero ook mee) */
+.hero, .hero-section, .hero-banner, .banner, section.hero, section.banner {
+  background: var(--hero-bg) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after, .hero-section::after, .hero-banner::after, .banner::after, section.hero::after, section.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 60% at 50% 45%, transparent 0%, rgba(0,0,0,0.09) 68%, rgba(0,0,0,0.14) 100%);
+  z-index: 0;
+}
