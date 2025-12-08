@@ -1,0 +1,640 @@
+/* Reset and general */
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: Arial, sans-serif;
+  background:#f6f9fc;
+  color:#1e293b;
+  line-height:1.6;
+}
+a {
+  color:#0f6ab8;
+  text-decoration:none;
+}
+a:hover {
+  text-decoration:underline;
+}
+ul {
+  list-style:disc;
+  margin-left:20px;
+}
+ul.footer-nav {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.footer-nav li {
+  margin-bottom:6px;
+}
+
+/* Navbar */
+nav {
+  background:#fff;
+  border-bottom:1px solid #e2e8f0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 20px;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+nav ul {
+  display:flex;
+  gap:20px;
+}
+nav li {
+  list-style:none;
+}
+nav a {
+  color:#1e293b;
+  font-weight:500;
+}
+nav a:hover {
+  color:#0f6ab8;
+}
+.logo {
+  height:40px;
+}
+
+/* Hero */
+/*
+ * The hero section uses a diagonal split layout where the copy sits on a dark
+ * panel and the logo sits on a light panel. The panels are sized in a 2:1
+ * ratio (copy panel twice as wide as the logo panel) and the diagonal cut
+ * between them is achieved via CSS clip-path polygons. When the viewport
+ * shrinks below the defined breakpoint the panels stack vertically and the
+ * diagonal clipping is removed to maintain readability on small screens.
+ */
+.hero {
+  position: relative;
+  color: #011a3a;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 70vh;
+  overflow: hidden;
+}
+/*
+ * The hero background image overlay used in earlier designs is hidden for the
+ * diagonal split layout. Setting display:none ensures the underlying hero
+ * panels (dark copy panel and light logo panel) are visible without being
+ * obscured by the image. If you wish to reintroduce a background image
+ * simply remove the display property and adjust the background settings.
+ */
+.hero .background {
+  display: none;
+  /* position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url('images/hero-bg.png') no-repeat center/cover;
+  filter:brightness(0.8);
+  z-index:-1;*/
+}
+.hero h1 {
+  font-size:3rem;
+  margin-bottom:10px;
+}
+.hero p {
+  font-size:1.2rem;
+  margin-bottom:20px;
+}
+.hero .buttons {
+  display:flex;
+  gap:15px;
+}
+.hero .buttons a {
+  padding:12px 24px;
+  border-radius:6px;
+  font-weight:600;
+}
+.hero .buttons a:first-child {
+  background:#0f6ab8;
+  color:#fff;
+}
+.hero .buttons a.secondary {
+  background:rgba(255,255,255,0.2);
+  color:#fff;
+  border:1px solid #fff;
+}
+
+/*
+ * Layout classes for the split hero panels. The copy panel takes up two
+ * thirds of the available width and uses a dark background with light
+ * text. The diagonal cut is defined via clip-path. The logo panel uses a
+ * light background and a complementary diagonal cut so the two shapes meet
+ * seamlessly in the middle. On smaller screens the panels collapse into a
+ * stacked layout and the clip paths are removed.
+ */
+/*
+ * Swap the colours on the hero panels so the copy panel uses a dark
+ * background with light text and the logo panel uses a light background. The
+ * diagonal shapes remain unchanged.
+ */
+.hero-content {
+  flex: 2;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #011a3a;
+  color: #ffffff;
+  clip-path: none;
+}
+
+/* Adjust brand name and copy sizes within the hero content */
+.hero-content .brand-name {
+  margin-bottom: 10px;
+  font-size: 32px;
+  /* White text on the dark copy panel */
+  color: #ffffff;
+}
+.hero-content h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* The right side of the hero containing the logo */
+/* Logo panel styles. Smaller width and inverted colours compared to the copy
+   panel. The diagonal shape mirrors the copy panel for a cohesive look. */
+.hero-image {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px;
+  /* Light background for the logo panel to contrast the dark copy panel */
+  background-color: #ffffff;
+  clip-path: none;
+}
+.hero-image img {
+  max-width: 80%;
+  height: auto;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 40px 5%;
+    text-align: center;
+  }
+  .hero-content,
+  .hero-image {
+    max-width: 100%;
+  }
+  .hero-image {
+    margin-top: 20px;
+  }
+}
+
+/* Subhero */
+.subhero {
+  background:#e6f0fa;
+  padding:60px 0;
+  text-align:center;
+  color:#0a3d62;
+}
+.subhero h1 {
+  font-size:2.5rem;
+  margin:0;
+}
+
+/* Section */
+.section {
+  max-width:1000px;
+  margin:40px auto;
+  padding:20px;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.04);
+}
+.section h2 {
+  margin-bottom:15px;
+  color:#0a3d62;
+}
+.section p {
+  margin-bottom:15px;
+}
+
+/* USP list */
+.usp-list {
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:10px;
+}
+.usp-list li {
+  position:relative;
+  padding-left:30px;
+  margin-bottom:10px;
+}
+.usp-list li::before {
+  content:'\2713';
+  position:absolute;
+  left:0;
+  top:0;
+  color:#0f6ab8;
+  font-weight:bold;
+}
+
+/* Service */
+.service-list {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:20px;
+}
+.service-card {
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.service-card h3 {
+  color:#0f6ab8;
+  margin-bottom:10px;
+}
+.service-card p {
+  flex-grow:1;
+}
+.service-card a {
+  margin-top:10px;
+  color:#0f6ab8;
+  font-weight:600;
+}
+.service-card a:hover {
+  text-decoration:underline;
+}
+
+/* CTA banner */
+.cta-banner {
+  background:#0f6ab8;
+  color:#fff;
+  padding:40px 20px;
+  text-align:center;
+  border-radius:8px;
+  max-width:1000px;
+  margin:40px auto;
+}
+.cta-banner h2 {
+  margin-bottom:10px;
+}
+.cta-banner p {
+  margin-bottom:20px;
+}
+.cta-banner a {
+  display:inline-block;
+  background:#fff;
+  color:#0f6ab8;
+  padding:12px 24px;
+  border-radius:6px;
+  font-weight:600;
+}
+
+/* Footer */
+footer {
+  background:#0a3d62;
+  color:#fff;
+  padding:40px 20px;
+}
+.footer-container {
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  gap:20px;
+}
+.footer-container > div {
+  flex:1 1 200px;
+}
+.footer-container h3 {
+  margin-bottom:10px;
+}
+.logo-footer {
+  height:50px;
+}
+footer small {
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  color:#94a3b8;
+}
+.footer-nav {
+  list-style:none;
+  padding:0;
+}
+.footer-nav li {
+  margin-bottom:8px;
+}
+.footer-nav a {
+  color:#cfe8ff;
+}
+
+/* FAQ */
+.faq h3 {
+  margin-top:20px;
+  color:#0f6ab8;
+}
+.faq p {
+  margin-bottom:10px;
+}
+
+/* Contact form */
+.contact-form {
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  max-width:600px;
+  margin-top:20px;
+}
+.contact-form label {
+  display:flex;
+  flex-direction:column;
+  font-weight:600;
+  color:#0a3d62;
+}
+.contact-form input,
+.contact-form textarea {
+  padding:10px;
+  border:1px solid #cbd5e1;
+  border-radius:6px;
+  font-size:1rem;
+}
+.contact-form button {
+  background:#0f6ab8;
+  color:#fff;
+  padding:12px 24px;
+  border:none;
+  border-radius:6px;
+  font-weight:600;
+  cursor:pointer;
+  align-self:flex-start;
+}
+.contact-form button:hover {
+  background:#0a4a7d;
+}
+
+/* Responsive small screens adjustments */
+@media (max-width:600px) {
+  .hero h1 {
+    font-size:2rem;
+  }
+  .hero p {
+    font-size:1rem;
+  }
+  .usp-list {
+    grid-template-columns:1fr;
+  }
+  nav ul {
+    gap:10px;
+  }
+}
+
+/* Hero branding */
+.hero-logo {
+  height:80px;
+  margin-bottom:10px;
+}
+.brand-name {
+  font-size:1.75rem;
+  margin-bottom:10px;
+  color:#fff;
+  font-weight:700;
+}
+
+/* === OSMOSEXPERT OVERRIDES (2025-09-18) === */
+
+/* Mobile subhero: no blue background; keep white with dark text */
+@media (max-width: 900px) {
+  .subhero {
+    background: #fff !important;
+    color: #0a3d62 !important;
+    height: auto;
+    padding: 28px 20px;
+  }
+  .subhero .wrap {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+  }
+  .subhero img {
+    margin-top: 12px;
+    max-height: 120px;
+    width: auto;
+  }
+}
+
+/* Hamburger icon: three centered bars */
+.ox-mm-btn .bars,
+.ox-mm-btn .bars::before,
+.ox-mm-btn .bars::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+.ox-mm-btn .bars { top: 50%; transform: translate(-50%, -50%); }
+.ox-mm-btn .bars::before { top: -6px; }
+.ox-mm-btn .bars::after { top: 6px; }
+
+/* Desktop subhero title color */
+@media (min-width: 901px) {
+  .subhero h1 {
+    color: #011a3a !important; /* typical dark blue from index banner */
+  }
+}
+
+/* finetune indien nodig (-6, -7 of -8) */
+  z-index: 1000;
+}
+
+/* finetune desnoods naar -6 of -7 */
+    z-index: 10010;
+  }
+}
+
+/* === Over-ons: banner-overlay en vlag-effect (2025-09-18) === */
+@media (max-width: 1023.98px) {
+  /* Banner moet boven de knop liggen zodat de knop erachter 'inzakt' */
+  .over-ons-page .subhero {
+    position: relative;
+    z-index: 1000;
+  }
+  /* Hamburger iets lager en onder de bannerlaag */
+  .over-ons-page .ox-mm-btn {
+    top: 4px !important;   /* finetune naar 3-6px indien nodig */
+    z-index: 900;          /* lager dan subhero */
+  }
+  /* Floating CTA's onder de banner houden */
+  .over-ons-page .floating-cta {
+    z-index: 500;
+  }
+}
+
+/* === Mobile dropdown active item (same as Over-ons) === */
+.ox-mm a.active,
+.ox-mm a[aria-current="page"] {
+  background: #0f6ab8;
+  color: #fff !important;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.ox-mm a.active:hover,
+.ox-mm a[aria-current="page"]:hover {
+  background: #0d5ea3;
+  color: #fff !important;
+}
+
+/* Forceer desktop nav centreren op over-ons, overschrijft inline styles */
+@media (min-width: 901px) {
+  body.over-ons-page nav.nav {
+    justify-content: center !important;
+  }
+}
+
+/* === Desktop nav hard-center like index (force) === */
+@media (min-width: 901px) {
+  nav.nav {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  nav.nav .nav-list {
+    display: flex !important;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+  }
+  nav.nav .nav-list li {
+    list-style: none;
+  }
+}
+
+/* Skip link only visible on focus (accessibility) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: #0f6ab8;
+  color: #fff;
+  border-radius: 8px;
+}
+
+/* === OSMOSEXPERT: Page-scoped fixes (2025-09-19) === */
+
+/* Desktop logo size per page to avoid cross-page bleed */
+@media (min-width: 901px){
+  body.diensten-page .subhero .site-logo-img{ max-height:160px !important; width:auto; height:auto; }
+  body.over-ons-page .subhero .site-logo-img{ max-height:160px !important; width:auto; height:auto; }
+}
+
+/* Mobile hamburger: 3 real bars; neutralize old .bars pseudo variant */
+@media (max-width:1023.98px){
+  .ox-mm-btn{
+    background:#2563eb !important; color:#fff !important;
+    display:flex !important; flex-direction:column !important;
+    align-items:center !important; justify-content:center !important;
+    gap:5px !important; width:48px; height:48px;
+    border:none; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.18);
+  }
+  .ox-mm-btn .bar{ display:block; width:22px; height:2px; background:#fff; border-radius:1px; }
+  .ox-mm-btn .bars, .ox-mm-btn .bars::before, .ox-mm-btn .bars::after{ display:none !important; }
+}
+
+/* === OSMOSEXPERT FIX (2025-09-20): Hamburger kleur + Active menu pill === */
+
+/* Force hamburger button to Osmose blue, ensure bars are white */
+.ox-mm-btn,
+.hamburger,
+.menu-toggle {
+  background-color: #0f6ab8 !important;
+  color: #ffffff !important;
+}
+.ox-mm-btn .bar,
+.hamburger .bar,
+.menu-toggle .bar,
+.ox-mm-btn .bars,
+.hamburger span,
+.menu-toggle span,
+.ox-mm-btn .bars::before,
+.ox-mm-btn .bars::after {
+  background-color: #ffffff !important;
+}
+
+/* Active menu item: white text on Osmose blue, bold, rounded */
+nav a.active,
+nav a[aria-current="page"],
+nav.nav .nav-list a.active,
+nav.nav .nav-list a[aria-current="page"],
+nav.ox-mm a.active,
+nav.ox-mm a[aria-current="page"],
+#oxMobileMenu a.active,
+#oxMobileMenu a[aria-current="page"] {
+  background-color: #0f6ab8 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 8px 14px !important;
+}
+
+/* Hover state should keep white text */
+nav a.active:hover,
+nav a[aria-current="page"]:hover,
+nav.nav .nav-list a.active:hover,
+nav.nav .nav-list a[aria-current="page"]:hover,
+nav.ox-mm a.active:hover,
+nav.ox-mm a[aria-current="page"]:hover,
+#oxMobileMenu a.active:hover,
+#oxMobileMenu a[aria-current="page"]:hover {
+  background-color: #0d5ea3 !important;
+  color: #ffffff !important;
+}
+
+/* Language switcher */
+.nav-lang {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.nav-lang a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-lang .lang-active {
+  text-decoration: underline;
+}
+
+.nav-lang .lang-sep {
+  opacity: 0.7;
+}

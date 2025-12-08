@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vraag uw vrijblijvende offerte aan voor ramen- en zonnepanelenreiniging in Ronse, Oudenaarde en Kluisbergen. Binnen 24 uur een transparant prijsvoorstel van OsmoseXpert.">
+  <title>Offerte aanvragen — OsmoseXpert</title>
+  <link rel="canonical" href="https://osmose-xpert.be/offerte.html">
+  <style>
+    body{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}
+    html,body{margin:0;padding:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}
+    header{background:linear-gradient(135deg,#0f6ab8 0%,#0a4d8a 100%);color:#fff;padding:24px 20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .header-content{display:flex;flex-direction:column;align-items:center;gap:20px;margin-bottom:12px}
+    header h1{margin:0;font-size:28px;font-weight:700} header p{margin:0;opacity:.95;font-size:16px}
+    main{max-width:800px;margin:0 auto;padding:20px;padding-right:100px}
+
+    .progress-bar{position:fixed;top:0;right:120px;height:100%;width:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:1000;padding:40px 0;pointer-events:none}
+    .progress-bar.stop-at-footer{position:absolute;top:auto;bottom:0}
+    .progress-meter{display:flex;flex-direction:column;align-items:center;gap:10px;flex:1;justify-content:center}
+    .progress-track{background:rgba(226,232,240,.6);width:6px;height:60%;max-height:400px;border-radius:3px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:inset 0 1px 3px rgba(0,0,0,.05)}
+    .progress-fill{background:linear-gradient(180deg,#10b981 0%,#059669 100%);width:100%;height:0%;transition:height .4s cubic-bezier(.4,0,.2,1);border-radius:0 0 3px 3px;box-shadow:0 -2px 8px rgba(16,185,129,.3)}
+    .progress-percentage{font-size:24px;font-weight:600;color:#64748b;letter-spacing:-.5px}
+
+    .form-container{background:#fff;border-radius:12px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+    .form-container h2{margin:0 0 24px;font-size:24px;color:#0f172a}
+    label{display:block;margin-bottom:6px;font-weight:600;color:#334155;font-size:14px}
+    .req{color:#dc2626}
+    input,select,textarea{width:100%;padding:12px;border:2px solid #e2e8f0;border-radius:8px;font-size:15px;font-family:inherit;transition:.2s;background:#fff}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:#0f6ab8;box-shadow:0 0 0 3px rgba(15,106,184,.1)}
+    input[type="checkbox"]{width:auto;margin-right:8px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+    .row>div{margin-bottom:0}
+    form>label,form>input,form>select,form>textarea,form>div:not(.row):not(.actions){margin-bottom:16px}
+    .hidden{display:none !important}
+    .muted{font-size:13px;color:#64748b;margin:4px 0 0}
+    .error-message{color:#dc2626;font-size:13px;margin-top:4px;display:none}
+    .field-error input,.field-error select,.field-error textarea{border-color:#dc2626}
+    .field-error .error-message{display:block}
+    .field-success input,.field-success select,.field-success textarea{border-color:#10b981}
+    .tooltip{position:relative;display:inline-block;cursor:help;margin-left:4px}
+    .tooltiptext{visibility:hidden;width:220px;background:#1e293b;color:#fff;text-align:center;border-radius:6px;padding:8px;position:absolute;z-index:1;bottom:125%;left:50%;margin-left:-110px;opacity:0;transition:opacity .3s;font-size:12px}
+    .tooltiptext::after{content:"";position:absolute;top:100%;left:50%;margin-left:-5px;border-width:5px;border-style:solid;border-color:#1e293b transparent transparent transparent}
+    .tooltip:hover .tooltiptext{visibility:visible;opacity:1}
+
+    .info-box{display:flex;gap:16px;background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 100%);border:2px solid #86efac;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 2px 8px rgba(34,197,94,.08)}
+    .info-icon{flex-shrink:0;width:40px;height:40px;background:linear-gradient(135deg,#22c55e 0%,#16a34a 100%);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;box-shadow:0 2px 8px rgba(34,197,94,.3)}
+    .info-content{flex:1}
+    .info-content h3{margin:0 0 8px;font-size:18px;color:#0f172a;font-weight:700}
+    .info-content p{margin:0 0 8px;color:#334155;font-size:14px;line-height:1.6}
+    .info-legal{font-size:13px;color:#64748b;margin-top:12px}
+    .info-legal a{color:#0f6ab8;text-decoration:none;font-weight:600}
+    .info-legal a:hover{text-decoration:underline}
+
+    .actions{margin-top:24px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border:none;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit}
+    .btn-primary{background:linear-gradient(135deg,#0f6ab8 0%,#0a4d8a 100%);color:#fff;box-shadow:0 2px 8px rgba(15,106,184,.3)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(15,106,184,.4)}
+    .btn-primary:active{transform:translateY(0)}
+    .btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+    footer{margin-top:48px}
+    .footer-banner{background:linear-gradient(135deg,#0f6ab8 0%,#0a4d8a 100%);padding:80px 20px 32px;text-align:center;position:relative;min-height:240px}
+    .footer-banner::after{content:"";position:absolute;bottom:0;left:0;right:0;height:60px;background:#f8fafc;z-index:0}
+    .footer-info{background:#f8fafc;padding:24px;text-align:center;color:#64748b;font-size:14px}
+    .footer-info p{margin:8px 0}
+    .footer-links{margin-top:12px}
+    footer a{color:#0f6ab8;text-decoration:none;font-weight:600;transition:color .2s}
+    footer a:hover{color:#0a4d8a;text-decoration:underline}
+
+    @media (max-width:640px){
+      .row{grid-template-columns:1fr}
+      .form-container{padding:20px}
+      .header-content{flex-direction:column;gap:16px}
+      header h1{font-size:24px}
+      main{padding-right:20px}
+      .progress-bar{position:fixed;top:auto;bottom:0;right:0;left:0;width:100%;height:60px;flex-direction:row;align-items:center;justify-content:center;gap:16px;padding:0 20px;background:#fff;box-shadow:0 -2px 8px rgba(0,0,0,.1)}
+      .progress-meter{flex-direction:row;flex:0}
+      .progress-track{width:120px;height:30px;max-height:none;flex-direction:row;justify-content:flex-start}
+      .progress-fill{height:100%;width:0%;border-radius:20px 0 0 20px}
+      .progress-percentage{font-size:20px}
+      body{padding-bottom:60px}
+      .footer-banner{padding:24px 20px}
+    }
+  </style>
+  <style>@view-transition{navigation:auto}</style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Offerte aanvragen</h1>
+      <p>Vul dit formulier in en ontvang binnen 24u uw persoonlijke prijsvoorstel — zonder verplichting.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="progress-bar" aria-hidden="true">
+      <div class="progress-meter">
+        <div class="progress-percentage" id="progressPercentage">0%</div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+    </section>
+
+    <section class="form-container">
+      <h2>💧 Uw gegevens</h2>
+
+      <form id="offerteForm"
+            action="https://formspree.io/f/xvgbjdav"
+            method="POST">
+        <label for="klant">Type klant <span class="req">*</span></label>
+        <select id="klant" name="klanttype" required>
+          <option value="">Maak een keuze…</option>
+          <option value="particulier">Particulier</option>
+          <option value="b2b">Bedrijf / organisatie</option>
+        </select>
+        <div class="error-message">Selecteer uw klanttype</div>
+
+        <div class="row">
+          <div>
+            <label for="voornaam">Voornaam <span class="req">*</span></label>
+            <input id="voornaam" name="voornaam" type="text" autocomplete="given-name" required placeholder="Jan">
+            <div class="error-message">Vul uw voornaam in</div>
+          </div>
+          <div>
+            <label for="achternaam">Achternaam <span class="req">*</span></label>
+            <input id="achternaam" name="achternaam" type="text" autocomplete="family-name" required placeholder="Janssens">
+            <div class="error-message">Vul uw achternaam in</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="email">E-mailadres <span class="req">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="jan@voorbeeld.be">
+            <div class="error-message">Vul een geldig e-mailadres in</div>
+          </div>
+          <div>
+            <label for="tel">Telefoonnummer <span class="req">*</span></label>
+            <input id="tel" name="telefoon" type="tel" inputmode="tel" pattern="[\d +()./-]{6,}" required placeholder="0470 12 34 56">
+            <div class="error-message">Vul uw telefoonnummer in</div>
+          </div>
+        </div>
+
+        <div id="b2b-block" class="hidden">
+          <div class="row">
+            <div>
+              <label for="bedrijfsnaam">Bedrijfsnaam <span class="req">*</span></label>
+              <input id="bedrijfsnaam" name="bedrijfsnaam" type="text" autocomplete="organization" placeholder="Naam van uw bedrijf">
+              <div class="error-message">Vul uw bedrijfsnaam in</div>
+            </div>
+            <div>
+              <label for="btw">BTW-nummer</label>
+              <input id="btw" name="btw" type="text" placeholder="BE0123456789">
+              <p class="muted">Voor Belgische nummers: BE + 10 cijfers. Buitenlands formaat is ook oké.</p>
+            </div>
+          </div>
+        </div>
+
+        <label for="adres">Adres (straat + nr, gemeente) <span class="req">*</span></label>
+        <input id="adres" name="adres" type="text" autocomplete="street-address" required placeholder="Hoofdstraat 123, 9600 Ronse">
+        <div class="error-message">Vul uw adres in</div>
+
+        <div class="row">
+          <div>
+            <label for="dienst">Welke dienst? <span class="req">*</span></label>
+            <select id="dienst" name="dienst" required>
+              <option value="">Maak een keuze…</option>
+              <option>Ramenreiniging</option>
+              <option>Zonnepanelen</option>
+              <option>Ramenreiniging + zonnepanelen (bundel)</option>
+            </select>
+            <div class="error-message">Selecteer een dienst</div>
+          </div>
+
+          <div id="woning-wrap">
+            <label for="woning">Type woning <span class="req">*</span></label>
+            <select id="woning" name="woningtype">
+              <option value="">Maak een keuze…</option>
+              <option>Rijwoning (2 gevels)</option>
+              <option>Halfopen bebouwing (3 gevels)</option>
+              <option>Vrijstaande woning (4 gevels)</option>
+              <option>Villa / groot glas</option>
+            </select>
+            <div class="error-message">Selecteer uw woningtype</div>
+          </div>
+
+          <div id="gebouw-wrap" class="hidden">
+            <label for="gebouw">Type gebouw <span class="req">*</span></label>
+            <select id="gebouw" name="gebouwtype">
+              <option value="">Maak een keuze…</option>
+              <option>Kantoor</option><option>Winkelruimte</option><option>Showroom</option><option>Horeca</option><option>Praktijkruimte</option><option>Magazijn</option><option>Productiehal</option><option>School / kinderopvang</option><option>Zorginstelling</option><option>Glasgevel (hoog)</option><option>Anders</option>
+            </select>
+            <p class="muted">Tip: vermeld etages, hoogte van glasgevels en bereikbaarheid in "Opmerkingen".</p>
+            <div class="error-message">Selecteer uw gebouwtype</div>
+          </div>
+        </div>
+
+        <!-- Aantal ramen blok -->
+        <div>
+          <label for="ramen">Aantal ramen (schatting)</label>
+          <select id="ramen" name="aantal_ramen">
+            <option value="">Maak een keuze…</option>
+            <option>Klein (tot ±10 ramen)</option>
+            <option>Gemiddeld (10–20 ramen)</option>
+            <option>Groot (20–30 ramen)</option>
+            <option>Zeer groot (+30 ramen / veel glas)</option>
+          </select>
+          <p class="muted">Een ruwe inschatting is voldoende. Exact tellen hoeft niet.</p>
+        </div>
+
+        <label for="extras">Extra's (optioneel)
+          <span class="tooltip">ℹ️
+            <span class="tooltiptext">Heeft u extra glasoppervlakken die gereinigd moeten worden?</span>
+          </span>
+        </label>
+        <select id="extras" name="extras">
+          <option value="">Geen extra's</option><option>Veranda</option><option>Glasgevel</option><option>Garage(s)</option><option>Rolluiken</option>
+        </select>
+
+        <label for="plan">Onderhoudsplan
+          <span class="tooltip">💰
+            <span class="tooltiptext">Bespaar tot 20% met een onderhoudsabonnement. Regelmatig onderhoud houdt uw ramen en panelen in topconditie.</span>
+          </span>
+        </label>
+        <select id="plan" name="onderhoudsplan">
+          <option>Geen plan</option>
+          <option>Bronze (2x/jaar = 5% korting)</option>
+          <option>Silver (4x/jaar = 10% korting)</option>
+          <option>Gold (6x/jaar = 15% korting)</option>
+          <option>Platinum (12x/jaar = 20% korting)</option>
+        </select>
+
+        <!-- Contact + uitleg in één blok -->
+        <div>
+          <label for="contact">Hoe mogen we u contacteren? <span class="req">*</span></label>
+          <select id="contact" name="contactvoorkeur" required>
+            <option value="">Maak een keuze…</option>
+            <option value="email">Bij voorkeur per e-mail</option>
+            <option value="telefoon">Telefonisch contact is oké</option>
+            <option value="beide">E-mail of telefoon, beide prima</option>
+          </select>
+          <p class="muted">💬 We respecteren uw voorkeur. Bij e-mail ontvangt u de offerte zonder telefonisch contact.</p>
+          <div class="error-message">Selecteer uw contactvoorkeur</div>
+        </div>
+
+        <label for="bron">Hoe hebt u ons leren kennen?</label>
+        <select id="bron" name="bron">
+          <option value="">Maak een keuze…</option>
+          <option>Google / Google Maps</option>
+          <option>Facebook / Instagram</option>
+          <option>Aanbeveling / mond-tot-mond</option>
+          <option>Flyer of sticker</option>
+          <option>Reeds klant</option>
+          <option>Andere</option>
+        </select>
+
+        <label for="opm" style="margin-top:24px;">Opmerkingen</label>
+        <textarea id="opm" name="opmerkingen" rows="4" placeholder="Handig: aantal verdiepingen, bereikbaarheid, specifieke wensen, beste tijdstip voor contact…"></textarea>
+
+        <div class="info-box">
+          <div class="info-icon">✓</div>
+          <div class="info-content">
+            <h3>Vrijblijvend</h3>
+            <p><strong>Deze aanvraag is niet bindend.</strong> We gebruiken uw gegevens enkel om uw offerte te bezorgen.</p>
+            <p class="info-legal">Door te verzenden gaat u akkoord met onze <a href="privacy.html" target="_blank" rel="noopener">privacyverklaring</a> en <a href="voorwaarden.html" target="_blank" rel="noopener">algemene voorwaarden</a>.</p>
+          </div>
+        </div>
+
+        <!-- Honeypot + onderwerp + redirect -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;">
+        <input type="hidden" name="_subject" value="Nieuwe offerte-aanvraag via osmose-xpert.be">
+        <input type="hidden" name="_redirect" value="https://www.osmose-xpert.be/bedankt.html">
+
+        <div class="actions" aria-live="polite">
+          <button class="btn btn-primary" type="submit" id="submitBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Verstuur offerte-aanvraag
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-banner"></div>
+    <div class="footer-info">
+      <p>© <span id="y"></span> OsmoseXpert — Ronse &amp; omgeving</p>
+      <p class="footer-links"><a href="/faq.html">FAQ</a> • <a href="/privacy.html">Privacy</a> • <a href="/voorwaarden.html">Voorwaarden</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // — Progress berekenen op basis van zichtbare verplichte velden —
+    function updateProgress(){
+      const form=document.getElementById('offerteForm');
+      const req=form.querySelectorAll('[required]');
+      const visible=[...req].filter(f=>{
+        if(f.offsetParent===null) return false;
+        let p=f.parentElement;
+        while(p && p!==form){
+          if(p.classList.contains('hidden')||p.offsetParent===null) return false;
+          p=p.parentElement;
+        }
+        return true;
+      });
+      const filled=visible.filter(f=>{
+        if(f.type==='checkbox') return f.checked;
+        if(f.tagName==='SELECT') return f.value.trim()!=='';
+        const min=(f.id==='voornaam'||f.id==='achternaam')?2:3;
+        return f.value.trim().length>=min;
+      });
+      const pct=visible.length?(filled.length/visible.length)*100:0;
+      const fill=document.getElementById('progressFill');
+      if(innerWidth<=640){ fill.style.width=pct+'%'; fill.style.height='100%'; }
+      else{ fill.style.height=pct+'%'; fill.style.width='100%'; }
+      document.getElementById('progressPercentage').textContent=Math.round(pct)+'%';
+    }
+
+    function validateField(field){
+      const wrap = field.closest('.row>div') || field.parentElement;
+      const err = wrap ? wrap.querySelector('.error-message') : null;
+      const setState = s => {
+        if(wrap){
+          wrap.classList.remove('field-error','field-success');
+          if(s) wrap.classList.add(s);
+        }
+        if(err) err.style.display = s==='field-error' ? 'block' : 'none';
+      };
+      if(field.hasAttribute('required') && !field.value.trim()){ setState('field-error'); return false; }
+      if(field.type==='email' && field.value && !field.value.includes('@')){ setState('field-error'); return false; }
+      if(field.type==='tel' && field.value && field.value.replace(/\D/g,'').length<6){ setState('field-error'); return false; }
+      if(field.tagName==='SELECT' && field.hasAttribute('required') && !field.value.trim()){ setState('field-error'); return false; }
+      setState('field-success'); return true;
+    }
+
+    // B2B/B2C switching
+    const klantSel=document.getElementById('klant');
+    const b2bBlock=document.getElementById('b2b-block');
+    const bedrijfsnaam=document.getElementById('bedrijfsnaam');
+    const woningWrap=document.getElementById('woning-wrap');
+    const woning=document.getElementById('woning');
+    const gebouwWrap=document.getElementById('gebouw-wrap');
+    const gebouw=document.getElementById('gebouw');
+
+    function syncMode(){
+      const isB2B = klantSel && klantSel.value==='b2b';
+      if(b2bBlock) b2bBlock.classList.toggle('hidden', !isB2B);
+      if(woningWrap) woningWrap.classList.toggle('hidden', isB2B);
+      if(gebouwWrap) gebouwWrap.classList.toggle('hidden', !isB2B);
+      if(bedrijfsnaam) bedrijfsnaam.required = !!isB2B;
+      if(woning) woning.required = !isB2B;
+      if(gebouw) gebouw.required = !!isB2B;
+      updateProgress();
+    }
+    if(klantSel){ klantSel.addEventListener('change', syncMode); syncMode(); }
+
+    // Live validation + progress hooks
+    (function(){
+      const form=document.getElementById('offerteForm');
+      const inputs=form.querySelectorAll('input,select,textarea');
+      inputs.forEach(i=>{
+        i.addEventListener('input',()=>validateField(i));
+        i.addEventListener('blur',()=>{ validateField(i); updateProgress(); });
+        i.addEventListener('change',updateProgress);
+      });
+      updateProgress();
+    })();
+
+    // ——— SUBMIT-ROUTINE: vereenvoudigd ———
+    function OX_submit(e){
+      const form = e.target;
+      if (location.protocol === 'file:') {
+        return true;
+      }
+      e.preventDefault();
+      let ok = true;
+      form.querySelectorAll('input,select,textarea').forEach(el => {
+        if (!validateField(el)) ok = false;
+      });
+      const valid = typeof form.reportValidity === 'function' ? form.reportValidity() : form.checkValidity();
+      if (!ok || !valid) {
+        const first = form.querySelector('.field-error');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return false;
+      }
+      const honeypot = form.querySelector('input[name="_gotcha"]');
+      if (honeypot && honeypot.value) {
+        return false;
+      }
+      const btn = document.getElementById('submitBtn');
+      const original = btn ? btn.innerHTML : '';
+      if (btn) {
+        btn.disabled = true;
+        btn.setAttribute('aria-busy', 'true');
+        btn.innerHTML = '⏳ Even geduld...';
+      }
+      try {
+        form.submit();
+      } catch (_) {
+        if (btn) {
+          btn.disabled = false;
+          btn.removeAttribute('aria-busy');
+          btn.innerHTML = original;
+        }
+      }
+      return false;
+    }
+
+    // Progress-stickiness t.o.v. footer
+    function handleProgressBarPosition(){
+      const progressBar=document.querySelector('.progress-bar');
+      const footer=document.querySelector('footer');
+      if(!progressBar||!footer||innerWidth<=640) return;
+      const fr=footer.getBoundingClientRect(); const wh=innerHeight; const ph=progressBar.offsetHeight;
+      if(fr.top<wh){
+        progressBar.classList.add('stop-at-footer');
+        const top=footer.offsetTop;
+        progressBar.style.top=(top - ph - 40)+'px';
+      } else {
+        progressBar.classList.remove('stop-at-footer');
+        progressBar.style.top='';
+      }
+    }
+    addEventListener('scroll',handleProgressBarPosition);
+    addEventListener('resize',handleProgressBarPosition);
+    handleProgressBarPosition();
+  </script>
+  <script src="offerte_hotfix.js" defer></script>
+</body>
+</html>
