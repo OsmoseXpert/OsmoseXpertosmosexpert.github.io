@@ -103,7 +103,6 @@
     <section class="form-container">
       <h2>💧 Uw gegevens</h2>
 
-      <!-- Inline onsubmit = extra zekerheid dat klik altijd iets doet -->
       <form id="offerteForm"
             action="https://formspree.io/f/xvgbjdav"
             method="POST">
@@ -195,6 +194,19 @@
           </div>
         </div>
 
+        <!-- Aantal ramen blok -->
+        <div>
+          <label for="ramen">Aantal ramen (schatting)</label>
+          <select id="ramen" name="aantal_ramen">
+            <option value="">Maak een keuze…</option>
+            <option>Klein (tot ±10 ramen)</option>
+            <option>Gemiddeld (10–20 ramen)</option>
+            <option>Groot (20–30 ramen)</option>
+            <option>Zeer groot (+30 ramen / veel glas)</option>
+          </select>
+          <p class="muted">Een ruwe inschatting is voldoende. Exact tellen hoeft niet.</p>
+        </div>
+
         <label for="extras">Extra's (optioneel)
           <span class="tooltip">ℹ️
             <span class="tooltiptext">Heeft u extra glasoppervlakken die gereinigd moeten worden?</span>
@@ -206,7 +218,7 @@
 
         <label for="plan">Onderhoudsplan
           <span class="tooltip">💰
-            <span class="tooltiptext">Bespaar tot 15% met een onderhoudsabonnement! Regelmatig onderhoud houdt uw ramen en panelen in topconditie.</span>
+            <span class="tooltiptext">Bespaar tot 20% met een onderhoudsabonnement. Regelmatig onderhoud houdt uw ramen en panelen in topconditie.</span>
           </span>
         </label>
         <select id="plan" name="onderhoudsplan">
@@ -214,17 +226,32 @@
           <option>Bronze (2x/jaar = 5% korting)</option>
           <option>Silver (4x/jaar = 10% korting)</option>
           <option>Gold (6x/jaar = 15% korting)</option>
+          <option>Platinum (12x/jaar = 20% korting)</option>
         </select>
 
-        <label for="contact">Hoe mogen we u contacteren? <span class="req">*</span></label>
-        <select id="contact" name="contactvoorkeur" required>
+        <!-- Contact + uitleg in één blok -->
+        <div>
+          <label for="contact">Hoe mogen we u contacteren? <span class="req">*</span></label>
+          <select id="contact" name="contactvoorkeur" required>
+            <option value="">Maak een keuze…</option>
+            <option value="email">Bij voorkeur per e-mail</option>
+            <option value="telefoon">Telefonisch contact is oké</option>
+            <option value="beide">E-mail of telefoon, beide prima</option>
+          </select>
+          <p class="muted">💬 We respecteren uw voorkeur. Bij e-mail ontvangt u de offerte zonder telefonisch contact.</p>
+          <div class="error-message">Selecteer uw contactvoorkeur</div>
+        </div>
+
+        <label for="bron">Hoe hebt u ons leren kennen?</label>
+        <select id="bron" name="bron">
           <option value="">Maak een keuze…</option>
-          <option value="email">Bij voorkeur per e-mail</option>
-          <option value="telefoon">Telefonisch contact is oké</option>
-          <option value="beide">E-mail of telefoon, beide prima</option>
+          <option>Google / Google Maps</option>
+          <option>Facebook / Instagram</option>
+          <option>Aanbeveling / mond-tot-mond</option>
+          <option>Flyer of sticker</option>
+          <option>Reeds klant</option>
+          <option>Andere</option>
         </select>
-        <p class="muted">💬 We respecteren uw voorkeur. Bij e-mail ontvangt u de offerte zonder telefonisch contact.</p>
-        <div class="error-message">Selecteer uw contactvoorkeur</div>
 
         <label for="opm" style="margin-top:24px;">Opmerkingen</label>
         <textarea id="opm" name="opmerkingen" rows="4" placeholder="Handig: aantal verdiepingen, bereikbaarheid, specifieke wensen, beste tijdstip voor contact…"></textarea>
@@ -238,10 +265,9 @@
           </div>
         </div>
 
-        <!-- Honeypot + onderwerp + redirect (voor native fallback) -->
+        <!-- Honeypot + onderwerp + redirect -->
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;">
         <input type="hidden" name="_subject" value="Nieuwe offerte-aanvraag via osmose-xpert.be">
-        <!-- Na verzenden redirecten we naar de officiële bedankt-pagina op het WWW-subdomein -->
         <input type="hidden" name="_redirect" value="https://www.osmose-xpert.be/bedankt.html">
 
         <div class="actions" aria-live="polite">
@@ -272,7 +298,10 @@
       const visible=[...req].filter(f=>{
         if(f.offsetParent===null) return false;
         let p=f.parentElement;
-        while(p && p!==form){ if(p.classList.contains('hidden')||p.offsetParent===null) return false; p=p.parentElement; }
+        while(p && p!==form){
+          if(p.classList.contains('hidden')||p.offsetParent===null) return false;
+          p=p.parentElement;
+        }
         return true;
       });
       const filled=visible.filter(f=>{
@@ -290,10 +319,13 @@
 
     function validateField(field){
       const wrap = field.closest('.row>div') || field.parentElement;
-      const err = (field.nextElementSibling && field.nextElementSibling.classList && field.nextElementSibling.classList.contains('error-message')) ? field.nextElementSibling : null;
+      const err = wrap ? wrap.querySelector('.error-message') : null;
       const setState = s => {
-        if(wrap){ wrap.classList.remove('field-error','field-success'); if(s) wrap.classList.add(s); }
-        if(err) err.style.display = s==='field-error' ? 'block':'none';
+        if(wrap){
+          wrap.classList.remove('field-error','field-success');
+          if(s) wrap.classList.add(s);
+        }
+        if(err) err.style.display = s==='field-error' ? 'block' : 'none';
       };
       if(field.hasAttribute('required') && !field.value.trim()){ setState('field-error'); return false; }
       if(field.type==='email' && field.value && !field.value.includes('@')){ setState('field-error'); return false; }
@@ -336,36 +368,26 @@
     })();
 
     // ——— SUBMIT-ROUTINE: vereenvoudigd ———
-    // Door CORS-beperkingen blokkeert fetch() in sommige omgevingen. We versturen het formulier daarom
-    // altijd via het native submit()-mechanisme. Formspree verwerkt de gegevens en gebruikt het verborgen
-    // _redirect-veld om de gebruiker naar de bedankt-pagina te sturen. Als het formulier lokaal via
-    // file:// wordt getest, laat onsubmit gewoon doorgaan zodat de browser zijn standaardvalidatie uitvoert.
     function OX_submit(e){
       const form = e.target;
-      // Local file:// → standaard gedrag. Zonder preventDefault werkt browservalidatie normaal
       if (location.protocol === 'file:') {
         return true;
       }
-      // Voorkom standaard submit; we handelen hem zelf af
       e.preventDefault();
-      // Validatie: markeer velden en controleer of ze geldig zijn
       let ok = true;
       form.querySelectorAll('input,select,textarea').forEach(el => {
         if (!validateField(el)) ok = false;
       });
-      // Toon native browser-validatie waar beschikbaar; checkValidity() fallback voor oudere browsers
       const valid = typeof form.reportValidity === 'function' ? form.reportValidity() : form.checkValidity();
       if (!ok || !valid) {
         const first = form.querySelector('.field-error');
         if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
       }
-      // Honeypot tegen spam: als veld ingevuld is, aborteren we
       const honeypot = form.querySelector('input[name="_gotcha"]');
       if (honeypot && honeypot.value) {
         return false;
       }
-      // Disable knop en toon feedback tijdens submit
       const btn = document.getElementById('submitBtn');
       const original = btn ? btn.innerHTML : '';
       if (btn) {
@@ -373,18 +395,15 @@
         btn.setAttribute('aria-busy', 'true');
         btn.innerHTML = '⏳ Even geduld...';
       }
-      // Verstuur formulier via native submit(); Formspree zal _redirect respecteren
       try {
         form.submit();
       } catch (_) {
-        // In zeldzame gevallen kan submit mislukken; schakel knop opnieuw in
         if (btn) {
           btn.disabled = false;
           btn.removeAttribute('aria-busy');
           btn.innerHTML = original;
         }
       }
-      // onsubmit-handling volledig afgerond
       return false;
     }
 
@@ -394,8 +413,14 @@
       const footer=document.querySelector('footer');
       if(!progressBar||!footer||innerWidth<=640) return;
       const fr=footer.getBoundingClientRect(); const wh=innerHeight; const ph=progressBar.offsetHeight;
-      if(fr.top<wh){ progressBar.classList.add('stop-at-footer'); const top=footer.offsetTop; progressBar.style.top=(top - ph - 40)+'px'; }
-      else{ progressBar.classList.remove('stop-at-footer'); progressBar.style.top=''; }
+      if(fr.top<wh){
+        progressBar.classList.add('stop-at-footer');
+        const top=footer.offsetTop;
+        progressBar.style.top=(top - ph - 40)+'px';
+      } else {
+        progressBar.classList.remove('stop-at-footer');
+        progressBar.style.top='';
+      }
     }
     addEventListener('scroll',handleProgressBarPosition);
     addEventListener('resize',handleProgressBarPosition);
