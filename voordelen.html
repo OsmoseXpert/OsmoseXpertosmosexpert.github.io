@@ -103,7 +103,71 @@
         box-shadow:0 6px 14px rgba(15,106,184,.25);
       }
     }
-  </style>
+
+/* Mobile scroll-hint voor horizontale tabel */
+.plan-table-wrapper{
+  position: relative;               /* nodig voor overlay */
+  -webkit-overflow-scrolling: touch;/* smoother iOS */
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar visueel iets duidelijker op desktop (optioneel) */
+.plan-table-wrapper::-webkit-scrollbar{height:10px}
+.plan-table-wrapper::-webkit-scrollbar-thumb{background:rgba(11,54,79,.25);border-radius:999px}
+.plan-table-wrapper::-webkit-scrollbar-track{background:rgba(11,54,79,.08);border-radius:999px}
+
+/* Hint enkel op mobiel tonen */
+@media (max-width: 768px){
+  .plan-table-wrapper.has-scroll-hint::after{
+    content:"";
+    position:absolute;
+    top:0; right:0;
+    width:54px; height:100%;
+    pointer-events:none;
+    background: linear-gradient(to left, rgba(244,248,251,1), rgba(244,248,251,0));
+  }
+
+  .scroll-hint{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:2;
+    pointer-events:none;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 10px;
+    border-radius:999px;
+    background:rgba(255,255,255,.88);
+    border:1px solid rgba(11,54,79,.15);
+    box-shadow:0 10px 22px rgba(2,18,33,.10);
+    font-size:.85rem;
+    color: rgba(11,54,79,.85);
+    backdrop-filter: blur(6px);
+  }
+
+  .scroll-hint .arrow{
+    width:18px;height:18px;
+    border-right:3px solid rgba(41,171,226,.95);
+    border-bottom:3px solid rgba(41,171,226,.95);
+    transform: rotate(-45deg);
+    animation: nudgeRight 1.05s ease-in-out infinite;
+  }
+
+  @keyframes nudgeRight{
+    0%,100%{ transform:rotate(-45deg) translateX(0); opacity:.65; }
+    50%{ transform:rotate(-45deg) translateX(6px); opacity:1; }
+  }
+
+  /* Als we beslissen dat hint weg moet */
+  .plan-table-wrapper.hint-hidden .scroll-hint,
+  .plan-table-wrapper.hint-hidden::after{
+    display:none !important;
+  }
+}
+
+</style>
 
     <!-- Pagina-specifieke stijl -->
     <style>
@@ -514,7 +578,11 @@
             Hoe frequenter de reinigingen, hoe groter het voordeel.
         </p>
 
-        <div class="plan-table-wrapper">
+        <div class="plan-table-wrapper has-scroll-hint">
+            <div class="scroll-hint" aria-hidden="true">
+                <span>Scroll</span>
+                <span class="arrow"></span>
+            </div>
             <table class="plan-table">
                 <thead>
                     <tr>
@@ -748,6 +816,34 @@
       }
     });
   })();
+</script>
+
+
+<script>
+(function(){
+  var wrap = document.querySelector('.plan-table-wrapper');
+  if(!wrap) return;
+
+  function updateHint(){
+    var canScroll = wrap.scrollWidth > wrap.clientWidth + 2;
+    if(!canScroll){
+      wrap.classList.add('hint-hidden');
+      return;
+    }
+    if(wrap.scrollLeft > 10){
+      wrap.classList.add('hint-hidden');
+    } else {
+      wrap.classList.remove('hint-hidden');
+    }
+  }
+
+  wrap.addEventListener('scroll', function(){
+    if(wrap.scrollLeft > 10) wrap.classList.add('hint-hidden');
+  }, {passive:true});
+
+  window.addEventListener('resize', updateHint);
+  updateHint();
+})();
 </script>
 
 </body>
