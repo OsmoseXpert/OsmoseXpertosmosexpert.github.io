@@ -1,34 +1,109 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!doctype html>
+<html lang="nl-BE">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OsmoseXpert - Wordt doorgestuurd...</title>
-    
-    <meta http-equiv="refresh" content="0; url=https://osmose-xpert.be/">
-    <link rel="canonical" href="https://osmose-xpert.be/" />
-    
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: #333;
-        }
-        .loader {
-            text-align: center;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Trailer | OsmoseXpert</title>
+  <meta name="description" content="Welkom op de trailerpagina van OsmoseXpert. Binnenkort beschikbaar." />
+
+  <!-- NIET indexeren -->
+  <meta name="robots" content="noindex,nofollow" />
+
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.5;
+      background: #ffffff;
+      color: #0b364f;
+    }
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 720px;
+      border: 1px solid rgba(11,54,79,.15);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(11,54,79,.08);
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(41,171,226,.12);
+      color: #0b364f;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: .2px;
+    }
+    h1 {
+      margin: 14px 0 8px;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.15;
+    }
+    p {
+      margin: 0 0 14px;
+      font-size: 16px;
+      color: rgba(11,54,79,.9);
+    }
+    .actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    a.btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(11,54,79,.18);
+      color: #0b364f;
+      font-weight: 700;
+    }
+    a.btn.primary {
+      background: #0b364f;
+      color: #ffffff;
+      border-color: #0b364f;
+    }
+    footer {
+      margin-top: 18px;
+      font-size: 13px;
+      color: rgba(11,54,79,.65);
+    }
+  </style>
 </head>
+
 <body>
+  <main class="wrap">
+    <section class="card" aria-label="Trailer pagina OsmoseXpert">
+      <span class="badge">OsmoseXpert • Trailer</span>
 
-    <div class="loader">
-        <p>Eén moment, we sturen u door naar <strong>OsmoseXpert</strong>...</p>
-        <p><a href="https://osmose-xpert.be/">Klik hier als u niet automatisch wordt doorgestuurd.</a></p>
-    </div>
+      <h1>Welkom op de trailerpagina van OsmoseXpert</h1>
+      <p>Je bent hier via de QR-code op onze aanhangwagen terechtgekomen.</p>
+      <p><strong>Binnenkort beschikbaar:</strong> extra info, acties en handige links op één plek.</p>
 
+      <div class="actions">
+        <a class="btn primary" href="https://osmose-xpert.be/">Naar de website</a>
+        <a class="btn" href="https://osmose-xpert.be/contact.html">Contact</a>
+        <a class="btn" href="https://osmose-xpert.be/offerte.html">Offerte aanvragen</a>
+      </div>
+
+      <footer>
+        © <span id="year"></span> OsmoseXpert — streeploos, veilig en zonder chemische producten.
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
