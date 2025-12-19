@@ -18,6 +18,9 @@
     })();
   </script>
 
+  <!-- Canonical (FIX: juiste domein + hoofdmap) -->
+  <link rel="canonical" href="https://osmose-xpert.be/">
+
   <!-- 2) Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://osmose-xpert.be/">
@@ -206,27 +209,33 @@
     @media(max-width:720px){.ox-cc-grid{flex-direction:column;align-items:flex-start}.ox-cc-actions{width:100%;justify-content:flex-end}.ox-cc-actions .ox-btn{flex:1}}
   </style>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "OsmoseXpert",
-  "image": "https://osmose-xpert.be/images/logo3.svg",
-  "url": "https://osmose-xpert.be",
-  "telephone": "+32493673484",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Ronse",
-    "addressRegion": "Oost-Vlaanderen",
-    "addressCountry": "BE"
-  },
-  "sameAs": [
-    "https://www.facebook.com/osmosexpert"
-  ]
-}
-</script>
-
-    <link rel="canonical" href="https://osmosexpert.be/index.html">
+  <!-- Structured Data (FIX: areaServed uitgebreid; Product schema verwijderd) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "OsmoseXpert",
+    "image": "https://osmose-xpert.be/images/logo3.svg",
+    "url": "https://osmose-xpert.be/",
+    "telephone": "+32493673484",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ronse",
+      "addressRegion": "Oost-Vlaanderen",
+      "addressCountry": "BE"
+    },
+    "areaServed": [
+      "Ronse",
+      "Kluisbergen",
+      "Oudenaarde",
+      "Maarkedal",
+      "Brakel"
+    ],
+    "sameAs": [
+      "https://www.facebook.com/osmosexpert"
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -250,7 +259,15 @@
   <!-- HERO -->
   <header class="hero-banner">
     <div class="hero-logo" aria-label="Banner video">
-      <video id="heroVideo" class="hero-video" playsinline muted loop preload="metadata" poster="images/ox-logo-transparant-1920 (2).png">
+      <video
+        id="heroVideo"
+        class="hero-video"
+        title="Logo OsmoseXpert - Professionele Ramenwasser"
+        playsinline
+        muted
+        loop
+        preload="metadata"
+        poster="images/ox-logo-transparant-1920 (2).png">
         <source src="assets/assets/video/logo-anim.webm" type="video/webm">
         <source src="assets/assets/video/logo-anim.mp4" type="video/mp4">
         Uw browser ondersteunt het video-element niet.
@@ -263,7 +280,9 @@
   </header>
 
   <main id="content">
-    <h1 class="sr-only">Uw Expert in Ramenreiniging en Ramenwasser in Ronse, Oudenaarde & Kluisbergen</h1>
+    <!-- Heading hierarchy FIX: tweede H1 -> H2 -->
+    <h2 class="sr-only">Uw Expert in Ramenreiniging en Ramenwasser in Ronse, Oudenaarde &amp; Kluisbergen</h2>
+
     <section class="section">
       <h2 style="font-size: clamp(1.8rem, 4vw, 2.13rem); font-weight: 900; margin-bottom: 1rem; line-height: 1.2;">Waarom Kiezen voor OsmoseXpert Ramenreiniging?</h2>
       <p>Vakmanschap + osmose-technologie = langdurig schone, streeploze ramen en een veilige werkwijze vanaf de grond in Ronse, Kluisbergen en Oudenaarde. Extra voordeel: bekijk onze <a href="diensten.html">diensten voor ramenreiniging</a> en de <a href="prijzen.html">transparante prijzen</a> voor woningen en bedrijven in Ronse, Kluisbergen en Oudenaarde.</p>
@@ -283,7 +302,6 @@
           </div>
         </div>
       </div>
-</div>
 
       <div class="local-areas">
         <h3>Werkgebied: Professionele Ramenreiniging</h3>
@@ -341,13 +359,19 @@
         <div style="min-width:200px;flex:1;">
           <p style="margin:4px 0 4px 0;"><strong>OsmoseXpert</strong></p>
           <p style="margin:4px 0 4px 0;">Streeploos schoon, veilig en duurzaam.</p>
-          <p style="margin:4px 0 4px 0;">Ronse • Kluisbergen • Oudenaarde</p>
+          <p style="margin:4px 0 4px 0;">
+            <a href="index.html" style="color:inherit; text-decoration:none;">Ronse</a> •
+            <a href="ramenwasser-kluisbergen.html" style="color:inherit; text-decoration:none;">Kluisbergen</a> •
+            <a href="ramenwasser-oudenaarde.html" style="color:inherit; text-decoration:none;">Oudenaarde</a>
+          </p>
         </div>
+
         <div style="min-width:200px;flex:1;">
           <p style="margin:4px 0 4px 0;"><strong>Contact</strong></p>
           <p style="margin:4px 0 4px 0;"><a href="mailto:info@osmose-xpert.be" style="color:#cfe8ff;text-decoration:none;">info@osmose-xpert.be</a></p>
           <p style="margin:4px 0 4px 0;"><a href="tel:+32493673484" style="color:#cfe8ff;text-decoration:none;">0493 67 34 84</a></p>
         </div>
+
         <div style="min-width:200px;flex:1;">
           <p style="margin:4px 0 4px 0;"><strong>Informatie</strong></p>
           <p style="margin:4px 0 4px 0;"><a href="privacy.html" style="color:#cfe8ff;text-decoration:none;">Privacy</a></p>
@@ -355,6 +379,7 @@
           <p style="margin:4px 0 4px 0;"><a href="voorwaarden.html" style="color:#cfe8ff;text-decoration:none;">Voorwaarden</a></p>
         </div>
       </div>
+
       <div style="border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:12px;text-align:center;color:#94a3b8;font-size:13.6px;line-height:1.5;">
         <span>BTW BE0733.924.863</span><br>© 2025 OsmoseXpert. Alle rechten voorbehouden.
       </div>
@@ -580,23 +605,5 @@
       if (!hasConsent()) { showPanel(); }
     })();
   </script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org/",
-  "@type": "Product",
-  "name": "OsmoseXpert – ramenreiniging & ramen wassen",
-  "description": "Professionele ramenreiniging, ramen wassen en glazenwasserij met osmosewater in Ronse, Kluisbergen en Oudenaarde. Veilig vanaf de grond, streeploos resultaat.",
-  "brand": "OsmoseXpert",
-  "areaServed": "Ronse, Kluisbergen, Oudenaarde",
-  "image": "https://osmose-xpert.be/images/ox-logo-transparant-1920%20(2).png",
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "EUR",
-    "price": "0",
-    "availability": "https://schema.org/InStock"
-  }
-}
-</script>
 </body>
 </html>
