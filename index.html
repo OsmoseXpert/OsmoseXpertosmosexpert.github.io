@@ -39,6 +39,10 @@
   <meta name="twitter:description" content="Professionele ramenreiniging in Ronse, Kluisbergen &amp; Oudenaarde. Streeploos resultaat met osmosewater.">
   <meta name="twitter:image" content="https://osmose-xpert.be/images/social/logo4.jpg">
 
+  <!-- Calendly widget (popup) -->
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+  <script defer src="https://assets.calendly.com/assets/external/widget.js"></script>
+
   <!-- Fonts & basis CSS -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
@@ -272,9 +276,10 @@
         <source src="assets/assets/video/logo-anim.mp4" type="video/mp4">
         Uw browser ondersteunt het video-element niet.
       </video>
-   <div class="content">
+    </div>
+
+    <div class="content">
       <h1 class="sr-only">Ramenwasser Ronse & Oudenaarde | OsmoseXpert Ramenreiniging</h1>
-      
       <p style="margin:0 0 10px; font-size:30px; line-height:1.2; font-weight:700; color:#f3f7fb;">Uw ramen, onze zorg.</p>
       <p style="margin:0 0 22px; color:#e6f0fa; font-size:1.05rem; font-weight:500;">Streeploos schoon - <span class="nb">Zorgeloos helder</span></p>
     </div>
@@ -347,16 +352,10 @@
     </section>
   </main>
 
-   <!-- Calendly widget -->
-  <script>window.CALENDLY_DEFAULT='https://calendly.com/osmose-xpert-info/kennismaking';</script>
-  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
-  <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
-  
   <!-- Floating CTA -->
   <div class="floating-cta" id="floatingCta">
     <a class="cta-btn cta-offerte" href="offerte.html" aria-label="Offerte aanvragen">Offerte aanvragen</a>
     <a class="cta-btn cta-boek" href="#" data-calendly aria-label="Kennismaking plannen">Boek kennismaking</a>
-
   </div>
 
   <!-- Footer -->
@@ -396,7 +395,7 @@
   <!-- Cloudflare anti-bot snippet (laten staan) -->
   <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9969aba897a9b9bd',t:'MTc2MTgxNDI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 
-  <!-- Lazy-play hero video + Floating CTA + Hamburger -->
+  <!-- Lazy-play hero video + Floating CTA + Hamburger + Calendly -->
   <script>
     // Scroll hide/show voor .floating-cta + automatische terugkeer
     let lastScrollTop = 0;
@@ -483,29 +482,39 @@
       }
     });
 
-   <script>
-(function(){
-  const CAL_URL = "https://calendly.com/osmose-xpert-info/kennismaking";
+    // Calendly popup (stabiel, geen scroll-issues, geen dubbele triggers)
+    (function(){
+      var CAL_URL = 'https://calendly.com/osmose-xpert-info/kennismaking';
 
-  function openCalendly(){
-    if (window.Calendly && typeof window.Calendly.initPopupWidget === "function") {
-      window.Calendly.initPopupWidget({ url: CAL_URL });
-    } else {
-      window.open(CAL_URL, "_self");
-    }
-  }
+      function openCalendly(){
+        // widget.js is geladen via defer, maar bij extreem snelle clicks kan het nét nog niet klaar zijn:
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.Calendly.initPopupWidget({ url: CAL_URL });
+          return;
+        }
+        // korte retry (max 2s)
+        var start = Date.now();
+        var t = setInterval(function(){
+          if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+            clearInterval(t);
+            window.Calendly.initPopupWidget({ url: CAL_URL });
+          } else if (Date.now() - start > 2000) {
+            clearInterval(t);
+            window.location.href = CAL_URL; // fallback: altijd werkend
+          }
+        }, 50);
+      }
 
-  document.addEventListener("click", function(e){
-    const btn = e.target.closest("a.cta-boek[data-calendly]");
-    if (!btn) return;
+      document.addEventListener('click', function(e){
+        // Alleen de echte CTA-knop(s), niet willekeurig alles met data-calendly
+        var btn = e.target.closest('a.cta-boek[data-calendly]');
+        if(!btn) return;
 
-    e.preventDefault();
-    e.stopPropagation();
-    openCalendly();
-  }, true);
-})();
-</script>
-
+        e.preventDefault();
+        e.stopPropagation();
+        openCalendly();
+      }, true);
+    })();
 
     // Lazy-play video
     (function(){
