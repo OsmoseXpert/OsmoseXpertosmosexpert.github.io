@@ -483,19 +483,29 @@
       }
     });
 
-    // Calendly trigger
-    (function(){
-      document.addEventListener('click', function(e){
-        var btn = e.target.closest('[data-calendly]');
-        if(btn){ e.preventDefault();
-          try{
-            if(window.Calendly){
-              Calendly.initPopupWidget({ url:'https://calendly.com/osmose-xpert-info/kennismaking' });
-            } else { window.open('https://calendly.com/osmose-xpert-info/kennismaking','_self'); }
-          }catch(err){ window.open('https://calendly.com/osmose-xpert-info/kennismaking','_self'); }
-        }
-      });
-    })();
+   <script>
+(function(){
+  const CAL_URL = "https://calendly.com/osmose-xpert-info/kennismaking";
+
+  function openCalendly(){
+    if (window.Calendly && typeof window.Calendly.initPopupWidget === "function") {
+      window.Calendly.initPopupWidget({ url: CAL_URL });
+    } else {
+      window.open(CAL_URL, "_self");
+    }
+  }
+
+  document.addEventListener("click", function(e){
+    const btn = e.target.closest("a.cta-boek[data-calendly]");
+    if (!btn) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    openCalendly();
+  }, true);
+})();
+</script>
+
 
     // Lazy-play video
     (function(){
