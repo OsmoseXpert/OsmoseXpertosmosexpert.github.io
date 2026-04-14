@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="nl" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ramen wassen Ronse | OsmoseXpert</title>
+  <meta name="description" content="Professionele ramenreiniging in Ronse, Kluisbergen en Oudenaarde. Streeploos resultaat, veilig vanaf de grond en snelle opvolging. Vraag uw offerte aan.">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap');
+
+    :root{
+      --brand:#0f6ab8;
+      --brand2:#29ABE2;
+      --dark:#002B45; /* Uw Navy Blue */
+      --ok:#10b981;
+      --white:#ffffff;
+      --text:#0b364f;
+      --muted:#475569;
+      --shadow-lg:0 10px 30px rgba(11,54,79,.14);
+      --radius:14px;
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Inter','Poppins',sans-serif;
+      color:var(--text);
+      line-height:1.6;
+      background:#f8fafc;
+    }
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 16px}
+    
+    /* Navigatie */
+    .nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e2e8f0;height:80px;display:flex;align-items:center}
+    .nav-inner{width:100%;max-width:var(--max);margin:0 auto;padding:0 16px;display:flex;justify-content:space-between;align-items:center}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;color:var(--dark);font-size:1.2rem}
+    .brand span {color: var(--brand2)}
+
+    /* Knoppen */
+    .pill{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;
+      transition:all .2s ease;border:0;cursor:pointer;
+    }
+    .pill.primary{background:var(--brand2);color:#fff}
+    .pill.green{background:var(--ok);color:#fff}
+    .pill.ghost{border:2px solid #fff;color:#fff}
+    .pill:hover{transform:translateY(-2px);filter:brightness(1.1)}
+
+    /* HERO SECTIE MET ACHTERGRONDVIDEO */
+    .hero-wrap{padding:20px 0}
+    .hero{
+      position:relative;
+      background:var(--dark); /* Fallback kleur */
+      color:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      min-height:550px;
+      display:flex;
+      align-items:center;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.5;      /* Video vervagen/doorzichtig maken */
+      filter: blur(2px); /* Optionele extra blur */
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      /* Blauw verloop dat over de video ligt */
+      background: linear-gradient(90deg, rgba(0,43,69,0.92) 0%, rgba(0,43,69,0.4) 100%);
+      z-index: 2;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 3; /* Tekst bovenop video en overlay */
+      display: grid;
+      width: 100%;
+    }
+
+    .hero-copy { padding: 40px; max-width: 700px; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+    .hero-lead { font-size: 1.2rem; margin-bottom: 35px; opacity: 0.9; }
+
+    .hero-cta { display: flex; gap: 15px; flex-wrap: wrap; }
+
+    @media(max-width: 768px) {
+      .hero { min-height: 500px; text-align: center; }
+      .hero-copy { padding: 30px 20px; }
+      .hero-cta { justify-content: center; }
+      .hero-overlay { background: rgba(0,43,69,0.8); } /* Donkerder op mobiel voor leesbaarheid */
+    }
+
+    /* Overige Secties */
+    .section { background:#fff; padding:60px 20px; border-radius:var(--radius); margin:20px 0; border:1px solid #e2e8f0 }
+    footer { background:var(--dark); color:#fff; padding:40px 20px; text-align:center; font-size:0.9rem }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        OSMOSE<span>XPERT</span>
+      </a>
+      <div class="desktop-only">
+        <a class="pill primary" href="https://osmose-xpert.be/offerte.html">Prijs aanvragen</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero-wrap">
+      <div class="hero">
+        <video class="hero-video-bg" autoplay muted loop playsinline>
+          <source src="assets/assets/video/Vid4.5.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-overlay"></div>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Duurzaam onderhoud voor uw glaspartijen.</h1>
+            <p class="hero-lead">Professionele ramenreiniging met osmose-technologie in Ronse en omgeving. Een streeploos resultaat zonder mechanische belasting van uw gevel.</p>
+
+            <div class="hero-cta">
+              <a class="pill primary" href="https://osmose-xpert.be/offerte.html">Prijs aanvragen</a>
+              <a class="pill ghost" href="tel:+32493673484">Bel direct</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Waarom kiezen voor OsmoseXpert?</h2>
+      <p>Wij werken met puur osmosewater dat streeploos opdroogt zonder gebruik van chemicaliën. Dankzij onze telescoopsystemen werken we veilig vanaf de grond tot op grote hoogte.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>BTW BE0733.924.863 | © 2026 OsmoseXpert | info@osmose-xpert.be</p>
+  </footer>
+
+</body>
+</html>
