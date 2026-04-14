@@ -31,20 +31,20 @@
       line-height: 1.6;
     }
 
-    /* Video Background Container */
-    .hero-video-container {
+    /* Video Header Banner */
+    .video-header {
       position: relative;
       width: 100%;
-      height: 55vh;
+      height: 400px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: var(--brand-dark);
+      background-color: var(--brand-dark);
     }
 
-    .hero-video {
+    .video-header video {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -57,36 +57,35 @@
       z-index: 1;
     }
 
-    .hero-overlay {
+    .video-header-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(7, 54, 97, 0.6) 0%, rgba(241, 245, 249, 1) 100%);
+      background: rgba(7, 54, 97, 0.5);
       z-index: 2;
     }
 
-    .hero-content {
+    .video-header-content {
       position: relative;
       z-index: 3;
       text-align: center;
       color: #fff;
       padding: 20px;
-      margin-top: -60px;
     }
 
     .logo-container img {
-      max-width: 380px;
+      max-width: 400px;
       width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto 15px;
+      margin: 0 auto;
       filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
     }
 
-    .hero-content p { 
-      margin: 0; 
+    .video-header-content p { 
+      margin: 15px 0 0; 
       opacity: 0.95; 
       font-size: 18px;
       font-weight: 400;
@@ -95,16 +94,20 @@
       text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
 
-    /* Promo Banner Geïntegreerd in het formulier */
-    .promo-header {
+    .promo-banner {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
       background: #fff;
       border-bottom: 2px solid var(--info-border);
-      padding: 20px;
+      padding: 15px 20px;
       text-align: center;
-      border-radius: 12px 12px 0 0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       gap: 4px;
     }
 
@@ -114,7 +117,7 @@
       gap: 10px;
     }
 
-    .promo-header span.title {
+    .promo-banner span.title {
       font-size: 16px;
       font-weight: 800;
       color: var(--brand-dark);
@@ -122,7 +125,7 @@
       letter-spacing: 0.5px;
     }
 
-    .promo-header span.sub {
+    .promo-banner span.sub {
       font-size: 13px;
       color: var(--text-muted);
       font-weight: 500;
@@ -141,22 +144,16 @@
 
     main {
       max-width: 940px; 
-      margin: -120px auto 60px; /* Formulier schuift over de video voor modern effect */
+      margin: 40px auto 80px;
       padding: 0 20px;
-      position: relative;
-      z-index: 10;
     }
 
     .form-container {
       background: #fff;
+      border: 1px solid var(--border-color);
       border-radius: 12px;
-      box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.18);
-      overflow: hidden; /* Zorgt dat de promo-header de hoekjes volgt */
-      border: 1px solid rgba(203, 213, 225, 0.5);
-    }
-
-    .form-padding {
-      padding: 50px 60px;
+      padding: 60px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
     }
 
     h2 {
@@ -203,7 +200,7 @@
     input:focus, select:focus, textarea:focus {
       outline: none;
       border-color: var(--brand-accent);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
     }
 
     .benefit-badge {
@@ -225,20 +222,6 @@
       transform: translateY(0);
     }
 
-    .upload-zone {
-      border: 2px dashed var(--border-color);
-      padding: 30px;
-      text-align: center;
-      border-radius: 6px;
-      background: #fafafa;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .upload-zone:hover { border-color: var(--brand-accent); background: #fff; }
-    .upload-zone p { margin: 0; font-size: 13px; color: var(--text-muted); }
-    .file-input { display: none; }
-
     .btn-submit {
       background: var(--brand-main);
       color: #fff;
@@ -251,19 +234,19 @@
       border-radius: 50px;
       cursor: pointer;
       width: 100%;
-      margin-top: 20px;
+      margin-top: 30px;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
-      box-shadow: 0 10px 15px -3px rgba(10, 77, 138, 0.2);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
 
     .btn-submit:hover {
       background: var(--brand-dark);
       transform: translateY(-2px);
-      box-shadow: 0 20px 25px -5px rgba(10, 77, 138, 0.3);
+      box-shadow: 0 10px 20px -5px rgba(10, 77, 138, 0.3);
     }
 
     .info-box {
@@ -278,177 +261,162 @@
       text-align: center;
     }
 
-    .info-box strong { color: #000; font-weight: 700; }
-    .info-box a { color: #000; text-decoration: underline; font-weight: 600; }
-
     .hidden { display: none; }
 
     @media (max-width: 800px) {
       .row { grid-template-columns: 1fr; }
-      .form-padding { padding: 40px 20px; }
-      main { margin: -80px auto 20px; }
-      .hero-video-container { height: 45vh; }
-      .promo-header span.title { font-size: 14px; }
+      .form-container { padding: 40px 20px; }
+      .video-header { height: 300px; }
+      .logo-container img { max-width: 280px; }
+      .promo-banner span.title { font-size: 14px; }
     }
   </style>
 </head>
 <body>
 
-<section class="hero-video-container">
-  <video class="hero-video" autoplay loop muted playsinline poster="images/poster.jpg">
+<header class="video-header">
+  <video autoplay loop muted playsinline poster="images/poster.jpg">
     <source src="assets/assets/video/Vidwebsite.mp4" type="video/mp4">
     Uw browser ondersteunt geen video.
   </video>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
+  <div class="video-header-overlay"></div>
+  <div class="video-header-content">
     <div class="logo-container">
       <img src="images/typography.logo.png" alt="OsmoseXpert Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
       <h1 style="display:none;">OsmoseXpert</h1>
     </div>
     <p>Streeploos schoon — Zorgeloos helder</p>
   </div>
-</section>
+</header>
+
+<div class="promo-banner">
+  <div class="promo-main">
+    <svg class="promo-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span class="title">Ontvang binnen 24u uw persoonlijke offerte</span>
+  </div>
+  <span class="sub">Slechts 1 minuut werk — 100% zonder verplichting</span>
+</div>
 
 <main>
   <div class="form-container">
-    <!-- Geïntegreerde Banner -->
-    <div class="promo-header">
-      <div class="promo-main">
-        <svg class="promo-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-        <span class="title">Ontvang binnen 24u uw persoonlijke offerte</span>
-      </div>
-      <span class="sub">Slechts 1 minuut werk — 100% zonder verplichting</span>
-    </div>
-
-    <div class="form-padding">
-      <form id="offerteForm" action="https://formspree.io/f/xvgbjdav" method="POST" enctype="multipart/form-data">
-        
-        <!-- Sectie 1: Contact -->
-        <section>
-          <h2><span class="step-num">1</span> Contactgegevens</h2>
-          <div class="row">
-            <div class="field">
-              <label for="voornaam">Voornaam <span class="req">*</span></label>
-              <input type="text" id="voornaam" name="voornaam" placeholder="Uw voornaam" required>
-            </div>
-            <div class="field">
-              <label for="achternaam">Achternaam <span class="req">*</span></label>
-              <input type="text" id="achternaam" name="achternaam" placeholder="Uw achternaam" required>
-            </div>
-          </div>
-          <div class="row">
-            <div class="field">
-              <label for="email">E-mailadres <span class="req">*</span></label>
-              <input type="email" id="email" name="email" placeholder="naam@voorbeeld.be" required>
-            </div>
-            <div class="field">
-              <label for="tel">Telefoonnummer <span class="req">*</span></label>
-              <input type="tel" id="tel" name="telefoon" placeholder="Bijv. 0470 00 00 00" required>
-            </div>
-          </div>
-        </section>
-
-        <!-- Sectie 2: Locatie & Dienst -->
-        <section>
-          <h2><span class="step-num">2</span> Projectgegevens</h2>
+    <form id="offerteForm" action="https://formspree.io/f/xvgbjdav" method="POST">
+      
+      <!-- Sectie 1: Contact -->
+      <section>
+        <h2><span class="step-num">1</span> Contactgegevens</h2>
+        <div class="row">
           <div class="field">
-            <label for="adres">Uitvoeringsadres <span class="req">*</span></label>
-            <input type="text" id="adres" name="adres" placeholder="Straat, nr, postcode & gemeente" required>
+            <label for="voornaam">Voornaam <span class="req">*</span></label>
+            <input type="text" id="voornaam" name="voornaam" placeholder="Uw voornaam" required>
           </div>
-          <div class="row">
-            <div class="field">
-              <label for="klant">Ik ben een... <span class="req">*</span></label>
-              <select id="klant" name="klanttype" required>
-                <option value="particulier">Particulier</option>
-                <option value="zakelijk">Zakelijke klant (B2B)</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="dienst">Gewenste Dienst <span class="req">*</span></label>
-              <select id="dienst" name="dienst" required>
-                <option value="ramen">Ramenreiniging</option>
-                <option value="zonnepanelen">Zonnepanelen</option>
-                <option value="combi">Combi (Ramen + Panelen)</option>
-              </select>
-            </div>
-          </div>
-
-          <div id="b2b-block" class="hidden">
-            <div class="field">
-              <label for="bedrijf">Bedrijfsnaam <span class="req">*</span></label>
-              <input type="text" id="bedrijf" name="bedrijfsnaam">
-            </div>
-          </div>
-        </section>
-
-        <!-- Sectie 3: Voorkeuren & Foto's -->
-        <section>
-          <h2><span class="step-num">3</span> Voorkeuren & Foto's</h2>
-          
           <div class="field">
-            <label for="plan">Wilt u besparen op onderhoud? <span class="req">*</span></label>
-            <select id="plan" name="onderhoudsplan" required>
-              <option value="geen">Eenmalige reiniging (geen korting)</option>
-              <option value="bronze" data-discount="5">Bronze (2 x / jaar) — 5% Korting</option>
-              <option value="silver" data-discount="10" selected>Silver (4 x / jaar) — 10% Korting (Populairst)</option>
-              <option value="gold" data-discount="15">Gold (6 x / jaar) — 15% Korting</option>
-              <option value="platinum" data-discount="20">Platinum (Maandelijks) — 20% Korting</option>
-            </select>
-            <div id="plan-benefit" class="benefit-badge active">U bespaart direct 10% op uw reinigingen!</div>
-          </div>
-
-          <div class="field">
-              <label for="herkomst">Hoe heeft u ons gevonden? <span class="req">*</span></label>
-              <select id="herkomst" name="herkomst" required>
-                  <option value="" disabled selected>Maak een keuze...</option>
-                  <option value="google">Via Google</option>
-                  <option value="facebook">Sociale Media</option>
-                  <option value="buren">Via buren / kennissen</option>
-                  <option value="bestelwagen">Bestelwagen gezien</option>
-                  <option value="flyer">Flyer</option>
-                  <option value="andere">Andere</option>
-              </select>
-          </div>
-
-          <div class="field">
-              <label>Foto's (voor snellere prijs)</label>
-              <div class="upload-zone" onclick="document.getElementById('file-upload').click()">
-                  <p id="file-label">Klik om foto's toe te voegen of sleep ze hierheen</p>
-                  <input type="file" id="file-upload" name="bijlagen[]" class="file-input" accept="image/*" multiple>
-              </div>
-          </div>
-
-          <div class="field">
-            <label for="opm">Extra info of vragen</label>
-            <textarea id="opm" name="opmerkingen" rows="2" placeholder="Zijn er specifieke zaken waar we rekening mee moeten houden?"></textarea>
-          </div>
-        </section>
-
-        <button type="submit" class="btn-submit" id="sbtn">
-          <span>Ontvang mijn persoonlijke prijs</span>
-          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </button>
-
-        <div class="info-box">
-          <div class="info-content">
-            Deze aanvraag is <strong>100% vrijblijvend</strong>. Uw gegevens worden enkel gebruikt om u een nauwkeurig voorstel te sturen.<br>
-            U ontvangt <strong>binnen 24 uur</strong> uw voorstel in uw mailbox.<br>
-            <div style="margin-top: 12px; font-size: 13px; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 12px;">
-              Door te verzenden gaat u akkoord met onze 
-              <a href="https://osmose-xpert.be/privacy.html" target="_blank">privacyverklaring</a>.
-            </div>
+            <label for="achternaam">Achternaam <span class="req">*</span></label>
+            <input type="text" id="achternaam" name="achternaam" placeholder="Uw achternaam" required>
           </div>
         </div>
+        <div class="row">
+          <div class="field">
+            <label for="email">E-mailadres <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="naam@voorbeeld.be" required>
+          </div>
+          <div class="field">
+            <label for="tel">Telefoonnummer <span class="req">*</span></label>
+            <input type="tel" id="tel" name="telefoon" placeholder="Bijv. 0470 00 00 00" required>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sectie 2: Locatie & Dienst -->
+      <section>
+        <h2><span class="step-num">2</span> Projectgegevens</h2>
+        <div class="field">
+          <label for="adres">Uitvoeringsadres <span class="req">*</span></label>
+          <input type="text" id="adres" name="adres" placeholder="Straat, nr, postcode & gemeente" required>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="klant">Ik ben een... <span class="req">*</span></label>
+            <select id="klant" name="klanttype" required>
+              <option value="particulier">Particulier</option>
+              <option value="zakelijk">Zakelijke klant (B2B)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="dienst">Gewenste Dienst <span class="req">*</span></label>
+            <select id="dienst" name="dienst" required>
+              <option value="ramen">Ramenreiniging</option>
+              <option value="zonnepanelen">Zonnepanelen</option>
+              <option value="combi">Combi (Ramen + Panelen)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="b2b-block" class="hidden">
+          <div class="field">
+            <label for="bedrijf">Bedrijfsnaam <span class="req">*</span></label>
+            <input type="text" id="bedrijf" name="bedrijfsnaam">
+          </div>
+        </div>
+      </section>
+
+      <!-- Sectie 3: Voorkeuren -->
+      <section>
+        <h2><span class="step-num">3</span> Voorkeuren & Aanvulling</h2>
         
-        <input type="text" name="_gotcha" style="display:none">
-      </form>
-    </div>
+        <div class="field">
+          <label for="plan">Wilt u besparen op onderhoud? <span class="req">*</span></label>
+          <select id="plan" name="onderhoudsplan" required>
+            <option value="geen">Eenmalige reiniging (geen korting)</option>
+            <option value="bronze" data-discount="5">Bronze (2 x / jaar) — 5% Korting</option>
+            <option value="silver" data-discount="10" selected>Silver (4 x / jaar) — 10% Korting (Populairst)</option>
+            <option value="gold" data-discount="15">Gold (6 x / jaar) — 15% Korting</option>
+            <option value="platinum" data-discount="20">Platinum (Maandelijks) — 20% Korting</option>
+          </select>
+          <div id="plan-benefit" class="benefit-badge active">U bespaart direct 10% op uw reinigingen!</div>
+        </div>
+
+        <div class="field">
+            <label for="herkomst">Hoe heeft u ons gevonden? <span class="req">*</span></label>
+            <select id="herkomst" name="herkomst" required>
+                <option value="" disabled selected>Maak een keuze...</option>
+                <option value="google">Via Google</option>
+                <option value="facebook">Sociale Media</option>
+                <option value="buren">Via buren / kennissen</option>
+                <option value="bestelwagen">Bestelwagen gezien</option>
+                <option value="flyer">Flyer</option>
+                <option value="andere">Andere</option>
+            </select>
+        </div>
+
+        <div class="field">
+          <label for="opm">Extra info of vragen</label>
+          <textarea id="opm" name="opmerkingen" rows="4" placeholder="Beschrijf hier eventueel het aantal ramen, verdiepingen of andere relevante info voor een snellere offerte."></textarea>
+        </div>
+      </section>
+
+      <button type="submit" class="btn-submit" id="sbtn">
+        <span>Ontvang mijn persoonlijke prijs</span>
+        <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+
+      <div class="info-box">
+        <div class="info-content">
+          Deze aanvraag is <strong>100% vrijblijvend</strong>. Uw gegevens worden enkel gebruikt om u een nauwkeurig voorstel te sturen.<br>
+          <div style="margin-top: 10px; font-size: 13px; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 10px;">
+            Door te verzenden gaat u akkoord met onze 
+            <a href="https://osmose-xpert.be/privacy.html" target="_blank">privacyverklaring</a>.
+          </div>
+        </div>
+      </div>
+      
+      <input type="text" name="_gotcha" style="display:none">
+    </form>
   </div>
 </main>
 
@@ -459,8 +427,6 @@
   const benefitBadge = document.getElementById('plan-benefit');
   const b2b = document.getElementById('b2b-block');
   const bedrijfInput = document.getElementById('bedrijf');
-  const fileInput = document.getElementById('file-upload');
-  const fileLabel = document.getElementById('file-label');
 
   // B2B Toggle
   klant.addEventListener('change', () => {
@@ -479,12 +445,6 @@
     } else {
       benefitBadge.classList.remove('active');
     }
-  });
-
-  // File Upload Label
-  fileInput.addEventListener('change', () => {
-    const count = fileInput.files.length;
-    fileLabel.innerText = count > 0 ? `${count} foto('s) geselecteerd` : "Klik om foto's toe te voegen of sleep ze hierheen";
   });
 
   // Form Submission Animatie
