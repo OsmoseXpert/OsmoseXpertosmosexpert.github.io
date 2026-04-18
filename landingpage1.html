@@ -9,8 +9,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
     :root {
-      --navy: #002B45;
-      --azure: #29ABE2;
+      --navy: #002B45;   /* Marineblauw - Huiskleur & CTR */
+      --azure: #29ABE2;  /* Lichtblauw - Accentkleur */
       --white: #ffffff;
       --bg-light: #f4f7f9;
       --text-main: #002B45;
@@ -21,6 +21,7 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); line-height: 1.6; background: var(--white); overflow-x: hidden; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
+    /* Navigatie */
     nav { 
       background: var(--white); 
       height: 95px; 
@@ -32,30 +33,119 @@
       border-bottom: 1px solid rgba(0, 43, 69, 0.1);
     }
     .nav-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-    .brand-logo-img { height: 55px; width: auto; display: block; }
-    .nav-contact { display: flex; align-items: center; gap: 12px; color: var(--navy); font-weight: 700; text-decoration: none; transition: color 0.2s; }
+    
+    .brand-logo-img { 
+      height: 55px; 
+      width: auto; 
+      display: block;
+    }
+
+    .nav-contact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
     .nav-contact:hover { color: var(--azure); }
 
+    /* Knoppen */
     .pill { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--radius); text-decoration: none; font-weight: 700; transition: all 0.2s; border: 0; cursor: pointer; font-size: 0.95rem; }
     .pill.primary { background: var(--navy); color: #fff; }
     .pill.ghost { border: 2px solid var(--white); color: var(--white); background: transparent; }
     .pill:hover { transform: translateY(-1px); filter: brightness(1.2); box-shadow: 0 4px 12px rgba(0, 43, 69, 0.2); }
 
-    .hero { position: relative; background: var(--navy); color: #fff; min-height: 600px; display: flex; align-items: center; overflow: hidden; width: 100%; }
+    /* Hero Sectie */
+    .hero { 
+      position: relative; 
+      background: var(--navy); 
+      color: #fff; 
+      min-height: 600px; 
+      display: flex; 
+      align-items: center; 
+      overflow: hidden;
+      width: 100%;
+    }
     .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0, 43, 69, 0.85) 0%, rgba(0, 43, 69, 0.4) 100%); z-index: 2; }
-    .hero-content-wrapper { position: relative; z-index: 3; padding: 80px 0; width: 100%; }
+    
+    .hero-overlay { 
+      position: absolute; 
+      inset: 0; 
+      background: linear-gradient(135deg, rgba(0, 43, 69, 0.85) 0%, rgba(0, 43, 69, 0.4) 100%); 
+      z-index: 2; 
+    }
+    
+    .hero-content-wrapper { 
+      position: relative; 
+      z-index: 3; 
+      padding: 80px 0; 
+      width: 100%;
+    }
 
-    h1 { font-size: clamp(1.8rem, 5vw, 4.2rem); line-height: 1.1; margin-bottom: 24px; font-weight: 800; letter-spacing: -1.5px; word-wrap: break-word; max-width: 1100px; }
-    .hero-subtitle { font-size: clamp(1rem, 1.5vw, 1.4rem); margin-bottom: 40px; opacity: 0.95; font-weight: 400; max-width: 750px; line-height: 1.5; }
+    h1 { 
+      font-size: clamp(1.8rem, 5vw, 4.2rem); 
+      line-height: 1.1; 
+      margin-bottom: 24px; 
+      font-weight: 800; 
+      letter-spacing: -1.5px;
+      word-wrap: break-word;
+      max-width: 1100px;
+    }
 
-    .trust-bar { background: var(--white); padding: 20px 0; border-bottom: 1px solid rgba(0, 43, 69, 0.08); }
-    .trust-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-    .trust-bar-logo { height: 40px; width: auto; }
-    .trust-bar-grid { display: flex; justify-content: flex-end; flex-grow: 1; gap: 40px; flex-wrap: wrap; }
-    .trust-item { font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 12px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
-    .trust-item::before { content: ''; display: block; width: 6px; height: 6px; background: var(--azure); border-radius: 50%; }
+    .hero-subtitle { 
+      font-size: clamp(1rem, 1.5vw, 1.4rem); 
+      margin-bottom: 40px; 
+      opacity: 0.95; 
+      font-weight: 400; 
+      max-width: 750px;
+      line-height: 1.5;
+    }
 
+    /* Trust Bar */
+    .trust-bar {
+      background: var(--white);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0, 43, 69, 0.08);
+    }
+    .trust-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .trust-bar-logo {
+      height: 40px;
+      width: auto;
+    }
+    .trust-bar-grid {
+      display: flex;
+      justify-content: flex-end;
+      flex-grow: 1;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .trust-item::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--azure);
+      border-radius: 50%;
+    }
+
+    /* Partner Sectie */
     .partner-section { padding: 100px 0; background: var(--bg-light); }
     .partner-grid { display: grid; grid-template-columns: 1fr; gap: 80px; align-items: center; }
     @media (min-width: 900px) { .partner-grid { grid-template-columns: 1.1fr 0.9fr; } }
@@ -63,12 +153,23 @@
     .partner-label { font-size: 0.8rem; font-weight: 800; color: var(--azure); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
     .partner-text h2 { font-size: 2.6rem; color: var(--navy); margin-bottom: 25px; line-height: 1.2; font-weight: 800; letter-spacing: -1px; }
     .partner-text p { margin-bottom: 20px; font-size: 1.1rem; color: rgba(0, 43, 69, 0.8); }
-    .partner-image-card { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: 0 30px 60px rgba(0, 43, 69, 0.12); }
-    .partner-image-card img { width: 100%; display: block; object-fit: cover; }
+    
+    .partner-image-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 43, 69, 0.12);
+    }
+    .partner-image-card img { 
+      width: 100%; 
+      display: block; 
+      object-fit: cover;
+    }
 
     footer { background: var(--navy); color: #fff; padding: 60px 0; text-align: center; }
     footer strong { color: var(--azure); }
 
+    /* Responsiviteit */
     @media (max-width: 1100px) {
       .trust-bar-inner { flex-direction: column; text-align: center; }
       .trust-bar-grid { justify-content: center; width: 100%; gap: 20px; }
@@ -89,7 +190,7 @@
   <nav>
     <div class="container nav-inner">
       <a href="index.html" class="brand">
-        <img src="images/typography.logo.png" alt="OsmoseXpert" class="brand-logo-img">
+        <img src="images/ox-logo-trans-dark.png" alt="OsmoseXpert" class="brand-logo-img">
       </a>
       <div style="display: flex; align-items: center; gap: 40px;">
         <a href="tel:+32493673484" class="nav-contact">
@@ -102,6 +203,7 @@
   </nav>
 
   <main>
+    
     <section class="hero">
       <video class="hero-video-bg" autoplay muted loop playsinline>
         <source src="assets/assets/video/Vid4.5.mp4" type="video/mp4">
@@ -145,6 +247,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
