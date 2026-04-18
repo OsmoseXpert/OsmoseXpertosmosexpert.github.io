@@ -24,7 +24,8 @@
     /* Navigatie */
     nav { 
       background: var(--white); 
-      height: 95px; 
+      /* Verhoogde hoogte voor groter logo */
+      height: 120px; 
       display: flex; 
       align-items: center; 
       position: sticky; 
@@ -35,7 +36,8 @@
     .nav-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     
     .brand-logo-img { 
-      height: 55px; 
+      /* Logo veel groter gemaakt */
+      height: 80px; 
       width: auto; 
       display: block;
     }
@@ -85,13 +87,16 @@
     }
 
     h1 { 
-      font-size: clamp(1.8rem, 5vw, 4.2rem); 
+      /* Slogan geforceerd op één regel, met automatische tekstgrootte */
+      font-size: clamp(1.8rem, 4vw, 4.2rem); 
       line-height: 1.1; 
       margin-bottom: 24px; 
       font-weight: 800; 
       letter-spacing: -1.5px;
-      word-wrap: break-word;
-      max-width: 1100px;
+      white-space: nowrap; /* Forceert één regel */
+      overflow: hidden;    /* Verbergt overloop */
+      text-overflow: ellipsis; /* Voegt '...' toe als het toch te lang is (voor de zekerheid) */
+      max-width: 100%;
     }
 
     .hero-subtitle { 
@@ -106,7 +111,7 @@
     /* Trust Bar */
     .trust-bar {
       background: var(--white);
-      padding: 20px 0;
+      padding: 30px 0; /* Iets meer padding voor het grotere logo */
       border-bottom: 1px solid rgba(0, 43, 69, 0.08);
     }
     .trust-bar-inner {
@@ -116,7 +121,8 @@
       gap: 30px;
     }
     .trust-bar-logo {
-      height: 40px;
+      /* Logo ook hier groter gemaakt */
+      height: 60px;
       width: auto;
     }
     .trust-bar-grid {
@@ -176,12 +182,22 @@
     }
 
     @media (max-width: 768px) {
-      h1 { font-size: 2.2rem; }
+      /* Op mobiel de slogan laten breken, anders wordt de tekst onleesbaar klein */
+      h1 { 
+        font-size: 2.2rem; 
+        white-space: normal; 
+        overflow: visible;
+        text-overflow: clip;
+      }
       .hero-content-wrapper { text-align: center; padding: 60px 0; }
       .hero-subtitle { margin: 0 auto 40px; }
       .hero-btns { justify-content: center; }
       .nav-contact { display: none; }
-      .brand-logo-img { height: 45px; }
+      
+      /* Iets kleiner logo op mobiel, maar nog steeds groter dan voorheen */
+      nav { height: 100px; }
+      .brand-logo-img { height: 60px; }
+      .trust-bar-logo { height: 50px; }
     }
   </style>
 </head>
@@ -190,7 +206,7 @@
   <nav>
     <div class="container nav-inner">
       <a href="index.html" class="brand">
-        <img src="images/ox-logo-trans-dark.png" alt="OsmoseXpert" class="brand-logo-img">
+        <img src="images/logo7.png" alt="OsmoseXpert" class="brand-logo-img">
       </a>
       <div style="display: flex; align-items: center; gap: 40px;">
         <a href="tel:+32493673484" class="nav-contact">
@@ -225,7 +241,7 @@
 
     <div class="trust-bar">
       <div class="container trust-bar-inner">
-        <img src="images/logozwart.png" alt="OsmoseXpert Logo" class="trust-bar-logo">
+        <img src="images/logo7.png" alt="OsmoseXpert Logo" class="trust-bar-logo">
         <div class="trust-bar-grid">
           <div class="trust-item">100% Streeploze Droging</div>
           <div class="trust-item">Tot 15 Meter Hoogte</div>
