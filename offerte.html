@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="nl">
 <head>
@@ -339,10 +338,8 @@
   <div class="form-container">
     <form id="offerteForm" action="https://formspree.io/f/xvgbjdav" method="POST">
       
-      <!-- AANGEPAST: Redirect naar je eigen bedankpagina -->
       <input type="hidden" name="_next" value="https://osmose-xpert.be/bedankt.html">
       
-      <!-- Sectie 1: Contact -->
       <section>
         <h2><span class="step-num">1</span> Contactgegevens</h2>
         <div class="row">
@@ -367,7 +364,6 @@
         </div>
       </section>
 
-      <!-- Sectie 2: Locatie & Dienst -->
       <section>
         <h2><span class="step-num">2</span> Projectgegevens</h2>
         <div class="field">
@@ -397,10 +393,13 @@
             <label for="bedrijf">Bedrijfsnaam <span class="req">*</span></label>
             <input type="text" id="bedrijf" name="bedrijfsnaam" placeholder="Naam van uw onderneming">
           </div>
+          <div class="field">
+            <label for="btw">BTW-nummer <span class="req">*</span></label>
+            <input type="text" id="btw" name="btw_nummer" placeholder="Bijv. BE 0XXX.XXX.XXX">
+          </div>
         </div>
       </section>
 
-      <!-- Sectie 3: Voorkeuren -->
       <section>
         <h2><span class="step-num">3</span> Voorkeuren & Aanvulling</h2>
         
@@ -465,16 +464,21 @@
   const benefitBadge = document.getElementById('plan-benefit');
   const b2b = document.getElementById('b2b-block');
   const bedrijfInput = document.getElementById('bedrijf');
+  const btwInput = document.getElementById('btw'); // Referentie naar BTW-veld
 
-  // B2B Toggle
+  // B2B Toggle: Toont blok en maakt Bedrijfsnaam + BTW verplicht
   klant.addEventListener('change', () => {
     const isB2B = klant.value === 'zakelijk';
     b2b.classList.toggle('hidden', !isB2B);
+    
+    // Beide velden verplicht maken bij B2B, anders niet
     bedrijfInput.required = isB2B;
+    btwInput.required = isB2B;
+    
     if (isB2B) bedrijfInput.focus();
   });
 
-  // Korting Badge
+  // Korting Badge logica
   planSelect.addEventListener('change', () => {
     const selectedOption = planSelect.options[planSelect.selectedIndex];
     const discount = selectedOption.getAttribute('data-discount');
