@@ -9,96 +9,180 @@
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
     :root {
-      --navy: #002B45;
-      --azure: #29ABE2;
+      --navy: #002B45;   /* Marineblauw - Huiskleur & CTR */
+      --azure: #29ABE2;  /* Lichtblauw - Accentkleur */
       --white: #ffffff;
-      --bg-light: #f8fafc;
-      --text-main: #1a2b3b;
-      --radius: 12px;
+      --bg-light: #f4f7f9;
+      --text-main: #002B45;
+      --radius: 4px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); line-height: 1.6; background: var(--bg-light); }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* Navigatie: Marineblauw met GROOT logo */
+    /* Navigatie */
     nav { 
-      background: var(--navy); 
-      height: 100px; /* Iets hoger voor het grotere logo */
+      background: var(--white); 
+      height: 95px; 
       display: flex; 
       align-items: center; 
       position: sticky; 
       top: 0; 
       z-index: 1000; 
+      border-bottom: 1px solid rgba(0, 43, 69, 0.1);
     }
     .nav-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     
-    /* Logo groter maken */
     .brand-logo-img { 
-      height: 65px; /* Vergroot van 45px naar 65px */
+      height: 55px; 
       width: auto; 
       display: block;
     }
 
+    .nav-contact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-contact:hover { color: var(--azure); }
+
     /* Knoppen */
-    .pill { display: inline-flex; align-items: center; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: 0.2s; border: 0; cursor: pointer; }
-    .pill.primary { background: var(--azure); color: #fff; }
-    .pill.ghost { border: 2px solid var(--white); color: var(--white); }
+    .pill { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--radius); text-decoration: none; font-weight: 700; transition: all 0.2s; border: 0; cursor: pointer; font-size: 0.95rem; }
+    .pill.primary { background: var(--navy); color: #fff; }
+    .pill.ghost { border: 2px solid var(--white); color: var(--white); background: transparent; }
+    .pill:hover { transform: translateY(-1px); filter: brightness(1.2); box-shadow: 0 4px 12px rgba(0, 43, 69, 0.2); }
 
     /* Hero Sectie */
     .hero { 
       position: relative; 
       background: var(--navy); 
       color: #fff; 
-      border-radius: 20px; 
-      overflow: hidden; 
-      min-height: 550px; 
+      min-height: 600px; 
       display: flex; 
       align-items: center; 
-      margin-top: 20px; 
+      overflow: hidden;
+      width: 100%;
     }
-    .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.3; filter: blur(1px); }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,43,69,0.95) 0%, rgba(0,43,69,0.5) 100%); z-index: 2; }
+    .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
     
-    .hero-grid { 
+    .hero-overlay { 
+      position: absolute; 
+      inset: 0; 
+      background: linear-gradient(135deg, rgba(0, 43, 69, 0.85) 0%, rgba(0, 43, 69, 0.4) 100%); 
+      z-index: 2; 
+    }
+    
+    .hero-content-wrapper { 
       position: relative; 
       z-index: 3; 
-      display: grid; 
-      grid-template-columns: 1fr 1fr; 
-      gap: 40px; 
-      align-items: center; 
-      padding: 40px; 
+      padding: 80px 0; 
       width: 100%;
     }
 
-    .hero-content { max-width: 550px; }
-    h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
+    h1 { 
+      font-size: clamp(1.8rem, 5vw, 4.2rem); 
+      line-height: 1.1; 
+      margin-bottom: 24px; 
+      font-weight: 800; 
+      letter-spacing: -1.5px;
+      word-wrap: break-word;
+      max-width: 1100px;
+    }
 
-    /* GIF container in het vak naast de tekst */
-    .hero-gif-zone {
+    .hero-subtitle { 
+      font-size: clamp(1rem, 1.5vw, 1.4rem); 
+      margin-bottom: 40px; 
+      opacity: 0.95; 
+      font-weight: 400; 
+      max-width: 750px;
+      line-height: 1.5;
+    }
+
+    /* Trust Bar */
+    .trust-bar {
+      background: var(--white);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0, 43, 69, 0.08);
+    }
+    .trust-bar-inner {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: space-between;
+      gap: 30px;
     }
-    .hero-gif {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    .trust-bar-logo {
+      height: 40px;
+      width: auto;
+    }
+    .trust-bar-grid {
+      display: flex;
+      justify-content: flex-end;
+      flex-grow: 1;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .trust-item::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--azure);
+      border-radius: 50%;
     }
 
-    @media (max-width: 850px) {
-      .hero-grid { grid-template-columns: 1fr; text-align: center; }
-      .hero-content { margin: 0 auto; }
-      .hero-gif { max-width: 280px; }
+    /* Partner Sectie */
+    .partner-section { padding: 100px 0; background: var(--bg-light); }
+    .partner-grid { display: grid; grid-template-columns: 1fr; gap: 80px; align-items: center; }
+    @media (min-width: 900px) { .partner-grid { grid-template-columns: 1.1fr 0.9fr; } }
+    
+    .partner-label { font-size: 0.8rem; font-weight: 800; color: var(--azure); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
+    .partner-text h2 { font-size: 2.6rem; color: var(--navy); margin-bottom: 25px; line-height: 1.2; font-weight: 800; letter-spacing: -1px; }
+    .partner-text p { margin-bottom: 20px; font-size: 1.1rem; color: rgba(0, 43, 69, 0.8); }
+    
+    .partner-image-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 43, 69, 0.12);
+    }
+    .partner-image-card img { 
+      width: 100%; 
+      display: block; 
+      object-fit: cover;
     }
 
-    /* Overige secties */
-    section { padding: 60px 0; }
-    .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .trust-card { background: #fff; padding: 30px; border-radius: var(--radius); border-top: 5px solid var(--azure); text-align: center; }
+    footer { background: var(--navy); color: #fff; padding: 60px 0; text-align: center; }
+    footer strong { color: var(--azure); }
 
-    footer { background: var(--navy); color: #fff; padding: 40px 0; text-align: center; }
+    /* Responsiviteit */
+    @media (max-width: 1100px) {
+      .trust-bar-inner { flex-direction: column; text-align: center; }
+      .trust-bar-grid { justify-content: center; width: 100%; gap: 20px; }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      .hero-content-wrapper { text-align: center; padding: 60px 0; }
+      .hero-subtitle { margin: 0 auto 40px; }
+      .hero-btns { justify-content: center; }
+      .nav-contact { display: none; }
+      .brand-logo-img { height: 45px; }
+    }
   </style>
 </head>
 <body>
@@ -108,50 +192,59 @@
       <a href="index.html" class="brand">
         <img src="images/typography.logo.png" alt="OsmoseXpert" class="brand-logo-img">
       </a>
-      <a class="pill primary" href="https://osmose-xpert.be/offerte.html">Prijs aanvragen</a>
+      <div style="display: flex; align-items: center; gap: 40px;">
+        <a href="tel:+32493673484" class="nav-contact">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--azure)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          0493 67 34 84
+        </a>
+        <a class="pill primary" href="https://osmose-xpert.be/offerte.html">Offerte aanvragen</a>
+      </div>
     </div>
   </nav>
 
-  <main class="container">
+  <main>
     
-    <section style="padding: 20px 0;">
-      <div class="hero">
-        <video class="hero-video-bg" autoplay muted loop playsinline>
-          <source src="assets/assets/video/Vid4.5.mp4" type="video/mp4">
-        </video>
-        
-        <div class="hero-overlay"></div>
-
-        <div class="hero-grid">
+    <section class="hero">
+      <video class="hero-video-bg" autoplay muted loop playsinline>
+        <source src="assets/assets/video/Vid4.5.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content-wrapper">
           <div class="hero-content">
-            <h1>Streeploos propere ramen, zonder ladders.</h1>
-            <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">Vakkundige osmose-reiniging in Ronse. Veilig vanaf de grond, ecologisch en langer een schoon resultaat.</p>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-              <a class="pill primary" href="https://osmose-xpert.be/offerte.html">Gratis offerte</a>
-              <a class="pill ghost" href="tel:+32493673484">Bel direct</a>
+            <h1>Streeploos schoon - Zorgeloos helder</h1>
+            <p class="hero-subtitle">Vakkundige glasreiniging met osmosewater in Ronse en omstreken. Wij garanderen een kristalhelder resultaat en een persoonlijke aanpak voor elk project.</p>
+            <div class="hero-btns" style="display: flex; gap: 20px; flex-wrap: wrap;">
+              <a class="pill primary" href="https://osmose-xpert.be/offerte.html">Offerte aanvragen</a>
+              <a class="pill ghost" href="tel:+32493673484">Direct bellen</a>
             </div>
-          </div>
-
-          <div class="hero-gif-zone">
-            <img src="images/oxlogo.gif" alt="OsmoseXpert Animatie" class="hero-gif">
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="trust-grid">
-        <div class="trust-card">
-          <h3>Garantie</h3>
-          <p>Niet tevreden? Wij komen terug tot het perfect is.</p>
+    <div class="trust-bar">
+      <div class="container trust-bar-inner">
+        <img src="images/logozwart.png" alt="OsmoseXpert Logo" class="trust-bar-logo">
+        <div class="trust-bar-grid">
+          <div class="trust-item">100% Streeploze Droging</div>
+          <div class="trust-item">Tot 15 Meter Hoogte</div>
+          <div class="trust-item">Uw Vertrouwde Vakman</div>
         </div>
-        <div class="trust-card">
-          <h3>Veiligheid</h3>
-          <p>Geen ladders tegen uw gevel dankzij ons telescoopsysteem.</p>
+      </div>
+    </div>
+
+    <section class="partner-section">
+      <div class="container partner-grid">
+        <div class="partner-text">
+          <span class="partner-label">UW LOKALE VAKMAN</span>
+          <h2>Persoonlijke service, professioneel resultaat</h2>
+          <p>Bij OsmoseXpert geloven we in transparantie en vakmanschap. Als lokale ondernemer uit Ronse sta ik zelf op de werkvloer. U krijgt geen wisselende ploegen, maar een toegewijde vakman die zorg draagt voor uw eigendom.</p>
+          <p>Dankzij onze gespecialiseerde osmose-techniek bereiken we plaatsen waar anderen stoppen. Van hoge ramen tot veranda-daken, wij leveren kwaliteit zonder compromissen.</p>
         </div>
-        <div class="trust-card">
-          <h3>Puur water</h3>
-          <p>Geen zeepresten, dus ramen blijven langer schoon.</p>
+        <div class="partner-image-card">
+           <!-- Nieuwe afbeelding vid6.jpg geplaatst -->
+           <img src="vid6.jpg" alt="OsmoseXpert aan het werk op hoogte">
         </div>
       </div>
     </section>
@@ -159,8 +252,10 @@
   </main>
 
   <footer>
-    <p><strong>OsmoseXpert</strong> | Ronse • Kluisbergen • Oudenaarde</p>
-    <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 10px;">BTW BE0733.924.863</p>
+    <div class="container">
+      <p><strong>OsmoseXpert</strong> | Ronse • Kluisbergen • Oudenaarde</p>
+      <p style="font-size: 0.85rem; margin-top: 15px; opacity: 0.6;">BTW BE0733.924.863 | info@osmose-xpert.be</p>
+    </div>
   </footer>
 
 </body>
