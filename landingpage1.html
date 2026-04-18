@@ -9,8 +9,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
     :root {
-      --navy: #002B45;   /* Marineblauw - Huiskleur & CTR */
-      --azure: #29ABE2;  /* Lichtblauw - Accentkleur */
+      --navy: #002B45;
+      --azure: #29ABE2;
       --white: #ffffff;
       --bg-light: #f4f7f9;
       --text-main: #002B45;
@@ -24,8 +24,7 @@
     /* Navigatie */
     nav { 
       background: var(--white); 
-      /* Verhoogde hoogte voor groter logo */
-      height: 120px; 
+      height: 110px; 
       display: flex; 
       align-items: center; 
       position: sticky; 
@@ -36,8 +35,7 @@
     .nav-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     
     .brand-logo-img { 
-      /* Logo veel groter gemaakt */
-      height: 80px; 
+      height: 75px; 
       width: auto; 
       display: block;
     }
@@ -71,32 +69,23 @@
       width: 100%;
     }
     .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-    
     .hero-overlay { 
       position: absolute; 
       inset: 0; 
       background: linear-gradient(135deg, rgba(0, 43, 69, 0.85) 0%, rgba(0, 43, 69, 0.4) 100%); 
       z-index: 2; 
     }
-    
-    .hero-content-wrapper { 
-      position: relative; 
-      z-index: 3; 
-      padding: 80px 0; 
-      width: 100%;
-    }
+    .hero-content-wrapper { position: relative; z-index: 3; padding: 80px 0; width: 100%; }
 
     h1 { 
-      /* Slogan geforceerd op één regel, met automatische tekstgrootte */
-      font-size: clamp(1.8rem, 4vw, 4.2rem); 
+      /* Dynamische schaling om 'HEL' situaties te voorkomen */
+      font-size: clamp(1.8rem, 5.5vw, 4.2rem); 
       line-height: 1.1; 
       margin-bottom: 24px; 
       font-weight: 800; 
       letter-spacing: -1.5px;
-      white-space: nowrap; /* Forceert één regel */
-      overflow: hidden;    /* Verbergt overloop */
-      text-overflow: ellipsis; /* Voegt '...' toe als het toch te lang is (voor de zekerheid) */
-      max-width: 100%;
+      display: block;
+      width: 100%;
     }
 
     .hero-subtitle { 
@@ -111,7 +100,7 @@
     /* Trust Bar */
     .trust-bar {
       background: var(--white);
-      padding: 30px 0; /* Iets meer padding voor het grotere logo */
+      padding: 30px 0;
       border-bottom: 1px solid rgba(0, 43, 69, 0.08);
     }
     .trust-bar-inner {
@@ -121,7 +110,6 @@
       gap: 30px;
     }
     .trust-bar-logo {
-      /* Logo ook hier groter gemaakt */
       height: 60px;
       width: auto;
     }
@@ -182,22 +170,13 @@
     }
 
     @media (max-width: 768px) {
-      /* Op mobiel de slogan laten breken, anders wordt de tekst onleesbaar klein */
-      h1 { 
-        font-size: 2.2rem; 
-        white-space: normal; 
-        overflow: visible;
-        text-overflow: clip;
-      }
+      h1 { font-size: 2.2rem; }
       .hero-content-wrapper { text-align: center; padding: 60px 0; }
       .hero-subtitle { margin: 0 auto 40px; }
       .hero-btns { justify-content: center; }
       .nav-contact { display: none; }
-      
-      /* Iets kleiner logo op mobiel, maar nog steeds groter dan voorheen */
       nav { height: 100px; }
       .brand-logo-img { height: 60px; }
-      .trust-bar-logo { height: 50px; }
     }
   </style>
 </head>
@@ -219,7 +198,6 @@
   </nav>
 
   <main>
-    
     <section class="hero">
       <video class="hero-video-bg" autoplay muted loop playsinline>
         <source src="assets/assets/video/Vid4.5.mp4" type="video/mp4">
@@ -263,7 +241,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
