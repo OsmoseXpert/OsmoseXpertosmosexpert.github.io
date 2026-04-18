@@ -2,8 +2,11 @@
 <html lang="nl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <title>Ramen wassen Ronse | OsmoseXpert</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/font/lucide.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -15,8 +18,9 @@
       --bg-light: #f4f7f9;
       --text-main: #002B45;
       --radius: 8px;
+      --radius-app: 24px;
       --brand-main: #0a4d8a;
-      --brand-dark: #073661;
+      --google-yellow: #FBBC04;
       --text-muted: #64748b;
       --border-color: #cbd5e1;
     }
@@ -25,70 +29,130 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); line-height: 1.6; background: var(--white); overflow-x: hidden; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* Navigatie */
-    nav { background: var(--white); height: 110px; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0, 43, 69, 0.1); }
+    /* --- DESKTOP NAV (1:1 ORIGINEEL) --- */
+    nav.desktop-nav { 
+      background: var(--white); 
+      height: 110px; 
+      display: flex; 
+      align-items: center; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+      border-bottom: 1px solid rgba(0, 43, 69, 0.1); 
+    }
     .nav-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .brand-logo-img { height: 75px; width: auto; display: block; }
-    .nav-contact { display: flex; align-items: center; gap: 12px; color: var(--navy); font-weight: 700; text-decoration: none; }
+    .nav-contact { color: var(--navy); font-weight: 700; text-decoration: none; }
 
-    /* Knoppen */
-    .pill { display: inline-flex; align-items: center; justify-content: center; padding: 16px 32px; border-radius: var(--radius); text-decoration: none; font-weight: 700; transition: all 0.2s; border: 0; cursor: pointer; font-size: 1rem; }
-    .pill.primary { background: var(--white); color: var(--navy); border: 2px solid var(--white); }
-    .pill.ghost { border: 2px solid var(--white); color: var(--white); background: transparent; }
-    .pill:hover { transform: translateY(-1px); filter: brightness(0.95); box-shadow: 0 4px 12px rgba(0, 43, 69, 0.2); }
+    /* --- MOBIELE APP HEADER --- */
+    .app-header {
+      display: none;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      height: 65px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      align-items: center;
+      justify-content: center;
+    }
 
-    /* Hero */
+    /* --- HERO --- */
     .hero { position: relative; background: var(--navy); color: #fff; min-height: 650px; display: flex; align-items: center; overflow: hidden; }
     .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0, 43, 69, 0.9) 0%, rgba(0, 43, 69, 0.5) 100%); z-index: 2; }
     .hero-content-wrapper { position: relative; z-index: 3; padding: 80px 0; }
     h1 { font-size: clamp(1.8rem, 5.1vw, 4.2rem); line-height: 1.1; margin-bottom: 24px; font-weight: 800; letter-spacing: -1.5px; }
 
-    /* Reviews Sectie */
-    .reviews { background: var(--bg-light); padding: 60px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 900px; margin: 0 auto; }
-    .review-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #edf2f7; }
-    .stars { color: #FFB400; font-size: 1.1rem; margin-bottom: 12px; display: flex; gap: 2px; }
-    .review-text { font-size: 0.95rem; color: #4a5568; font-style: italic; min-height: 80px; }
-    .review-author { margin-top: 20px; font-weight: 800; font-size: 0.9rem; color: var(--brand-main); display: flex; align-items: center; gap: 8px; }
+    /* --- GOOGLE REVIEWS --- */
+    .reviews { background: var(--bg-light); padding: 80px 0; }
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+    .review-card { 
+      background: white; 
+      padding: 35px; 
+      border-radius: 16px; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04); 
+      border: 1px solid #eef2f6; 
+      display: flex;
+      flex-direction: column;
+    }
+    .stars-wrapper { color: var(--google-yellow); font-size: 1.1rem; margin-bottom: 12px; display: flex; gap: 4px; }
+    .review-content { font-size: 0.95rem; color: #475569; font-style: italic; margin-bottom: 25px; flex-grow: 1; }
+    .review-footer { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      border-top: 1px solid #f1f5f9;
+      padding-top: 15px;
+    }
+    .author-name { font-weight: 800; font-size: 0.9rem; color: var(--navy); }
+    .google-tag { 
+      display: flex; 
+      align-items: center; 
+      gap: 6px; 
+      font-size: 0.75rem; 
+      color: #70757a; 
+      font-weight: 600;
+    }
+    .google-tag i { color: #4285F4; font-size: 0.9rem; }
 
-    /* Formulier Stijl */
-    .custom-form-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
-    .custom-form-card h3 { font-size: 13px; color: var(--brand-main); border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; }
-    .custom-field { margin-bottom: 20px; text-align: left; }
-    .custom-field label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; color: var(--text-muted); }
-    .custom-field input, .custom-field select, .custom-field textarea { width: 100%; padding: 14px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 16px; background: #fff; font-family: inherit; }
-    .custom-btn-submit { background: var(--brand-main); color: #fff; border: none; padding: 18px 24px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 12px; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.2s; }
-    .custom-btn-submit:hover { background: var(--brand-dark); }
+    /* --- APP BOTTOM NAV --- */
+    .app-bottom-nav { display: none; }
 
-    /* Detail CTA Sectie */
-    .detail-cta { margin-top: 25px; padding: 20px; background: #f8fafc; border-radius: 12px; border: 1px dashed var(--border-color); text-align: center; }
-    .detail-cta p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; }
-    .btn-detail { color: var(--brand-main); font-weight: 700; text-decoration: underline; font-size: 0.95rem; cursor: pointer; }
-
-    /* Trust Bar & Layout */
-    .trust-bar { background: var(--white); padding: 30px 0; border-bottom: 1px solid rgba(0, 43, 69, 0.08); }
-    .trust-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-    .trust-item { font-weight: 700; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; text-transform: uppercase; }
-    .partner-section { padding: 80px 0; }
-    .partner-grid { display: grid; grid-template-columns: 1fr; gap: 50px; align-items: start; }
-    @media (min-width: 900px) { .partner-grid { grid-template-columns: 1fr 440px; } }
-
-    footer { background: var(--navy); color: #fff; padding: 60px 0; text-align: center; }
-    @media (max-width: 768px) { h1 { font-size: 2.2rem; } .nav-contact { display: none; } .trust-bar-inner { flex-direction: column; } }
+    @media (max-width: 768px) {
+      body { padding-bottom: 95px; }
+      nav.desktop-nav { display: none; }
+      .app-header { display: flex; }
+      .hero { min-height: 520px; margin: 12px; border-radius: var(--radius-app); }
+      
+      .app-bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-top: 1px solid rgba(0,0,0,0.08);
+        justify-content: space-around;
+        padding: 12px 10px calc(15px + env(safe-area-inset-bottom));
+        z-index: 1001;
+      }
+      .tab-item {
+        text-decoration: none;
+        color: var(--navy);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        opacity: 0.45;
+        padding: 8px 15px;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+      }
+      .tab-item.active { opacity: 1; color: var(--brand-main); background: rgba(10, 77, 138, 0.06); }
+      .tab-item i { font-size: 24px; stroke-width: 2.2px; }
+    }
   </style>
 </head>
 <body>
 
-  <nav>
+  <nav class="desktop-nav">
     <div class="container nav-inner">
       <a href="index.html"><img src="images/logo7.png" alt="OsmoseXpert" class="brand-logo-img"></a>
       <div style="display: flex; align-items: center; gap: 30px;">
         <a href="tel:+32493673484" class="nav-contact">0493 67 34 84</a>
-        <a class="pill primary" style="background: var(--navy); color: white;" href="#aanvraag">Gratis prijsindicatie</a>
+        <a class="pill primary" style="background: var(--navy); color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 700;" href="#aanvraag">Gratis prijsindicatie</a>
       </div>
     </div>
   </nav>
+
+  <header class="app-header">
+    <img src="images/logo7.png" alt="OsmoseXpert" style="height: 40px;">
+  </header>
 
   <main>
     <section class="hero">
@@ -99,104 +163,75 @@
       <div class="container">
         <div class="hero-content-wrapper">
           <h1>Streeploos schoon - Zorgeloos helder</h1>
-          <p style="font-size: 1.3rem; margin-bottom: 40px; max-width: 700px;">Vakkundige glasreiniging in Ronse. <strong>Binnen 24u een voorstel in uw mailbox.</strong></p>
-          <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-            <a class="pill primary" href="#aanvraag">Ontvang gratis prijsindicatie</a>
-            <a class="pill ghost" href="tel:+32493673484">Direct bellen</a>
+          <p style="font-size: 1.3rem; margin-bottom: 40px; max-width: 700px;">Vakkundige glasreiniging in Ronse. <strong>Binnen 24u een voorstel.</strong></p>
+          <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <a href="#aanvraag" style="background: white; color: var(--navy); padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 700;">Prijsindicatie</a>
+            <a href="tel:+32493673484" style="border: 2px solid white; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 700;">Bel direct</a>
           </div>
         </div>
       </div>
     </section>
-
-    <div class="trust-bar">
-      <div class="container trust-bar-inner">
-        <img src="images/logo7.png" alt="OsmoseXpert" style="height: 60px;">
-        <div style="display: flex; gap: 30px; flex-wrap: wrap;">
-          <div class="trust-item">✓ 100% Streeploos</div>
-          <div class="trust-item">✓ Tot 15m Hoogte</div>
-          <div class="trust-item">✓ Binnen 24u Reactie</div>
-        </div>
-      </div>
-    </div>
 
     <section class="reviews">
       <div class="container">
-        <h3 style="margin-bottom: 40px; text-align: center; font-size: 1.8rem; font-weight: 800;">Wat klanten over ons zeggen</h3>
+        <h3 style="margin-bottom: 50px; text-align: center; font-size: 2rem; font-weight: 800;">Google Klantenreviews</h3>
         <div class="review-grid">
           <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"Eerste maal gebruik gemaakt van hun diensten en tevreden ivm afspraken en de reiniging. Alles naar behoren gedaan en zelfs terug gekomen om bijkomende ramen te reinigen. Top werk geleverd."</p>
-            <p class="review-author">Werner Van Dorpe <span style="font-weight: 400; font-size: 0.8rem; color: #94a3b8;">• Google Review</span></p>
+            <div class="stars-wrapper">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-content">"Eerste maal gebruik gemaakt van hun diensten en tevreden ivm afspraken en de reiniging. Alles naar behoren gedaan en zelfs terug gekomen om bijkomende ramen te reinigen. Top werk geleverd."</p>
+            <div class="review-footer">
+              <span class="author-name">Werner Van Dorpe</span>
+              <div class="google-tag">
+                <i class="fab fa-google"></i>
+                <span>Google Review</span>
+              </div>
+            </div>
           </div>
           <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"Ik ben heel tevreden met het resultaat, ondanks dat mijn ramen heel moeilijk bereikbaar zijn is hem geen moeite te veel om overal onder, tussen en boven te kruipen, zeker een aanrader.👍👍👍"</p>
-            <p class="review-author">Maureen Dedercq <span style="font-weight: 400; font-size: 0.8rem; color: #94a3b8;">• Google Review</span></p>
+            <div class="stars-wrapper">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-content">"Ik ben heel tevreden met het resultaat, ondanks dat mijn ramen heel moeilijk bereikbaar zijn is hem geen moeite te veel om overal onder, tussen en boven te kruipen."</p>
+            <div class="review-footer">
+              <span class="author-name">Maureen Dedercq</span>
+              <div class="google-tag">
+                <i class="fab fa-google"></i>
+                <span>Google Review</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="partner-section" id="aanvraag">
-      <div class="container partner-grid">
-        <div class="partner-text">
-          <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Uw lokale vakman aan het werk</h2>
-          <p style="font-size: 1.2rem; margin-bottom: 20px;">Geen grote callcenters, maar direct contact met de persoon die uw ramen wast. Ik garandeer topkwaliteit voor elk huis in Ronse en omstreken.</p>
-          
-          <div style="width: 100%; border-radius: var(--radius); margin-top: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); line-height: 0; background: #000;">
-            <video width="100%" autoplay muted loop playsinline preload="auto" style="display: block; width: 100%; height: auto; object-fit: cover;">
-              <source src="assets/assets/video/vid2.mp4" type="video/mp4">
-              Uw browser ondersteunt het video-element niet.
-            </video>
-          </div>
-        </div>
-
-        <div>
-          <div class="custom-form-card">
-            <h3>Snel een prijs weten?</h3>
-            <form action="https://formspree.io/f/xvgbjdav" method="POST">
-              <input type="hidden" name="_next" value="https://osmose-xpert.be/bedankt.html">
-              <div class="custom-field">
-                <label for="naam">Naam</label>
-                <input type="text" id="naam" name="naam" placeholder="Uw naam" required>
-              </div>
-              <div class="custom-field">
-                <label for="telefoon">Telefoonnummer</label>
-                <input type="tel" id="telefoon" name="telefoon" placeholder="Bijv. 0470 00 00 00" required>
-              </div>
-              <div class="custom-field">
-                <label for="dienst">Gewenste Dienst</label>
-                <select id="dienst" name="dienst" required>
-                  <option value="ramen">Ramenreiniging</option>
-                  <option value="zonnepanelen">Zonnepanelen</option>
-                  <option value="combi">Combi (Ramen + Panelen)</option>
-                </select>
-              </div>
-              <button type="submit" class="custom-btn-submit">
-                <span>Stuur mijn aanvraag</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </button>
-            </form>
-          </div>
-
-          <div class="detail-cta">
-            <p>Liever direct een <strong>exacte prijs</strong>?</p>
-            <a href="offerte.html" class="btn-detail">Ga naar de uitgebreide offerte-aanvraag →</a>
-          </div>
+    <section class="partner-section" id="aanvraag" style="padding: 80px 0;">
+      <div class="container" style="max-width: 900px;">
+        <div class="custom-form-card">
+          <h3 style="margin-bottom:25px; font-weight:800; color:var(--brand-main); font-size:14px; text-transform:uppercase; text-align:center;">Vrijblijvende aanvraag</h3>
+          <form action="https://formspree.io/f/xvgbjdav" method="POST">
+            <div style="margin-bottom:15px;">
+              <label style="display:block; font-size:11px; font-weight:700; margin-bottom:5px; color:var(--text-muted);">NAAM</label>
+              <input type="text" name="naam" style="width:100%; padding:14px; border:1px solid var(--border-color); border-radius:8px;" required>
+            </div>
+            <div style="margin-bottom:15px;">
+              <label style="display:block; font-size:11px; font-weight:700; margin-bottom:5px; color:var(--text-muted);">TELEFOON</label>
+              <input type="tel" name="telefoon" style="width:100%; padding:14px; border:1px solid var(--border-color); border-radius:8px;" required>
+            </div>
+            <button type="submit" style="background:var(--brand-main); color:white; border:none; width:100%; padding:18px; border-radius:12px; font-weight:700; cursor:pointer;">STUUR MIJN AANVRAAG</button>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <p><strong>OsmoseXpert</strong> | Ronse &bull; 0493 67 34 84</p>
-      <p style="font-size: 0.85rem; margin-top: 15px; opacity: 0.6;">BTW BE0733.924.863 | info@osmose-xpert.be</p>
-    </div>
-  </footer>
+  <nav class="app-bottom-nav">
+    <a href="index.html" class="tab-item active"><i class="lucide-home"></i><span>Home</span></a>
+    <a href="tel:+32493673484" class="tab-item"><i class="lucide-phone"></i><span>Bellen</span></a>
+    <a href="https://osmose-xpert.be/offerte.html" class="tab-item"><i class="lucide-file-text"></i><span>Offerte</span></a>
+    <a href="https://wa.me/32493673484" class="tab-item"><i class="lucide-message-circle"></i><span>WhatsApp</span></a>
+  </nav>
 
 </body>
 </html>
