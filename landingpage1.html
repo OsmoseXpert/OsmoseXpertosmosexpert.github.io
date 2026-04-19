@@ -25,106 +25,69 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); line-height: 1.5; background: var(--white); overflow-x: hidden; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* --- DESKTOP NAV --- */
+    /* --- NAVIGATION --- */
     nav.desktop-nav { 
-      background: var(--white); 
-      height: 110px; 
-      display: flex; 
-      align-items: center; 
-      position: sticky; 
-      top: 0; 
-      z-index: 1000; 
-      border-bottom: 1px solid rgba(0, 43, 69, 0.1); 
+      background: var(--white); height: 90px; display: flex; align-items: center; 
+      position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); 
     }
     .nav-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-    .brand-logo-img { height: 75px; width: auto; display: block; }
-    .nav-contact { color: var(--navy); font-weight: 700; text-decoration: none; }
-    .pill-nav { background: var(--navy); color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; }
+    .brand-logo-img { height: 60px; width: auto; }
+    .pill-nav { background: var(--navy); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; }
 
-    /* --- MOBIELE APP HEADER --- */
     .app-header {
-      display: none;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      height: 65px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: none; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+      height: 60px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
       align-items: center; justify-content: center;
     }
 
     /* --- HERO --- */
-    .hero { position: relative; background: var(--navy); color: #fff; min-height: 650px; display: flex; align-items: center; overflow: hidden; }
-    .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.8; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0, 43, 69, 0.9) 0%, rgba(0, 43, 69, 0.5) 100%); z-index: 2; }
-    .hero-content-wrapper { position: relative; z-index: 3; padding: 80px 0; }
-    h1 { font-size: clamp(2rem, 5vw, 4.2rem); line-height: 1.1; margin-bottom: 24px; font-weight: 800; letter-spacing: -1.5px; }
-
-    .btn-hero { display: inline-flex; align-items: center; justify-content: center; padding: 18px 36px; border-radius: 8px; text-decoration: none; font-weight: 700; border: 0; cursor: pointer; }
-    .btn-primary { background: var(--white); color: var(--navy); }
-    .btn-ghost { border: 2px solid var(--white); color: var(--white); background: transparent; margin-left: 15px; }
+    .hero { position: relative; background: var(--navy); color: #fff; min-height: 70vh; display: flex; align-items: center; overflow: hidden; }
+    .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,43,69,0.85), rgba(0,43,69,0.4)); z-index: 2; }
+    .hero-content-wrapper { position: relative; z-index: 3; padding: 40px 0; width: 100%; }
+    h1 { font-size: clamp(1.8rem, 8vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; }
 
     /* --- REVIEWS --- */
-    .reviews { background: var(--bg-light); padding: 80px 0; }
-    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-    .review-card { background: white; padding: 35px; border-radius: 16px; border: 1px solid #eef2f6; display: flex; flex-direction: column; }
-    .stars-wrapper { color: var(--google-yellow); font-size: 1.1rem; margin-bottom: 15px; display: flex; gap: 4px; }
-    .review-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 15px; margin-top: auto; }
-    .google-tag { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: #70757a; font-weight: 600; }
-    .google-tag i { color: #4285F4; }
+    .reviews { background: var(--bg-light); padding: 60px 0; }
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .review-card { background: white; padding: 25px; border-radius: 16px; border: 1px solid #eee; display: flex; flex-direction: column; }
+    .stars { color: var(--google-yellow); margin-bottom: 15px; font-size: 0.9rem; }
 
-    /* --- CONTENT SECTIE (VERNIEUWD) --- */
-    .partner-section { padding: 80px 0; }
-    .partner-grid { display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center; }
-    
-    .video-container { 
-      width: 100%; 
-      border-radius: 20px; 
-      overflow: hidden; 
-      box-shadow: 0 20px 50px rgba(0,0,0,0.1); 
-      background: #f0f4f8; 
-      line-height: 0;
-      aspect-ratio: 16 / 9;
+    /* --- MAIN CONTENT & FORM --- */
+    .main-grid { display: grid; grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
+    .video-box { 
+      width: 100%; border-radius: 20px; overflow: hidden; 
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1); aspect-ratio: 16/9; 
+      background: #000; position: relative; 
     }
-    .video-container video { width: 100%; height: 100%; object-fit: cover; }
+    .video-box video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
 
-    .custom-form-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
-    .custom-field { margin-bottom: 20px; }
-    .custom-field label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; color: var(--text-muted); }
-    .custom-field input, .custom-field select { width: 100%; padding: 14px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 16px; }
-    .custom-btn-submit { background: var(--brand-main); color: #fff; border: none; padding: 18px 24px; font-weight: 700; text-transform: uppercase; border-radius: 12px; cursor: pointer; width: 100%; }
+    .form-card { background: white; padding: 30px; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; color: var(--text-muted); }
+    .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 16px; font-family: inherit; }
+    .submit-btn { width: 100%; background: var(--navy); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; }
 
-    /* --- APP BOTTOM NAV --- */
-    .app-bottom-nav { display: none; }
+    /* --- APP NAV --- */
+    .app-nav { display: none; }
 
-    @media (min-width: 900px) { .partner-grid { grid-template-columns: 1.2fr 0.8fr; } }
-
+    @media (min-width: 992px) { .main-grid { grid-template-columns: 1.2fr 0.8fr; align-items: start; } }
     @media (max-width: 768px) {
-      body { padding-bottom: 95px; }
       nav.desktop-nav { display: none; }
       .app-header { display: flex; }
-      .hero { min-height: 520px; margin: 12px; border-radius: var(--radius-app); }
-      .btn-ghost { margin-left: 0; margin-top: 10px; width: 100%; }
-      .btn-hero { width: 100%; }
-      .partner-grid { gap: 40px; }
-
-      .app-bottom-nav {
-        display: flex; position: fixed; bottom: 0; left: 0; right: 0;
-        background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(30px);
-        border-top: 1px solid rgba(0,0,0,0.08); justify-content: space-around;
-        padding: 12px 10px calc(15px + env(safe-area-inset-bottom)); z-index: 1001;
+      .hero { min-height: 60vh; margin: 10px; border-radius: var(--radius-app); }
+      .app-nav { 
+        display: flex; position: fixed; bottom: 0; left: 0; right: 0; 
+        background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); 
+        border-top: 1px solid rgba(0,0,0,0.05); justify-content: space-around; 
+        padding: 10px 5px calc(10px + env(safe-area-inset-bottom)); z-index: 1001; 
       }
-      .tab-item {
-        text-decoration: none; color: var(--navy); display: flex; flex-direction: column;
-        align-items: center; gap: 6px; font-size: 11px; font-weight: 700; opacity: 0.45; padding: 8px 15px;
-      }
-      .tab-item.active { opacity: 1; color: var(--brand-main); background: rgba(10, 77, 138, 0.06); border-radius: 16px; }
-      .tab-item i { font-size: 24px; }
+      .nav-tab { text-decoration: none; color: var(--navy); display: flex; flex-direction: column; align-items: center; font-size: 10px; font-weight: 700; opacity: 0.5; }
+      .nav-tab.active { opacity: 1; color: var(--brand-main); }
+      body { padding-bottom: 80px; }
     }
   </style>
 </head>
@@ -132,93 +95,98 @@
 
   <nav class="desktop-nav">
     <div class="container nav-inner">
-      <a href="index.html"><img src="images/logo7.png" alt="OsmoseXpert" class="brand-logo-img"></a>
-      <div style="display: flex; align-items: center; gap: 30px;">
-        <a href="tel:+32493673484" class="nav-contact">0493 67 34 84</a>
-        <a class="pill-nav" href="#aanvraag">Prijs aanvragen</a>
+      <img src="images/logo7.png" alt="OsmoseXpert" class="brand-logo-img">
+      <div style="display:flex; align-items:center; gap:20px;">
+        <a href="tel:+32493673484" style="font-weight:800; text-decoration:none; color:var(--navy);">0493 67 34 84</a>
+        <a href="#aanvraag" class="pill-nav">Prijs aanvragen</a>
       </div>
     </div>
   </nav>
 
   <header class="app-header">
-    <img src="images/logo7.png" alt="OsmoseXpert" style="height: 40px;">
+    <img src="images/logo7.png" alt="OsmoseXpert" style="height: 35px;">
   </header>
 
   <main>
     <section class="hero">
-      <video class="hero-video-bg" autoplay muted loop playsinline><source src="assets/assets/video/Vid4.5.mp4" type="video/mp4"></video>
+      <video class="hero-video-bg" autoplay muted loop playsinline>
+        <source src="assets/assets/video/Vid4.5.mp4" type="video/mp4">
+      </video>
       <div class="hero-overlay"></div>
-      <div class="container">
-        <div class="hero-content-wrapper">
-          <h1>Streeploos schoon - Zorgeloos helder</h1>
-          <p style="font-size: 1.3rem; margin-bottom: 40px; max-width: 700px;">Vakkundige glasreiniging in Ronse. <strong>Binnen 24u een voorstel in uw mailbox.</strong></p>
-          <div style="display: flex; flex-wrap: wrap;">
-            <a class="btn-hero btn-primary" href="#aanvraag">Nu prijs aanvragen</a>
-            <a class="btn-hero btn-ghost" href="tel:+32493673484">Direct bellen</a>
-          </div>
+      <div class="container hero-content-wrapper">
+        <h1>Streeploos schoon - Zorgeloos helder</h1>
+        <p style="margin-bottom: 30px; opacity: 0.9; max-width: 550px;">Professionele glasreiniging in Ronse. Wij zorgen voor een resultaat waar u op kunt bouwen.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="#aanvraag" style="background: white; color: var(--navy); padding: 16px 28px; border-radius: 12px; text-decoration: none; font-weight: 700; flex: 1; text-align: center; min-width: 200px;">Nu prijs aanvragen</a>
+          <a href="tel:+32493673484" style="border: 2px solid white; color: white; padding: 16px 28px; border-radius: 12px; text-decoration: none; font-weight: 700; flex: 1; text-align: center; min-width: 200px;">Direct bellen</a>
         </div>
       </div>
     </section>
 
     <section class="reviews">
       <div class="container">
-        <h3 style="margin-bottom: 40px; text-align: center; font-size: 1.8rem; font-weight: 800;">Google Klantenreviews</h3>
+        <h2 style="text-align:center; margin-bottom:30px; font-weight:800;">Wat klanten zeggen</h2>
         <div class="review-grid">
           <div class="review-card">
-            <div class="stars-wrapper"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p style="font-style: italic;">"Eerste maal gebruik gemaakt van hun diensten en tevreden ivm afspraken en de reiniging. Alles naar behoren gedaan en zelfs terug gekomen om bijkomende ramen te reinigen. Top werk geleverd."</p>
-            <div class="review-footer"><span style="font-weight:800;">Werner Van Dorpe</span><div class="google-tag"><i class="fab fa-google"></i><span>Google Review</span></div></div>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p style="font-size:0.9rem; font-style:italic; margin-bottom:15px; flex-grow:1;">"Top werk geleverd. Ik ben zeer tevreden over de gemaakte afspraken en de reiniging."</p>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #eee; padding-top:10px;">
+              <span style="font-weight:800; font-size:0.85rem;">Werner Van Dorpe</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_\"G\"_Logo.svg" alt="G" style="height:15px;">
+            </div>
           </div>
           <div class="review-card">
-            <div class="stars-wrapper"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p style="font-style: italic;">"Ik ben heel tevreden met het resultaat, ondanks dat mijn ramen heel moeilijk bereikbaar zijn is hem geen moeite te veel om overal onder, tussen en boven te kruipen."</p>
-            <div class="review-footer"><span style="font-weight:800;">Maureen Dedercq</span><div class="google-tag"><i class="fab fa-google"></i><span>Google Review</span></div></div>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p style="font-size:0.9rem; font-style:italic; margin-bottom:15px; flex-grow:1;">"Ondanks moeilijk bereikbare ramen is hem geen moeite te veel. Een echte aanrader!"</p>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #eee; padding-top:10px;">
+              <span style="font-weight:800; font-size:0.85rem;">Maureen Dedercq</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_\"G\"_Logo.svg" alt="G" style="height:15px;">
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="partner-section" id="aanvraag">
-      <div class="container partner-grid">
-        <div class="partner-text">
-          <h2 style="font-size: 2.5rem; margin-bottom: 25px; line-height: 1.2;">Uw ramen, mijn verantwoordelijkheid</h2>
-          <p style="font-size: 1.2rem; margin-bottom: 30px; color: #475569;">Bij OsmoseXpert krijgt u geen wisselende ploegen over de vloer. Ik kom zelf langs, ik ken uw woning en ik sta persoonlijk garant voor het resultaat. Eén aanspreekpunt, één kwaliteitsstandaard.</p>
+    <section class="container" id="aanvraag">
+      <div class="main-grid">
+        <div class="content-text">
+          <h2 style="font-size: clamp(1.6rem, 6vw, 2.5rem); margin-bottom:15px; font-weight:800;">Heldere afspraken, streeploos resultaat</h2>
+          <p style="color:#475569; margin-bottom:30px; font-size: 1.1rem; line-height:1.6;">Bij OsmoseXpert geloven we dat kwaliteit begint bij een goede organisatie. Geen vage beloftes, maar een transparante aanpak waar u op kunt bouwen in de regio Ronse.</p>
           
-          <div class="video-container">
+          <div class="video-box">
             <video autoplay muted loop playsinline preload="auto">
-              <source src="assets/assets/video/vid2.mp4" type="video/mp4">
+              <source src="assets/assets/video/Vidwebsite.mp4" type="video/mp4">
             </video>
           </div>
         </div>
 
-        <div class="form-wrapper">
-          <div class="custom-form-card">
-            <h3 style="margin-bottom:20px; font-weight:800; color:var(--brand-main); font-size:14px; text-transform:uppercase;">Direct prijs aanvragen</h3>
-            <form action="https://formspree.io/f/xvgbjdav" method="POST">
-              <div class="custom-field"><label>Naam</label><input type="text" name="naam" placeholder="Uw naam" required></div>
-              <div class="custom-field"><label>Telefoonnummer</label><input type="tel" name="telefoon" placeholder="04xx xx xx xx" required></div>
-              <div class="custom-field">
-                <label>Gewenste Dienst</label>
-                <select name="dienst" required>
-                  <option value="ramen">Ramenreiniging</option>
-                  <option value="zonnepanelen">Zonnepanelen</option>
-                  <option value="combi">Combi (Ramen + Panelen)</option>
-                </select>
-              </div>
-              <button type="submit" class="custom-btn-submit">Aanvraag versturen</button>
-            </form>
-          </div>
-          <p style="text-align: center; margin-top: 25px; font-size: 0.9rem;">Liever een exacte offerte? <a href="https://osmose-xpert.be/offerte.html" style="color: var(--brand-main); font-weight: 700;">Klik hier →</a></p>
+        <div class="form-card">
+          <h3 style="margin-bottom:20px; color:var(--brand-main); font-weight:800;">Prijs aanvragen</h3>
+          <form action="https://formspree.io/f/xvgbjdav" method="POST">
+            <div class="form-group"><label>Naam</label><input type="text" name="naam" placeholder="Uw naam" required></div>
+            <div class="form-group"><label>E-mailadres</label><input type="email" name="email" placeholder="uw@email.com" required></div>
+            <div class="form-group"><label>Telefoonnummer</label><input type="tel" name="telefoon" placeholder="04xx xx xx xx" required></div>
+            <div class="form-group">
+              <label>Dienst</label>
+              <select name="dienst">
+                <option value="ramen">Ramenreiniging</option>
+                <option value="zonnepanelen">Zonnepanelen</option>
+                <option value="combi">Combi</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn">Verstuur aanvraag</button>
+          </form>
+          <p style="text-align:center; margin-top:20px;"><a href="offerte.html" style="color:var(--brand-main); font-weight:700; text-decoration:none; font-size: 0.85rem;">Uitgebreide offerte nodig? →</a></p>
         </div>
       </div>
     </section>
   </main>
 
-  <nav class="app-bottom-nav">
-    <a href="index.html" class="tab-item active"><i class="lucide-home"></i><span>Home</span></a>
-    <a href="tel:+32493673484" class="tab-item"><i class="lucide-phone"></i><span>Bellen</span></a>
-    <a href="https://osmose-xpert.be/offerte.html" class="tab-item"><i class="lucide-file-text"></i><span>Prijs aanvragen</span></a>
-    <a href="https://wa.me/32493673484" class="tab-item"><i class="lucide-message-circle"></i><span>WhatsApp</span></a>
+  <nav class="app-nav">
+    <a href="index.html" class="nav-tab active"><i class="lucide-home"></i><span>Home</span></a>
+    <a href="tel:+32493673484" class="nav-tab"><i class="lucide-phone"></i><span>Bellen</span></a>
+    <a href="#aanvraag" class="nav-tab"><i class="lucide-file-text"></i><span>Prijs</span></a>
+    <a href="https://wa.me/32493673484" class="nav-tab"><i class="lucide-message-circle"></i><span>WhatsApp</span></a>
   </nav>
 
 </body>
