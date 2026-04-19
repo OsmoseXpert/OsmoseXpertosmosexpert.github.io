@@ -42,47 +42,62 @@
     .hero-content-wrapper { position: relative; z-index: 3; padding: 40px 0; width: 100%; }
     h1 { font-size: clamp(1.8rem, 8vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; }
 
-    /* --- REVIEWS & TEXT LOGO --- */
+    /* --- REVIEWS --- */
     .reviews { background: var(--bg-light); padding: 60px 0; }
     .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     .review-card { background: white; padding: 25px; border-radius: 16px; border: 1px solid #eee; display: flex; flex-direction: column; }
     .stars { color: var(--google-yellow); margin-bottom: 15px; font-size: 0.9rem; }
-    
-    /* Tekst-gebaseerd Google Logo */
     .google-text-logo { font-weight: 700; font-size: 14px; letter-spacing: -0.5px; }
     .g-blue { color: #4285F4; } .g-red { color: #EA4335; } .g-yellow { color: #FBBC05; } .g-green { color: #34A853; }
 
-    /* --- MAIN GRID (Desktop 2-columns) --- */
-    .main-grid { display: grid; grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
+    /* --- EXACT SIDE-BY-SIDE GRID --- */
+    .main-grid { 
+      display: grid; 
+      grid-template-columns: 1fr; 
+      gap: 40px; 
+      padding: 60px 0; 
+      align-items: stretch; /* Zorgt voor gelijke hoogte op desktop */
+    }
 
     @media (min-width: 992px) { 
-      .main-grid { grid-template-columns: 1.1fr 0.9fr; align-items: start; } 
+      .main-grid { 
+        grid-template-columns: 1fr 1fr; /* Exacte 50/50 verdeling */
+      } 
     }
 
     .video-box { 
       width: 100%; 
+      height: 100%; /* Vult de kolom volledig */
       border-radius: 20px; 
       overflow: hidden; 
       box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
       background: #000; 
-      display: flex;
-      justify-content: center;
     }
     
     .video-box video { 
       width: 100%;
-      height: auto;
-      max-height: 550px; 
+      height: 100%;
+      max-height: 600px; 
       object-fit: cover; 
       display: block;
     }
 
     /* --- FORMULIER --- */
-    .form-card { background: white; padding: 30px; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .form-card { 
+      background: white; 
+      padding: 40px; 
+      border-radius: 20px; 
+      border: 1px solid var(--border-color); 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+      height: 100%; /* Zorgt dat het kaartje even hoog is als de videobox */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
     .form-group { margin-bottom: 15px; }
     .form-group label { display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; color: var(--text-muted); }
     .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 16px; font-family: inherit; }
-    .submit-btn { width: 100%; background: var(--navy); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; }
+    .submit-btn { width: 100%; background: var(--navy); color: white; border: none; padding: 18px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 10px; }
 
     /* --- MOBILE NAV --- */
     .app-nav { display: none; }
@@ -91,7 +106,7 @@
       nav.desktop-nav { display: none; }
       .app-header { display: flex; }
       .hero { min-height: 50vh; margin: 10px; border-radius: var(--radius-app); }
-      .video-box video { max-height: none; } 
+      .video-box video { max-height: none; height: auto; } 
       .app-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-top: 1px solid rgba(0,0,0,0.05); justify-content: space-around; padding: 10px 5px calc(10px + env(safe-area-inset-bottom)); z-index: 1001; }
       .nav-tab { text-decoration: none; color: var(--navy); display: flex; flex-direction: column; align-items: center; font-size: 10px; font-weight: 700; opacity: 0.5; }
       .nav-tab.active { opacity: 1; color: var(--brand-main); }
@@ -160,20 +175,20 @@
     </section>
 
     <section class="container" id="aanvraag">
+      <div style="margin-top: 60px;">
+        <h2 style="font-size: clamp(1.6rem, 6vw, 2.5rem); margin-bottom:10px; font-weight:800;">Heldere afspraken, streeploos resultaat</h2>
+        <p style="color:#475569; margin-bottom:20px; font-size: 1.1rem;">Direct contact met de vakman die uw ramen wast in regio Ronse.</p>
+      </div>
+
       <div class="main-grid">
-        <div class="content-text">
-          <h2 style="font-size: clamp(1.6rem, 6vw, 2.5rem); margin-bottom:15px; font-weight:800;">Heldere afspraken, streeploos resultaat</h2>
-          <p style="color:#475569; margin-bottom:30px; font-size: 1.1rem;">Direct contact met de vakman die uw ramen wast. Geen vage beloftes, maar een transparante aanpak in Ronse.</p>
-          
-          <div class="video-box">
-            <video autoplay muted loop playsinline preload="auto">
-              <source src="assets/assets/video/Vidwebsite.mp4" type="video/mp4">
-            </video>
-          </div>
+        <div class="video-box">
+          <video autoplay muted loop playsinline preload="auto">
+            <source src="assets/assets/video/Vidwebsite.mp4" type="video/mp4">
+          </video>
         </div>
 
         <div class="form-card">
-          <h3 style="margin-bottom:20px; color:var(--brand-main); font-weight:800;">Direct prijs aanvragen</h3>
+          <h3 style="margin-bottom:25px; color:var(--brand-main); font-weight:800; font-size: 1.5rem;">Direct prijs aanvragen</h3>
           <form action="https://formspree.io/f/xvgbjdav" method="POST">
             <div class="form-group"><label>Naam</label><input type="text" name="naam" placeholder="Uw naam" required></div>
             <div class="form-group"><label>E-mailadres</label><input type="email" name="email" placeholder="uw@email.com" required></div>
@@ -188,7 +203,7 @@
             </div>
             <button type="submit" class="submit-btn">Verstuur aanvraag</button>
           </form>
-          <p style="text-align:center; margin-top:20px;"><a href="offerte.html" style="color:var(--brand-main); font-weight:700; text-decoration:none; font-size: 0.85rem;">Uitgebreide offerte nodig? →</a></p>
+          <p style="text-align:center; margin-top:20px;"><a href="offerte.html" style="color:var(--brand-main); font-weight:700; text-decoration:none; font-size: 0.9rem;">Liever een uitgebreide offerte? →</a></p>
         </div>
       </div>
     </section>
