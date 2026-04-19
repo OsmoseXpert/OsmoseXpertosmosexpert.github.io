@@ -42,9 +42,23 @@
     .hero-content-wrapper { position: relative; z-index: 3; padding: 40px 0; width: 100%; }
     h1 { font-size: clamp(1.8rem, 8vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; }
 
-    /* --- CONTENT GRID & VIDEO FIX --- */
-    .main-grid { display: grid; grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
+    /* --- REVIEWS & TEXT LOGO --- */
+    .reviews { background: var(--bg-light); padding: 60px 0; }
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .review-card { background: white; padding: 25px; border-radius: 16px; border: 1px solid #eee; display: flex; flex-direction: column; }
+    .stars { color: var(--google-yellow); margin-bottom: 15px; font-size: 0.9rem; }
     
+    /* Tekst-gebaseerd Google Logo */
+    .google-text-logo { font-weight: 700; font-size: 14px; letter-spacing: -0.5px; }
+    .g-blue { color: #4285F4; } .g-red { color: #EA4335; } .g-yellow { color: #FBBC05; } .g-green { color: #34A853; }
+
+    /* --- MAIN GRID (Desktop 2-columns) --- */
+    .main-grid { display: grid; grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
+
+    @media (min-width: 992px) { 
+      .main-grid { grid-template-columns: 1.1fr 0.9fr; align-items: start; } 
+    }
+
     .video-box { 
       width: 100%; 
       border-radius: 20px; 
@@ -58,8 +72,8 @@
     .video-box video { 
       width: 100%;
       height: auto;
-      max-height: 500px; /* Dit voorkomt dat de video op desktop te groot wordt */
-      object-fit: cover; /* Houdt het beeld vullend binnen de max-height */
+      max-height: 550px; 
+      object-fit: cover; 
       display: block;
     }
 
@@ -70,22 +84,14 @@
     .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 16px; font-family: inherit; }
     .submit-btn { width: 100%; background: var(--navy); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; }
 
-    /* --- REVIEWS --- */
-    .reviews { background: var(--bg-light); padding: 60px 0; }
-    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .review-card { background: white; padding: 25px; border-radius: 16px; border: 1px solid #eee; display: flex; flex-direction: column; }
-    .stars { color: var(--google-yellow); margin-bottom: 15px; font-size: 0.9rem; }
-
     /* --- MOBILE NAV --- */
     .app-nav { display: none; }
-
-    @media (min-width: 992px) { .main-grid { grid-template-columns: 1.2fr 0.8fr; align-items: start; } }
     
     @media (max-width: 768px) {
       nav.desktop-nav { display: none; }
       .app-header { display: flex; }
       .hero { min-height: 50vh; margin: 10px; border-radius: var(--radius-app); }
-      .video-box video { max-height: none; } /* Op mobiel mag hij wel langer zijn */
+      .video-box video { max-height: none; } 
       .app-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-top: 1px solid rgba(0,0,0,0.05); justify-content: space-around; padding: 10px 5px calc(10px + env(safe-area-inset-bottom)); z-index: 1001; }
       .nav-tab { text-decoration: none; color: var(--navy); display: flex; flex-direction: column; align-items: center; font-size: 10px; font-weight: 700; opacity: 0.5; }
       .nav-tab.active { opacity: 1; color: var(--brand-main); }
@@ -134,7 +140,9 @@
             <p style="font-size:0.9rem; font-style:italic; margin-bottom:15px; flex-grow:1;">"Top werk geleverd. Ik ben zeer tevreden over de gemaakte afspraken en de reiniging."</p>
             <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #eee; padding-top:10px;">
               <span style="font-weight:800; font-size:0.85rem;">Werner Van Dorpe</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_\"G\"_Logo.svg" alt="G" style="height:15px;">
+              <div class="google-text-logo">
+                <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+              </div>
             </div>
           </div>
           <div class="review-card">
@@ -142,7 +150,9 @@
             <p style="font-size:0.9rem; font-style:italic; margin-bottom:15px; flex-grow:1;">"Ondanks moeilijk bereikbare ramen is hem geen moeite te veel. Een echte aanrader!"</p>
             <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #eee; padding-top:10px;">
               <span style="font-weight:800; font-size:0.85rem;">Maureen Dedercq</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_\"G\"_Logo.svg" alt="G" style="height:15px;">
+              <div class="google-text-logo">
+                <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+              </div>
             </div>
           </div>
         </div>
