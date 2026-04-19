@@ -21,6 +21,7 @@
       --text-muted: #64748b;
       --border-color: #cbd5e1;
       --radius-app: 24px;
+      --accent-teal: #008080;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
@@ -42,6 +43,25 @@
     .hero-content-wrapper { position: relative; z-index: 3; padding: 40px 0; width: 100%; }
     h1 { font-size: clamp(1.8rem, 8vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; }
 
+    /* --- 24U BANNER (1:1 van offerte pagina) --- */
+    .offer-banner {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 12px 0;
+      text-align: center;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 13px;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .offer-banner i { color: var(--accent-teal); font-size: 16px; }
+    .offer-banner span { color: var(--text-muted); font-weight: 400; text-transform: none; margin-left: 5px; }
+
     /* --- REVIEWS --- */
     .reviews { background: var(--bg-light); padding: 60px 0; }
     .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
@@ -50,24 +70,22 @@
     .google-text-logo { font-weight: 700; font-size: 14px; letter-spacing: -0.5px; }
     .g-blue { color: #4285F4; } .g-red { color: #EA4335; } .g-yellow { color: #FBBC05; } .g-green { color: #34A853; }
 
-    /* --- EXACT SIDE-BY-SIDE GRID --- */
+    /* --- MAIN GRID --- */
     .main-grid { 
       display: grid; 
       grid-template-columns: 1fr; 
       gap: 40px; 
       padding: 60px 0; 
-      align-items: stretch; /* Zorgt voor gelijke hoogte op desktop */
+      align-items: stretch;
     }
 
     @media (min-width: 992px) { 
-      .main-grid { 
-        grid-template-columns: 1fr 1fr; /* Exacte 50/50 verdeling */
-      } 
+      .main-grid { grid-template-columns: 1fr 1fr; } 
     }
 
     .video-box { 
       width: 100%; 
-      height: 100%; /* Vult de kolom volledig */
+      height: 100%; 
       border-radius: 20px; 
       overflow: hidden; 
       box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
@@ -89,12 +107,12 @@
       border-radius: 20px; 
       border: 1px solid var(--border-color); 
       box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-      height: 100%; /* Zorgt dat het kaartje even hoog is als de videobox */
+      height: 100%; 
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    .form-group { margin-bottom: 15px; }
+    .form-group { margin-bottom: 12px; }
     .form-group label { display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; color: var(--text-muted); }
     .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 16px; font-family: inherit; }
     .submit-btn { width: 100%; background: var(--navy); color: white; border: none; padding: 18px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 10px; }
@@ -106,11 +124,13 @@
       nav.desktop-nav { display: none; }
       .app-header { display: flex; }
       .hero { min-height: 50vh; margin: 10px; border-radius: var(--radius-app); }
+      .hero-content-wrapper { padding: 20px 0; } /* Snellere content weergave */
       .video-box video { max-height: none; height: auto; } 
       .app-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-top: 1px solid rgba(0,0,0,0.05); justify-content: space-around; padding: 10px 5px calc(10px + env(safe-area-inset-bottom)); z-index: 1001; }
       .nav-tab { text-decoration: none; color: var(--navy); display: flex; flex-direction: column; align-items: center; font-size: 10px; font-weight: 700; opacity: 0.5; }
       .nav-tab.active { opacity: 1; color: var(--brand-main); }
       body { padding-bottom: 80px; }
+      .form-card { padding: 25px; }
     }
   </style>
 </head>
@@ -145,6 +165,10 @@
         </div>
       </div>
     </section>
+
+    <div class="offer-banner">
+      <i class="fas fa-check-circle"></i> BINNEN 24U UW PERSOONLIJKE OFFERTE <span>- Slechts 1 minuut werk</span>
+    </div>
 
     <section class="reviews">
       <div class="container">
@@ -188,12 +212,12 @@
         </div>
 
         <div class="form-card">
-          <h3 style="margin-bottom:25px; color:var(--brand-main); font-weight:800; font-size: 1.5rem;">Direct prijs aanvragen</h3>
+          <h3 style="margin-bottom:20px; color:var(--brand-main); font-weight:800; font-size: 1.5rem;">Direct prijs aanvragen</h3>
           <form action="https://formspree.io/f/xvgbjdav" method="POST">
             <div class="form-group"><label>Naam</label><input type="text" name="naam" placeholder="Uw naam" required></div>
             <div class="form-group"><label>E-mailadres</label><input type="email" name="email" placeholder="uw@email.com" required></div>
             <div class="form-group"><label>Telefoonnummer</label><input type="tel" name="telefoon" placeholder="04xx xx xx xx" required></div>
-            <div class="form-group">
+            <div class="form-group"><label>Locatie (Postcode/Gemeente)</label><input type="text" name="locatie" placeholder="Bv. 9600 Ronse"></div> <div class="form-group">
               <label>Dienst</label>
               <select name="dienst">
                 <option value="ramen">Ramenreiniging</option>
@@ -203,7 +227,7 @@
             </div>
             <button type="submit" class="submit-btn">Verstuur aanvraag</button>
           </form>
-          <p style="text-align:center; margin-top:20px;"><a href="offerte.html" style="color:var(--brand-main); font-weight:700; text-decoration:none; font-size: 0.9rem;">Liever een uitgebreide offerte? →</a></p>
+          <p style="text-align:center; margin-top:15px;"><a href="offerte.html" style="color:var(--brand-main); font-weight:700; text-decoration:none; font-size: 0.9rem;">Liever een uitgebreide offerte? →</a></p>
         </div>
       </div>
     </section>
