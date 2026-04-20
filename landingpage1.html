@@ -239,6 +239,8 @@
         <div class="form-card">
           <h3 style="margin-bottom:20px; color:var(--brand-main); font-weight:800; font-size: 1.5rem;">Direct prijs aanvragen</h3>
           <form action="https://formspree.io/f/xvgbjdav" method="POST">
+            <input type="hidden" name="_next" value="https://osmose-xpert.be/bedankt.html">
+            
             <div class="form-group"><label>Naam</label><input type="text" name="naam" placeholder="Uw naam" required></div>
             <div class="form-group"><label>E-mailadres</label><input type="email" name="email" placeholder="uw@email.com" required></div>
             <div class="form-group"><label>Telefoonnummer</label><input type="tel" name="telefoon" placeholder="04xx xx xx xx" required></div>
