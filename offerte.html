@@ -231,6 +231,50 @@
       box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
     }
 
+    /* UPLOAD BOX STYLING */
+    .upload-area {
+      border: 2px dashed var(--border-color);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      background: #f8fafc;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .upload-area:hover, .upload-area.dragover {
+      border-color: var(--brand-accent);
+      background: #eff6ff;
+    }
+
+    .upload-icon {
+      color: var(--brand-main);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .upload-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .upload-subtext {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    #file-list {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--brand-main);
+      font-weight: 700;
+    }
+
     .benefit-badge {
       display: inline-block;
       margin-top: 8px;
@@ -336,7 +380,7 @@
 
 <main>
   <div class="form-container">
-    <form id="offerteForm" action="https://formspree.io/f/xvgbjdav" method="POST">
+    <form id="offerteForm" action="https://formspree.io/f/xvgbjdav" method="POST" enctype="multipart/form-data">
       
       <input type="hidden" name="_next" value="https://osmose-xpert.be/bedankt.html">
       
@@ -401,7 +445,25 @@
       </section>
 
       <section>
-        <h2><span class="step-num">3</span> Voorkeuren & Aanvulling</h2>
+        <h2><span class="step-num">3</span> Foto's toevoegen (Aanbevolen)</h2>
+        <div class="field">
+          <label>Foto's van het project</label>
+          <div class="upload-area" id="drop-zone" onclick="document.getElementById('file-upload').click()">
+            <svg class="upload-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            <span class="upload-text">Klik hier of sleep foto's om te uploaden</span>
+            <span class="upload-subtext">Foto's helpen ons om een snellere en accuratere offerte te maken.</span>
+            <input type="file" id="file-upload" name="fotos" multiple accept="image/*" class="hidden">
+            <div id="file-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2><span class="step-num">4</span> Voorkeuren & Aanvulling</h2>
         
         <div class="field">
           <label for="plan">Bespaar op uw onderhoud <span class="req">*</span></label>
@@ -464,21 +526,21 @@
   const benefitBadge = document.getElementById('plan-benefit');
   const b2b = document.getElementById('b2b-block');
   const bedrijfInput = document.getElementById('bedrijf');
-  const btwInput = document.getElementById('btw'); // Referentie naar BTW-veld
+  const btwInput = document.getElementById('btw');
+  const fileInput = document.getElementById('file-upload');
+  const dropZone = document.getElementById('drop-zone');
+  const fileList = document.getElementById('file-list');
 
-  // B2B Toggle: Toont blok en maakt Bedrijfsnaam + BTW verplicht
+  // B2B Toggle
   klant.addEventListener('change', () => {
     const isB2B = klant.value === 'zakelijk';
     b2b.classList.toggle('hidden', !isB2B);
-    
-    // Beide velden verplicht maken bij B2B, anders niet
     bedrijfInput.required = isB2B;
     btwInput.required = isB2B;
-    
     if (isB2B) bedrijfInput.focus();
   });
 
-  // Korting Badge logica
+  // Korting Badge
   planSelect.addEventListener('change', () => {
     const selectedOption = planSelect.options[planSelect.selectedIndex];
     const discount = selectedOption.getAttribute('data-discount');
@@ -488,6 +550,35 @@
     } else {
       benefitBadge.classList.remove('active');
     }
+  });
+
+  // Upload Logica: Toon bestandsnamen na selectie
+  fileInput.addEventListener('change', () => {
+    const files = fileInput.files;
+    if (files.length > 0) {
+      const names = Array.from(files).map(f => f.name).join(', ');
+      fileList.innerText = `Geselecteerd: ${names}`;
+    }
+  });
+
+  // Drag & Drop visuele feedback
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropZone.addEventListener(eventName, (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    }, false);
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+    }, false);
+  });
+
+  dropZone.addEventListener('drop', (e) => {
+    fileInput.files = e.dataTransfer.files;
+    fileInput.dispatchEvent(new Event('change'));
   });
 
   // Form Submission Animatie
