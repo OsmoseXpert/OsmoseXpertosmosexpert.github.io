@@ -6,13 +6,17 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'AW-18100461257');
   </script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <title>Ramen wassen Ronse | OsmoseXpert</title>
+
+  <!-- Favicon configuration -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon.png">
+  <link rel="shortcut icon" href="images/favicons/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicons/favicon.png">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/font/lucide.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -37,7 +41,7 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); line-height: 1.5; background: var(--white); overflow-x: hidden; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* --- NAV --- */
+    /* Navigation Styles */
     nav.desktop-nav { background: var(--white); height: 90px; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
     .nav-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .brand-logo-img { height: 60px; width: auto; }
@@ -45,14 +49,37 @@
 
     .app-header { display: none; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); height: 60px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); align-items: center; justify-content: center; }
 
-    /* --- HERO --- */
     .hero { position: relative; background: var(--navy); color: #fff; min-height: 60vh; display: flex; align-items: center; overflow: hidden; }
-    .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.5; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,43,69,0.85), rgba(0,43,69,0.4)); z-index: 2; }
+    .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 1; }
+    
+    /* Optimized transparency for better video visibility */
+    .hero-overlay { 
+      position: absolute; 
+      inset: 0; 
+      background: linear-gradient(to bottom, rgba(0,43,69,0.55), rgba(0,43,69,0.15)); 
+      z-index: 2; 
+    }
+    
     .hero-content-wrapper { position: relative; z-index: 3; padding: 40px 0; width: 100%; }
     h1 { font-size: clamp(1.8rem, 8vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; }
 
-    /* --- 24U BANNER --- */
+    /* Compact App-Style Buttons */
+    .hero-btn { 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center;
+      padding: 12px 24px; 
+      border-radius: 12px; 
+      text-decoration: none; 
+      font-weight: 700; 
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      white-space: nowrap;
+    }
+    .hero-btn:active { transform: scale(0.96); }
+    .hero-btn-primary { background: var(--white); color: var(--navy); }
+    .hero-btn-secondary { border: 2px solid white; color: white; }
+
     .offer-banner {
       background: #f8fafc;
       border-top: 1px solid #e2e8f0;
@@ -71,7 +98,6 @@
     .offer-banner i { color: var(--accent-teal); font-size: 16px; }
     .offer-banner span { color: var(--text-muted); font-weight: 400; text-transform: none; margin-left: 5px; }
 
-    /* --- REVIEWS --- */
     .reviews { background: var(--bg-light); padding: 60px 0; }
     .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     .review-card { background: white; padding: 25px; border-radius: 16px; border: 1px solid #eee; display: flex; flex-direction: column; }
@@ -79,7 +105,6 @@
     .google-text-logo { font-weight: 700; font-size: 14px; letter-spacing: -0.5px; }
     .g-blue { color: #4285F4; } .g-red { color: #EA4335; } .g-yellow { color: #FBBC05; } .g-green { color: #34A853; } .g-red-small { color: #EA4335; }
 
-    /* --- MAIN GRID --- */
     .main-grid { 
       display: grid; 
       grid-template-columns: 1fr; 
@@ -109,7 +134,6 @@
       display: block;
     }
 
-    /* --- FORMULIER --- */
     .form-card { 
       background: white; 
       padding: 40px; 
@@ -126,7 +150,6 @@
     .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 16px; font-family: inherit; }
     .submit-btn { width: 100%; background: var(--navy); color: white; border: none; padding: 18px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 10px; }
 
-    /* --- MOBILE NAV (Groter & App Stijl) --- */
     .app-nav { display: none; }
     
     @media (max-width: 768px) {
@@ -183,10 +206,10 @@
       <div class="hero-overlay"></div>
       <div class="container hero-content-wrapper">
         <h1>Streeploos schoon - Zorgeloos helder</h1>
-        <p style="margin-bottom: 30px; opacity: 0.9; max-width: 550px;">Vakkundige glasreiniging in Ronse. Wij zorgen voor een resultaat waar u op kunt bouwen.</p>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <a href="offerte.html" style="background: white; color: var(--navy); padding: 16px 28px; border-radius: 12px; text-decoration: none; font-weight: 700; flex: 1; text-align: center; min-width: 200px;">Nu prijs aanvragen</a>
-          <a href="tel:+32493673484" style="border: 2px solid white; color: white; padding: 16px 28px; border-radius: 12px; text-decoration: none; font-weight: 700; flex: 1; text-align: center; min-width: 200px;">Direct bellen</a>
+        <p style="margin-bottom: 30px; opacity: 0.95; max-width: 550px; font-weight: 500;">Vakkundige glasreiniging in Ronse. Wij zorgen voor een resultaat waar u op kunt bouwen.</p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="offerte.html" class="hero-btn hero-btn-primary">Nu prijs aanvragen</a>
+          <a href="tel:+32493673484" class="hero-btn hero-btn-secondary">Direct bellen</a>
         </div>
       </div>
     </section>
