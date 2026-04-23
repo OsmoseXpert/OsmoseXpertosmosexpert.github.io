@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="nl">
 <head>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W8T8WMTW');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -8,7 +13,6 @@
   <meta name="description" content="De beste ramenwasser in Ronse, Oudenaarde en Kluisbergen. Vraag een offerte aan voor professionele ramenreiniging en onderhoudsplannen van OsmoseXpert.">
   <link rel="icon" type="image/png" href="/images/favicons/favicon.png"/>
 
-  <!-- 1) Host-normalisatie: forceer zonder 'www.' -->
   <script>
     (function(){
       var h = location.hostname;
@@ -18,10 +22,8 @@
     })();
   </script>
 
-  <!-- Canonical (FIX: juiste domein + hoofdmap) -->
   <link rel="canonical" href="https://osmose-xpert.be/">
 
-  <!-- 2) Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://osmose-xpert.be/">
   <meta property="og:title" content="Ramenreiniging Ronse | OsmoseXpert - Streeploos &amp; Veilig">
@@ -32,18 +34,15 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="OsmoseXpert – professionele ramenreiniging">
 
-  <!-- 3) Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://osmose-xpert.be/">
   <meta name="twitter:title" content="Ramenreiniging Ronse | OsmoseXpert - Streeploos &amp; Veilig">
   <meta name="twitter:description" content="Professionele ramenreiniging in Ronse, Kluisbergen &amp; Oudenaarde. Streeploos resultaat met osmosewater.">
   <meta name="twitter:image" content="https://osmose-xpert.be/images/social/logo4.jpg">
 
-  <!-- Calendly widget (popup) -->
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
   <script defer src="https://assets.calendly.com/assets/external/widget.js"></script>
 
-  <!-- Fonts & basis CSS -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
@@ -169,12 +168,10 @@
 
   <style>@view-transition { navigation: auto; }</style>
 
-  <!-- (optioneel) je SDK's, laad uitgesteld -->
   <script src="/_sdk/data_sdk.js" type="text/javascript" defer></script>
   <script src="/_sdk/element_sdk.js" type="text/javascript" defer></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript" defer></script>
 
-  <!-- Cookie Consent CSS (uit contact.html) -->
   <style>
     :root { --brand:#0f6ab8; --brand2:#29ABE2; --dark:#002B45; --ok:#10b981; --white:#ffffff; --line:#0a2b45; }
     body.ox-lock { overflow:hidden!important; }
@@ -213,7 +210,6 @@
     @media(max-width:720px){.ox-cc-grid{flex-direction:column;align-items:flex-start}.ox-cc-actions{width:100%;justify-content:flex-end}.ox-cc-actions .ox-btn{flex:1}}
   </style>
 
-  <!-- Structured Data (FIX: areaServed uitgebreid; Product schema verwijderd) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -243,7 +239,8 @@
 </head>
 
 <body>
-  <!-- NAV -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8T8WMTW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav aria-label="Hoofdmenu" class="nav centered white-bg" role="navigation">
     <button aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" class="nav-toggle" type="button">
       <span class="line"></span><span class="line"></span><span class="line"></span>
@@ -260,7 +257,6 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <header class="hero-banner">
     <div class="hero-logo" aria-label="Banner video">
       <video
@@ -286,7 +282,6 @@
   </header>
 
   <main id="content">
-    <!-- Heading hierarchy FIX: tweede H1 -> H2 -->
     <h2 class="sr-only">Uw Expert in Ramenreiniging en Ramenwasser in Ronse, Oudenaarde &amp; Kluisbergen</h2>
 
     <section class="section">
@@ -352,13 +347,11 @@
     </section>
   </main>
 
-  <!-- Floating CTA -->
   <div class="floating-cta" id="floatingCta">
     <a class="cta-btn cta-offerte" href="offerte.html" aria-label="Offerte aanvragen">Offerte aanvragen</a>
     <a class="cta-btn cta-boek" href="#" data-calendly aria-label="Kennismaking plannen">Boek kennismaking</a>
   </div>
 
-  <!-- Footer -->
   <div role="contentinfo" style="background:#0a3d62;color:rgba(255,255,255,.92);padding:30px 16px;font-size:14.4px;line-height:1.6;">
     <div style="max-width:1100px;margin:0 auto;">
       <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:space-between;">
@@ -392,12 +385,9 @@
     </div>
   </div>
 
-  <!-- Cloudflare anti-bot snippet (laten staan) -->
   <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9969aba897a9b9bd',t:'MTc2MTgxNDI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 
-  <!-- Lazy-play hero video + Floating CTA + Hamburger + Calendly -->
   <script>
-    // Scroll hide/show voor .floating-cta + automatische terugkeer
     let lastScrollTop = 0;
     let floatingCta = null;
     let scrollTimeout;
@@ -406,7 +396,6 @@
       if (!floatingCta) return;
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-      // CTA verbergen bij naar beneden scrollen
       if (scrollTop > lastScrollTop && scrollTop > 80) {
         floatingCta.classList.add('hidden');
       } else {
@@ -414,14 +403,12 @@
       }
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
-      // Na 3 seconden geen scrollen: CTA automatisch terug tonen
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(function () {
         floatingCta.classList.remove('hidden');
       }, 3000);
     }, { passive: true });
 
-    // DOM ready: bind hamburger + cache CTA
     document.addEventListener('DOMContentLoaded', function () {
       floatingCta = document.querySelector('.floating-cta');
 
@@ -435,7 +422,6 @@
         window.addEventListener('resize', function (){ if (window.matchMedia('(min-width:990px)').matches) closeMenu(); list.removeAttribute('style'); });
       }
 
-      // Uitklapbare benefit-tegel
       document.querySelectorAll('.benefit-item.benefit-expandable .benefit-toggle').forEach(function(toggle){
         toggle.addEventListener('click', function(){
           var item = toggle.closest('.benefit-item');
@@ -455,7 +441,6 @@
             }
           }
         });
-        // keyboard support
         toggle.addEventListener('keydown', function(e){
           if(e.key === 'Enter' || e.key === ' '){
             e.preventDefault();
@@ -464,7 +449,6 @@
         });
       });
 
-      // Roterende voorbeeldvragen onder het chatvenster
       var hintEl = document.getElementById('chatHintRotator');
       if(hintEl){
         var hints = [
@@ -482,17 +466,14 @@
       }
     });
 
-    // Calendly popup (stabiel, geen scroll-issues, geen dubbele triggers)
     (function(){
       var CAL_URL = 'https://calendly.com/osmose-xpert-info/kennismaking';
 
       function openCalendly(){
-        // widget.js is geladen via defer, maar bij extreem snelle clicks kan het nét nog niet klaar zijn:
         if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
           window.Calendly.initPopupWidget({ url: CAL_URL });
           return;
         }
-        // korte retry (max 2s)
         var start = Date.now();
         var t = setInterval(function(){
           if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
@@ -500,135 +481,29 @@
             window.Calendly.initPopupWidget({ url: CAL_URL });
           } else if (Date.now() - start > 2000) {
             clearInterval(t);
-            window.location.href = CAL_URL; // fallback: altijd werkend
+            window.location.href = CAL_URL;
           }
         }, 50);
       }
 
       document.addEventListener('click', function(e){
-        // Alleen de echte CTA-knop(s), niet willekeurig alles met data-calendly
         var btn = e.target.closest('a.cta-boek[data-calendly]');
         if(!btn) return;
-
         e.preventDefault();
         e.stopPropagation();
         openCalendly();
       }, true);
     })();
 
-    // Lazy-play video
     (function(){
       var v = document.getElementById('heroVideo'); if(!v) return;
       var play = function(){ if(v.paused){ v.play().catch(function(){}); } };
       if('IntersectionObserver' in window){
-        var io = new IntersectionObserver(function(e){
-          if(e[0] && e[0].isIntersecting){ play(); io.disconnect(); }
-        },{rootMargin:'120px 0px'});
+        var io = new IntersectionObserver(function(entries){
+          if(entries[0].isIntersecting) play();
+        });
         io.observe(v);
-      } else { window.addEventListener('load', play, {once:true}); }
-    })();
-  </script>
-
-  <!-- Cookie Consent markup -->
-  <div id="ox-cc-root" hidden>
-    <div class="ox-cc-backdrop" aria-hidden="false"></div>
-    <section class="ox-cc-panel" role="dialog" aria-modal="true" aria-label="Cookiekeuze">
-      <header class="ox-cc-head"><h2>Cookies bij OsmoseXpert</h2></header>
-      <div class="ox-cc-body">
-        <div class="ox-cc-grid">
-          <p class="ox-cc-text">
-            We gebruiken cookies om uw ervaring te verbeteren en prestaties te meten.
-            U kunt <strong>instellingen aanpassen</strong> of <strong>alle cookies accepteren</strong>.
-            Lees ons <a href="/cookiebeleid.html" target="_blank" rel="noopener">cookiebeleid</a> voor details.
-          </p>
-          <div class="ox-cc-actions">
-            <button class="ox-btn settings" type="button" id="ox-btn-settings">Instellingen aanpassen</button>
-            <button class="ox-btn accept" type="button" id="ox-btn-accept">Alles accepteren</button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Cookie settings modal -->
-  <div class="ox-modal" id="ox-settings-modal" aria-hidden="true" aria-label="Cookie-instellingen">
-    <div class="ox-modal-card" role="document">
-      <div class="ox-modal-hd">
-        <h3>Cookie-instellingen</h3>
-        <button class="ox-btn ghost" id="ox-btn-close" aria-label="Sluiten">Sluiten</button>
-      </div>
-      <div class="ox-modal-bd">
-        <div class="ox-opt">
-          <div class="ox-switch" aria-hidden="true"><input type="checkbox" checked disabled><span class="ox-slider"></span></div>
-          <div><h4>Essentiële cookies <small>(altijd aan)</small></h4><p>Nodig voor beveiliging, navigatie en basisfunctionaliteit.</p></div>
-        </div>
-        <div class="ox-opt">
-          <label class="ox-switch" for="ox-tog-analytics"><input type="checkbox" id="ox-tog-analytics"><span class="ox-slider"></span></label>
-          <div><h4>Analytische cookies</h4><p>Helpen ons gebruik en prestaties te meten (bijv. GA4).</p></div>
-        </div>
-        <div class="ox-opt">
-          <label class="ox-switch" for="ox-tog-marketing"><input type="checkbox" id="ox-tog-marketing"><span class="ox-slider"></span></label>
-          <div><h4>Marketingcookies</h4><p>Voor widgets/pixels en relevante content.</p></div>
-        </div>
-      </div>
-      <div class="ox-modal-ft">
-        <button class="ox-btn ghost" id="ox-btn-cancel">Annuleren</button>
-        <button class="ox-btn accept" id="ox-btn-save">Bewaren</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Cookie Consent controller (+ force_cc hook) -->
-  <script>
-    (function(){
-      var KEY='ox_cookie_consent_v1';
-      var root = document.getElementById('ox-cc-root');
-      var modal = document.getElementById('ox-settings-modal');
-      var qs = new URLSearchParams(location.search);
-      var state = { analytics:false, marketing:false };
-
-      function showPanel(){ if(root){ root.hidden = false; document.body.classList.add('ox-lock'); } }
-      function hidePanel(){ if(root){ root.hidden = true; document.body.classList.remove('ox-lock'); } }
-      function openModal(){ if(modal){ modal.setAttribute('aria-hidden','false'); } }
-      function closeModal(){ if(modal){ modal.setAttribute('aria-hidden','true'); } }
-
-      function saveConsent(){
-        try{
-          localStorage.setItem(KEY, JSON.stringify({
-            ts: Date.now(), analytics: !!state.analytics, marketing: !!state.marketing
-          }));
-        }catch(e){}
-      }
-      function hasConsent(){
-        try{
-          return !!localStorage.getItem(KEY);
-        }catch(e){ return false; }
-      }
-
-      // Buttons
-      document.getElementById('ox-btn-accept')?.addEventListener('click', function(){
-        state.analytics = true; state.marketing = true; saveConsent(); hidePanel(); closeModal();
-      });
-      document.getElementById('ox-btn-settings')?.addEventListener('click', openModal);
-      document.getElementById('ox-btn-close')?.addEventListener('click', closeModal);
-      document.getElementById('ox-btn-cancel')?.addEventListener('click', closeModal);
-      document.getElementById('ox-btn-save')?.addEventListener('click', function(){ saveConsent(); hidePanel(); closeModal(); });
-
-      // Toggles
-      var tA = document.getElementById('ox-tog-analytics');
-      var tM = document.getElementById('ox-tog-marketing');
-      tA && tA.addEventListener('change', function(){ state.analytics = !!this.checked; });
-      tM && tM.addEventListener('change', function(){ state.marketing = !!this.checked; });
-
-      // Force-show via query
-      if (qs.get('force_cc') === '1') {
-        try{ localStorage.removeItem(KEY); }catch(e){}
-        showPanel();
-        return;
-      }
-
-      // Init
-      if (!hasConsent()) { showPanel(); }
+      } else { play(); }
     })();
   </script>
 </body>
