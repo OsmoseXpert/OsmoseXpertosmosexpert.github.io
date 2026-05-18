@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <!-- Google Ads Tracking Tag (Gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18100461257"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17989412215"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'AW-18100461257');
+
+    gtag('config', 'AW-17989412215');
   </script>
 
   <meta charset="utf-8">
@@ -726,6 +727,7 @@
           <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">Geen verplichtingen. U ontvangt snel een helder voorstel.</p>
           
           <form id="ads-quote-form" action="https://formspree.io/f/xvgbjdav" method="POST">
+            <!-- Correct doorsturen naar de bedanktpagina voor conversiemeting -->
             <input type="hidden" name="_next" value="https://osmose-xpert.be/bedankt.html">
             
             <div class="form-group">
@@ -799,7 +801,7 @@
               <i class="fas fa-plus faq-toggle-icon"></i>
             </div>
             <div class="faq-answer">
-              <p>Met onze telescoopstelen kunnen we veilig vanaf de grond ramen wassen tot wel 3 verdiepingen hoog. Dit bespaart de inzet van onveilige ladders of dure stellingen.</p>
+              <p>Met onze telescoopstelen kunnen we veilig vanaf de grond ramen wassen tot ongeveer 15 meter hoogte. Dit bespaart de inzet van onveilige ladders of dure stellingen.</p>
             </div>
           </div>
         </div>
@@ -828,7 +830,7 @@
     </div>
   </footer>
 
-  <!-- Geoptimaliseerde Mobiele App-style Navigatie (Home verwijderd om conversie te verhogen) -->
+  <!-- Geoptimaliseerde Mobiele App-style Navigatie -->
   <nav class="app-nav">
     <a href="tel:+32493673484" class="nav-tab"><i class="lucide-phone"></i><span>Bellen</span></a>
     <a href="#aanvraag" class="nav-tab"><i class="lucide-file-text"></i><span>Offerte</span></a>
@@ -847,21 +849,6 @@
           parent.classList.add('active');
         }
       });
-    });
-
-    // Conversiemeting: Fired direct een conversie event naar Google Ads bij verzending van het formulier
-    document.getElementById('ads-quote-form').addEventListener('submit', function(e) {
-      // Rapporteer de conversie naar Google Ads
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-          // BELANGRIJK: Vervang 'AW-18100461257/conversion_event_placeholder' door je exacte Google Ads conversielabel!
-          // Bijvoorbeeld: 'AW-18100461257/AaBbCcDdEe123'
-          'send_to': 'AW-18100461257/conversion_event_placeholder', 
-          'event_callback': function() {
-            // Callback wanneer Google Ads de data heeft ontvangen
-          }
-        });
-      }
     });
   </script>
 
