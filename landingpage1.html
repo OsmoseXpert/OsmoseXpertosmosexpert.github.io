@@ -2,13 +2,13 @@
 <html lang="nl">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17989412215"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18100461257"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'AW-17989412215');
+    gtag('config', 'AW-18100461257');
   </script>
 
   <meta charset="utf-8">
@@ -16,7 +16,7 @@
   
   <!-- SEO & Conversie Title / Meta Tags -->
   <title>Ramenwasser Ronse | Streeploos Ramen Wassen | OsmoseXpert</title>
-  <meta name="description" content="Betrouwbare ramenwasser in Ronse. OsmoseXpert zorgt for een streeploos resultaat met puur osmosewater. Vraag binnen 1 minuut uw vrijblijvende prijs aan.">
+  <meta name="description" content="Betrouwbare ramenwasser in Ronse. OsmoseXpert zorgt voor een streeploos resultaat met puur osmosewater. Vraag binnen 1 minuut uw vrijblijvende prijs aan.">
   <meta name="keywords" content="ramenwasser ronse, ruitenwasser ronse, ramen wassen ronse, osmose reiniging ronse, glazenwasser ronse">
   <meta name="robots" content="index, follow">
 
@@ -253,6 +253,11 @@
     }
 
     /* Basis Knoppen Stijlen (Desktop) */
+    .hero-btn-container {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
     .hero-btn { 
       display: inline-flex; 
       align-items: center; 
@@ -411,7 +416,7 @@
     .video-box video { 
       width: 100%;
       height: 100%;
-      object-fit: contain; /* Aangepast van cover naar contain om de volledige split-screen video perfect zonder snijverlies te tonen */
+      object-fit: contain; 
       display: block;
     }
 
@@ -551,20 +556,32 @@
       .hero { min-height: 48vh; margin: 10px; border-radius: var(--radius-app); }
       .hero-content-wrapper { padding: 15px 0; }
       
-      /* Veel subtielere en compactere knoppen in de hero op mobiel */
+      /* Subtielere en compactere app-style knoppen in de hero op mobiel (naast elkaar) */
+      .hero-btn-container {
+        display: flex !important;
+        flex-direction: row !important; /* Horizontaal naast elkaar */
+        gap: 10px !important;
+        width: 100% !important;
+      }
       .hero-btn { 
-        padding: 11px 18px; 
-        font-size: 0.88rem;
-        border-radius: 10px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        flex: 1 !important;
+        width: auto !important;
+        padding: 11px 16px !important; 
+        font-size: 0.85rem !important;
+        border-radius: 50px !important; /* Perfecte capsule pill-shape */
+        display: inline-flex !important;
+        justify-content: center !important;
+        white-space: nowrap !important;
       }
       .hero-btn-secondary { 
-        margin-left: 0; 
-        margin-top: 8px; 
-        border: 1px solid rgba(255, 255, 255, 0.45); /* Veel dunnere, subtielere rand */
-        background: rgba(255, 255, 255, 0.05);
+        margin-left: 0 !important; 
+        margin-top: 0 !important; 
+        border: 1px solid rgba(255, 255, 255, 0.40) !important; /* Subtiele dunnere rand */
+        background: rgba(255, 255, 255, 0.08) !important;
+      }
+      
+      .hide-mobile {
+        display: none !important;
       }
       
       .app-nav { 
@@ -629,10 +646,11 @@
         <h1>Professionele ramenwasser in Ronse</h1>
         <p style="opacity: 0.95; max-width: 550px; font-weight: 500;">Heldere afspraken, streeploos resultaat. Uw ramen vakkundig gereinigd in regio Ronse & omstreken.</p>
         
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <!-- Verhoogde urgentietriggers op de CTA's -->
-          <a href="#aanvraag" class="hero-btn hero-btn-primary">Ontvang uw offerte binnen 24u</a>
-          <a href="tel:+32493673484" class="hero-btn hero-btn-secondary">Direct bellen</a>
+        <!-- App-style knoppen container -->
+        <div class="hero-btn-container">
+          <!-- Verhoogde urgentietriggers op de CTA's met slimme mobiele inkorting -->
+          <a href="#aanvraag" class="hero-btn hero-btn-primary">Offerte <span class="hide-mobile">binnen 24u</span></a>
+          <a href="tel:+32493673484" class="hero-btn hero-btn-secondary"><i class="fas fa-phone-alt" style="margin-right: 6px;"></i><span class="hide-mobile">Direct</span> bellen</a>
         </div>
 
         <!-- Directe trust indicators onder de knoppen om scroll-afhaakgedrag te voorkomen -->
@@ -673,6 +691,7 @@
           <div class="usp-item">
             <div class="usp-icon-box"><i class="fas fa-shield-alt"></i></div>
             <h3>Veilig vanaf de grond tot 15 meter</h3>
+            <!-- Typfout hersteld: "ramen and zonnepanelen" -> "ramen en zonnepanelen" -->
             <p>Met onze telescoopstelen wassen we moeilijke ramen en zonnepanelen snel en veilig vanaf de grond. Geen gevaarlijke ladders.</p>
           </div>
           <div class="usp-item">
@@ -773,7 +792,8 @@
             <div class="form-group">
               <label>Wat wilt u laten reinigen?</label>
               <select name="dienst">
-                <option value="ramen">Ramen en ruiten</option>
+                <!-- Tekst aangepast: van "Ramen en ruiten" naar enkel "Ramen" -->
+                <option value="ramen">Ramen</option>
                 <option value="zonnepanelen">Zonnepanelen</option>
                 <option value="combi">Combinatie ramen & zonnepanelen</option>
               </select>
