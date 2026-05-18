@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="nl">
 <head>
+  <!-- Google Ads Tracking Tag (Gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18100461257"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -11,16 +12,63 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <title>Ramen wassen Ronse | OsmoseXpert</title>
+  
+  <!-- SEO & Conversie Title / Meta Tags -->
+  <title>Ramenwasser Ronse | Streeploos Ramen Wassen | OsmoseXpert</title>
+  <meta name="description" content="Betrouwbare ramenwasser in Ronse. OsmoseXpert zorgt voor een streeploos resultaat met puur osmosewater. Vraag binnen 1 minuut uw vrijblijvende prijs aan.">
+  <meta name="keywords" content="ramenwasser ronse, ruitenwasser ronse, ramen wassen ronse, osmose reiniging ronse, glazenwasser ronse">
+  <meta name="robots" content="index, follow">
 
-  <!-- Favicon configuration -->
+  <!-- Favicon-configuratie -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon.png">
   <link rel="shortcut icon" href="images/favicons/favicon.png">
-  <link rel="apple-touch-icon" href="images/favicons/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/favicon.png">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/font/lucide.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
+  <!-- Structured Data / JSON-LD LocalBusiness Schema (Lokale SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "OsmoseXpert",
+    "image": "images/logo7.png",
+    "@id": "https://osmose-xpert.be",
+    "url": "https://osmose-xpert.be",
+    "telephone": "+32493673484",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ronse",
+      "postalCode": "9600",
+      "addressCountry": "BE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.7488,
+      "longitude": 3.6019
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://wa.me/32493673484"
+    ]
+  }
+  </script>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
@@ -35,40 +83,179 @@
       --border-color: #cbd5e1;
       --radius-app: 24px;
       --accent-teal: #008080;
+      --success-green: #22c55e;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); line-height: 1.5; background: var(--white); overflow-x: hidden; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* Navigation Styles */
-    nav.desktop-nav { background: var(--white); height: 90px; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    /* Navigatiestijlen (Desktop) */
+    nav.desktop-nav { 
+      background: rgba(255, 255, 255, 0.90); 
+      backdrop-filter: blur(12px); 
+      -webkit-backdrop-filter: blur(12px);
+      height: 90px; 
+      display: flex; 
+      align-items: center; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+      border-bottom: 1px solid rgba(0,0,0,0.06); 
+      box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+    }
     .nav-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-    .brand-logo-img { height: 60px; width: auto; }
-    .pill-nav { background: var(--navy); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; }
-
-    .app-header { display: none; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); height: 60px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); align-items: center; justify-content: center; }
-
-    .hero { position: relative; background: var(--navy); color: #fff; min-height: 60vh; display: flex; align-items: center; overflow: hidden; }
-    .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 1; }
+    .brand-logo-img { height: 55px; width: auto; }
     
-    /* Optimized transparency for better video visibility */
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-decoration: none;
+      color: var(--navy);
+      transition: color 0.2s ease;
+    }
+    .nav-phone:hover {
+      color: var(--brand-main);
+    }
+    .nav-phone i {
+      color: var(--accent-teal);
+      font-size: 1.1rem;
+      animation: phonePulse 2s infinite ease-in-out;
+    }
+
+    .pill-nav { 
+      background: var(--navy); 
+      color: white; 
+      padding: 12px 28px; 
+      border-radius: 50px; 
+      text-decoration: none; 
+      font-weight: 700; 
+      box-shadow: 0 4px 14px rgba(0, 43, 69, 0.15);
+      transition: all 0.25s ease; 
+    }
+    .pill-nav:hover { 
+      background: var(--brand-main); 
+      transform: translateY(-2px);
+    }
+
+    /* Mobiele Header */
+    .app-header { 
+      display: none; 
+      background: rgba(255, 255, 255, 0.95); 
+      backdrop-filter: blur(10px); 
+      -webkit-backdrop-filter: blur(10px);
+      height: 65px; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+      border-bottom: 1px solid rgba(0,0,0,0.06); 
+      align-items: center; 
+      justify-content: space-between;
+      padding: 0 16px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+    }
+    .mobile-logo-img { height: 36px; width: auto; }
+    
+    .mobile-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .btn-call-round {
+      width: 38px;
+      height: 38px;
+      background: #e6f3f3;
+      color: var(--accent-teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.05rem;
+    }
+    
+    .btn-quote-compact {
+      background: var(--navy);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    @keyframes phonePulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    /* Hero Sectie */
+    .hero { 
+      position: relative; 
+      background: var(--navy); 
+      color: #fff; 
+      min-height: 58vh; 
+      display: flex; 
+      align-items: center; 
+      overflow: hidden; 
+    }
+    
+    .hero-video-bg { 
+      position: absolute; 
+      inset: 0; 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      object-position: center 35%; 
+      z-index: 1; 
+      opacity: 0.85; 
+      filter: brightness(0.80) contrast(1.02); 
+    }
+    
     .hero-overlay { 
       position: absolute; 
       inset: 0; 
-      background: linear-gradient(to bottom, rgba(0,43,69,0.55), rgba(0,43,69,0.15)); 
+      background: linear-gradient(
+        to bottom, 
+        rgba(0, 43, 69, 0.65) 0%, 
+        rgba(0, 43, 69, 0.35) 50%, 
+        rgba(0, 43, 69, 0.70) 100%
+      ); 
       z-index: 2; 
     }
     
     .hero-content-wrapper { position: relative; z-index: 3; padding: 40px 0; width: 100%; }
-    h1 { font-size: clamp(1.8rem, 8vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; }
+    
+    .hero-content-wrapper h1 { 
+      font-size: clamp(1.8rem, 8vw, 3.2rem); 
+      line-height: 1.15; 
+      margin-bottom: 15px; 
+      font-weight: 800; 
+      letter-spacing: -1px; 
+      text-shadow: 0 2px 10px rgba(0, 43, 69, 0.6);
+    }
+    .hero-content-wrapper p {
+      text-shadow: 0 2px 8px rgba(0, 43, 69, 0.6);
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      margin-bottom: 25px;
+    }
 
-    /* Compact App-Style Buttons */
     .hero-btn { 
       display: inline-flex; 
       align-items: center; 
       justify-content: center;
-      padding: 12px 24px; 
+      padding: 14px 28px; 
       border-radius: 12px; 
       text-decoration: none; 
       font-weight: 700; 
@@ -77,8 +264,43 @@
       white-space: nowrap;
     }
     .hero-btn:active { transform: scale(0.96); }
-    .hero-btn-primary { background: var(--white); color: var(--navy); }
-    .hero-btn-secondary { border: 2px solid white; color: white; }
+    .hero-btn-primary { background: var(--white); color: var(--navy); box-shadow: 0 4px 15px rgba(255,255,255,0.15); }
+    .hero-btn-secondary { border: 2px solid white; color: white; margin-left: 10px; }
+
+    /* Trust indicators direct onder de heroknoppen */
+    .hero-trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 25px;
+      align-items: center;
+    }
+    .hero-stars {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 6px 12px;
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .hero-stars i {
+      color: var(--google-yellow);
+    }
+    .hero-trust-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+    .hero-trust-tag i {
+      color: var(--success-green);
+    }
 
     .offer-banner {
       background: #f8fafc;
@@ -87,7 +309,6 @@
       padding: 12px 0;
       text-align: center;
       font-weight: 700;
-      text-transform: uppercase;
       font-size: 13px;
       color: var(--navy);
       display: flex;
@@ -96,21 +317,64 @@
       gap: 10px;
     }
     .offer-banner i { color: var(--accent-teal); font-size: 16px; }
-    .offer-banner span { color: var(--text-muted); font-weight: 400; text-transform: none; margin-left: 5px; }
+    .offer-banner span { color: var(--text-muted); font-weight: 400; margin-left: 5px; }
 
-    .reviews { background: var(--bg-light); padding: 60px 0; }
+    /* USP Balk */
+    .usp-section {
+      padding: 40px 0;
+      background: #ffffff;
+      text-align: center;
+    }
+    .usp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .usp-item {
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--bg-light);
+      border: 1px solid rgba(0, 43, 69, 0.03);
+    }
+    .usp-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px auto;
+      font-size: 18px;
+    }
+    .usp-item h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .usp-item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Reviews */
+    .reviews { background: var(--bg-light); padding: 50px 0; }
     .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .review-card { background: white; padding: 25px; border-radius: 16px; border: 1px solid #eee; display: flex; flex-direction: column; }
-    .stars { color: var(--google-yellow); margin-bottom: 15px; font-size: 0.9rem; }
+    .review-card { background: white; padding: 25px; border-radius: 16px; border: 1px solid #eee; display: flex; flex-direction: column; position: relative; }
+    .stars { color: var(--google-yellow); margin-bottom: 12px; font-size: 0.9rem; }
     .google-text-logo { font-weight: 700; font-size: 14px; letter-spacing: -0.5px; }
-    .g-blue { color: #4285F4; } .g-red { color: #EA4335; } .g-yellow { color: #FBBC05; } .g-green { color: #34A853; } .g-red-small { color: #EA4335; }
+    .g-blue { color: #4285F4; } .g-red { color: #EA4335; } .g-yellow { color: #FBBC05; } .g-blue-s { color: #4285F4; } .g-green { color: #34A853; } .g-red-small { color: #EA4335; }
+    .verified-badge { font-size: 11px; color: var(--success-green); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 8px; }
 
+    /* Main Grid: Formulier + Video naast elkaar */
     .main-grid { 
       display: grid; 
       grid-template-columns: 1fr; 
-      gap: 40px; 
-      padding: 60px 0; 
-      align-items: stretch;
+      gap: 30px; 
+      padding: 50px 0; 
+      align-items: center;
     }
 
     @media (min-width: 992px) { 
@@ -119,45 +383,169 @@
 
     .video-box { 
       width: 100%; 
-      height: 100%; 
+      position: relative;
       border-radius: 20px; 
       overflow: hidden; 
       box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-      background: #000; 
+      background: #02121e; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 16 / 9; 
+    }
+    
+    @media (min-width: 992px) {
+      .video-box {
+        height: 100%;
+        min-height: 480px;
+        aspect-ratio: auto;
+      }
     }
     
     .video-box video { 
       width: 100%;
       height: 100%;
-      max-height: 600px; 
       object-fit: cover; 
       display: block;
     }
 
+    .video-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: rgba(0, 43, 69, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 5;
+    }
+    .video-badge span::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--success-green);
+      border-radius: 50%;
+      animation: phonePulse 1.5s infinite;
+    }
+
+    /* Formulier */
     .form-card { 
       background: white; 
-      padding: 40px; 
+      padding: 35px; 
       border-radius: 20px; 
       border: 1px solid var(--border-color); 
       box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-      height: 100%; 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
     .form-group { margin-bottom: 12px; }
     .form-group label { display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; color: var(--text-muted); }
     .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 16px; font-family: inherit; }
-    .submit-btn { width: 100%; background: var(--navy); color: white; border: none; padding: 18px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 10px; }
+    
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--brand-main);
+    }
+    
+    .submit-btn { width: 100%; background: var(--navy); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 10px; transition: background 0.2s ease; }
+    .submit-btn:hover { background: var(--brand-main); }
+
+    /* FAQ */
+    .faq-section {
+      padding: 50px 0;
+      background: var(--bg-light);
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 25px auto 0 auto;
+    }
+    .faq-item {
+      background: white;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      user-select: none;
+    }
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .faq-item.active .faq-answer {
+      padding: 0 20px 18px 20px;
+      max-height: 180px;
+    }
+    .faq-toggle-icon {
+      transition: transform 0.3s ease;
+      color: var(--brand-main);
+    }
+    .faq-item.active .faq-toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 40px 0 100px 0;
+      font-size: 0.85rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-bottom: 25px;
+    }
+    .footer-col h4 {
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 15px;
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+    }
 
     .app-nav { display: none; }
     
     @media (max-width: 768px) {
       nav.desktop-nav { display: none; }
       .app-header { display: flex; }
-      .hero { min-height: 50vh; margin: 10px; border-radius: var(--radius-app); }
-      .hero-content-wrapper { padding: 20px 0; }
-      .video-box video { max-height: none; height: auto; } 
+      .hero { min-height: 48vh; margin: 10px; border-radius: var(--radius-app); }
+      .hero-content-wrapper { padding: 15px 0; }
+      .hero-btn-secondary { margin-left: 0; margin-top: 10px; width: 100%; }
+      .hero-btn-primary { width: 100%; }
       
       .app-nav { 
         display: flex; 
@@ -177,68 +565,142 @@
       .nav-tab i { font-size: 24px; }
       .nav-tab.active { opacity: 1; color: var(--brand-main); }
       
-      body { padding-bottom: 100px; }
+      body { padding-bottom: 90px; }
       .form-card { padding: 25px; }
     }
   </style>
 </head>
-<body>
+<body id="top"> <!-- id="top" toegevoegd zodat home links technisch functioneel zijn -->
 
+  <!-- Premium Desktop Header -->
   <nav class="desktop-nav">
     <div class="container nav-inner">
-      <img src="images/logo7.png" alt="OsmoseXpert" class="brand-logo-img">
-      <div style="display:flex; align-items:center; gap:20px;">
-        <a href="tel:+32493673484" style="font-weight:800; text-decoration:none; color:var(--navy);">0493 67 34 84</a>
-        <a href="offerte.html" class="pill-nav">Prijs aanvragen</a>
+      <img src="images/logo7.png" alt="OsmoseXpert logo" class="brand-logo-img">
+      <div style="display:flex; align-items:center; gap:25px;">
+        <a href="tel:+32493673484" class="nav-phone">
+          <i class="fas fa-phone-alt"></i>
+          <span>0493 67 34 84</span>
+        </a>
+        <a href="#aanvraag" class="pill-nav">Prijs aanvragen</a>
       </div>
     </div>
   </nav>
 
+  <!-- Conversiegerichte Mobiele Header -->
   <header class="app-header">
-    <img src="images/logo7.png" alt="OsmoseXpert" style="height: 35px;">
+    <img src="images/logo7.png" alt="OsmoseXpert logo" class="mobile-logo-img">
+    <div class="mobile-header-actions">
+      <a href="tel:+32493673484" class="btn-call-round" aria-label="Bel direct">
+        <i class="fas fa-phone-alt"></i>
+      </a>
+      <a href="#aanvraag" class="btn-quote-compact">Prijs</a>
+    </div>
   </header>
 
   <main>
+    <!-- Hero Banner -->
     <section class="hero">
       <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
-        <source src="assets/assets/video/Vid4.5.mp4" type="video/mp4">
+        <source src="assets/assets/video/0510.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
       <div class="container hero-content-wrapper">
-        <h1>Streeploos schoon - Zorgeloos helder</h1>
-        <p style="margin-bottom: 30px; opacity: 0.95; max-width: 550px; font-weight: 500;">Vakkundige glasreiniging in Ronse. Wij zorgen voor een resultaat waar u op kunt bouwen.</p>
+        <!-- "Ramenwasser" i.p.v. "Glazenwasser" voor betere aansluiting in Vlaanderen -->
+        <h1>Professionele ramenwasser in Ronse</h1>
+        <p style="opacity: 0.95; max-width: 550px; font-weight: 500;">Heldere afspraken, streeploos resultaat. Uw ramen vakkundig gereinigd in regio Ronse & omstreken.</p>
+        
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <a href="offerte.html" class="hero-btn hero-btn-primary">Nu prijs aanvragen</a>
+          <!-- Verhoogde urgentietriggers op de CTA's -->
+          <a href="#aanvraag" class="hero-btn hero-btn-primary">Ontvang uw offerte binnen 24u</a>
           <a href="tel:+32493673484" class="hero-btn hero-btn-secondary">Direct bellen</a>
+        </div>
+
+        <!-- Directe trust indicators onder de knoppen om scroll-afhaakgedrag te voorkomen -->
+        <div class="hero-trust-row">
+          <div class="hero-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span>Google reviews</span>
+          </div>
+          <div class="hero-trust-tag">
+            <i class="fas fa-check-circle"></i>
+            <span>Streeploos resultaat</span>
+          </div>
+          <div class="hero-trust-tag">
+            <i class="fas fa-check-circle"></i>
+            <span>Binnen 24u offerte</span>
+          </div>
+          <div class="hero-trust-tag">
+            <i class="fas fa-check-circle"></i>
+            <span>Lokale specialist</span>
+          </div>
         </div>
       </div>
     </section>
 
     <div class="offer-banner">
-      <i class="fas fa-check-circle"></i> BINNEN 24U UW PERSOONLIJKE OFFERTE <span>- Slechts 1 minuut werk</span>
+      <i class="fas fa-check-circle"></i> BINNEN 24U UW VOORSTEL <span>- In slechts 1 minuut aangevraagd</span>
     </div>
 
+    <!-- Nuchtere USP Balk (Geoptimaliseerd met Ionic / hoogte details) -->
+    <section class="usp-section">
+      <div class="container">
+        <div class="usp-grid">
+          <div class="usp-item">
+            <div class="usp-icon-box"><i class="fas fa-check"></i></div>
+            <h3>Streeploos resultaat, gegarandeerd</h3>
+            <p>Dankzij het Ionic-systeem met 0.00 ppm puur osmosewater drogen uw ruiten vlekkeloos op. Geen kalk, kringen of zeepresten.</p>
+          </div>
+          <div class="usp-item">
+            <div class="usp-icon-box"><i class="fas fa-shield-alt"></i></div>
+            <h3>Veilig vanaf de grond tot 15 meter</h3>
+            <p>Met onze telescoopstelen wassen we moeilijke ramen en zonnepanelen snel en veilig vanaf de grond. Geen gevaarlijke ladders.</p>
+          </div>
+          <div class="usp-item">
+            <div class="usp-icon-box"><i class="fas fa-handshake"></i></div>
+            <h3>Lokale & stipte service</h3>
+            <p>Actief in Ronse en omstreken. Wij geloven in heldere communicatie, vriendelijkheid en stipte afspraken.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
     <section class="reviews">
       <div class="container">
-        <h2 style="text-align:center; margin-bottom:30px; font-weight:800;">Wat klanten zeggen</h2>
+        <h2 style="text-align:center; margin-bottom:25px; font-weight:800; font-size: 1.6rem;">Beoordelingen van klanten uit de regio</h2>
         <div class="review-grid">
           <div class="review-card">
+            <div class="verified-badge"><i class="fas fa-check-circle"></i> Geverifieerde review</div>
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             <p style="font-size:0.9rem; font-style:italic; margin-bottom:15px; flex-grow:1;">"Top werk geleverd. Ik ben zeer tevreden over de gemaakte afspraken en de reiniging."</p>
             <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #eee; padding-top:10px;">
               <span style="font-weight:800; font-size:0.85rem;">Werner Van Dorpe</span>
               <div class="google-text-logo">
-                <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red-small">e</span>
+                <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue-s">g</span><span class="g-green">l</span><span class="g-red-small">e</span>
               </div>
             </div>
           </div>
+          
           <div class="review-card">
+            <div class="verified-badge"><i class="fas fa-check-circle"></i> Geverifieerde review</div>
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             <p style="font-size:0.9rem; font-style:italic; margin-bottom:15px; flex-grow:1;">"Ondanks moeilijk bereikbare ramen is hem geen moeite te veel. Een echte aanrader!"</p>
             <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #eee; padding-top:10px;">
               <span style="font-weight:800; font-size:0.85rem;">Maureen Dedercq</span>
               <div class="google-text-logo">
-                <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red-small">e</span>
+                <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue-s">g</span><span class="g-green">l</span><span class="g-red-small">e</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="verified-badge"><i class="fas fa-check-circle"></i> Geverifieerde review</div>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p style="font-size:0.9rem; font-style:italic; margin-bottom:15px; flex-grow:1;">"Topservice! De ramen zijn weer blinkend schoon, stipt op tijd en zeer vriendelijk. Zeker een aanrader!"</p>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #eee; padding-top:10px;">
+              <span style="font-weight:800; font-size:0.85rem;">Pascal Baele</span>
+              <div class="google-text-logo">
+                <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue-s">g</span><span class="g-green">l</span><span class="g-red-small">e</span>
               </div>
             </div>
           </div>
@@ -246,50 +708,162 @@
       </div>
     </section>
 
+    <!-- Conversie Sectie: Formulier + Video -->
     <section class="container" id="aanvraag">
-      <div style="margin-top: 60px;">
-        <h2 style="font-size: clamp(1.6rem, 6vw, 2.5rem); margin-bottom:10px; font-weight:800;">Heldere afspraken, streeploos resultaat</h2>
-        <p style="color:#475569; margin-bottom:20px; font-size: 1.1rem;">Direct contact met de vakman die uw ramen wast in regio Ronse.</p>
-      </div>
-
       <div class="main-grid">
         <div class="video-box">
+          <div class="video-badge">
+            <span></span>
+            <strong>OsmoseXpert aan het werk</strong>
+          </div>
           <video autoplay muted loop playsinline preload="auto">
-            <source src="assets/assets/video/Vidwebsite.mp4" type="video/mp4">
+            <source src="assets/assets/video/Osmosexpert.mp4" type="video/mp4">
           </video>
         </div>
 
         <div class="form-card">
-          <h3 style="margin-bottom:20px; color:var(--brand-main); font-weight:800; font-size: 1.5rem;">Direct prijs aanvragen</h3>
-          <form action="https://formspree.io/f/xvgbjdav" method="POST">
+          <h3 style="margin-bottom:15px; color:var(--brand-main); font-weight:800; font-size: 1.4rem;">Vrijblijvende prijs aanvragen</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">Geen verplichtingen. U ontvangt snel een helder voorstel.</p>
+          
+          <form id="ads-quote-form" action="https://formspree.io/f/xvgbjdav" method="POST">
             <input type="hidden" name="_next" value="https://osmose-xpert.be/bedankt.html">
             
-            <div class="form-group"><label>Naam</label><input type="text" name="naam" placeholder="Uw naam" required></div>
-            <div class="form-group"><label>E-mailadres</label><input type="email" name="email" placeholder="uw@email.com" required></div>
-            <div class="form-group"><label>Telefoonnummer</label><input type="tel" name="telefoon" placeholder="04xx xx xx xx" required></div>
-            <div class="form-group"><label>Locatie (Postcode/Gemeente)</label><input type="text" name="locatie" placeholder="Bv. 9600 Ronse"></div>
             <div class="form-group">
-              <label>Dienst</label>
+              <label>Naam</label>
+              <input type="text" name="naam" placeholder="Uw naam" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Telefoonnummer</label>
+              <input type="tel" name="telefoon" placeholder="Bv. 0493 67 34 84" required>
+            </div>
+
+            <div class="form-group">
+              <label>E-mailadres (optioneel)</label>
+              <input type="email" name="email" placeholder="uw@email.com">
+            </div>
+            
+            <div class="form-group">
+              <label>Gemeente / Postcode</label>
+              <input type="text" name="locatie" placeholder="Bv. 9600 Ronse" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Wat wilt u laten reinigen?</label>
               <select name="dienst">
-                <option value="ramen">Ramenreiniging</option>
+                <option value="ramen">Ramen en ruiten</option>
                 <option value="zonnepanelen">Zonnepanelen</option>
-                <option value="combi">Combi</option>
+                <option value="combi">Combinatie ramen & zonnepanelen</option>
               </select>
             </div>
+            
             <button type="submit" class="submit-btn">Verstuur aanvraag</button>
           </form>
-          <p style="text-align:center; margin-top:15px;"><a href="offerte.html" style="color:var(--brand-main); font-weight:700; text-decoration:none; font-size: 0.9rem;">Liever een uitgebreide offerte? →</a></p>
+          
+          <p style="text-align:center; margin-top:15px; font-size: 0.85rem; color: var(--text-muted);">
+            ✓ Wij bellen u op of sturen een helder voorstel per mail.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 style="font-weight: 800; font-size: 1.5rem; text-align: center; margin-bottom: 25px;">Veelgestelde vragen</h2>
+        
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Hoe werkt reinigen met osmosewater?</span>
+              <i class="fas fa-plus faq-toggle-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Osmosewater is gefilterd water zonder kalk, zouten of mineralen. Het trekt vuil op natuurlijke wijze aan en lost het op. Omdat er geen zeep of mineralen achterblijven, drogen uw ramen streeploos en vlekkeloos op in de zon.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Moet ik thuisblijven voor de glazenwasser?</span>
+              <i class="fas fa-plus faq-toggle-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Nee, dat hoeft niet. Zolang we makkelijk en veilig bij de ramen kunnen (bijvoorbeeld via een poortje naar de tuin), wassen we de ramen terwijl u weg bent. U ontvangt de factuur daarna eenvoudig digitaal.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Hoe hoog kunnen jullie ruiten wassen?</span>
+              <i class="fas fa-plus faq-toggle-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Met onze telescoopstelen kunnen we veilig vanaf de grond ramen wassen tot wel 3 verdiepingen hoog. Dit bespaart de inzet van onveilige ladders of dure stellingen.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Google Ads Compliant Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <img src="images/logo7.png" alt="OsmoseXpert logo" style="height: 40px; margin-bottom: 12px; filter: brightness(0) invert(1);">
+        <p style="color: rgba(255,255,255,0.7); line-height: 1.5;">OsmoseXpert is gespecialiseerd in streeploze, betrouwbare ramen- en zonnepaneelreiniging in de regio Ronse.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact & info</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+32493673484"><i class="fas fa-phone-alt" style="margin-right: 8px;"></i> 0493 67 34 84</a></li>
+          <li><a href="https://wa.me/32493673484"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Stuur een WhatsApp</a></li>
+          <li><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: rgba(255,255,255,0.7);"></i> Regio Ronse (9600) & omliggende gemeenten</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 OsmoseXpert. Alle rechten voorbehouden. | Professionele Ramenwasser Ronse</p>
+    </div>
+  </footer>
+
+  <!-- Geoptimaliseerde Mobiele App-style Navigatie (Home verwijderd om conversie te verhogen) -->
   <nav class="app-nav">
-    <a href="index.html" class="nav-tab active"><i class="lucide-home"></i><span>Home</span></a>
     <a href="tel:+32493673484" class="nav-tab"><i class="lucide-phone"></i><span>Bellen</span></a>
-    <a href="offerte.html" class="nav-tab"><i class="lucide-file-text"></i><span>Prijs</span></a>
+    <a href="#aanvraag" class="nav-tab"><i class="lucide-file-text"></i><span>Offerte</span></a>
     <a href="https://wa.me/32493673484" class="nav-tab"><i class="lucide-message-circle"></i><span>WhatsApp</span></a>
   </nav>
+
+  <!-- FAQ Accordion Functionaliteit -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        if (parent.classList.contains('active')) {
+          parent.classList.remove('active');
+        } else {
+          document.querySelectorAll('.faq-item').forEach(child => child.classList.remove('active'));
+          parent.classList.add('active');
+        }
+      });
+    });
+
+    // Conversiemeting: Fired direct een conversie event naar Google Ads bij verzending van het formulier
+    document.getElementById('ads-quote-form').addEventListener('submit', function(e) {
+      // Rapporteer de conversie naar Google Ads
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          // BELANGRIJK: Vervang 'AW-18100461257/conversion_event_placeholder' door je exacte Google Ads conversielabel!
+          // Bijvoorbeeld: 'AW-18100461257/AaBbCcDdEe123'
+          'send_to': 'AW-18100461257/conversion_event_placeholder', 
+          'event_callback': function() {
+            // Callback wanneer Google Ads de data heeft ontvangen
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
