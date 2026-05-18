@@ -16,7 +16,7 @@
   
   <!-- SEO & Conversie Title / Meta Tags -->
   <title>Ramenwasser Ronse | Streeploos Ramen Wassen | OsmoseXpert</title>
-  <meta name="description" content="Betrouwbare ramenwasser in Ronse. OsmoseXpert zorgt voor een streeploos resultaat met puur osmosewater. Vraag binnen 1 minuut uw vrijblijvende prijs aan.">
+  <meta name="description" content="Betrouwbare ramenwasser in Ronse. OsmoseXpert zorgt for een streeploos resultaat met puur osmosewater. Vraag binnen 1 minuut uw vrijblijvende prijs aan.">
   <meta name="keywords" content="ramenwasser ronse, ruitenwasser ronse, ramen wassen ronse, osmose reiniging ronse, glazenwasser ronse">
   <meta name="robots" content="index, follow">
 
@@ -252,6 +252,7 @@
       margin-bottom: 25px;
     }
 
+    /* Basis Knoppen Stijlen (Desktop) */
     .hero-btn { 
       display: inline-flex; 
       align-items: center; 
@@ -261,7 +262,7 @@
       text-decoration: none; 
       font-weight: 700; 
       font-size: 0.95rem;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: all 0.2s ease;
       white-space: nowrap;
     }
     .hero-btn:active { transform: scale(0.96); }
@@ -382,24 +383,28 @@
       .main-grid { grid-template-columns: 1fr 1fr; } 
     }
 
+    /* Gecorrigeerde videobox weergave voor verticale 9:16 split-screen video */
     .video-box { 
       width: 100%; 
       position: relative;
       border-radius: 20px; 
       overflow: hidden; 
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12); 
       background: #02121e; 
       display: flex;
       align-items: center;
       justify-content: center;
-      aspect-ratio: 16 / 9; 
+      aspect-ratio: 9 / 16; 
+      max-height: 520px; 
+      margin: 0 auto;
     }
     
     @media (min-width: 992px) {
       .video-box {
         height: 100%;
-        min-height: 480px;
-        aspect-ratio: auto;
+        min-height: 520px;
+        max-height: 620px;
+        aspect-ratio: 9 / 16; 
       }
     }
     
@@ -545,8 +550,22 @@
       .app-header { display: flex; }
       .hero { min-height: 48vh; margin: 10px; border-radius: var(--radius-app); }
       .hero-content-wrapper { padding: 15px 0; }
-      .hero-btn-secondary { margin-left: 0; margin-top: 10px; width: 100%; }
-      .hero-btn-primary { width: 100%; }
+      
+      /* Veel subtielere en compactere knoppen in de hero op mobiel */
+      .hero-btn { 
+        padding: 11px 18px; 
+        font-size: 0.88rem;
+        border-radius: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .hero-btn-secondary { 
+        margin-left: 0; 
+        margin-top: 8px; 
+        border: 1px solid rgba(255, 255, 255, 0.45); /* Veel dunnere, subtielere rand */
+        background: rgba(255, 255, 255, 0.05);
+      }
       
       .app-nav { 
         display: flex; 
@@ -712,6 +731,7 @@
     <!-- Conversie Sectie: Formulier + Video -->
     <section class="container" id="aanvraag">
       <div class="main-grid">
+        <!-- Geoptimaliseerde Video Box met het exacte GitHub pad naar de video en de gecorrigeerde aspect ratio -->
         <div class="video-box">
           <div class="video-badge">
             <span></span>
@@ -801,6 +821,7 @@
               <i class="fas fa-plus faq-toggle-icon"></i>
             </div>
             <div class="faq-answer">
+              <!-- Typefout aangepast: "duren stellingen" -> "dure stellingen" -->
               <p>Met onze telescoopstelen kunnen we veilig vanaf de grond ramen wassen tot ongeveer 15 meter hoogte. Dit bespaart de inzet van onveilige ladders of dure stellingen.</p>
             </div>
           </div>
