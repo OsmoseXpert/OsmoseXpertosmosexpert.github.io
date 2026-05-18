@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17989412215"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-17989412215');
+    </script>
+
+    <!-- Event snippet for Offerte aanvragen conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17989412215/xpAsCNDgra8CEPfKgoJD'
+        });
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bedankt voor uw aanvraag — OsmoseXpert</title>
@@ -159,7 +176,7 @@
 <body>
 
     <div class="thank-you-card">
-        <!-- Logo sectie: images/logo7.png vervangt de gif en tekst -->
+        <!-- Logo sectie -->
         <img src="images/logo7.png" alt="OsmoseXpert Logo" class="logo-main" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div style="display:none; font-weight:800; color:var(--brand-main); font-size:1.5rem; margin-bottom:20px;">OsmoseXpert</div>
         
@@ -170,7 +187,8 @@
         </div>
 
         <h1>Aanvraag ontvangen!</h1>
-        <p class="intro-text">We gaan direct aan de slag met uw persoonlijke berekening.</p>
+        <!-- Aangepaste subkoptekst -->
+        <p class="intro-text">We gaan meteen aan de slag met uw vrijblijvende voorstel.</p>
 
         <div class="process-box">
             <div class="process-step">
@@ -191,7 +209,8 @@
             </div>
         </div>
 
-        <a href="index.html" class="btn-home">Terug naar de website</a>
+        <!-- Aangepaste home-knop link -->
+        <a href="https://osmose-xpert.be/landingpage1" class="btn-home">Terug naar de website</a>
         
         <div class="support-text">
             OsmoseXpert — Streeploos schoon, zorgeloos helder.
