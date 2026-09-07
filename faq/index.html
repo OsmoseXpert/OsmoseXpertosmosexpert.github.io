@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FAQ – OsmoseXpert</title>
+  
+      
+
+
+  <!-- BASIS: variabelen en globale stijl (zelfde basis als over-ons.html) -->
+  <style>
+    :root{ --brand:#0f6ab8; --brand2:#29ABE2; --ink:#0b364f; --bg:#f6f9fc; }
+      
+
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#0f172a;background:var(--bg);line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    /* Tag-stijl voor Digitale assistent CTA's (herbruikbaar) */
+    .tag-assistent{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .7rem;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid #e5e7eb}
+    .tag-assistent:hover{box-shadow:0 2px 10px rgba(0,0,0,.06)}
+    .tag-assistent svg{width:18px;height:18px}
+  </style>
+
+  <!-- NAV & DROPDOWN (1:1 van over-ons.html) -->
+  <style>
+    /* Sticky navigatie */
+    .nav{position:sticky;top:0;z-index:100;display:flex;justify-content:flex-end;padding:10px 16px;background:#fff;border-bottom:1px solid #e2e8f0}
+    .nav.blue-bg{background:linear-gradient(90deg,#03304f,#00304e);border-bottom:0}
+
+    /* Hamburger rechts met drie streepjes */
+    .nav-toggle{background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+    .nav-toggle .line{width:24px;height:3px;border-radius:2px;background:#0b364f}
+    .nav.white-bg .nav-toggle .line{background:#0b364f}   /* witte achtergrond → huisblauw streepjes */
+    .nav.blue-bg .nav-toggle .line{background:#fff}       /* blauwe header → witte streepjes */
+    .nav-toggle:focus{outline:2px solid #29ABE2;outline-offset:2px}
+
+    /* Lijst basis */
+    .nav-list{display:none}
+
+    /* Mobiel dropdown */
+    @media (max-width:900px){
+      .nav-list{position:absolute;top:56px;right:12px;display:none;flex-direction:column;gap:10px;background:#fff;border:1px solid #e2e8f0;padding:12px;border-radius:14px;box-shadow:0 12px 30px rgba(2,18,33,.22);width:min(86vw,360px);z-index:101}
+      .nav-list.open{display:flex !important}
+      .nav-list li{list-style:none}
+      .nav-list a{display:block;padding:12px 14px;color:var(--ink);border-radius:10px}
+      .nav-list a:hover{background:#eef5ff}
+      .nav-list a.active,.nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)}
+    }
+
+    /* Desktop: gecentreerd menu (origineel, zonder hamburger) */
+    @media (min-width:901px){
+      .nav{justify-content:center}
+      .nav-toggle{display:none}
+      .nav-list{display:flex;gap:20px;position:static;border:0;box-shadow:none;background:transparent;padding:0}
+      .nav-list li{list-style:none}
+      .nav-list a{padding:6px 12px;border-radius:6px;color:#0f172a;text-decoration:none;font-weight:600}
+      .nav-list a:hover{background:#e6f0fa}
+      /* Page selector (actieve tab) – gradient chip identiek aan diensten.html */
+      .nav-list a.active,.nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)}
+    }
+  </style>
+
+  <!-- SUBHERO/BANNER (zelfde stijl als over-ons.html) -->
+  <style>
+    .subhero{background:linear-gradient(90deg,#03304f,#00304e);color:#fff;padding:40px 20px;display:flex;align-items:center;justify-content:center}
+    .subhero .wrap{max-width:1100px;width:100%}
+    .subhero h1{margin:0 0 0 20px;font-size:clamp(22px,2.4vw,28px);color:#f3f7fb}
+    .subhero .subtitle{color:#cfe4ff;font-size:clamp(14px,1.4vw,17px);font-weight:500;margin-left:24px}
+
+    @media (max-width:900px){
+      .subhero{padding:20px 16px}
+      .subhero h1{margin:0;font-size:20px}
+      .subhero .subtitle{font-size:14px;margin:4px 0 0 20px}
+    }
+  </style>
+
+  <!-- FAQ-specifiek -->
+  <style>
+    main .section{background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,.05);padding:22px;margin:26px 0}
+    .section h2{color:#0a3d62;font-size:1.4rem;margin-bottom:12px}
+    details{border:1px solid #e2e8f0;border-radius:10px;margin:10px 0;background:#fafcff;overflow:hidden}
+    details summary{cursor:pointer;list-style:none;font-weight:700;color:#0f6ab8;padding:14px 44px 14px 14px;position:relative}
+    details summary::-webkit-details-marker{display:none}
+    details summary::after{content:"+";position:absolute;right:14px;top:50%;transform:translateY(-50%);font-weight:900;color:#64748b}
+    details[open] summary::after{content:"–"}
+    details .answer{padding:0 14px 14px 14px;color:#334155}
+  </style>
+
+  <!-- Calendly widget (voor 'Boek nu') 1:1 -->
+  
+  
+  
+
+  <!-- Floating CTA styles (1:1) -->
+  <style id="floating-cta-styles">
+    .floating-cta{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;flex-direction:column;gap:12px;transition:opacity .25s ease,transform .25s ease}
+    .floating-cta.hidden{opacity:0;transform:translateY(16px);pointer-events:none}
+    .floating-cta .cta-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:999px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.15);transition:transform .15s ease,box-shadow .15s ease}
+    .floating-cta .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.2)}
+    .floating-cta .cta-offerte{background:#10b981}
+    .floating-cta .cta-boek{background:#2563eb}
+    @media (max-width:480px){.floating-cta{right:12px;bottom:12px}.floating-cta .cta-btn{padding:12px 14px;font-size:15px}}
+  </style>
+
+    
+<meta name="description" content="Antwoorden op veelgestelde vragen over osmosewater, bereikbaarheid, planning en professionele ramenreiniging door OsmoseXpert."><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><link rel="canonical" href="https://osmose-xpert.be/faq/"><meta name="theme-color" content="#0a3d62"><meta property="og:locale" content="nl_BE"><meta property="og:type" content="website"><meta property="og:site_name" content="OsmoseXpert"><meta property="og:title" content="FAQ – OsmoseXpert"><meta property="og:description" content="Antwoorden op veelgestelde vragen over osmosewater, bereikbaarheid, planning en professionele ramenreiniging door OsmoseXpert."><meta property="og:url" content="https://osmose-xpert.be/faq/"><meta property="og:image" content="https://osmose-xpert.be/images/social/logo4.jpg"><meta property="og:image:width" content="1024"><meta property="og:image:height" content="512"><meta property="og:image:alt" content="OsmoseXpert – professionele ramenreiniging"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="FAQ – OsmoseXpert"><meta name="twitter:description" content="Antwoorden op veelgestelde vragen over osmosewater, bereikbaarheid, planning en professionele ramenreiniging door OsmoseXpert."><meta name="twitter:image" content="https://osmose-xpert.be/images/social/logo4.jpg"><link rel="icon" type="image/png" href="/images/favicons/favicon.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://osmose-xpert.be/faq/#webpage","url":"https://osmose-xpert.be/faq/","name":"FAQ – OsmoseXpert","description":"Antwoorden op veelgestelde vragen over osmosewater, bereikbaarheid, planning en professionele ramenreiniging door OsmoseXpert.","inLanguage":"nl-BE","isPartOf":{"@id":"https://osmose-xpert.be/#website"},"about":{"@id":"https://osmose-xpert.be/#organization"},"dateModified":"2026-08-31"},{"@type":"FAQPage","@id":"https://osmose-xpert.be/faq/#faq","mainEntity":[{"@type":"Question","name":"Wat is osmosewater en waarom geeft het streeploze ramen?","acceptedAnswer":{"@type":"Answer","text":"Osmosewater is ultra‑puur (0 ppm) water zonder mineralen of zouten. Het droogt residuvrij op, waardoor er geen druppelranden achterblijven en ramen langer schoon blijven. Het is veilig voor kozijnen, tuin en milieu."}},{"@type":"Question","name":"Werken jullie met ladders of op daken?","acceptedAnswer":{"@type":"Answer","text":"Neen. We werken veilig vanaf de grond met waterfed poles en bereiken tot ca. 15 meter. Geen ladders tegen de gevel en geen onnodig betreden van daken – zo vermijden we krassen en schade."}},{"@type":"Question","name":"In welke regio zijn jullie actief?","acceptedAnswer":{"@type":"Answer","text":"We zijn lokaal verankerd in Ronse en bedienen Kluisbergen en Oudenaarde . Grotere projecten buiten deze regio bekijken we in overleg."}},{"@type":"Question","name":"Kunnen jullie ramen + veranda of zonnepanelen in één bezoek combineren?","acceptedAnswer":{"@type":"Answer","text":"Ja. Combineren is efficiënter en levert vaak het beste resultaat op. Bij combinatie passen we onze combi‑korting (10%) toe op de tweede dienst ."}},{"@type":"Question","name":"Reinigen jullie ook veranda’s/serres en zonnepanelen?","acceptedAnswer":{"@type":"Answer","text":"Ja. We zijn gespecialiseerd in moeilijk bereikbare glaspartijen en zonnepanelenreiniging . Zachte borstels beschermen coatings en ondergronden."}},{"@type":"Question","name":"Wat kost een beurt ramenreiniging?","acceptedAnswer":{"@type":"Answer","text":"De prijs hangt af van type gebouw, bereikbaarheid en aantal ramen. Bekijk de prijzenpagina voor indicatieve tarieven of vraag meteen een offerte op maat."}},{"@type":"Question","name":"Hoe werken jullie onderhoudsplannen (korting)?","acceptedAnswer":{"@type":"Answer","text":"We bieden drie formules met vaste korting t.o.v. losse beurten: Bronze: 2×/jaar (–5%) Silver: 4×/jaar (–10%) Gold: 6×/jaar (–15%) Bij het boeken via onze online agenda kiest u zelf het gewenste plan en plant u meteen de eerste beurt in. De overige beurten plannen wij automatisch in volgens het gekozen ritme. U hoeft niet thuis te zijn; u ontvangt telkens vooraf een bevestiging en kunt reageren of aanpassen."}},{"@type":"Question","name":"Moet ik thuis zijn tijdens de reiniging?","acceptedAnswer":{"@type":"Answer","text":"Niet noodzakelijk. Als we toegang hebben tot de ramen, voeren we het werk uit en laten alles netjes achter. U krijgt achteraf bevestiging en factuur per e‑mail."}},{"@type":"Question","name":"Wat bij regen of winterkou?","acceptedAnswer":{"@type":"Answer","text":"Lichte regen stoort osmose‑reiniging niet. Bij storm, extreme wind of vriesweer plannen we in overleg een nieuwe datum – veiligheid en kwaliteit eerst."}},{"@type":"Question","name":"Hoe garanderen jullie kwaliteit?","acceptedAnswer":{"@type":"Answer","text":"We volgen een vaste aanpak (inspectie → voorreiniging → osmosebehandeling → nacontrole) en hanteren een tevredenheidsgarantie : niet tevreden, dan komen we gratis bijwerken."}},{"@type":"Question","name":"Zijn kozijnen, tuin en huisdieren veilig?","acceptedAnswer":{"@type":"Answer","text":"Ja. Osmosewater is 100% puur en vrij van chemie . Het laat geen residu achter en is veilig voor planten, materialen en dieren."}},{"@type":"Question","name":"Hoe bereid ik een bezoek voor?","acceptedAnswer":{"@type":"Answer","text":"Sluit ramen, maak vensterbanken vrij en zorg dat doorgang mogelijk is. Lastige bereikbaarheid? Meld het even bij de aanvraag, dan nemen we het mee in de planning."}},{"@type":"Question","name":"Kan ik een afspraak verplaatsen of annuleren?","acceptedAnswer":{"@type":"Answer","text":"Ja, kosteloos tot 12 uur vooraf. Bel of mail ons, dan plannen we meteen een nieuwe datum."}},{"@type":"Question","name":"Hoe vraag ik een offerte aan?","acceptedAnswer":{"@type":"Answer","text":"Liever niet bellen? Geen probleem. Via onze Digitale assistent of het offerteformulier vraagt u in enkele seconden een richtprijs aan. We gebruiken uw gegevens enkel om het resultaat te bezorgen — verder beslist u helemaal zelf. Liever persoonlijk contact? Bel 0493 67 34 84 of mail info@osmose-xpert.be ."}},{"@type":"Question","name":"Kan ik online boeken?","acceptedAnswer":{"@type":"Answer","text":"Ja. Klik op Boek nu om direct een moment in onze planning te reserveren. U kiest zelf de dienst, het tijdstip en de locatie — alles verloopt digitaal. Na uw bevestiging staat de afspraak meteen ingepland en ontvangt u automatisch een e‑mail met alle details."}},{"@type":"Question","name":"Hoe vaak moet je ramen laten wassen?","acceptedAnswer":{"@type":"Answer","text":"Gemiddeld om de 8 tot 12 weken voor het beste resultaat. In drukke of stoffige omgevingen soms vaker."}},{"@type":"Question","name":"Wat kost ramen wassen in Ronse?","acceptedAnswer":{"@type":"Answer","text":"De meeste woningen vallen tussen €49 en €110 per beurt, afhankelijk van bereikbaarheid en oppervlakte."}},{"@type":"Question","name":"Hoe werkt osmosewater?","acceptedAnswer":{"@type":"Answer","text":"Osmosewater bevat geen mineralen en laat daardoor geen kalk of residu achter — het droogt volledig streeploos op."}}]}]}</script><link rel="stylesheet" href="/assets/css/site-shell.css"></head>
+
+<body class="faq-page ox-has-floating ox-page-faq ox-shell-body"><a class="ox-skip-link" href="#content">Ga naar de hoofdinhoud</a><nav class="ox-site-nav" data-open="false" aria-label="Hoofdmenu"><div class="ox-nav-inner"><a class="ox-nav-brand" href="/" aria-label="OsmoseXpert – naar de startpagina"><img src="/images/logo7.png" width="750" height="215" alt="OsmoseXpert"></a><button class="ox-nav-toggle" type="button" aria-expanded="false" aria-controls="ox-primary-nav" aria-label="Menu openen"><span class="ox-line" aria-hidden="true"></span><span class="ox-line" aria-hidden="true"></span><span class="ox-line" aria-hidden="true"></span></button><ul class="ox-nav-list" id="ox-primary-nav"><li><a href="/">Home</a></li><li><a href="/over-ons/">Over ons</a></li><li><a href="/diensten/">Diensten</a></li><li><a href="/prijzen/">Prijzen</a></li><li><a href="/onderhoudsplannen/">Onderhoudsplannen</a></li><li><a href="/voordelen/">Voordelen</a></li><li><a href="/contact/">Contact</a></li><li><a href="/faq/" aria-current="page">FAQ</a></li></ul></div></nav><div class="ox-page-stage">
+  <!-- NAVIGATIE (1:1 van over-ons.html, active op FAQ) -->
+  
+
+  <!-- BANNER (zelfde look; eigen titel/subtitel) -->
+  <header class="subhero">
+    <div class="wrap">
+      <h1>FAQ</h1>
+      <p class="subtitle">Kort &amp; duidelijk: uw vragen beantwoord</p>
+    </div>
+  </header>
+
+  <main id="content" class="container" tabindex="-1">
+    <!-- Intro -->
+    
+<p>Bekijk ook onze <a href="/diensten/">diensten</a>, <a href="/prijzen/">prijzen</a> en <a href="/onderhoudsplannen/">onderhoudsplannen</a>.</p>
+<section class="ox-ui-surface section">
+      <h2>Algemeen</h2>
+      <details>
+        <summary>Wat is osmosewater en waarom geeft het streeploze ramen?</summary>
+        <div class="answer">
+          <p>Osmosewater is <strong>ultra‑puur (0 ppm)</strong> water zonder mineralen of zouten. Het droogt <em>residuvrij</em> op, waardoor er geen druppelranden achterblijven en ramen langer schoon blijven. Het is veilig voor kozijnen, tuin en milieu.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Werken jullie met ladders of op daken?</summary>
+        <div class="answer">
+          <p>Neen. We werken <strong>veilig vanaf de grond</strong> met waterfed poles en bereiken tot ca. 15 meter. Geen ladders tegen de gevel en geen onnodig betreden van daken – zo vermijden we krassen en schade.</p>
+        </div>
+      </details>
+      <details>
+        <summary>In welke regio zijn jullie actief?</summary>
+        <div class="answer">
+          <p>We zijn lokaal verankerd in <strong>Ronse</strong> en bedienen <strong>Kluisbergen</strong> en <strong>Oudenaarde</strong>. Grotere projecten buiten deze regio bekijken we in overleg.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Kunnen jullie ramen + veranda of zonnepanelen in één bezoek combineren?</summary>
+        <div class="answer">
+          <p>Ja. Combineren is efficiënter en levert vaak het beste resultaat op. Bij combinatie passen we onze <strong>combi‑korting (10%)</strong> toe op de <strong>tweede dienst</strong>.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- Diensten & prijzen -->
+    <section class="ox-ui-surface section">
+      <h2>Diensten &amp; prijzen</h2>
+      <details>
+        <summary>Reinigen jullie ook veranda’s/serres en zonnepanelen?</summary>
+        <div class="answer">
+          <p>Ja. We zijn gespecialiseerd in moeilijk bereikbare glaspartijen en <strong>zonnepanelenreiniging</strong>. Zachte borstels beschermen coatings en ondergronden.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Wat kost een beurt ramenreiniging?</summary>
+        <div class="answer">
+          <p>De prijs hangt af van type gebouw, bereikbaarheid en aantal ramen. Bekijk de <a href="/prijzen/">prijzenpagina</a> voor <strong>indicatieve tarieven</strong> of vraag meteen een <a href="/offerte/">offerte</a> op maat.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Hoe werken jullie onderhoudsplannen (korting)?</summary>
+        <div class="answer">
+          <p>We bieden drie formules met vaste korting t.o.v. losse beurten:</p>
+          <ul>
+            <li><strong>Bronze:</strong> 2×/jaar (–5%)</li>
+            <li><strong>Silver:</strong> 4×/jaar (–10%)</li>
+            <li><strong>Gold:</strong> 6×/jaar (–15%)</li>
+          </ul>
+          <p>Bij het boeken via onze <strong>online agenda</strong> kiest u zelf het gewenste plan en plant u meteen de <strong>eerste beurt</strong> in. De overige beurten plannen wij automatisch in volgens het gekozen ritme. U hoeft niet thuis te zijn; u ontvangt telkens vooraf een bevestiging en kunt reageren of aanpassen.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- Werkwijze & planning -->
+    <section class="ox-ui-surface section">
+      <h2>Werkwijze, planning &amp; garanties</h2>
+      <details>
+        <summary>Moet ik thuis zijn tijdens de reiniging?</summary>
+        <div class="answer">
+          <p>Niet noodzakelijk. Als we toegang hebben tot de ramen, voeren we het werk uit en laten alles netjes achter. U krijgt achteraf bevestiging en factuur per e‑mail.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Wat bij regen of winterkou?</summary>
+        <div class="answer">
+          <p><strong>Lichte regen</strong> stoort osmose‑reiniging niet. Bij <strong>storm, extreme wind of vriesweer</strong> plannen we in overleg een nieuwe datum – veiligheid en kwaliteit eerst.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Hoe garanderen jullie kwaliteit?</summary>
+        <div class="answer">
+          <p>We volgen een vaste aanpak (inspectie → voorreiniging → osmosebehandeling → nacontrole) en hanteren een <strong>tevredenheidsgarantie</strong>: niet tevreden, dan komen we gratis bijwerken.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Zijn kozijnen, tuin en huisdieren veilig?</summary>
+        <div class="answer">
+          <p>Ja. Osmosewater is 100% puur en <strong>vrij van chemie</strong>. Het laat geen residu achter en is veilig voor planten, materialen en dieren.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Hoe bereid ik een bezoek voor?</summary>
+        <div class="answer">
+          <p>Sluit ramen, maak vensterbanken vrij en zorg dat doorgang mogelijk is. Lastige bereikbaarheid? Meld het even bij de aanvraag, dan nemen we het mee in de planning.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Kan ik een afspraak verplaatsen of annuleren?</summary>
+        <div class="answer">
+          <p>Ja, <strong>kosteloos tot 12 uur</strong> vooraf. Bel of mail ons, dan plannen we meteen een nieuwe datum.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- Contact -->
+    <section class="ox-ui-surface section">
+      <h2>Contact &amp; afspraak</h2>
+      <details>
+        <summary>Hoe vraag ik een offerte aan?</summary>
+        <div class="answer">
+          <p>Liever niet bellen? Geen probleem. Via onze <a href="#digitale-assistent" class="tag-assistent" aria-label="Open onze digitale assistent">
+  <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8z"></path>
+  </svg>
+  Digitale assistent
+</a> of het <a href="/offerte/">offerteformulier</a> vraagt u in enkele seconden een richtprijs aan. We gebruiken uw gegevens enkel om het resultaat te bezorgen — verder beslist u helemaal zelf. Liever persoonlijk contact? Bel <a href="tel:+32493673484">0493 67 34 84</a> of mail <a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a>.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Kan ik online boeken?</summary>
+        <div class="answer">
+          <p>Ja. Klik op <a href="/contact/">Boek nu</a> om direct een moment in onze planning te reserveren. U kiest zelf de dienst, het tijdstip en de locatie — alles verloopt digitaal. Na uw bevestiging staat de afspraak meteen ingepland en ontvangt u automatisch een e‑mail met alle details.</p>
+        </div>
+      </details>
+    </section>
+  
+    <p>Vind je hier niet meteen het antwoord op je vraag? Stel ze via het <a href="/contact/">contactformulier</a> of vraag een <a href="/offerte/">persoonlijke offerte</a> aan.</p>
+
+<section class="ox-ui-surface section">
+  <h2>Extra vragen</h2>
+  <details>
+    <summary>Hoe vaak moet je ramen laten wassen?</summary>
+    <div class="answer"><p>Gemiddeld om de 8 tot 12 weken voor het beste resultaat. In drukke of stoffige omgevingen soms vaker.</p></div>
+  </details>
+  <details>
+    <summary>Wat kost ramen wassen in Ronse?</summary>
+    <div class="answer"><p>De meeste woningen vallen tussen €49 en €110 per beurt, afhankelijk van bereikbaarheid en oppervlakte.</p></div>
+  </details>
+  <details>
+    <summary>Hoe werkt osmosewater?</summary>
+    <div class="answer"><p>Osmosewater bevat geen mineralen en laat daardoor geen kalk of residu achter — het droogt volledig streeploos op.</p></div>
+  </details>
+</section>
+</main>
+
+  <!-- Floating CTA buttons (1:1) -->
+  
+
+  <!-- FOOTER (1:1 van over-ons.html) -->
+  
+
+  <!-- Scripts (1:1 gedrag) -->
+  
+  <script>
+    // Hamburger toggle (identiek patroon)
+    (function(){
+      var btn = document.querySelector('.nav-toggle');
+      var list = document.getElementById('primary-nav');
+      if(!btn || !list) return;
+      function closeMenu(){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); list.style.display=''; }
+      btn.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
+        var isOpen = list.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if(isOpen){ list.style.display='flex'; } else { list.style.display=''; }
+      });
+      document.addEventListener('click', function(e){
+        if(window.matchMedia('(max-width: 900px)').matches){
+          if(list.classList.contains('open') && !list.contains(e.target) && e.target !== btn){ closeMenu(); }
+        }
+      });
+      window.addEventListener('resize', function(){ if(window.matchMedia('(min-width: 901px)').matches){ closeMenu(); } });
+      list.addEventListener('click', function(e){ var a = e.target.closest('a'); if(a && window.matchMedia('(max-width: 900px)').matches){ closeMenu(); } });
+    })();
+  </script>
+
+  <!-- BEGIN: Digitale Assistent Modal (globaal) -->
+  <div id="assistant-modal" aria-hidden="true" style="position:fixed;inset:0;display:none;z-index:9999;">
+    <div id="assistant-backdrop" style="position:absolute;inset:0;background:rgba(0,0,0,.45);"></div>
+    <div role="dialog" aria-label="Digitale assistent" style="position:relative;max-width:900px;width:92vw;height:min(85vh,900px);margin:4vh auto;background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);overflow:hidden;">
+      <button id="assistant-close" aria-label="Sluiten" style="position:absolute;top:10px;right:10px;width:40px;height:40px;border:0;border-radius:999px;background:#f3f3f3;cursor:pointer;font-size:22px;line-height:40px;">×</button>
+      <iframe title="Digitale assistent" src="about:blank" width="100%" style="height:100%;min-height:700px;border:0;" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="clipboard-write" data-external-src="https://www.chatbase.co/chatbot-iframe/TkHOZ_mxX3kecf30oT-ri" srcdoc="&lt;!doctype html&gt;&lt;html lang='nl'&gt;&lt;meta charset='utf-8'&gt;&lt;meta name='viewport' content='width=device-width'&gt;&lt;style&gt;body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;box-sizing:border-box;background:#f8fafc;color:#0b364f;text-align:center;font:600 15px/1.5 system-ui,sans-serif}&lt;/style&gt;&lt;p&gt;Deze externe inhoud wordt geladen nadat u marketingcookies toestaat via Cookievoorkeuren onderaan de pagina.&lt;/p&gt;&lt;/html&gt;" loading="lazy" id="digitale-assistent">
+      </iframe>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const modal = document.getElementById('assistant-modal');
+    const backdrop = document.getElementById('assistant-backdrop');
+    const closeBtn = document.getElementById('assistant-close');
+
+    function openAssistant(){ if(!modal) return; modal.style.display='block'; modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function closeAssistant(){ if(!modal) return; modal.style.display='none'; modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+
+    backdrop && backdrop.addEventListener('click', closeAssistant);
+    closeBtn && closeBtn.addEventListener('click', closeAssistant);
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeAssistant(); });
+
+    function wireAssistantLinks(root){
+      (root || document).querySelectorAll('a[href="#digitale-assistent"]').forEach(a=>{
+        a.addEventListener('click', function(e){ e.preventDefault(); if(location.hash!== '#digitale-assistent') history.replaceState(null,'',location.pathname + '#digitale-assistent'); openAssistant(); });
+      });
+    }
+    wireAssistantLinks();
+
+    if(location.hash === '#digitale-assistent') openAssistant();
+  })();
+  </script>
+  <!-- EINDE: Digitale Assistent Modal (globaal) -->
+
+</div><footer class="ox-site-footer" role="contentinfo">
+      <div class="ox-footer-inner">
+        <div class="ox-footer-col">
+          <p><strong>OsmoseXpert</strong></p>
+          <p>Streeploos schoon, veilig en duurzaam.</p>
+          <p><a href="/">Ronse</a> • <a href="/ramenwasser-kluisbergen/">Kluisbergen</a> • <a href="/ramenwasser-oudenaarde/">Oudenaarde</a></p>
+        </div>
+        <div class="ox-footer-col">
+          <p><strong>Contact</strong></p>
+          <p><a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+          <p><a href="tel:+32493673484">0493 67 34 84</a></p>
+        </div>
+        <div class="ox-footer-col">
+          <p><strong>Informatie</strong></p>
+          <p><a href="/privacy/">Privacy</a></p>
+          <p><a href="/cookiebeleid/">Cookies</a></p>
+          <p><a href="/voorwaarden/">Voorwaarden</a></p>
+          <p><a href="/cookiebeleid/#cookievoorkeuren" data-cookie-preferences>Cookievoorkeuren</a></p>
+        </div>
+      </div>
+      <div class="ox-footer-legal"><span>BTW BE0733.924.863</span><br>© <span data-current-year>2026</span> OsmoseXpert. Alle rechten voorbehouden.</div>
+    </footer><nav class="ox-floating-actions" aria-label="Snelle contactacties">
+      <a class="ox-floating-primary" href="/offerte/">Offerte aanvragen</a>
+      <span class="ox-floating-secondary">
+        <a class="ox-floating-icon" href="tel:+32493673484" aria-label="Bel OsmoseXpert op 0493 67 34 84"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92Z"></path></svg></a>
+        <a class="ox-floating-icon" href="https://wa.me/32493673484" target="_blank" rel="noopener noreferrer" aria-label="Stuur OsmoseXpert een WhatsApp-bericht"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3 1.4-4.2A7 7 0 0 1 3 13V8a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path><path d="M8 10h.01M12 10h.01M16 10h.01"></path></svg></a>
+      </span>
+    </nav><aside class="ox-cookie-banner" data-cookie-banner hidden aria-labelledby="ox-cookie-title" aria-live="polite">
+      <h2 id="ox-cookie-title">Uw privacy, uw keuze</h2>
+      <p>Noodzakelijke opslag onthoudt uw keuze. Analytische en marketingtechnologie laden pas als u daarvoor kiest. <a href="/cookiebeleid/">Lees het cookiebeleid</a>.</p>
+      <div class="ox-cookie-actions">
+        <button class="ox-cookie-button" type="button" data-consent-reject>Alles weigeren</button>
+        <button class="ox-cookie-button" type="button" data-consent-settings>Instellingen</button>
+        <button class="ox-cookie-button ox-cookie-button--accept" type="button" data-consent-accept>Alles toestaan</button>
+      </div>
+    </aside>
+    <dialog class="ox-cookie-dialog" data-cookie-dialog aria-labelledby="ox-cookie-dialog-title">
+      <div class="ox-cookie-dialog-inner">
+        <h2 id="ox-cookie-dialog-title">Cookievoorkeuren</h2>
+        <p>Kies welke niet-noodzakelijke technologieën mogen laden. U kunt deze keuze later altijd via de footer wijzigen.</p>
+        <div class="ox-cookie-choice"><label for="ox-consent-necessary">Noodzakelijk</label><p id="ox-consent-necessary-info">Onthoudt uw voorkeur en ondersteunt de basiswerking.</p><input id="ox-consent-necessary" type="checkbox" checked disabled aria-describedby="ox-consent-necessary-info"></div>
+        <div class="ox-cookie-choice"><label for="ox-consent-analytics">Analytisch</label><p id="ox-consent-analytics-info">Helpt pagina-gebruik en technische fouten te begrijpen.</p><input id="ox-consent-analytics" type="checkbox" aria-describedby="ox-consent-analytics-info"></div>
+        <div class="ox-cookie-choice"><label for="ox-consent-marketing">Marketing</label><p id="ox-consent-marketing-info">Meet advertentiecampagnes en laadt externe embeds.</p><input id="ox-consent-marketing" type="checkbox" aria-describedby="ox-consent-marketing-info"></div>
+        <div class="ox-cookie-actions">
+          <button class="ox-cookie-button" type="button" data-consent-close>Sluiten</button>
+          <button class="ox-cookie-button" type="button" data-consent-reject>Alles weigeren</button>
+          <button class="ox-cookie-button" type="button" data-consent-save>Keuze bewaren</button>
+          <button class="ox-cookie-button ox-cookie-button--accept" type="button" data-consent-accept>Alles toestaan</button>
+        </div>
+      </div>
+    </dialog><script src="/assets/js/site-shell.js" defer></script><script src="/assets/js/consent.js" defer data-gtm-id="GTM-W8T8WMTW" data-ads-id="AW-18100461257" data-ads-conversion-label="WQYWCJuGyJ8cEMm9_LZD"></script></body>
+</html>

@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Winteractie Ramenwasser | OsmoseXpert Ronse &amp; Oudenaarde</title>
+
+
+  <style>
+    :root{
+      --navy:#0b364f;          /* OsmoseXpert huiskleur */
+      --card:#ffffff;
+      --text:#1e293b;
+      --accent:#10b981;
+      --accentHover:#0ea371;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(16,185,129,0.25); }
+      50% { box-shadow: 0 0 40px rgba(16,185,129,0.45); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .wrap{
+      width:min(980px, 100%);
+      text-align:center;
+      animation: fadeInUp .8s ease both;
+    }
+
+    .panel{
+      border-radius: 22px;
+      padding: 42px 22px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+      backdrop-filter: blur(8px);
+    }
+
+    h1{
+      color:#ffffff;
+      font-weight:800;
+      letter-spacing:-0.02em;
+      font-size: clamp(28px, 3.2vw, 44px);
+      margin-bottom: 10px;
+      animation: fadeInUp .8s ease both;
+    }
+
+    .sub{
+      color: rgba(255,255,255,.92);
+      font-size: clamp(14px, 1.5vw, 18px);
+      margin-bottom: 10px;
+      animation: fadeInUp .9s ease both;
+    }
+
+    .enddate{
+      color: rgba(255,255,255,.95);
+      font-weight:800;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      font-size: 14px;
+      margin-bottom: 28px;
+      animation: fadeInUp 1s ease both;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(110px, 1fr));
+      gap: 14px;
+      width: min(720px, 100%);
+      margin: 0 auto 28px;
+    }
+
+    .card{
+      background: var(--card);
+      border-radius: 16px;
+      padding: 22px 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+      animation: glow 2s ease-in-out infinite, fadeInUp 1s ease both;
+    }
+
+    .value{
+      font-weight: 900;
+      line-height: 1;
+      font-size: clamp(34px, 4.5vw, 56px);
+      color: var(--text);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .label{
+      margin-top: 8px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text);
+      opacity: .95;
+    }
+
+    .cta{
+      display:inline-block;
+      background: var(--accent);
+      color:#ffffff;
+      text-decoration:none;
+      font-weight: 900;
+      border-radius: 12px;
+      padding: 14px 34px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 18px rgba(0,0,0,.22);
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+      animation: fadeInUp 1.1s ease both;
+    }
+
+    .cta:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.28);
+      background: var(--accentHover);
+    }
+
+    .expired{
+      display:none;
+      margin-top: 14px;
+      color: rgba(255,255,255,.95);
+      font-weight: 800;
+    }
+
+    @media (max-width: 760px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+<meta name="description" content="Profiteer nu van onze exclusieve winteractie bij OsmoseXpert! Professionele ramenreiniging in Ronse, Oudenaarde en Kluisbergen tegen scherpe tarieven. Wees er snel bij, de timer loopt!"><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://osmose-xpert.be/winteractie/"><meta name="theme-color" content="#0a3d62"><meta property="og:locale" content="nl_BE"><meta property="og:type" content="website"><meta property="og:site_name" content="OsmoseXpert"><meta property="og:title" content="Winteractie Ramenwasser | OsmoseXpert Ronse &amp; Oudenaarde"><meta property="og:description" content="Profiteer nu van onze exclusieve winteractie bij OsmoseXpert! Professionele ramenreiniging in Ronse, Oudenaarde en Kluisbergen tegen scherpe tarieven. Wees er snel bij, de timer loopt!"><meta property="og:url" content="https://osmose-xpert.be/winteractie/"><meta property="og:image" content="https://osmose-xpert.be/images/social/logo4.jpg"><meta property="og:image:width" content="1024"><meta property="og:image:height" content="512"><meta property="og:image:alt" content="OsmoseXpert – professionele ramenreiniging"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Winteractie Ramenwasser | OsmoseXpert Ronse &amp; Oudenaarde"><meta name="twitter:description" content="Profiteer nu van onze exclusieve winteractie bij OsmoseXpert! Professionele ramenreiniging in Ronse, Oudenaarde en Kluisbergen tegen scherpe tarieven. Wees er snel bij, de timer loopt!"><meta name="twitter:image" content="https://osmose-xpert.be/images/social/logo4.jpg"><link rel="icon" type="image/png" href="/images/favicons/favicon.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://osmose-xpert.be/winteractie/#webpage","url":"https://osmose-xpert.be/winteractie/","name":"Winteractie Ramenwasser | OsmoseXpert Ronse & Oudenaarde","description":"Profiteer nu van onze exclusieve winteractie bij OsmoseXpert! Professionele ramenreiniging in Ronse, Oudenaarde en Kluisbergen tegen scherpe tarieven. Wees er snel bij, de timer loopt!","inLanguage":"nl-BE","isPartOf":{"@id":"https://osmose-xpert.be/#website"},"about":{"@id":"https://osmose-xpert.be/#organization"},"dateModified":"2026-08-31"}]}</script><link rel="stylesheet" href="/assets/css/site-shell.css"></head>
+
+<body class="ox-page-winteractie ox-shell-body"><a class="ox-skip-link" href="#content">Ga naar de hoofdinhoud</a><nav class="ox-site-nav" data-open="false" aria-label="Hoofdmenu"><div class="ox-nav-inner"><a class="ox-nav-brand" href="/" aria-label="OsmoseXpert – naar de startpagina"><img src="/images/logo7.png" width="750" height="215" alt="OsmoseXpert"></a><button class="ox-nav-toggle" type="button" aria-expanded="false" aria-controls="ox-primary-nav" aria-label="Menu openen"><span class="ox-line" aria-hidden="true"></span><span class="ox-line" aria-hidden="true"></span><span class="ox-line" aria-hidden="true"></span></button><ul class="ox-nav-list" id="ox-primary-nav"><li><a href="/">Home</a></li><li><a href="/over-ons/">Over ons</a></li><li><a href="/diensten/">Diensten</a></li><li><a href="/prijzen/">Prijzen</a></li><li><a href="/onderhoudsplannen/">Onderhoudsplannen</a></li><li><a href="/voordelen/">Voordelen</a></li><li><a href="/contact/">Contact</a></li><li><a href="/faq/">FAQ</a></li></ul></div></nav><div class="ox-page-stage">
+  <main class="wrap" id="content" tabindex="-1">
+    <section class="panel" aria-label="Winteractie countdown">
+      <h1>Winteractie Eindigt Over</h1>
+      <p class="sub">Boek nu met extra korting!</p>
+      <p class="enddate">WINTERACTIE eindigt op: 21 januari 2026, 23:59</p>
+
+      <div class="grid" role="timer" aria-live="polite">
+        <div class="card ox-ui-card">
+          <div id="days" class="value">00</div>
+          <div class="label">Dagen</div>
+        </div>
+        <div class="card ox-ui-card">
+          <div id="hours" class="value">00</div>
+          <div class="label">Uren</div>
+        </div>
+        <div class="card ox-ui-card">
+          <div id="minutes" class="value">00</div>
+          <div class="label">Min</div>
+        </div>
+        <div class="card ox-ui-card">
+          <div id="seconds" class="value">00</div>
+          <div class="label">Sec</div>
+        </div>
+      </div>
+
+      <a class="cta" href="/offerte/">Offerte Aanvragen</a>
+      <div id="expired" class="expired">De winteractie is afgelopen.</div>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      const target = new Date("2026-01-21T23:59:59+01:00").getTime();
+
+      const elDays = document.getElementById("days");
+      const elHours = document.getElementById("hours");
+      const elMinutes = document.getElementById("minutes");
+      const elSeconds = document.getElementById("seconds");
+      const elExpired = document.getElementById("expired");
+
+      function pad2(n){ return String(n).padStart(2, "0"); }
+
+      function render(){
+        let diff = target - Date.now();
+        if (diff <= 0){
+          elDays.textContent = elHours.textContent =
+          elMinutes.textContent = elSeconds.textContent = "00";
+          elExpired.style.display = "block";
+          return false;
+        }
+
+        const d = Math.floor(diff / 86400000);
+        diff %= 86400000;
+        const h = Math.floor(diff / 3600000);
+        diff %= 3600000;
+        const m = Math.floor(diff / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+
+        elDays.textContent = pad2(d);
+        elHours.textContent = pad2(h);
+        elMinutes.textContent = pad2(m);
+        elSeconds.textContent = pad2(s);
+        return true;
+      }
+
+      render();
+      const t = setInterval(() => { if (!render()) clearInterval(t); }, 1000);
+    })();
+  </script>
+</div><footer class="ox-site-footer" role="contentinfo">
+      <div class="ox-footer-inner">
+        <div class="ox-footer-col">
+          <p><strong>OsmoseXpert</strong></p>
+          <p>Streeploos schoon, veilig en duurzaam.</p>
+          <p><a href="/">Ronse</a> • <a href="/ramenwasser-kluisbergen/">Kluisbergen</a> • <a href="/ramenwasser-oudenaarde/">Oudenaarde</a></p>
+        </div>
+        <div class="ox-footer-col">
+          <p><strong>Contact</strong></p>
+          <p><a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+          <p><a href="tel:+32493673484">0493 67 34 84</a></p>
+        </div>
+        <div class="ox-footer-col">
+          <p><strong>Informatie</strong></p>
+          <p><a href="/privacy/">Privacy</a></p>
+          <p><a href="/cookiebeleid/">Cookies</a></p>
+          <p><a href="/voorwaarden/">Voorwaarden</a></p>
+          <p><a href="/cookiebeleid/#cookievoorkeuren" data-cookie-preferences>Cookievoorkeuren</a></p>
+        </div>
+      </div>
+      <div class="ox-footer-legal"><span>BTW BE0733.924.863</span><br>© <span data-current-year>2026</span> OsmoseXpert. Alle rechten voorbehouden.</div>
+    </footer><aside class="ox-cookie-banner" data-cookie-banner hidden aria-labelledby="ox-cookie-title" aria-live="polite">
+      <h2 id="ox-cookie-title">Uw privacy, uw keuze</h2>
+      <p>Noodzakelijke opslag onthoudt uw keuze. Analytische en marketingtechnologie laden pas als u daarvoor kiest. <a href="/cookiebeleid/">Lees het cookiebeleid</a>.</p>
+      <div class="ox-cookie-actions">
+        <button class="ox-cookie-button" type="button" data-consent-reject>Alles weigeren</button>
+        <button class="ox-cookie-button" type="button" data-consent-settings>Instellingen</button>
+        <button class="ox-cookie-button ox-cookie-button--accept" type="button" data-consent-accept>Alles toestaan</button>
+      </div>
+    </aside>
+    <dialog class="ox-cookie-dialog" data-cookie-dialog aria-labelledby="ox-cookie-dialog-title">
+      <div class="ox-cookie-dialog-inner">
+        <h2 id="ox-cookie-dialog-title">Cookievoorkeuren</h2>
+        <p>Kies welke niet-noodzakelijke technologieën mogen laden. U kunt deze keuze later altijd via de footer wijzigen.</p>
+        <div class="ox-cookie-choice"><label for="ox-consent-necessary">Noodzakelijk</label><p id="ox-consent-necessary-info">Onthoudt uw voorkeur en ondersteunt de basiswerking.</p><input id="ox-consent-necessary" type="checkbox" checked disabled aria-describedby="ox-consent-necessary-info"></div>
+        <div class="ox-cookie-choice"><label for="ox-consent-analytics">Analytisch</label><p id="ox-consent-analytics-info">Helpt pagina-gebruik en technische fouten te begrijpen.</p><input id="ox-consent-analytics" type="checkbox" aria-describedby="ox-consent-analytics-info"></div>
+        <div class="ox-cookie-choice"><label for="ox-consent-marketing">Marketing</label><p id="ox-consent-marketing-info">Meet advertentiecampagnes en laadt externe embeds.</p><input id="ox-consent-marketing" type="checkbox" aria-describedby="ox-consent-marketing-info"></div>
+        <div class="ox-cookie-actions">
+          <button class="ox-cookie-button" type="button" data-consent-close>Sluiten</button>
+          <button class="ox-cookie-button" type="button" data-consent-reject>Alles weigeren</button>
+          <button class="ox-cookie-button" type="button" data-consent-save>Keuze bewaren</button>
+          <button class="ox-cookie-button ox-cookie-button--accept" type="button" data-consent-accept>Alles toestaan</button>
+        </div>
+      </div>
+    </dialog><script src="/assets/js/site-shell.js" defer></script><script src="/assets/js/consent.js" defer data-gtm-id="GTM-W8T8WMTW" data-ads-id="AW-18100461257" data-ads-conversion-label="WQYWCJuGyJ8cEMm9_LZD"></script></body>
+</html>

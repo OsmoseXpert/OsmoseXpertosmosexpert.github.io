@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Over ons | OsmoseXpert</title>
+  
+      
+
+  <!-- BASIS: variabelen en globale stijl (zoals diensten.html) -->
+  <style>
+   
+    :root{ --brand:#0f6ab8; --brand2:#29ABE2; --ink:#0b364f; --bg:#f6f9fc; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#0f172a;background:var(--bg);line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  </style>
+
+  <!-- NAV & DROPDOWN (1:1 overgenomen van diensten.html) -->
+  <style>
+    /* Sticky navigatie */
+    .nav{position:sticky;top:0;z-index:100;display:flex;justify-content:flex-end;padding:10px 16px;background:#fff;border-bottom:1px solid #e2e8f0}
+    .nav.blue-bg{background:linear-gradient(90deg,#03304f,#00304e);border-bottom:0}
+
+    /* Hamburger rechts met drie streepjes */
+    .nav-toggle{background:transparent;border:0;width:44px;height:44px;padding:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+    .nav-toggle .line{width:24px;height:3px;border-radius:2px;background:#0b364f}
+    .nav.white-bg .nav-toggle .line{background:#0b364f}   /* witte achtergrond → huisblauw streepjes */
+    .nav.blue-bg .nav-toggle .line{background:#fff}       /* blauwe header → witte streepjes */
+    .nav-toggle:focus{outline:2px solid #29ABE2;outline-offset:2px}
+
+    /* Lijst basis */
+    .nav-list{display:none}
+
+    /* Mobiel dropdown */
+    @media (max-width:900px){
+      .nav-list{position:absolute;top:56px;right:12px;display:none;flex-direction:column;gap:10px;background:#fff;border:1px solid #e2e8f0;padding:12px;border-radius:14px;box-shadow:0 12px 30px rgba(2,18,33,.22);width:min(86vw,360px);z-index:101}
+      .nav-list.open{display:flex !important}
+      .nav-list li{list-style:none}
+      .nav-list a{display:block;padding:12px 14px;color:var(--ink);border-radius:10px}
+      .nav-list a:hover{background:#eef5ff}
+      .nav-list a.active,.nav-list a[aria-current="page"]{background:#e7f1ff;box-shadow:inset 0 0 0 1px rgba(15,106,184,.08)}
+    }
+
+    /* Desktop: gecentreerd menu (origineel, zonder hamburger) */
+    @media (min-width:901px){
+      .nav{justify-content:center}
+      .nav-toggle{display:none}
+      .nav-list{display:flex;gap:20px;position:static;border:0;box-shadow:none;background:transparent;padding:0}
+      .nav-list li{list-style:none}
+      .nav-list a{padding:6px 12px;border-radius:6px;color:#0f172a;text-decoration:none;font-weight:600}
+      .nav-list a:hover{background:#e6f0fa}
+      /* Page selector (actieve tab) – gradient chip identiek aan diensten.html */
+      .nav-list a.active,.nav-list a[aria-current="page"]{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:999px;box-shadow:0 6px 14px rgba(15,106,184,.25)}
+    }
+  </style>
+
+  <!-- SUBHERO/BANNER (zelfde kleur en typografie als diensten.html) -->
+  <style>
+    .subhero{background:linear-gradient(90deg,#03304f,#00304e);color:#fff;padding:40px 20px;display:flex;align-items:center;justify-content:center}
+    .subhero .wrap{max-width:1100px;width:100%}
+    .subhero h1{margin:0 0 0 20px;font-size:clamp(22px,2.4vw,28px);color:#f3f7fb}
+    .subhero .subtitle{color:#cfe4ff;font-size:clamp(14px,1.4vw,17px);font-weight:500;margin-left:24px}
+
+    /* Mobiel: banner compacter (match diensten) */
+    @media (max-width:900px){
+      .subhero{padding:20px 16px}
+      .subhero h1{margin:0;font-size:20px}
+      .subhero .subtitle{font-size:14px;margin:4px 0 0 20px}
+    }
+  </style>
+
+  <!-- (Optioneel) bestaande pagina-specifieke styles voor content-blokken -->
+  <style>
+    main .section{background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,.05);padding:22px;margin:26px 0}
+    .section h2{color:#0a3d62;font-size:1.4rem;margin-bottom:12px}
+    .section p{margin-bottom:16px}
+    .usp-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;padding:0}
+    .usp-list li{position:relative;padding:10px 12px 10px 30px;border:1px solid #e2e8f0;border-radius:10px;background:#fafcff;box-shadow:0 2px 6px rgba(0,0,0,.03)}
+    .usp-list li::before{content:'✔';position:absolute;left:10px;top:10px;color:var(--brand);font-weight:700}
+    .steps{counter-reset:step;list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+    .steps li{position:relative;padding:12px 14px 12px 44px;border:1px solid #e2e8f0;border-radius:10px;background:#fff}
+    .steps li::before{counter-increment:step;content:counter(step) ".";position:absolute;left:12px;top:12px;font-weight:700;color:#0f6ab8}
+  </style>
+  <!-- Calendly widget (voor 'Boek nu') -->
+  
+  
+  
+  <!-- Floating CTA styles -->
+  <style id="floating-cta-styles">
+    .floating-cta{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;flex-direction:column;gap:12px;transition:opacity .25s ease,transform .25s ease}
+    .floating-cta.hidden{opacity:0;transform:translateY(16px);pointer-events:none}
+    .floating-cta .cta-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:999px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.15);transition:transform .15s ease,box-shadow .15s ease}
+    .floating-cta .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.2)}
+    .floating-cta .cta-offerte{background:#10b981}
+    .floating-cta .cta-boek{background:#2563eb}
+    @media (max-width:480px){.floating-cta{right:12px;bottom:12px}.floating-cta .cta-btn{padding:12px 14px;font-size:15px}}
+  </style>
+    
+<meta name="description" content="Maak kennis met OsmoseXpert: lokale, professionele ramenreiniging met osmosewater vanuit Ronse."><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><link rel="canonical" href="https://osmose-xpert.be/over-ons/"><meta name="theme-color" content="#0a3d62"><meta property="og:locale" content="nl_BE"><meta property="og:type" content="website"><meta property="og:site_name" content="OsmoseXpert"><meta property="og:title" content="Over ons | OsmoseXpert"><meta property="og:description" content="Maak kennis met OsmoseXpert: lokale, professionele ramenreiniging met osmosewater vanuit Ronse."><meta property="og:url" content="https://osmose-xpert.be/over-ons/"><meta property="og:image" content="https://osmose-xpert.be/images/social/logo4.jpg"><meta property="og:image:width" content="1024"><meta property="og:image:height" content="512"><meta property="og:image:alt" content="OsmoseXpert – professionele ramenreiniging"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Over ons | OsmoseXpert"><meta name="twitter:description" content="Maak kennis met OsmoseXpert: lokale, professionele ramenreiniging met osmosewater vanuit Ronse."><meta name="twitter:image" content="https://osmose-xpert.be/images/social/logo4.jpg"><link rel="icon" type="image/png" href="/images/favicons/favicon.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://osmose-xpert.be/over-ons/#webpage","url":"https://osmose-xpert.be/over-ons/","name":"Over ons | OsmoseXpert","description":"Maak kennis met OsmoseXpert: lokale, professionele ramenreiniging met osmosewater vanuit Ronse.","inLanguage":"nl-BE","isPartOf":{"@id":"https://osmose-xpert.be/#website"},"about":{"@id":"https://osmose-xpert.be/#organization"},"dateModified":"2026-08-31"}]}</script><link rel="stylesheet" href="/assets/css/site-shell.css"></head>
+
+<body class="over-ons-page ox-has-floating ox-page-over-ons ox-shell-body"><a class="ox-skip-link" href="#content">Ga naar de hoofdinhoud</a><nav class="ox-site-nav" data-open="false" aria-label="Hoofdmenu"><div class="ox-nav-inner"><a class="ox-nav-brand" href="/" aria-label="OsmoseXpert – naar de startpagina"><img src="/images/logo7.png" width="750" height="215" alt="OsmoseXpert"></a><button class="ox-nav-toggle" type="button" aria-expanded="false" aria-controls="ox-primary-nav" aria-label="Menu openen"><span class="ox-line" aria-hidden="true"></span><span class="ox-line" aria-hidden="true"></span><span class="ox-line" aria-hidden="true"></span></button><ul class="ox-nav-list" id="ox-primary-nav"><li><a href="/">Home</a></li><li><a href="/over-ons/" aria-current="page">Over ons</a></li><li><a href="/diensten/">Diensten</a></li><li><a href="/prijzen/">Prijzen</a></li><li><a href="/onderhoudsplannen/">Onderhoudsplannen</a></li><li><a href="/voordelen/">Voordelen</a></li><li><a href="/contact/">Contact</a></li><li><a href="/faq/">FAQ</a></li></ul></div></nav><div class="ox-page-stage">
+  <!-- NAVIGATIE (gekopieerd patroon; active op Over ons) -->
+  
+
+  <!-- BANNER (zelfde kleur/lettertype; eigen titel en subtitel) -->
+  <header class="subhero">
+    <div class="wrap">
+      <h1>Over ons</h1>
+      <p class="subtitle">Onze missie en identiteit Ontdek ook onze <a href="/diensten/">diensten voor ramenreiniging met osmosewater</a> of <a href="/contact/">neem contact op</a> voor jouw woning of bedrijf in Ronse en omgeving.</p>
+    </div>
+  </header>
+
+  <!-- INHOUD (ongewijzigd; voeg hier je bestaande sections in) -->
+  <main id="content" class="container" tabindex="-1">
+    <!-- Onze oorsprong -->
+    <section class="ox-ui-surface section">
+      <h2>Onze oorsprong</h2>
+      <p>OsmoseXpert is ontstaan vanuit een eenvoudige overtuiging: ramen en zonnepanelen verdienen een behandeling die tegelijk grondig, veilig en milieuvriendelijk is. Vanuit Ronse bedienen we de regio Kluisbergen en Oudenaarde. We combineren moderne osmose‑technologie met vakmanschap en een consequente focus op kwaliteit.</p>
+      <p>Het resultaat? Glasheldere ramen, veranda’s en zonnepanelen die langer schoon blijven. Zonder agressieve schoonmaakmiddelen. Zonder ladders tegen gevels. <strong>Wel</strong> met respect voor uw eigendom en omgeving.</p>
+    </section>
+
+    <!-- Missie & waarden -->
+    <section class="ox-ui-surface section">
+      <h2>Missie &amp; waarden</h2>
+      <ul class="usp-list">
+        <li><strong>Kwaliteit zonder compromis:</strong> elk detail telt; wij werken alsof het ons eigen pand is.</li>
+        <li><strong>Transparantie:</strong> duidelijke communicatie, heldere verwachtingen en eerlijke prijzen.</li>
+        <li><strong>Duurzaam &amp; veilig:</strong> osmosewater is 100% puur; geen residu, veilig voor mens, tuin en materiaal.</li>
+        <li><strong>Betrouwbaarheid:</strong> afspraak = afspraak. We komen op tijd en laten alles netjes achter.</li>
+        <li><strong>Tevredenheidsgarantie:</strong> niet tevreden? Dan komen wij gratis terug.</li>
+        <li><strong>Verfijning in uitvoering:</strong> van voorbereiding tot afwerking werken we nauwkeurig en met oog voor detail.</li>
+      </ul>
+    </section>
+
+    <!-- Onze werkwijze -->
+    <section class="ox-ui-surface section">
+      <h2>Onze werkwijze</h2>
+      <p>Wij reinigen met professionele waterfed pole‑systemen tot circa 15 meter hoogte, vanaf de grond. Dat betekent: geen risico op krassen door ladders, geen onnodig betreden van daken en een strak, consistent resultaat.</p>
+      <ul class="steps">
+        <li><strong>Inspectie &amp; planning:</strong> we bekijken uw ramen/glaspartijen en stemmen een passende frequentie af.</li>
+        <li><strong>Voorbereiding:</strong> we spoelen oppervlakken eerst grondig door zodat vuil loskomt.</li>
+        <li><strong>Reiniging met osmosewater:</strong> het ultra‑zuivere water neemt vuil mee en droogt streeploos op.</li>
+        <li><strong>Nacontrole:</strong> we checken het geheel en werken indien nodig bij voor een perfect eindresultaat.</li>
+        <li><strong>Discretie &amp; netheid:</strong> we werken stil, ruimen al het materiaal ordelijk op en laten uw omgeving properer achter dan we ze aantroffen.</li>
+        <li><strong>Feedback &amp; opvolging:</strong> na elke reiniging korte check-in; we passen waar nodig het onderhoudsplan aan.</li>
+      </ul>
+    </section>
+
+    <!-- Technologie -->
+    <section class="ox-ui-surface section">
+      <h2>Technologie die het verschil maakt</h2>
+      <p>Osmosewater (0 ppm) bevat geen mineralen of zouten. Daardoor laat het geen druppelranden achter en stoot het nieuwe vervuiling langer af. In combinatie met zachte, niet‑krassende borstels beschermen we kwetsbare ondergronden zoals houten kozijnen en gecoat glas.</p>
+    </section>
+
+    <!-- Regio & klanten -->
+    <section class="ox-ui-surface section">
+      <h2>Regio &amp; klanten</h2>
+      <p>We zijn lokaal verankerd in Ronse en actief in Kluisbergen en Oudenaarde. Particulieren, vrije beroepen en KMO’s vertrouwen op ons voor ramen, glasgevels, veranda’s/serres en zonnepanelen. Voor grotere projecten maken we eerst een plaatsbezoek en werken we een transparante offerte op maat uit.</p>
+    </section>
+
+    <!-- Wat u mag verwachten -->
+    <section class="ox-ui-surface section">
+      <h2>Wat u mag verwachten</h2>
+      <ul class="usp-list">
+        <li><strong>Streeploos resultaat</strong> met tevredenheidsgarantie.</li>
+        <li><strong>Discreet en geluidsarm</strong> werken, met oog voor uw privacy.</li>
+        <li><strong>Geen chemische producten</strong>, geen zeepresten, langer schoon effect.</li>
+        <li><strong>Heldere communicatie:</strong> vaste contactpersoon en duidelijke afspraken.</li>
+      </ul>
+      <div class="cta-row">
+        <a href="/offerte/" class="ox-ui-button ox-ui-button--quote pill">Offerte aanvragen</a>
+        <a href="/contact/" class="ox-ui-button ox-ui-button--brand pill">Boek kennismaking</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating CTA buttons -->
+  
+
+  <!-- Footer -->
+  
+
+  <!-- Scripts: CTA gedrag en Calendly popup -->
+  
+
+  <!-- JS: hamburger toggle (identiek aan diensten.html) -->
+  <script>
+  (function(){
+    var btn = document.querySelector('.nav-toggle');
+    var list = document.getElementById('primary-nav');
+    if(!btn || !list) return;
+
+    function closeMenu(){
+      list.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      list.style.display = '';
+    }
+
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = list.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if(isOpen){ list.style.display='flex'; } else { list.style.display=''; }
+    });
+
+    document.addEventListener('click', function(e){
+      if(window.matchMedia('(max-width: 900px)').matches){
+        if(list.classList.contains('open') && !list.contains(e.target) && e.target !== btn){
+          closeMenu();
+        }
+      }
+    });
+
+    window.addEventListener('resize', function(){
+      if(window.matchMedia('(min-width: 901px)').matches){
+        closeMenu();
+      }
+    });
+
+    list.addEventListener('click', function(e){
+      var a = e.target.closest('a');
+      if(a && window.matchMedia('(max-width: 900px)').matches){
+        closeMenu();
+      }
+    });
+  })();
+  </script>
+
+<!-- BEGIN OsmoseXpert Cookie Consent (page-lock, modal, 2 buttons) -->
+
+
+
+
+
+
+<!-- END OsmoseXpert Cookie Consent -->
+
+
+<section class="facebook-cta" style="padding:40px 0; text-align:center;">
+  <a href="https://www.facebook.com/osmosexpert" target="_blank" style="display:inline-block; background:#1877F2; color:white; padding:14px 24px; border-radius:6px; font-size:18px; text-decoration:none; font-weight:600;" rel="noopener noreferrer">
+    Volg ons op Facebook
+  </a>
+  <p style="margin-top:12px; font-size:16px; color:#444;">
+    Op onze Facebookpagina vind je recente updates, voor-en-na resultaten, acties en inzichten in onze werkwijze.
+  </p>
+</section>
+
+</div><footer class="ox-site-footer" role="contentinfo">
+      <div class="ox-footer-inner">
+        <div class="ox-footer-col">
+          <p><strong>OsmoseXpert</strong></p>
+          <p>Streeploos schoon, veilig en duurzaam.</p>
+          <p><a href="/">Ronse</a> • <a href="/ramenwasser-kluisbergen/">Kluisbergen</a> • <a href="/ramenwasser-oudenaarde/">Oudenaarde</a></p>
+        </div>
+        <div class="ox-footer-col">
+          <p><strong>Contact</strong></p>
+          <p><a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+          <p><a href="tel:+32493673484">0493 67 34 84</a></p>
+        </div>
+        <div class="ox-footer-col">
+          <p><strong>Informatie</strong></p>
+          <p><a href="/privacy/">Privacy</a></p>
+          <p><a href="/cookiebeleid/">Cookies</a></p>
+          <p><a href="/voorwaarden/">Voorwaarden</a></p>
+          <p><a href="/cookiebeleid/#cookievoorkeuren" data-cookie-preferences>Cookievoorkeuren</a></p>
+        </div>
+      </div>
+      <div class="ox-footer-legal"><span>BTW BE0733.924.863</span><br>© <span data-current-year>2026</span> OsmoseXpert. Alle rechten voorbehouden.</div>
+    </footer><nav class="ox-floating-actions" aria-label="Snelle contactacties">
+      <a class="ox-floating-primary" href="/offerte/">Offerte aanvragen</a>
+      <span class="ox-floating-secondary">
+        <a class="ox-floating-icon" href="tel:+32493673484" aria-label="Bel OsmoseXpert op 0493 67 34 84"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92Z"></path></svg></a>
+        <a class="ox-floating-icon" href="https://wa.me/32493673484" target="_blank" rel="noopener noreferrer" aria-label="Stuur OsmoseXpert een WhatsApp-bericht"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3 1.4-4.2A7 7 0 0 1 3 13V8a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path><path d="M8 10h.01M12 10h.01M16 10h.01"></path></svg></a>
+      </span>
+    </nav><aside class="ox-cookie-banner" data-cookie-banner hidden aria-labelledby="ox-cookie-title" aria-live="polite">
+      <h2 id="ox-cookie-title">Uw privacy, uw keuze</h2>
+      <p>Noodzakelijke opslag onthoudt uw keuze. Analytische en marketingtechnologie laden pas als u daarvoor kiest. <a href="/cookiebeleid/">Lees het cookiebeleid</a>.</p>
+      <div class="ox-cookie-actions">
+        <button class="ox-cookie-button" type="button" data-consent-reject>Alles weigeren</button>
+        <button class="ox-cookie-button" type="button" data-consent-settings>Instellingen</button>
+        <button class="ox-cookie-button ox-cookie-button--accept" type="button" data-consent-accept>Alles toestaan</button>
+      </div>
+    </aside>
+    <dialog class="ox-cookie-dialog" data-cookie-dialog aria-labelledby="ox-cookie-dialog-title">
+      <div class="ox-cookie-dialog-inner">
+        <h2 id="ox-cookie-dialog-title">Cookievoorkeuren</h2>
+        <p>Kies welke niet-noodzakelijke technologieën mogen laden. U kunt deze keuze later altijd via de footer wijzigen.</p>
+        <div class="ox-cookie-choice"><label for="ox-consent-necessary">Noodzakelijk</label><p id="ox-consent-necessary-info">Onthoudt uw voorkeur en ondersteunt de basiswerking.</p><input id="ox-consent-necessary" type="checkbox" checked disabled aria-describedby="ox-consent-necessary-info"></div>
+        <div class="ox-cookie-choice"><label for="ox-consent-analytics">Analytisch</label><p id="ox-consent-analytics-info">Helpt pagina-gebruik en technische fouten te begrijpen.</p><input id="ox-consent-analytics" type="checkbox" aria-describedby="ox-consent-analytics-info"></div>
+        <div class="ox-cookie-choice"><label for="ox-consent-marketing">Marketing</label><p id="ox-consent-marketing-info">Meet advertentiecampagnes en laadt externe embeds.</p><input id="ox-consent-marketing" type="checkbox" aria-describedby="ox-consent-marketing-info"></div>
+        <div class="ox-cookie-actions">
+          <button class="ox-cookie-button" type="button" data-consent-close>Sluiten</button>
+          <button class="ox-cookie-button" type="button" data-consent-reject>Alles weigeren</button>
+          <button class="ox-cookie-button" type="button" data-consent-save>Keuze bewaren</button>
+          <button class="ox-cookie-button ox-cookie-button--accept" type="button" data-consent-accept>Alles toestaan</button>
+        </div>
+      </div>
+    </dialog><script src="/assets/js/site-shell.js" defer></script><script src="/assets/js/consent.js" defer data-gtm-id="GTM-W8T8WMTW" data-ads-id="AW-18100461257" data-ads-conversion-label="WQYWCJuGyJ8cEMm9_LZD"></script></body>
+</html>

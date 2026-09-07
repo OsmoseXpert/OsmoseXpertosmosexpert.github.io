@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+   
+  
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  
+  <title>Offerte aanvragen — OsmoseXpert</title>
+  <style>
+    :root {
+      --brand-main: #0a4d8a;
+      --brand-dark: #073661;
+      --brand-accent: #3b82f6;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #cbd5e1;
+      --bg-page: #f1f5f9;
+      --prog-orange: #f59e0b;
+      --prog-green: #10b981;
+      --info-bg: #f7fee7;
+      --info-border: #d9f99d;
+      --info-text: #1f2937;
+    }
+
+    * { 
+      box-sizing: border-box; 
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Video Header Banner */
+    .video-header {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--brand-dark);
+    }
+
+    .video-header video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%) scale(0.9);
+      object-fit: cover;
+      object-position: center center;
+      z-index: 1;
+    }
+
+    .video-header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(7, 54, 97, 0.55);
+      z-index: 2;
+    }
+
+    .video-header-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .logo-container img {
+      max-width: 320px;
+      width: 85%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    }
+
+    .video-header-content p { 
+      margin: 15px 0 0; 
+      opacity: 0.95; 
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      padding: 0 10px;
+    }
+
+    .promo-banner {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background: #fff;
+      border-bottom: 2px solid var(--info-border);
+      padding: 12px 15px;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .promo-main {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .promo-banner span.title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--brand-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .promo-banner span.sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .promo-icon {
+      color: var(--prog-green);
+      flex-shrink: 0;
+    }
+
+    main {
+      max-width: 940px; 
+      margin: 20px auto 60px;
+      padding: 0 15px;
+    }
+
+    .form-container {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      font-size: 13px;
+      color: var(--brand-main);
+      border-bottom: 2px solid var(--bg-page);
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 .step-num {
+        background: var(--brand-main);
+        color: #fff;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        flex-shrink: 0;
+    }
+
+    .row { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 20px; 
+      margin-bottom: 20px; 
+    }
+
+    .field { 
+      margin-bottom: 20px; 
+      position: relative; 
+    }
+
+    label { 
+      display: block; 
+      font-size: 11px; 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      margin-bottom: 6px; 
+      color: var(--text-muted); 
+    }
+
+    .req { color: #dc2626; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 16px;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+      padding-right: 40px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--brand-accent);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    }
+
+    /* UPLOAD BOX STYLING */
+    .upload-area {
+      border: 2px dashed var(--border-color);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      background: #f8fafc;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .upload-area:hover, .upload-area.dragover {
+      border-color: var(--brand-accent);
+      background: #eff6ff;
+    }
+
+    .upload-icon {
+      color: var(--brand-main);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .upload-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .upload-subtext {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    #file-list {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--brand-main);
+      font-weight: 700;
+    }
+
+    .benefit-badge {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--prog-green);
+      background: #ecfdf5;
+      padding: 6px 12px;
+      border-radius: 20px;
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-badge.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-submit {
+      background: var(--brand-main);
+      color: #fff;
+      border: none;
+      padding: 18px 24px;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 12px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      transition: transform 0.2s, background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98);
+      background: var(--brand-dark);
+    }
+
+    .info-box {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: var(--info-bg);
+      border: 1px solid var(--info-border);
+      border-radius: 12px;
+      color: var(--info-text);
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 600px) {
+      .row { grid-template-columns: 1fr; gap: 0; }
+      .form-container { padding: 25px 20px; }
+      .video-header { height: 280px; }
+      .video-header-content p { font-size: 14px; }
+      .promo-banner span.title { font-size: 13px; }
+      .promo-banner span.sub { font-size: 11px; }
+      input, select, textarea { margin-bottom: 5px; }
+    }
+
+    @media (min-width: 801px) {
+      .form-container { padding: 50px 60px; }
+      .btn-submit { padding: 22px 32px; font-size: 16px; border-radius: 50px; }
+    }
+  </style>
+<meta name="description" content="Vraag vrijblijvend een persoonlijke offerte aan voor ramenreiniging, zonnepanelen of een combinatie bij OsmoseXpert."><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><link rel="canonical" href="https://osmose-xpert.be/offerte/"><meta name="theme-color" content="#0a3d62"><meta property="og:locale" content="nl_BE"><meta property="og:type" content="website"><meta property="og:site_name" content="OsmoseXpert"><meta property="og:title" content="Offerte aanvragen — OsmoseXpert"><meta property="og:description" content="Vraag vrijblijvend een persoonlijke offerte aan voor ramenreiniging, zonnepanelen of een combinatie bij OsmoseXpert."><meta property="og:url" content="https://osmose-xpert.be/offerte/"><meta property="og:image" content="https://osmose-xpert.be/images/social/logo4.jpg"><meta property="og:image:width" content="1024"><meta property="og:image:height" content="512"><meta property="og:image:alt" content="OsmoseXpert – professionele ramenreiniging"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Offerte aanvragen — OsmoseXpert"><meta name="twitter:description" content="Vraag vrijblijvend een persoonlijke offerte aan voor ramenreiniging, zonnepanelen of een combinatie bij OsmoseXpert."><meta name="twitter:image" content="https://osmose-xpert.be/images/social/logo4.jpg"><link rel="icon" type="image/png" href="/images/favicons/favicon.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://osmose-xpert.be/offerte/#webpage","url":"https://osmose-xpert.be/offerte/","name":"Offerte aanvragen — OsmoseXpert","description":"Vraag vrijblijvend een persoonlijke offerte aan voor ramenreiniging, zonnepanelen of een combinatie bij OsmoseXpert.","inLanguage":"nl-BE","isPartOf":{"@id":"https://osmose-xpert.be/#website"},"about":{"@id":"https://osmose-xpert.be/#organization"},"dateModified":"2026-08-31"}]}</script><link rel="stylesheet" href="/assets/css/site-shell.css"></head>
+<body class="ox-page-offerte ox-shell-body"><a class="ox-skip-link" href="#content">Ga naar de hoofdinhoud</a><nav class="ox-site-nav" data-open="false" aria-label="Hoofdmenu"><div class="ox-nav-inner"><a class="ox-nav-brand" href="/" aria-label="OsmoseXpert – naar de startpagina"><img src="/images/logo7.png" width="750" height="215" alt="OsmoseXpert"></a><button class="ox-nav-toggle" type="button" aria-expanded="false" aria-controls="ox-primary-nav" aria-label="Menu openen"><span class="ox-line" aria-hidden="true"></span><span class="ox-line" aria-hidden="true"></span><span class="ox-line" aria-hidden="true"></span></button><ul class="ox-nav-list" id="ox-primary-nav"><li><a href="/">Home</a></li><li><a href="/over-ons/">Over ons</a></li><li><a href="/diensten/">Diensten</a></li><li><a href="/prijzen/">Prijzen</a></li><li><a href="/onderhoudsplannen/">Onderhoudsplannen</a></li><li><a href="/voordelen/">Voordelen</a></li><li><a href="/contact/">Contact</a></li><li><a href="/faq/">FAQ</a></li></ul></div></nav><div class="ox-page-stage">
+
+<header class="video-header">
+  <video autoplay loop muted playsinline poster="/images/offerte-video-poster.webp" preload="metadata">
+    <source src="/assets/assets/video/ClipWernerVanDorpe.mp4" type="video/mp4">
+    Uw browser ondersteunt geen video.
+  </source></video>
+  <div class="video-header-overlay"></div>
+  <div class="video-header-content">
+    <div class="logo-container">
+      <img src="/images/typography.logo.png" alt="OsmoseXpert Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" decoding="async" width="640" height="360">
+      <h1 style="display:none;">OsmoseXpert</h1>
+    </div>
+    <p>Streeploos schoon — Zorgeloos helder</p>
+  </div>
+</header>
+
+<div class="promo-banner">
+  <div class="promo-main">
+    <svg class="promo-icon" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span class="title">Binnen 24u uw persoonlijke offerte</span>
+  </div>
+  <span class="sub">Slechts 1 minuut werk — 100% vrijblijvend</span>
+</div>
+
+<main id="content" tabindex="-1">
+  <div class="form-container">
+    <form id="offerteForm" action="https://formspree.io/f/xvgbjdav" method="POST" enctype="multipart/form-data">
+      
+      <input type="hidden" name="_subject" value="Nieuwe offerteaanvraag via OsmoseXpert"><input type="hidden" name="_next" value="https://osmose-xpert.be/bedankt/?sent=quote">
+      
+      <section>
+        <h2><span class="step-num">1</span> Contactgegevens</h2>
+        <div class="row">
+          <div class="field">
+            <label for="voornaam">Voornaam <span class="req">*</span></label>
+            <input type="text" id="voornaam" name="voornaam" placeholder="Uw voornaam" required autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="achternaam">Achternaam <span class="req">*</span></label>
+            <input type="text" id="achternaam" name="achternaam" placeholder="Uw achternaam" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="email">E-mailadres <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="naam@voorbeeld.be" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="tel">Telefoonnummer <span class="req">*</span></label>
+            <input type="tel" id="tel" name="telefoon" placeholder="Bijv. 0470 00 00 00" required autocomplete="tel">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2><span class="step-num">2</span> Projectgegevens</h2>
+        <div class="field">
+          <label for="adres">Uitvoeringsadres <span class="req">*</span></label>
+          <input type="text" id="adres" name="adres" placeholder="Straat, nr, postcode &amp; gemeente" required autocomplete="street-address">
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="klant">Ik ben een... <span class="req">*</span></label>
+            <select id="klant" name="klanttype" required>
+              <option value="particulier">Particulier</option>
+              <option value="zakelijk">Zakelijke klant (B2B)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="dienst">Gewenste Dienst <span class="req">*</span></label>
+            <select id="dienst" name="dienst" required>
+              <option value="ramen">Ramenreiniging</option>
+              <option value="zonnepanelen">Zonnepanelen</option>
+              <option value="combi">Combi (Ramen + Panelen)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="b2b-block" class="hidden">
+          <div class="field">
+            <label for="bedrijf">Bedrijfsnaam <span class="req">*</span></label>
+            <input type="text" id="bedrijf" name="bedrijfsnaam" placeholder="Naam van uw onderneming">
+          </div>
+          <div class="field">
+            <label for="btw">BTW-nummer <span class="req">*</span></label>
+            <input type="text" id="btw" name="btw_nummer" placeholder="Bijv. BE 0XXX.XXX.XXX">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2><span class="step-num">3</span> Foto's toevoegen (Optioneel voor meer nauwkeurigheid)</h2>
+        <div class="field">
+          <label for="file-upload">Foto's van het project</label>
+          <div class="upload-area" id="drop-zone" onclick="document.getElementById('file-upload').click()">
+            <svg class="upload-icon" width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            <span class="upload-text">Klik hier of sleep foto's om te uploaden</span>
+            <span class="upload-subtext">Foto's helpen ons om een snellere en accuratere offerte te maken.</span>
+            <input type="file" id="file-upload" name="fotos" multiple accept="image/*" class="hidden">
+            <div id="file-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2><span class="step-num">4</span> Voorkeuren &amp; Aanvulling</h2>
+        
+        <div class="field">
+          <label for="plan">Bespaar op uw onderhoud <span class="req">*</span></label>
+          <select id="plan" name="onderhoudsplan" required>
+            <option value="geen">Eenmalige reiniging (geen korting)</option>
+            <option value="bronze" data-discount="5">Bronze (2 x / jaar) — 5% Korting</option>
+            <option value="silver" data-discount="10" selected>Silver (4 x / jaar) — 10% Korting</option>
+            <option value="gold" data-discount="15">Gold (6 x / jaar) — 15% Korting</option>
+            <option value="platinum" data-discount="20">Platinum (Maandelijks) — 20% Korting</option>
+          </select>
+          <div id="plan-benefit" class="benefit-badge active">U bespaart direct 10% op uw reinigingen!</div>
+        </div>
+
+        <div class="field">
+            <label for="herkomst">Hoe heeft u ons gevonden? <span class="req">*</span></label>
+            <select id="herkomst" name="herkomst" required>
+                <option value="" disabled selected>Maak een keuze...</option>
+                <option value="google">Via Google</option>
+                <option value="facebook">Sociale Media</option>
+                <option value="buren">Via buren / kennissen</option>
+                <option value="bestelwagen">Bestelwagen gezien</option>
+                <option value="flyer">Flyer</option>
+                <option value="andere">Andere</option>
+            </select>
+        </div>
+
+        <div class="field">
+          <label for="opm">Extra info of vragen</label>
+          <textarea id="opm" name="opmerkingen" rows="4" placeholder="Bijv. aantal ramen, verdiepingen of bereikbaarheid."></textarea>
+        </div>
+      </section>
+
+      <button type="submit" class="btn-submit ox-ui-button ox-ui-button--quote" id="sbtn">
+        <span>Stuur mijn aanvraag</span>
+        <svg class="arrow-icon" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+
+      <div class="info-box">
+        Deze aanvraag is <strong>100% vrijblijvend</strong>. Uw gegevens worden enkel gebruikt om u een nauwkeurig voorstel te sturen.<br>
+        <div style="margin-top: 10px; font-size: 12px; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 10px; opacity: 0.8;">
+          Door te verzenden gaat u akkoord met onze 
+          <a href="/privacy/" target="_blank" style="color: inherit; text-decoration: underline;" rel="noopener noreferrer">privacyverklaring</a> 
+          en onze 
+          <a href="/voorwaarden/" target="_blank" style="color: inherit; text-decoration: underline;" rel="noopener noreferrer">algemene voorwaarden</a>.
+        </div>
+      </div>
+      
+      <input type="text" name="_gotcha" style="display:none">
+    </form>
+  </div>
+</main>
+
+<script>
+  const form = document.getElementById('offerteForm');
+  const klant = document.getElementById('klant');
+  const planSelect = document.getElementById('plan');
+  const benefitBadge = document.getElementById('plan-benefit');
+  const b2b = document.getElementById('b2b-block');
+  const bedrijfInput = document.getElementById('bedrijf');
+  const btwInput = document.getElementById('btw');
+  const fileInput = document.getElementById('file-upload');
+  const dropZone = document.getElementById('drop-zone');
+  const fileList = document.getElementById('file-list');
+
+  // B2B Toggle
+  klant.addEventListener('change', () => {
+    const isB2B = klant.value === 'zakelijk';
+    b2b.classList.toggle('hidden', !isB2B);
+    bedrijfInput.required = isB2B;
+    btwInput.required = isB2B;
+    if (isB2B) bedrijfInput.focus();
+  });
+
+  // Korting Badge
+  planSelect.addEventListener('change', () => {
+    const selectedOption = planSelect.options[planSelect.selectedIndex];
+    const discount = selectedOption.getAttribute('data-discount');
+    if (discount) {
+      benefitBadge.innerText = `U bespaart direct ${discount}% op uw reinigingen!`;
+      benefitBadge.classList.add('active');
+    } else {
+      benefitBadge.classList.remove('active');
+    }
+  });
+
+  // Upload Logica: Toon bestandsnamen na selectie
+  fileInput.addEventListener('change', () => {
+    const files = fileInput.files;
+    if (files.length > 0) {
+      const names = Array.from(files).map(f => f.name).join(', ');
+      fileList.innerText = `Geselecteerd: ${names}`;
+    }
+  });
+
+  // Drag & Drop visuele feedback
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropZone.addEventListener(eventName, (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    }, false);
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+    }, false);
+  });
+
+  dropZone.addEventListener('drop', (e) => {
+    fileInput.files = e.dataTransfer.files;
+    fileInput.dispatchEvent(new Event('change'));
+  });
+
+  // Form Submission Animatie
+  form.addEventListener('submit', () => {
+    const btn = document.getElementById('sbtn');
+    btn.innerHTML = '<span>Bezig met verzenden...</span>';
+    btn.style.opacity = '0.7';
+    btn.style.pointerEvents = 'none';
+  });
+</script>
+
+</div><footer class="ox-site-footer" role="contentinfo">
+      <div class="ox-footer-inner">
+        <div class="ox-footer-col">
+          <p><strong>OsmoseXpert</strong></p>
+          <p>Streeploos schoon, veilig en duurzaam.</p>
+          <p><a href="/">Ronse</a> • <a href="/ramenwasser-kluisbergen/">Kluisbergen</a> • <a href="/ramenwasser-oudenaarde/">Oudenaarde</a></p>
+        </div>
+        <div class="ox-footer-col">
+          <p><strong>Contact</strong></p>
+          <p><a href="mailto:info@osmose-xpert.be">info@osmose-xpert.be</a></p>
+          <p><a href="tel:+32493673484">0493 67 34 84</a></p>
+        </div>
+        <div class="ox-footer-col">
+          <p><strong>Informatie</strong></p>
+          <p><a href="/privacy/">Privacy</a></p>
+          <p><a href="/cookiebeleid/">Cookies</a></p>
+          <p><a href="/voorwaarden/">Voorwaarden</a></p>
+          <p><a href="/cookiebeleid/#cookievoorkeuren" data-cookie-preferences>Cookievoorkeuren</a></p>
+        </div>
+      </div>
+      <div class="ox-footer-legal"><span>BTW BE0733.924.863</span><br>© <span data-current-year>2026</span> OsmoseXpert. Alle rechten voorbehouden.</div>
+    </footer><aside class="ox-cookie-banner" data-cookie-banner hidden aria-labelledby="ox-cookie-title" aria-live="polite">
+      <h2 id="ox-cookie-title">Uw privacy, uw keuze</h2>
+      <p>Noodzakelijke opslag onthoudt uw keuze. Analytische en marketingtechnologie laden pas als u daarvoor kiest. <a href="/cookiebeleid/">Lees het cookiebeleid</a>.</p>
+      <div class="ox-cookie-actions">
+        <button class="ox-cookie-button" type="button" data-consent-reject>Alles weigeren</button>
+        <button class="ox-cookie-button" type="button" data-consent-settings>Instellingen</button>
+        <button class="ox-cookie-button ox-cookie-button--accept" type="button" data-consent-accept>Alles toestaan</button>
+      </div>
+    </aside>
+    <dialog class="ox-cookie-dialog" data-cookie-dialog aria-labelledby="ox-cookie-dialog-title">
+      <div class="ox-cookie-dialog-inner">
+        <h2 id="ox-cookie-dialog-title">Cookievoorkeuren</h2>
+        <p>Kies welke niet-noodzakelijke technologieën mogen laden. U kunt deze keuze later altijd via de footer wijzigen.</p>
+        <div class="ox-cookie-choice"><label for="ox-consent-necessary">Noodzakelijk</label><p id="ox-consent-necessary-info">Onthoudt uw voorkeur en ondersteunt de basiswerking.</p><input id="ox-consent-necessary" type="checkbox" checked disabled aria-describedby="ox-consent-necessary-info"></div>
+        <div class="ox-cookie-choice"><label for="ox-consent-analytics">Analytisch</label><p id="ox-consent-analytics-info">Helpt pagina-gebruik en technische fouten te begrijpen.</p><input id="ox-consent-analytics" type="checkbox" aria-describedby="ox-consent-analytics-info"></div>
+        <div class="ox-cookie-choice"><label for="ox-consent-marketing">Marketing</label><p id="ox-consent-marketing-info">Meet advertentiecampagnes en laadt externe embeds.</p><input id="ox-consent-marketing" type="checkbox" aria-describedby="ox-consent-marketing-info"></div>
+        <div class="ox-cookie-actions">
+          <button class="ox-cookie-button" type="button" data-consent-close>Sluiten</button>
+          <button class="ox-cookie-button" type="button" data-consent-reject>Alles weigeren</button>
+          <button class="ox-cookie-button" type="button" data-consent-save>Keuze bewaren</button>
+          <button class="ox-cookie-button ox-cookie-button--accept" type="button" data-consent-accept>Alles toestaan</button>
+        </div>
+      </div>
+    </dialog><script src="/assets/js/site-shell.js" defer></script><script src="/assets/js/consent.js" defer data-gtm-id="GTM-W8T8WMTW" data-ads-id="AW-18100461257" data-ads-conversion-label="WQYWCJuGyJ8cEMm9_LZD"></script></body>
+</html>
