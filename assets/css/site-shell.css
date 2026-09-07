@@ -123,27 +123,58 @@
 body.ox-chat-open { overflow: hidden !important; }
 
 @media (max-width: 640px) {
+  /* Override the old full-width bottom bar: compact floating control cluster. */
   .ox-floating-actions {
-    right: 12px !important;
-    bottom: calc(12px + env(safe-area-inset-bottom)) !important;
+    right: calc(14px + env(safe-area-inset-right)) !important;
+    bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+    left: auto !important;
+    width: auto !important;
+    max-width: calc(100vw - 28px) !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
     gap: 8px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
   .ox-floating-primary {
-    min-height: 44px !important;
-    padding: 11px 16px !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 154px !important;
+    max-width: calc(100vw - 28px) !important;
+    min-height: 46px !important;
+    padding: 12px 18px !important;
+    border-radius: 999px !important;
     font-size: 14px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
   }
   .ox-floating-secondary {
-    width: 100% !important;
-    justify-content: flex-end !important;
+    display: flex !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
     gap: 8px !important;
   }
   .ox-floating-icon,
   .ox-assistant-fab {
-    width: 42px !important;
-    height: 42px !important;
-    flex: 0 0 42px !important;
+    width: 44px !important;
+    height: 44px !important;
+    flex: 0 0 44px !important;
   }
+  .ox-assistant-fab {
+    border-width: 1px !important;
+    box-shadow: 0 7px 20px rgba(2,18,33,.22) !important;
+  }
+  body.ox-has-floating .ox-site-footer {
+    padding-bottom: calc(132px + env(safe-area-inset-bottom)) !important;
+  }
+
   .ox-assistant-dialog {
     inset: 0 !important;
     width: 100vw !important;
