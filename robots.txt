@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /OsmoseXpert-GitHub-READY-CONTACT-STYLE-MOBILE-2026-08-31/
 
 Sitemap: https://osmose-xpert.be/sitemap.xml
