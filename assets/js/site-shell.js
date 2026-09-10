@@ -12,7 +12,10 @@
     });
   }
 
-  loadScript("/assets/js/site-shell-base.js")
+  Promise.all([
+    loadScript("/assets/js/site-shell-base.js"),
+    loadScript("/assets/js/seo-enhancements.js")
+  ])
     .then(() => loadScript("/assets/js/assistant-fab.js"))
     .catch((error) => console.error("OsmoseXpert site shell kon niet laden.", error));
 })();
