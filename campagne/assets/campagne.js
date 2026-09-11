@@ -126,6 +126,25 @@
   });
   installTracking();
 
+  // Keep the compact page navigation aligned with the visible section.
+  if ('IntersectionObserver' in window) {
+    const navigation = Array.from(document.querySelectorAll('.page-nav a'));
+    if (navigation[0]) navigation[0].setAttribute('aria-current', 'location');
+    const sections = new IntersectionObserver((entries) => {
+      const visible = entries.find(entry => entry.isIntersecting);
+      if (!visible) return;
+      navigation.forEach(link => {
+        if (link.hash === '#' + visible.target.id) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }, { rootMargin: '-15% 0px -55% 0px' });
+    navigation.forEach(link => {
+      const target = document.querySelector(link.hash);
+      if (target) sections.observe(target);
+    });
+    window.addEventListener('pagehide', () => sections.disconnect(), { once: true });
+  }
+
   const form = $('#lead-form');
   const submit = form.querySelector('[type="submit"]');
   const formStatus = $('#form-status');
