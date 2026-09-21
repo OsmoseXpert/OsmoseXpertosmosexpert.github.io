@@ -104,6 +104,8 @@
   const saveData = Boolean(navigator.connection?.saveData);
   const videos = Array.from(document.querySelectorAll("video"));
   videos.forEach((video) => {
+    // Native player controls own sound, keyboard shortcuts and accessible labels.
+    if (video.controls) return;
     video.muted = true;
     if (saveData) {
       video.autoplay = false;
@@ -141,14 +143,95 @@
   }
 
   document.querySelectorAll("form").forEach((form) => {
-    const action = form.getAttribute("action") || "";
-    if (!action.includes("formspree.io")) return;
-    form.addEventListener("submit", () => {
-      const isQuote = form.id === "offerteForm" || form.id === "ads-quote-form" || form.hasAttribute("data-quote-form");
+    let endpoint;
+    try { endpoint = new URL(form.getAttribute("action") || "", location.href); } catch { return; }
+    if (endpoint.origin !== "https://formspree.io" || !/^\/f\/[a-z0-9]+\/?$/i.test(endpoint.pathname)) return;
+    if (form.hasAttribute("data-form-handler") || !window.fetch || !window.FormData) return;
+    const isQuote = form.id === "offerteForm" || form.id === "ads-quote-form" || form.hasAttribute("data-quote-form");
+    const buttons = Array.from(form.querySelectorAll('button[type="submit"], input[type="submit"]'));
+    // Keep the original presentation: the existing quote form also changes its
+    // button text/style on submit, which must be undone if the request fails.
+    const buttonStates = buttons.map((button) => ({
+      button, html: button.innerHTML, value: button.value,
+      style: button.getAttribute("style"), disabled: button.disabled
+    }));
+    let submitting = false;
+    let status = null;
+    form.addEventListener("submit", async (event) => {
+      // Custom form handlers own their submission and success marker.
+      if (form.hasAttribute("data-form-handler") || event.defaultPrevented) return;
+      event.preventDefault();
+      if (submitting) return;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      submitting = true;
+      const body = new FormData(form);
+      let successUrl = "/bedankt/";
       try {
-        sessionStorage.setItem(isQuote ? "ox_quote_submitted" : "ox_contact_submitted", String(Date.now()));
+        const next = new URL(String(body.get("_next") || successUrl), location.href);
+        if (next.origin === new URL(location.href).origin) {
+          next.searchParams.delete("sent");
+          successUrl = next.pathname + next.search + next.hash;
+        }
+      } catch { /* Use the local thank-you page for an invalid redirect. */ }
+      // FormData keeps all selected files and lets the browser set its boundary.
+      body.delete("_next");
+      if (!status) {
+        status = document.createElement("p");
+        status.setAttribute("role", "status");
+        status.setAttribute("aria-live", "polite");
+        status.tabIndex = -1;
+        form.append(status);
+      }
+      status.textContent = "Uw aanvraag wordt verzonden…";
+      form.setAttribute("aria-busy", "true");
+      buttons.forEach((button) => { button.disabled = true; });
+      let succeeded = false;
+      try {
+        const response = await fetch(endpoint.href, {
+          method: "POST", body, headers: { Accept: "application/json" }
+        });
+        const result = await response.json();
+        const hasErrors = result?.errors && (!Array.isArray(result.errors) || result.errors.length > 0);
+        const hasChallenge = result?.challenge || result?.captcha || result?.recaptcha ||
+          /captcha|challenge/i.test(String(result?.next || ""));
+        if (!response.ok || !result || typeof result !== "object" || Array.isArray(result) ||
+            result.ok === false || result.error || hasErrors || hasChallenge) {
+          throw new Error("Submission not acknowledged");
+        }
+        succeeded = true;
+        if (isQuote) {
+          const id = window.crypto?.randomUUID?.() || `quote_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 12)}`;
+          try {
+            sessionStorage.setItem("ox_quote_verified", JSON.stringify({ id, createdAt: Date.now(), method: "form" }));
+          } catch { /* The request succeeded; unavailable storage only disables tracking. */ }
+          window.dispatchEvent(new CustomEvent("ox:lead-success", {
+            detail: { id, method: "form", service: String(body.get("dienst") || "") }
+          }));
+        }
+        status.textContent = "Bedankt, uw aanvraag is ontvangen.";
+        location.assign(successUrl);
       } catch {
-        // Storage may be disabled; the verified redirect query remains available.
+        if (succeeded) {
+          status.textContent = "Bedankt, uw aanvraag is ontvangen. U hoeft deze niet opnieuw te verzenden.";
+        } else {
+          status.textContent = "We konden uw verzending niet bevestigen. Uw ingevulde gegevens blijven staan. Probeer opnieuw of bel 0493 67 34 84.";
+          status.focus();
+        }
+      } finally {
+        form.removeAttribute("aria-busy");
+        if (!succeeded) {
+          submitting = false;
+          buttonStates.forEach(({ button, html, value, style, disabled }) => {
+            button.innerHTML = html;
+            button.value = value;
+            button.disabled = disabled;
+            if (style === null) button.removeAttribute("style");
+            else button.setAttribute("style", style);
+          });
+        }
       }
     });
   });
