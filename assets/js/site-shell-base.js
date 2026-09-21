@@ -157,6 +157,24 @@
     }));
     let submitting = false;
     let status = null;
+    function restoreSubmissionState() {
+      submitting = false;
+      form.removeAttribute("aria-busy");
+      buttonStates.forEach(({ button, html, value, style, disabled }) => {
+        button.innerHTML = html;
+        button.value = value;
+        button.disabled = disabled;
+        if (style === null) button.removeAttribute("style");
+        else button.setAttribute("style", style);
+      });
+    }
+    window.addEventListener("pageshow", (event) => {
+      if (!event.persisted) return;
+      // Back navigation may restore the disabled form from before redirecting.
+      // Restore its controls without changing any conversion or receipt records.
+      restoreSubmissionState();
+      if (status) status.textContent = "";
+    });
     form.addEventListener("submit", async (event) => {
       // Custom form handlers own their submission and success marker.
       if (form.hasAttribute("data-form-handler") || event.defaultPrevented) return;
@@ -222,16 +240,7 @@
         }
       } finally {
         form.removeAttribute("aria-busy");
-        if (!succeeded) {
-          submitting = false;
-          buttonStates.forEach(({ button, html, value, style, disabled }) => {
-            button.innerHTML = html;
-            button.value = value;
-            button.disabled = disabled;
-            if (style === null) button.removeAttribute("style");
-            else button.setAttribute("style", style);
-          });
-        }
+        if (!succeeded) restoreSubmissionState();
       }
     });
   });
