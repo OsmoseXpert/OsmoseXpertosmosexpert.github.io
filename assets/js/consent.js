@@ -3,6 +3,9 @@
 
   const STORAGE_KEY = "ox_consent_v2";
   const MAX_AGE = 180 * 24 * 60 * 60 * 1000;
+  const QUOTE_KEY = "ox_quote_verified";
+  const COUNTED_QUOTES_KEY = "ox_quote_counted";
+  const QUOTE_MAX_AGE = 30 * 60 * 1000;
   const script = document.currentScript;
   const gtmId = script?.dataset.gtmId || "";
   const adsId = script?.dataset.adsId || "";
@@ -15,6 +18,7 @@
   let consentModeReady = false;
   let gtmLoaded = false;
   let adsLoaded = false;
+  let marketingAllowed = false;
 
   function readConsent() {
     try {
@@ -70,16 +74,51 @@
   }
 
   function verifiedQuoteSubmission() {
-    const queryVerified = new URLSearchParams(location.search).get("sent") === "quote";
-    let sessionVerified = false;
     try {
-      const timestamp = Number(sessionStorage.getItem("ox_quote_submitted"));
-      sessionVerified = Number.isFinite(timestamp) && Date.now() - timestamp < 30 * 60 * 1000;
-      if (queryVerified || sessionVerified) sessionStorage.removeItem("ox_quote_submitted");
+      // Only form code writes this record, after Formspree acknowledges success.
+      // A query string, a submit click, or a legacy timestamp is not proof.
+      const value = JSON.parse(sessionStorage.getItem(QUOTE_KEY) || "null");
+      if (!value) return null;
+      const age = Date.now() - value.createdAt;
+      if (typeof value.id !== "string" || !/^[a-zA-Z0-9_-]{8,128}$/.test(value.id) ||
+          value.method !== "form" || typeof value.createdAt !== "number" ||
+          !Number.isFinite(age) || age < 0 || age >= QUOTE_MAX_AGE) {
+        sessionStorage.removeItem(QUOTE_KEY);
+        return null;
+      }
+      return value;
     } catch {
-      sessionVerified = false;
+      return null;
     }
-    return queryVerified || sessionVerified;
+  }
+
+  function recordQuoteConversion() {
+    if (!marketingAllowed || !adsLoaded || !conversionLabel || document.body.dataset.conversion !== "quote") return;
+    const submission = verifiedQuoteSubmission();
+    if (!submission) return;
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(COUNTED_QUOTES_KEY) || "{}");
+      const counted = Object.fromEntries(Object.entries(saved && typeof saved === "object" ? saved : {})
+        .filter(([, timestamp]) => typeof timestamp === "number" && Date.now() - timestamp >= 0 && Date.now() - timestamp < QUOTE_MAX_AGE)
+        .slice(-99));
+      if (Object.prototype.hasOwnProperty.call(counted, submission.id)) {
+        sessionStorage.removeItem(QUOTE_KEY);
+        return;
+      }
+      // Persist before queueing: reload, consent changes and repeated events
+      // cannot count this submission again. No storage means no conversion.
+      counted[submission.id] = Date.now();
+      sessionStorage.setItem(COUNTED_QUOTES_KEY, JSON.stringify(counted));
+      sessionStorage.removeItem(QUOTE_KEY);
+    } catch {
+      return;
+    }
+    window.gtag("event", "conversion", {
+      send_to: `${adsId}/${conversionLabel}`,
+      transaction_id: submission.id,
+      event_category: "lead",
+      event_label: "quote"
+    });
   }
 
   function loadAds() {
@@ -88,13 +127,6 @@
     window.gtag("js", new Date());
     window.gtag("config", adsId);
     adsLoaded = true;
-    if (document.body.dataset.conversion === "quote" && conversionLabel && verifiedQuoteSubmission()) {
-      window.gtag("event", "conversion", {
-        send_to: `${adsId}/${conversionLabel}`,
-        event_category: "lead",
-        event_label: "quote"
-      });
-    }
   }
 
   function expireCookie(name) {
@@ -115,6 +147,7 @@
   }
 
   function applyConsent(consent) {
+    marketingAllowed = Boolean(consent.marketing);
     setupConsentMode();
     window.gtag("consent", "update", {
       analytics_storage: consent.analytics ? "granted" : "denied",
@@ -124,7 +157,10 @@
     });
     clearRevokedStorage(consent);
     if (consent.analytics || consent.marketing) loadGtm();
-    if (consent.marketing) loadAds();
+    if (consent.marketing) {
+      loadAds();
+      recordQuoteConversion();
+    }
     document.documentElement.dataset.analyticsConsent = String(consent.analytics);
     document.documentElement.dataset.marketingConsent = String(consent.marketing);
     window.dispatchEvent(new CustomEvent("ox:consent-updated", { detail: consent }));
@@ -168,6 +204,9 @@
     if (lastOpener instanceof HTMLElement) lastOpener.focus();
   });
   window.addEventListener("ox:open-consent", (event) => openDialog(event.detail?.opener));
+  // The normal flow counts on /bedankt/, after navigation has completed.
+  // This also handles a verified result arriving late on that page.
+  window.addEventListener("ox:lead-success", recordQuoteConversion);
 
   setupConsentMode();
   const saved = readConsent();
