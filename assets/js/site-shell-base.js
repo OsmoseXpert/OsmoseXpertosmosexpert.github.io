@@ -207,9 +207,11 @@
       form.setAttribute("aria-busy", "true");
       buttons.forEach((button) => { button.disabled = true; });
       let succeeded = false;
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 25000);
       try {
         const response = await fetch(endpoint.href, {
-          method: "POST", body, headers: { Accept: "application/json" }
+          method: "POST", body, headers: { Accept: "application/json" }, signal: controller.signal
         });
         const result = await response.json();
         const hasErrors = result?.errors && (!Array.isArray(result.errors) || result.errors.length > 0);
@@ -231,14 +233,18 @@
         }
         status.textContent = "Bedankt, uw aanvraag is ontvangen.";
         location.assign(successUrl);
-      } catch {
+      } catch (error) {
         if (succeeded) {
           status.textContent = "Bedankt, uw aanvraag is ontvangen. U hoeft deze niet opnieuw te verzenden.";
+        } else if (error?.name === "AbortError") {
+          status.textContent = "We kregen niet tijdig een bevestiging. Uw aanvraag kan al ontvangen zijn. Controleer uw e-mail of bel 0493 67 34 84 vóór u opnieuw verzendt. Uw ingevulde gegevens blijven staan.";
+          status.focus();
         } else {
           status.textContent = "We konden uw verzending niet bevestigen. Uw ingevulde gegevens blijven staan. Probeer opnieuw of bel 0493 67 34 84.";
           status.focus();
         }
       } finally {
+        window.clearTimeout(timeout);
         form.removeAttribute("aria-busy");
         if (!succeeded) restoreSubmissionState();
       }
