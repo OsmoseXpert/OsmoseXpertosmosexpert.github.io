@@ -247,3 +247,24 @@ html{scroll-padding-top:88px}.cp-wrap{width:calc(100% - 32px)}.cp-header-inner{h
  .cp-hero h1{font-size:29px}
  .cp-field label{font-size:10px}
 }
+
+/* Compact first visit on phones, including the consent choice. */
+@media(max-width:760px){
+ .cp-header-inner{height:48px}
+ .cp-logo img{width:140px}
+ .cp-hero{padding-top:12px}
+ .cp-hero-grid{gap:12px}
+ .cp-hero .cp-eyebrow{margin-bottom:6px}
+ .cp-hero h1{font-size:27px;margin-bottom:0}
+ .cp-hero-lead{display:none}
+ .cp-quote-card{padding:12px}
+ .cp-quote-top{margin-bottom:10px}
+ .cp-quote-top h2{font-size:19px;margin:0}
+ .cp-quote-top p{display:none}
+ #ads-quote-form>.cp-field{margin-bottom:8px}
+ .cp-page .ox-cookie-banner{left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));width:auto;max-width:none;padding:12px;border-radius:12px}
+ .cp-page .ox-cookie-banner h2{font-size:16px;line-height:1.25;margin:0 0 6px;letter-spacing:-.02em}
+ .cp-page .ox-cookie-banner p{font-size:12px;line-height:1.4;margin:0 0 10px}
+ .cp-page .ox-cookie-banner .ox-cookie-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .cp-page .ox-cookie-banner .ox-cookie-button{width:100%;min-width:0;min-height:44px;padding:8px 4px;font-size:11px;line-height:1.25;grid-column:auto}
+}
