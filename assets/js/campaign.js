@@ -12,6 +12,10 @@
     if (document.documentElement.dataset.analyticsConsent !== "true") return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: `ox_${name}`, page_type: "campaign", ...detail });
+    const gaId = document.querySelector('script[data-ga-id]')?.dataset.gaId;
+    if (gaId && typeof window.gtag === "function") {
+      window.gtag("event", `ox_${name}`, { send_to: gaId, page_type: "campaign", ...detail });
+    }
   }
 
   function syncService() {

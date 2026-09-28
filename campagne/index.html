@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="/images/favicons/favicon.png">
   <link rel="stylesheet" href="/assets/css/site-shell.css">
-  <link rel="stylesheet" href="/assets/css/campaign.css">
+  <link rel="stylesheet" href="/assets/css/campaign.css?v=20260928b">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"HomeAndConstructionBusiness","@id":"https://osmose-xpert.be/#organization","name":"OsmoseXpert","url":"https://osmose-xpert.be/","telephone":"+32493673484","email":"info@osmose-xpert.be","logo":"https://osmose-xpert.be/images/logo7.png","address":{"@type":"PostalAddress","streetAddress":"Dammekensstraat 150","postalCode":"9600","addressLocality":"Ronse","addressCountry":"BE"},"areaServed":["Ronse","Kluisbergen","Oudenaarde","Brakel","Maarkedal"]},{"@type":"WebPage","@id":"https://osmose-xpert.be/campagne/#webpage","url":"https://osmose-xpert.be/campagne/","name":"Ramenwasser Ronse & omgeving | Vrijblijvende offerte | OsmoseXpert","inLanguage":"nl-BE","about":{"@id":"https://osmose-xpert.be/#organization"}},{"@type":"Service","name":"Ramenreiniging met osmosewater","provider":{"@id":"https://osmose-xpert.be/#organization"},"areaServed":["Ronse","Kluisbergen","Oudenaarde","Brakel","Maarkedal"]}]}</script>
 </head>
 <body class="cp-page" id="top">
@@ -28,7 +28,6 @@
       <a class="cp-logo" href="/" aria-label="OsmoseXpert – naar de startpagina"><img src="/images/logo7.png" width="800" height="200" alt="OsmoseXpert"></a>
       <nav aria-label="Op deze pagina">
         <a href="#werkwijze">Onze aanpak</a>
-        <a href="#assistent">Digitale assistent</a>
         <a href="#vragen">Vragen</a>
         <a class="cp-header-phone" href="tel:+32493673484" data-cp-track="phone_click"><span>Liever persoonlijk contact?</span>0493 67 34 84</a>
       </nav>
@@ -37,69 +36,53 @@
   <main id="content" tabindex="-1">
     <section class="cp-hero" aria-labelledby="cp-title">
       <div class="cp-wrap cp-hero-grid">
-        <div>
-          <p class="cp-eyebrow"><span class="cp-dot" aria-hidden="true"></span>Ramenwasser · Ronse &amp; Vlaamse Ardennen</p>
+        <div class="cp-hero-copy">
+          <p class="cp-eyebrow">Ronse · Kluisbergen · Oudenaarde</p>
           <h1 id="cp-title">Schone ramen.<br><span>Helder geregeld.</span></h1>
-          <p class="cp-hero-lead">Geniet van uw uitzicht. Wij reinigen uw ramen met puur osmosewater, met een prijs op maat en afspraken die duidelijk zijn.</p>
-          <div class="cp-actions">
-            <a class="cp-btn cp-btn-light" href="#aanvraag" data-cp-track="quote_click">Vraag uw prijs aan <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
-            <button class="cp-btn cp-btn-hero-secondary" type="button" data-chatbase-open data-cp-track="chat_open">Stel uw vraag</button>
-          </div>
-          <p class="cp-micro">Vrijblijvende offerte · U beslist pas na ons voorstel.</p>
-          <div class="cp-hero-checks"><span>Particulier &amp; zakelijk</span><span>Eenmalig of regelmatig</span><span>Lokale service</span></div>
+          <p class="cp-hero-lead">Uw ramen professioneel gereinigd. Een prijs op maat, duidelijke afspraken en een fris uitzicht.</p>
+          <div class="cp-hero-checks"><span>Eenmalig of regelmatig</span><span>Voor woning en zaak</span></div>
+          <p class="cp-hero-assurance">U beslist pas na ons voorstel.</p>
+          <a class="cp-hero-more" href="#werkwijze">Ontdek onze aanpak <span aria-hidden="true">↓</span></a>
         </div>
-        <figure class="cp-work">
-          <img src="/campagne/assets/campagne-poster.jpg" width="432" height="768" fetchpriority="high" alt="OsmoseXpert aan het werk met een telescoopsteel">
-          <figcaption><div>Zo werken wij.<span>Reinigen met puur osmosewater</span></div><button class="cp-watch" type="button" data-video-open><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Bekijk video</button></figcaption>
-        </figure>
+        <div class="cp-quote-card" id="aanvraag">
+          <div class="cp-quote-top"><div><h2 id="cp-quote-title">Uw prijs op maat</h2><p>Een korte aanvraag. Een persoonlijk voorstel.</p></div><span class="cp-pill">Vrijblijvend</span></div>
+          <form id="ads-quote-form" data-form-handler="campaign" action="https://formspree.io/f/xvgbjdav" method="POST" data-quote-form>
+            <input type="hidden" name="_subject" value="Offerteaanvraag via OsmoseXpert campagne">
+            <input type="hidden" name="_next" value="https://osmose-xpert.be/bedankt/">
+            <input type="hidden" name="bron" value="OsmoseXpert campagnepagina">
+            <div class="cp-field"><label for="cp-name">Uw naam</label><input id="cp-name" name="naam" autocomplete="name" placeholder="Voornaam en familienaam" required maxlength="120"></div>
+            <div class="cp-field"><label for="cp-email">E-mailadres</label><input id="cp-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="uw@email.be" required maxlength="254"></div>
+            <div class="cp-field"><label for="cp-service">Wat wilt u laten reinigen?</label><select id="cp-service" name="dienst" required><option value="ramen">Ramen</option><option value="veranda">Veranda of glaspartijen</option><option value="zonnepanelen">Zonnepanelen</option><option value="combinatie">Een combinatie van diensten</option></select></div>
+            <div class="cp-field"><label for="cp-location">Gemeente of postcode</label><input id="cp-location" name="locatie" autocomplete="address-level2" placeholder="Bv. 9600 Ronse" required maxlength="120"></div>
+            <details class="cp-extra"><summary>Telefoon of extra uitleg <span>· optioneel</span></summary><div class="cp-field"><label for="cp-phone">Telefoon <span>· optioneel</span></label><input id="cp-phone" type="tel" name="telefoon" autocomplete="tel" inputmode="tel" placeholder="04…" maxlength="40"></div><div class="cp-field"><label for="cp-scope">Voor uw ramen</label><select id="cp-scope" name="ramen_zijde"><option value="Nog te bespreken">Nog te bespreken</option><option value="Alleen buiten">Alleen buiten</option><option value="Binnen en buiten">Binnen en buiten</option><option value="Alleen binnen">Alleen binnen</option><option value="Niet van toepassing">Niet van toepassing</option></select></div><div class="cp-field"><label for="cp-frequency">Gewenste regelmaat</label><select id="cp-frequency" name="regelmaat"><option value="Nog te bespreken">Nog te bespreken</option><option value="Eenmalig">Eenmalig</option><option value="Bronze - 2 keer per jaar">Bronze – 2 keer per jaar</option><option value="Silver - 4 keer per jaar">Silver – 4 keer per jaar</option><option value="Gold - 6 keer per jaar">Gold – 6 keer per jaar</option><option value="Platinum - maandelijks">Platinum – maandelijks</option></select></div><div class="cp-field"><label for="cp-message">Iets dat we moeten weten?</label><textarea id="cp-message" name="bericht" rows="3" maxlength="4000" placeholder="Bv. een rijwoning met ramen achteraan, uw bedrijfsnaam of een vraag over bereikbaarheid."></textarea></div></details>
+            <div class="cp-honeypot" aria-hidden="true"><label for="cp-check">Laat dit veld leeg</label><input id="cp-check" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
+            <button class="cp-btn cp-btn-primary cp-submit" type="submit">Vraag mijn offerte aan <span aria-hidden="true">→</span></button>
+            <p class="cp-form-notice">We contacteren u alleen over uw aanvraag. Ons <a href="/privacy/">privacybeleid</a>.</p>
+            <p class="cp-form-status" id="cp-form-status" role="status" aria-live="polite" tabindex="-1"></p>
+          </form>
+        </div>
+
       </div>
-    </section>
-    <section class="cp-wrap cp-selector" aria-labelledby="cp-selector-title">
-      <div class="cp-selector-title"><h2 id="cp-selector-title">Wat wilt u laten reinigen?</h2><p>Kies uw dienst en vraag meteen een voorstel aan.</p></div>
-      <div class="cp-services" role="group" aria-label="Kies uw dienst">
-        <button class="cp-service" type="button" data-service="ramen" aria-pressed="false"><svg class="cp-service-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="4" width="22" height="24" rx="2"/><path d="M16 4v24M5 16h22M9 9l3-2M20 22l3-2"/></svg><span>Ramen<small>Buiten, binnen of beide</small></span><span class="cp-service-arrow" aria-hidden="true">↗</span></button>
-        <button class="cp-service" type="button" data-service="veranda" aria-pressed="false"><svg class="cp-service-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="m3 12 13-8 13 8v16H3zM3 12h26M16 4v24M9 9v19M23 9v19M3 20h26"/></svg><span>Veranda &amp; glaspartijen<small>Ook moeilijk bereikbare ramen</small></span><span class="cp-service-arrow" aria-hidden="true">↗</span></button>
-        <button class="cp-service" type="button" data-service="zonnepanelen" aria-pressed="false"><svg class="cp-service-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="m8 8-4 16h24L24 8zM6 16h20M13 8l-1 16M19 8l1 16M16 24v4M10 28h12M26 3v2M30 7h-2"/></svg><span>Zonnepanelen<small>Apart of samen met uw ramen</small></span><span class="cp-service-arrow" aria-hidden="true">↗</span></button>
-      </div>
-      <noscript><p><a href="#aanvraag">Kies uw dienst in het offerteformulier.</a></p></noscript>
     </section>
     <section class="cp-wrap cp-section" id="werkwijze" aria-labelledby="cp-approach-title">
       <div class="cp-section-header"><p class="cp-eyebrow">Zorgeloos laten reinigen</p><h2 id="cp-approach-title">Een fris uitzicht.<br>Een praktische aanpak.</h2><p>Van uw woning tot uw zaak: we stemmen de reiniging af op uw ramen, de bereikbaarheid en uw wensen.</p></div>
+      <div class="cp-approach-grid">
+        <figure class="cp-work">
+          <img src="/images/campagne-poster.webp" width="432" height="768" loading="lazy" decoding="async" alt="OsmoseXpert aan het werk met een telescoopsteel">
+          <figcaption><div>Zo werken wij.<span>Reinigen met puur osmosewater</span></div><button class="cp-watch" type="button" data-video-open><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Bekijk video</button></figcaption>
+        </figure>
+
       <div class="cp-benefits">
         <article class="cp-benefit"><span class="cp-benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C9 7 5 11 5 15a7 7 0 0 0 14 0c0-4-4-8-7-12zM9 16c0 2 1 3 3 3"/></svg></span><h3>Puur water. Helder resultaat.</h3><p>Osmosewater bevat geen kalk of mineralen die droogvlekken achterlaten. Uw buitenramen drogen vanzelf op na het reinigen.</p></article>
         <article class="cp-benefit"><span class="cp-benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 3v6c0 5-8 9-8 9S4 17 4 12V6zM8 12l3 3 5-6"/></svg></span><h3>Bereikbaar vanaf de grond.</h3><p>Met telescoopstelen reinigen we ook hogere glaspartijen, tot circa 15 meter. We beoordelen vooraf wat veilig bereikbaar is.</p></article>
         <article class="cp-benefit"><span class="cp-benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18M8 15l3 3 5-5"/></svg></span><h3>Uw ritme. Duidelijke afspraken.</h3><p>Een eenmalige reiniging of een onderhoudsplan? U krijgt vooraf een voorstel. Regelmatige beurten plannen we samen met u in.</p></article>
       </div>
-    </section>
-    <section class="cp-assistant-section" id="assistent" aria-labelledby="cp-assistant-title">
-      <div class="cp-wrap cp-assistant-grid">
-        <div class="cp-assistant-copy"><p class="cp-eyebrow">Even overleggen?</p><h2 id="cp-assistant-title">Uw vraag hoeft<br>niet te wachten.</h2><p>Twijfelt u over de juiste reiniging, een richtprijs of een onderhoudsplan? Onze digitale assistent helpt u op weg.</p><p>Een prijsvoorstel voor uw woning of zaak vraagt u ook rechtstreeks aan via het formulier. Wij bekijken zelf uw aanvraag.</p><p class="cp-micro">De assistent geeft indicatieve informatie. De definitieve prijs en afspraak worden bevestigd.</p></div>
-        <div class="cp-assistant-card">
-          <div class="cp-assistant-brand"><span class="cp-assistant-avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="13" rx="4"/><path d="M12 3v3M8 11h.01M16 11h.01M8 15c3 2 5 2 8 0"/></svg></span><div><p>OsmoseXpert assistent</p><small>Vragen · richtprijzen · onderhoudsplannen</small></div></div>
-          <div class="cp-assistant-body"><p>Waarover wilt u meer weten?</p><div class="cp-chat-topics"><button class="cp-chat-topic" type="button" data-chatbase-open data-cp-track="chat_open">Wat bepaalt de prijs van mijn ramen? <span aria-hidden="true">↗</span></button><button class="cp-chat-topic" type="button" data-chatbase-open data-cp-track="chat_open">Welk onderhoudsplan past bij mij? <span aria-hidden="true">↗</span></button><button class="cp-chat-topic" type="button" data-chatbase-open data-cp-track="chat_open">Kunnen jullie mijn veranda reinigen? <span aria-hidden="true">↗</span></button></div><button class="cp-btn cp-btn-primary" type="button" data-chatbase-open data-cp-track="chat_open">Open de digitale assistent <span aria-hidden="true">↗</span></button><p class="cp-assistant-feedback ox-assistant-feedback" aria-live="polite"></p><p class="cp-micro" style="margin:10px 0 0">De chat opent in een apart venster op deze pagina. U kiest eerst of de externe chat mag laden.</p></div>
-        </div>
       </div>
     </section>
-    <section class="cp-form-section" id="aanvraag" aria-labelledby="cp-quote-title">
-      <div class="cp-wrap cp-form-grid">
-        <div class="cp-form-intro"><p class="cp-eyebrow">Uw vrijblijvende offerte</p><h2 id="cp-quote-title">Wat kost het<br>voor úw ramen?</h2><p>Geen twee woningen zijn gelijk. Vertel ons wat u wilt laten reinigen en waar. U krijgt een voorstel dat bij uw situatie past.</p><ol class="cp-steps"><li><div><strong>Vertel ons wat u nodig hebt.</strong>Uw gegevens en uw gemeente zijn voldoende om te starten.</div></li><li><div><strong>Wij bekijken uw aanvraag.</strong>We nemen contact op. Indien nodig vragen we enkele foto’s of extra informatie.</div></li><li><div><strong>U kiest of we aan de slag gaan.</strong>Pas na uw akkoord spreken we de reiniging en het tijdstip af.</div></li></ol><div class="cp-personal"><strong>Liever meteen iets bespreken?</strong>Bel ons of stuur uw vraag en foto’s via WhatsApp.<br><a href="tel:+32493673484" data-cp-track="phone_click">0493 67 34 84</a> &nbsp;·&nbsp; <a href="https://wa.me/32493673484?text=Dag%20OsmoseXpert%2C%20ik%20wil%20graag%20een%20reiniging%20bespreken." target="_blank" rel="noopener noreferrer" data-cp-track="whatsapp_click">Open WhatsApp ↗</a></div></div>
-        <div class="cp-quote-card">
-          <div class="cp-quote-top"><div><h3>Vraag uw prijs aan</h3><p>Wij bezorgen u een voorstel op maat.</p></div><span class="cp-pill">Vrijblijvend</span></div>
-          <form id="ads-quote-form" data-form-handler="campaign" action="https://formspree.io/f/xvgbjdav" method="POST" data-quote-form>
-            <input type="hidden" name="_subject" value="Offerteaanvraag via OsmoseXpert campagne">
-            <input type="hidden" name="_next" value="https://osmose-xpert.be/bedankt/">
-            <input type="hidden" name="bron" value="OsmoseXpert campagnepagina">
-            <div class="cp-field"><label for="cp-service">Wat wilt u laten reinigen?</label><select id="cp-service" name="dienst" required><option value="ramen">Ramen</option><option value="veranda">Veranda of glaspartijen</option><option value="zonnepanelen">Zonnepanelen</option><option value="combinatie">Een combinatie van diensten</option></select></div>
-            <div class="cp-field"><label for="cp-name">Uw naam</label><input id="cp-name" name="naam" autocomplete="name" placeholder="Voornaam en familienaam" required maxlength="120"></div>
-            <div class="cp-field"><label for="cp-email">E-mailadres</label><input id="cp-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="uw@email.be" required maxlength="254"></div>
-            <div class="cp-field-row"><div class="cp-field"><label for="cp-location">Gemeente of postcode</label><input id="cp-location" name="locatie" autocomplete="address-level2" placeholder="Bv. 9600 Ronse" required maxlength="120"></div><div class="cp-field"><label for="cp-phone">Telefoon <span>· optioneel</span></label><input id="cp-phone" type="tel" name="telefoon" autocomplete="tel" inputmode="tel" placeholder="04…" maxlength="40"></div></div>
-            <details class="cp-extra"><summary>Meer over uw aanvraag toevoegen <span>· optioneel</span></summary><div class="cp-field"><label for="cp-scope">Voor uw ramen</label><select id="cp-scope" name="ramen_zijde"><option value="Nog te bespreken">Nog te bespreken</option><option value="Alleen buiten">Alleen buiten</option><option value="Binnen en buiten">Binnen en buiten</option><option value="Alleen binnen">Alleen binnen</option><option value="Niet van toepassing">Niet van toepassing</option></select></div><div class="cp-field"><label for="cp-frequency">Gewenste regelmaat</label><select id="cp-frequency" name="regelmaat"><option value="Nog te bespreken">Nog te bespreken</option><option value="Eenmalig">Eenmalig</option><option value="Bronze - 2 keer per jaar">Bronze – 2 keer per jaar</option><option value="Silver - 4 keer per jaar">Silver – 4 keer per jaar</option><option value="Gold - 6 keer per jaar">Gold – 6 keer per jaar</option><option value="Platinum - maandelijks">Platinum – maandelijks</option></select></div><div class="cp-field"><label for="cp-message">Iets dat we moeten weten?</label><textarea id="cp-message" name="bericht" rows="3" maxlength="4000" placeholder="Bv. een rijwoning met ramen achteraan, uw bedrijfsnaam of een vraag over bereikbaarheid."></textarea></div></details>
-            <div class="cp-honeypot" aria-hidden="true"><label for="cp-check">Laat dit veld leeg</label><input id="cp-check" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
-            <button class="cp-btn cp-btn-primary cp-submit" type="submit">Ontvang mijn vrijblijvende offerte <span aria-hidden="true">→</span></button>
-            <p class="cp-form-notice">Door uw aanvraag te verzenden, mogen we u hierover contacteren. Lees hoe we met uw gegevens omgaan in ons <a href="/privacy/">privacybeleid</a>.</p>
-            <p class="cp-form-status" id="cp-form-status" role="status" aria-live="polite" tabindex="-1"></p>
-          </form>
-        </div>
+    <section class="cp-assistant-section" id="assistent" aria-label="Persoonlijk advies">
+      <div class="cp-wrap cp-help-row">
+        <div><h2>Even overleggen?</h2><p>Bel ons of stel uw vraag aan onze digitale assistent.</p></div>
+        <div class="cp-actions"><a class="cp-btn cp-btn-outline" href="tel:+32493673484" data-cp-track="phone_click">0493 67 34 84</a><button class="cp-btn cp-btn-primary" type="button" data-chatbase-open data-cp-track="chat_open">Stel uw vraag</button></div>
       </div>
     </section>
     <section class="cp-faq-section" id="vragen" aria-labelledby="cp-faq-title">
@@ -163,8 +146,8 @@
           <button class="ox-cookie-button ox-cookie-button--accept" type="button" data-consent-accept>Alles toestaan</button>
         </div>
       </div>
-    </dialog><script src="/assets/js/campaign.js" defer></script>
+    </dialog><script src="/assets/js/campaign.js?v=20260928b" defer></script>
 <script src="/assets/js/site-shell.js" defer></script>
-<script src="/assets/js/consent.js" defer data-gtm-id="GTM-W8T8WMTW" data-ads-id="AW-17989412215" data-ads-conversion-label="xpAsCNDgra8cEPfKgoJD"></script>
+<script src="/assets/js/consent.js?v=20260928b" defer data-ga-id="G-FE95SCP0KD" data-ads-id="AW-17989412215" data-ads-conversion-label="xpAsCNDgra8cEPfKgoJD"></script>
 </body>
 </html>
