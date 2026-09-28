@@ -188,6 +188,8 @@ html{scroll-padding-top:88px}.cp-wrap{width:calc(100% - 32px)}.cp-header-inner{h
 .cp-form-notice{font-size:10px;line-height:1.5;margin-top:10px}
 .cp-form-status:empty{display:none}
 .cp-submit{min-height:48px;box-shadow:none!important}
+.cp-page .ox-cookie-button--accept{background:var(--cp-blue);border-color:var(--cp-blue);color:#fff}
+.cp-page .ox-cookie-button--accept:hover{background:#09528f;border-color:#09528f}
 .cp-approach-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:58px;align-items:center}
 .cp-approach-grid .cp-work{justify-self:start;max-width:100%;border:1px solid var(--cp-line)}
 .cp-approach-grid .cp-work img{height:300px}
